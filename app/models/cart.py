@@ -1,21 +1,19 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from datetime import datetime
 
-class Product_Inventory(db.Model):
-    __tablename__ = 'product_inventories'
+class Cart(db.Model):
+    __tablename__ = 'carts'
 
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    inventory = db.Column(db.Integer)
-    created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
-    updated_at = db.Column(db.DateTime)
+    total_price = db.Column(db.Integer)
 
     def to_dict(self):
         return {
             'id': self.id,
-            'inventory': self.inventory,
+            'total_price': self.total_price,
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }
