@@ -5,25 +5,25 @@ from sqlalchemy.sql import text
 # Adds a demo user, you can add other users here if you want
 def seed_products():
     product1 = Product(
-        SKU='a001', name='The super cool product', price=100)
+        SKU='a001', name='The super cool product', price=100, user_id=1, product_inventory_id=1)
     product2 = Product(
-        SKU='a002', name='A product for making other products more cool', price=50)
+        SKU='a002', name='A product for making other products more cool', user_id=2, price=50, product_inventory_id=3)
     product3 = Product(
-        SKU='a003', name='Not really sure, just found this in my backyard', price=150)
+        SKU='a003', name='Not really sure, just found this in my backyard', user_id=3, price=150, product_inventory_id=5)
     product4 = Product(
-        SKU='a003', name='This product is gonna change your whole life, for sure', price=40)
+        SKU='a003', name='This product is gonna change your whole life, for sure', user_id=2, price=40, product_inventory_id=7)
     product5 = Product(
-        SKU='a003', name='Buy this', price=10)
+        SKU='a003', name='Buy this', price=10, user_id=3, product_inventory_id=9)
     product6 = Product(
-        SKU='a003', name='Book!', price=80)
+        SKU='a003', name='Book!', price=80, user_id=2, product_inventory_id=2)
     product7 = Product(
-        SKU='a003', name='Movie!', price=75)
+        SKU='a003', name='Movie!', price=75, user_id=3, product_inventory_id=4)
     product8 = Product(
-        SKU='a003', name='Katana', price=1)
+        SKU='a003', name='Katana', price=1, user_id=2, product_inventory_id=6)
     product9 = Product(
-        SKU='a003', name='Mecha suit', price=155)
+        SKU='a003', name='Mecha suit', price=155, user_id=3, product_inventory_id=8)
     product10 = Product(
-        SKU='a003', name='Another product', price=100)
+        SKU='a003', name='Another product', price=100, user_id=2, product_inventory_id=10)
 
     db.session.add(product1)
     db.session.add(product2)
