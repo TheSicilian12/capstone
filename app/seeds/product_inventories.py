@@ -1,28 +1,28 @@
-from app.models import db, Product, environment, SCHEMA
+from app.models import db, Product_Inventory, environment, SCHEMA
 from sqlalchemy.sql import text
 
 
 # Adds a demo user, you can add other users here if you want
 def seed_product_invenotries():
-    inventory1 = Product(
+    inventory1 = Product_Inventory(
         inventory=100)
-    inventory2 = Product(
+    inventory2 = Product_Inventory(
         inventory=0)
-    inventory3 = Product(
+    inventory3 = Product_Inventory(
         inventory=1000)
-    inventory4 = Product(
+    inventory4 = Product_Inventory(
         inventory=50)
-    inventory5 = Product(
+    inventory5 = Product_Inventory(
         inventory=48)
-    inventory6 = Product(
+    inventory6 = Product_Inventory(
         inventory=5)
-    inventory7 = Product(
+    inventory7 = Product_Inventory(
         inventory=11)
-    inventory8 = Product(
+    inventory8 = Product_Inventory(
         inventory=50000)
-    inventory9 = Product(
+    inventory9 = Product_Inventory(
         inventory=30)
-    inventory10 = Product(
+    inventory10 = Product_Inventory(
         inventory=80)
 
     db.session.add(inventory1)
