@@ -18,7 +18,7 @@ class Product(db.Model):
     category_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("categories.id")))
     product_details_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("product_details.id")))
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
-
+    product_inventory_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("product_inventories.id")))
 
 
     def to_dict(self):
@@ -29,5 +29,6 @@ class Product(db.Model):
             'price': self.price,
             'categoryId': self.category_id,
             'productDetailsId': self.product_details_id,
-            'ownerId': self.user_id
+            'ownerId': self.user_id,
+            'productInventoryId': self.product_inventory_id
         }
