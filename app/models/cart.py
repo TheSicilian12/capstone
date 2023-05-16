@@ -9,11 +9,17 @@ class Cart(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     total_price = db.Column(db.Integer)
+    created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
+    updated_at = db.Column(db.DateTime)
+
+    # Foreign Keys
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
 
     def to_dict(self):
         return {
             'id': self.id,
-            'total_price': self.total_price,
-            'created_at': self.created_at,
-            'updated_at': self.updated_at
+            'totalPrice': self.total_price,
+            'userId': self.user_id,
+            'createdAt': self.created_at,
+            'updatedAt': self.updated_at
         }
