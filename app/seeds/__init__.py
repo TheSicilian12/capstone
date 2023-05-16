@@ -1,18 +1,17 @@
 from flask.cli import AppGroup
 from .users import seed_users, undo_users
 from .cart_items import seed_cart_items, undo_cart_items
-from carts import seed_carts, undo_carts
-from comments import seed_comments, undo_comments
-from product_details import seed_product_details, undo_product_details
-from product_inventories import seed_product_inventories, undo_product_inventories
-from products import seed_products, undo_products
+from .carts import seed_carts, undo_carts
+from .comments import seed_comments, undo_comments
+from .product_details import seed_product_details, undo_product_details
+from .product_inventories import seed_product_inventories, undo_product_inventories
+from .products import seed_products, undo_products
 
 from app.models.db import db, environment, SCHEMA
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
 seed_commands = AppGroup('seed')
-
 
 # Creates the `flask seed all` command
 @seed_commands.command('all')
