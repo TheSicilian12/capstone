@@ -14,10 +14,20 @@ class Product(db.Model):
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
     updated_at = db.Column(db.DateTime)
 
+    # Foreign Keys
+    category_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("categories.id")))
+    product_details_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("product_details.id")))
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
+
+
+
     def to_dict(self):
         return {
             'id': self.id,
-            'SKU': self.username,
-            'name': self.email,
-            'price': self.price
+            'SKU': self.SKU,
+            'name': self.name,
+            'price': self.price,
+            'categoryId': self.category_id,
+            'productDetailsId': self.product_details_id,
+            'ownerId': self.user_id
         }
