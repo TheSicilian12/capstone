@@ -13,11 +13,17 @@ class Comment(db.Model):
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
     updated_at = db.Column(db.DateTime)
 
+    # Foreign Keys
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
+    product_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("products.id")))
+
     def to_dict(self):
         return {
             'id': self.id,
             'details': self.details,
             'rating': self.rating,
+            'userId': self.user_id,
+            'productId': self.product_id,
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }
