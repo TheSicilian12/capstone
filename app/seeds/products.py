@@ -9,11 +9,32 @@ def seed_products():
     product2 = Product(
         SKU='a002', name='A product for making other products more cool', price=50)
     product3 = Product(
-        SKU='a003', name='Not really sure, just found this in my backyard', price=100)
+        SKU='a003', name='Not really sure, just found this in my backyard', price=150)
+    product4 = Product(
+        SKU='a003', name='This product is gonna change your whole life, for sure', price=40)
+    product5 = Product(
+        SKU='a003', name='Buy this', price=10)
+    product6 = Product(
+        SKU='a003', name='Book!', price=80)
+    product7 = Product(
+        SKU='a003', name='Movie!', price=75)
+    product8 = Product(
+        SKU='a003', name='Katana', price=1)
+    product9 = Product(
+        SKU='a003', name='Mecha suit', price=155)
+    product10 = Product(
+        SKU='a003', name='Another product', price=100)
 
     db.session.add(product1)
     db.session.add(product2)
     db.session.add(product3)
+    db.session.add(product4)
+    db.session.add(product5)
+    db.session.add(product6)
+    db.session.add(product7)
+    db.session.add(product8)
+    db.session.add(product9)
+    db.session.add(product10)
     db.session.commit()
 
 
