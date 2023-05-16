@@ -1,40 +1,42 @@
-from app.models import db, Product, environment, SCHEMA
+from app.models import db, Product_Detail, environment, SCHEMA
 from sqlalchemy.sql import text
 
 
 # Adds a demo user, you can add other users here if you want
-def seed_products():
-    product1 = Product(
-        SKU='a001', name='The super cool product', price=100)
-    product2 = Product(
-        SKU='a002', name='A product for making other products more cool', price=50)
-    product3 = Product(
-        SKU='a003', name='Not really sure, just found this in my backyard', price=150)
-    product4 = Product(
-        SKU='a003', name='This product is gonna change your whole life, for sure', price=40)
-    product5 = Product(
-        SKU='a003', name='Buy this', price=10)
-    product6 = Product(
-        SKU='a003', name='Book!', price=80)
-    product7 = Product(
-        SKU='a003', name='Movie!', price=75)
-    product8 = Product(
-        SKU='a003', name='Katana', price=1)
-    product9 = Product(
-        SKU='a003', name='Mecha suit', price=155)
-    product10 = Product(
-        SKU='a003', name='Another product', price=100)
+def seed_product_details():
+    product_description1 = Product_Detail(
+        desc='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')
+    product_description2 = Product_Detail(
+        desc='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')
+    product_description3 = Product_Detail(
+        desc='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')
+    product_description4 = Product_Detail(
+        desc='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')
+    product_description5 = Product_Detail(
+        desc='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')
+    product_description6 = Product_Detail(
+        desc='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')
+    product_description7 = Product_Detail(
+        desc='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')
+    product_description8 = Product_Detail(
+        desc='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')
+    product_description9 = Product_Detail(
+        desc='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')
+    product_description10 = Product_Detail(
+        desc='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')
 
-    db.session.add(product1)
-    db.session.add(product2)
-    db.session.add(product3)
-    db.session.add(product4)
-    db.session.add(product5)
-    db.session.add(product6)
-    db.session.add(product7)
-    db.session.add(product8)
-    db.session.add(product9)
-    db.session.add(product10)
+
+
+    db.session.add(product_description1)
+    db.session.add(product_description2)
+    db.session.add(product_description3)
+    db.session.add(product_description4)
+    db.session.add(product_description5)
+    db.session.add(product_description6)
+    db.session.add(product_description7)
+    db.session.add(product_description8)
+    db.session.add(product_description9)
+    db.session.add(product_description10)
     db.session.commit()
 
 
@@ -46,8 +48,8 @@ def seed_products():
 # it will reset the primary keys for you as well.
 def undo_products():
     if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.products RESTART IDENTITY CASCADE;")
+        db.session.execute(f"TRUNCATE table {SCHEMA}.product_details RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute(text("DELETE FROM products"))
+        db.session.execute(text("DELETE FROM product_details"))
 
     db.session.commit()

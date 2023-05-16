@@ -3,7 +3,7 @@ from sqlalchemy.sql import text
 
 
 # Adds a demo user, you can add other users here if you want
-def seed_product_invenotries():
+def seed_product_inventories():
     inventory1 = Product_Inventory(
         inventory=100)
     inventory2 = Product_Inventory(
