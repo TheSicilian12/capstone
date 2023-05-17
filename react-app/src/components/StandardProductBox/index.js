@@ -1,12 +1,13 @@
-import './StandardProductBox';
+import './StandardProductBox.css';
+import '../UniversalCSS.css'
 
 
 export default function StandardProductBox() {
 
 
     return(
-        <div>
-
+        <div className='border-black'>
+            Hello
         </div>
     )
 }
