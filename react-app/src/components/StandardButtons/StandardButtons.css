@@ -1,3 +1,7 @@
-/* .standard-buttons {
-    width: 100px;
-} */
+.buttons-small {
+    width: 50px;
+    border-radius: 15px;
+}
+.buttons-small:hover{
+    box-shadow: 1px 1px 1px gray;
+}
