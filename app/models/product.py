@@ -21,8 +21,8 @@ class Product(db.Model):
     product_inventory_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("product_inventories.id")))
 
     # Relationships
-    product_details = db.relationship("Product_Detail", back_populates="product", cascade="all, delete-orphan")
-    product_inventory = db.relationship("Product_Inventory", back_populates="product", cascade="all, delete-orphan")
+    product_details = db.relationship("Product_Detail", back_populates="product", cascade="all")
+    product_inventory = db.relationship("Product_Inventory", back_populates="product", cascade="all")
 
 
     def to_dict(self):
