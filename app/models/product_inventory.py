@@ -12,10 +12,15 @@ class Product_Inventory(db.Model):
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
     updated_at = db.Column(db.DateTime)
 
+    # Relationships
+    product = db.relationship("Product", back_populates="product_inventory")
+
+
     def to_dict(self):
         return {
             'id': self.id,
             'inventory': self.inventory,
+            'product': self.product,
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }

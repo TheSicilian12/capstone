@@ -17,6 +17,9 @@ class Product_Detail(db.Model):
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
     updated_at = db.Column(db.DateTime)
 
+    # Relationships
+    product = db.relationship("Product", back_populates="product_details")
+
     def to_dict(self):
         return {
             'id': self.id,
@@ -24,4 +27,3 @@ class Product_Detail(db.Model):
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }
-

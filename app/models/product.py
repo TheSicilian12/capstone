@@ -20,6 +20,10 @@ class Product(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
     product_inventory_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("product_inventories.id")))
 
+    # Relationships
+    product_details = db.relationship("Product_Detail", back_populates="product", cascade="all, delete-orphan")
+    product_inventory = db.relationship("Product_Inventory", back_populates="product", cascade="all, delete-orphan")
+
 
     def to_dict(self):
         return {
@@ -30,5 +34,7 @@ class Product(db.Model):
             'categoryId': self.category_id,
             'productDetailsId': self.product_details_id,
             'ownerId': self.user_id,
-            'productInventoryId': self.product_inventory_id
+            'productInventoryId': self.product_inventory_id,
+            'productDetails': self.product_details,
+            'productInventory': self.product_inventory
         }
