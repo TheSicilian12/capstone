@@ -1,15 +1,20 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { postProductTHUNK } from '../../store/product';
 
 import './GroupForm.css'
 import '../UniversalCSS.css'
 
 
 export default function ProductForm() {
+    const dispatch = useDispatch();
+
     const [sku, setSKU] = useState("");
     const [name, setName] = useState("");
     const [price, setPrice] = useState("");
     const [description, setDescription] = useState("");
     const [inventory, setInventory] = useState("");
+
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -22,7 +27,9 @@ export default function ProductForm() {
                 desc: description,
                 inventory
             }
-            createProduct = await dispatch()
+
+            // Error if SKU already exists for a product
+            const createProduct = await dispatch(postProductTHUNK(payload))
         } else {
             return console.log("ERROR")
         }

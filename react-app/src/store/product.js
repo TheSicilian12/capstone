@@ -42,6 +42,9 @@ export const getSingleProductTHUNK = (productId) => async (dispatch) => {
 }
 
 // Create a Product THUNK
+
+// First details and inventory, then product
+
 export const postProductTHUNK = (payload) => async (dispatch) => {
     console.log('----Post Product----')
     const {SKU, name, price, desc, inventory} = payload
@@ -50,13 +53,41 @@ export const postProductTHUNK = (payload) => async (dispatch) => {
         name,
         price
     }
-    const payloadProductDetails = {
-        desc
-    }
-    const payloadProductInventory = {
-        inventory
-    }
     
+
+
+
+
+
+    // const response = await fetch("/api/products/create", {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(
+    //         payloadProduct
+    //     )
+    // })
+    // if (response.ok) {
+    //     // Product successfully made, now time to make inventory and details
+    //     console.log('response')
+    //     const data = await response.json()
+    //     // console.log('data: ', data.product.id)
+    //     const newProductId = data.product.id
+
+    //     const response = await fetch("/api/products/create-description", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //         body: JSON.stringify(
+    //             payloadProductDetails
+    //         )
+    //     })
+
+
+
+    // }
 
 
 }

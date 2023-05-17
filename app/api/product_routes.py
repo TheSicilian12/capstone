@@ -42,6 +42,7 @@ def create_product():
     """
     Create a product
     """
+    # print('-----------------------------Add Product--------------------------------')
     form = ProductForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
@@ -53,12 +54,37 @@ def create_product():
         )
         db.session.add(new_product)
         db.session.commit()
+        # print('--------------------------------------------new_product: ')
         return {
             "product": new_product.to_dict()
         }
     return {
         "errors": form.errors
     }
+
+
+# Add Product Details
+# Authorized user: logged in
+@product_routes.route('/create-details', methods=['POST'])
+@login_required
+def create_product_details():
+    # print('-----------------------------Add Product Details--------------------------------')
+    form = ProductForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        data = form.data
+        new_product_details = Product_Detail(
+            desc = data['desc'],
+        )
+        db.session.add(new_product_details)
+        db.session.commit()
+        return {
+            "product": new_product.to_dict()
+        }
+    return {
+        "errors": form.errors
+    }
+
 
 # Delete a Product
 # Authorized user: logged in and owner of product
