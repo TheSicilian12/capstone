@@ -5,7 +5,7 @@ from app.forms import ProductDetailsForm, ProductForm
 
 product_routes = Blueprint("product", __name__)
 
-# All Products
+# Get all Products
 # Any user
 @product_routes.route('')
 def get_all_products():
@@ -21,7 +21,7 @@ def get_all_products():
     return {'products': response}
 
 
-# A Product by id
+# Get a Product by id
 # Any user
 @product_routes.route('/<int:id>')
 def get_single_product(id):
@@ -33,6 +33,32 @@ def get_single_product(id):
     # print('-------single_product------ ', single_product.to_dict())
     return {'product': single_product.to_dict()}
 
+
+# Add a Product
+# Authorized user: logged in
+@product_routes.route('/create', methods=['POST'])
+@login_required
+def create_product():
+    """
+    Create a product
+    """
+    form = ProductForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        data = form.data
+        new_product = Product(
+            SKU = data['SKU'],
+            name = data['name'],
+            price = data['price']
+        )
+        db.session.add(new_product)
+        db.session.commit()
+        return {
+            "product": new_product.to_dict()
+        }
+    return {
+        "errors": form.errors
+    }
 
 # Delete a Product
 # Authorized user: logged in and owner of product

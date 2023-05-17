@@ -56,7 +56,7 @@ export const postProductTHUNK = (payload) => async (dispatch) => {
     const payloadProductInventory = {
         inventory
     }
-
+    
 
 
 }
