@@ -53,12 +53,24 @@ export const postProductTHUNK = (payload) => async (dispatch) => {
         name,
         price
     }
-    
-
-
-
-
-
+    // Make inventory
+    const payloadProductInventory = {
+        inventory
+    }
+    const responseInventroy = await fetch("/api/products/create-inventory", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(
+                payloadProductInventory
+            )
+        })
+    if (responseInventroy.ok) {
+        const dataInventory = await responseInventroy.json()
+        console.log("inventory")
+        console.log("dataInventory: ", dataInventory)
+    }
     // const response = await fetch("/api/products/create", {
     //     method: "POST",
     //     headers: {
