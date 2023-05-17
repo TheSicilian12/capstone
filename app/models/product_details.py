@@ -14,8 +14,10 @@ class Product_Detail(db.Model):
     # image_2
     # image_3
     # image_4
+    product_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("products.id")))
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
     updated_at = db.Column(db.DateTime)
+
 
     # Relationships
     product = db.relationship("Product", back_populates="product_details")

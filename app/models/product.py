@@ -16,9 +16,9 @@ class Product(db.Model):
 
     # Foreign Keys
     category_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("categories.id")))
-    product_details_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("product_details.id")))
+    # product_details_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("product_details.id")))
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
-    product_inventory_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("product_inventories.id")))
+    # product_inventory_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("product_inventories.id")))
 
     # Relationships
     product_details = db.relationship("Product_Detail", back_populates="product", cascade="all")

@@ -11,6 +11,7 @@ class Product_Inventory(db.Model):
     inventory = db.Column(db.Integer)
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
     updated_at = db.Column(db.DateTime)
+    product_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("products.id")))
 
     # Relationships
     product = db.relationship("Product", back_populates="product_inventory")
