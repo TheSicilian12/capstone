@@ -16,3 +16,19 @@ def get_all_products():
     all_products = Product.query.all()
     response = [product.to_dict() for product in all_products]
     return {'products': response}
+
+# Delete a Product
+# Authorized user: logged in and owner of product
+@product_routes.route('/<int:id>', methods=["DELETE"])
+@login_required
+def delete_one_product(id):
+    """
+    Delete a product by id
+    """
+    product = Product.query.get(id)
+    if current_user.id != product.ownerId:
+        return {"errors": "This is not an authorized route."}
+    else:
+        db.session.delete(product)
+        db.session.commit()
+        return "Product deleted"
