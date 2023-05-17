@@ -11,10 +11,20 @@ export default function ProductForm() {
     const [description, setDescription] = useState("");
     const [inventory, setInventory] = useState("");
 
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+
+        // if (SKU && name && price && description && inventory)
+
+        console.log('submit button')
+    }
+
     return (
         <div>
             Product Form
-            <form>
+            <form
+                onSubmit={handleSubmit}
+            >
                 <label>
                     SKU
                     <input
@@ -70,6 +80,10 @@ export default function ProductForm() {
                     >
                     </input>
                 </label>
+
+                <button type="submit">
+                    Product
+                </button>
             </form>
         </div>
     )
