@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from app.models import Product, Product_Detail, Product_Inventory, db, User
 from flask_login import login_required, current_user
-# forms import
+from app.forms import ProductDetailsForm, ProductForm
 
 product_routes = Blueprint("product", __name__)
 
