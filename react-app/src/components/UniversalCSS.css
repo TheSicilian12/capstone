@@ -1,3 +1,19 @@
+.border-black {
+    border: 2px solid black
+}
+
+.border-blue {
+    border: 2px solid blue
+}
+
+.border-green {
+    border: 2px solid green
+}
+
+.border-red {
+    border: 2px solid red
+}
+
 .display-flex {
     display: flex
 }
