@@ -25,9 +25,11 @@ export const getAllProductsTHUNK = () => async (dispatch) => {
 
 // Get Single Product by Id THUNK
 export const getSingleProductTHUNK = (productId) => async (dispatch) => {
-    console.log(typeof productId)
+    console.log('----Get Single Product THUNK----')
     const response = await fetch(`/api/products/${productId}`)
+    console.log('after response: ', response)
     if (response.ok) {
+        console.log('if statement')
         const await_response = await response.json();
         dispatch(loadOne(await_response))
     }

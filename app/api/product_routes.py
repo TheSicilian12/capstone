@@ -20,6 +20,7 @@ def get_all_products():
     # print('all_products: ', all_products)
     return {'products': response}
 
+
 # A Product by id
 # Any user
 @product_routes.route('/<int:id>')
@@ -31,6 +32,7 @@ def get_single_product(id):
     single_product = Product.query.get(id)
     # print('-------single_product------ ', single_product.to_dict())
     return {'product': single_product.to_dict()}
+
 
 # Delete a Product
 # Authorized user: logged in and owner of product

@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSel, useSelector } from 'react-redux';
-import { Redirect, useParams } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 import './SingleProduct.css'
 import '../UniversalCSS.css'
-import StandardProductBox from '../StandardProductBox'
-import StandardButtons from '../StandardButtons';
 import { getSingleProductTHUNK } from '../../store/product';
 
 export default function SingleProduct() {
@@ -27,7 +25,7 @@ export default function SingleProduct() {
     return(
         <div className="single-product-image-container border-black">
             Hello
-            {singleProduct.SKU}
+            {/* {singleProduct.SKU} */}
 
             <div>
                 {/* <StandardButtons text="test" /> */}
