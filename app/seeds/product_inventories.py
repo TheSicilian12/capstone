@@ -5,25 +5,25 @@ from sqlalchemy.sql import text
 # Adds a demo user, you can add other users here if you want
 def seed_product_inventories():
     inventory1 = Product_Inventory(
-        inventory=100)
+        inventory=100, product_id=1)
     inventory2 = Product_Inventory(
-        inventory=0)
+        inventory=0, product_id=2)
     inventory3 = Product_Inventory(
-        inventory=1000)
+        inventory=1000, product_id=3)
     inventory4 = Product_Inventory(
-        inventory=50)
+        inventory=50, product_id=4)
     inventory5 = Product_Inventory(
-        inventory=48)
+        inventory=48, product_id=5)
     inventory6 = Product_Inventory(
-        inventory=5)
+        inventory=5, product_id=6)
     inventory7 = Product_Inventory(
-        inventory=11)
+        inventory=11, product_id=7)
     inventory8 = Product_Inventory(
-        inventory=50000)
+        inventory=50000, product_id=8)
     inventory9 = Product_Inventory(
-        inventory=30)
+        inventory=30, product_id=9)
     inventory10 = Product_Inventory(
-        inventory=80)
+        inventory=80, product_id=10)
 
     db.session.add(inventory1)
     db.session.add(inventory2)
