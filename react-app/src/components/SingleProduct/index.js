@@ -13,20 +13,20 @@ export default function SingleProduct() {
 
     const productId = Number(useParams().productId)
 
-    const singleProduct = products[productId]
-
+    const singleProduct = products.product
+    console.log('singleProduct: ', singleProduct)
     useEffect(() => {
         dispatch(getSingleProductTHUNK(productId))
     }, [dispatch])
 
-    if (!products) return <div>loading</div>
+    if (!singleProduct) return <div>loading</div>
 
     console.log("products: ", products)
 
     return(
         <div>
             Hello
-
+            {singleProduct.SKU}
         </div>
     )
 

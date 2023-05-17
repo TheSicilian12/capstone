@@ -27,7 +27,10 @@ export const getAllProductsTHUNK = () => async (dispatch) => {
 export const getSingleProductTHUNK = (productId) => async (dispatch) => {
     console.log(typeof productId)
     const response = await fetch(`/api/products/${productId}`)
-    console.log(response)
+    if (response.ok) {
+        const await_response = await response.json();
+        dispatch(loadOne(await_response))
+    }
 }
 
 
@@ -38,6 +41,10 @@ export default function productReducer(state = initialState, action) {
     switch(action.type) {
         case LOAD: {
             // console.log("action: ", action.payload.products)
+            const newState = {...action.payload}
+            return newState
+        }
+        case LOAD_ONE: {
             const newState = {...action.payload}
             return newState
         }
