@@ -7,4 +7,12 @@ product_routes = Blueprint("product", __name__)
 
 # All Products
 # Any user
-# @product_routes.route('')
+@product_routes.route('')
+def get_all_products():
+    """
+    Query for all products and returns them in a list of dictionaries
+    """
+    # May need to update to include the data associated with the foreign keys
+    all_products = Product.query.all()
+    response = [product.to_dict() for product in all_products]
+    return {'products': response}
