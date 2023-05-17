@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSel, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useParams } from 'react-router-dom';
 
-import './HomePage.css';
+import './SingleProduct.css'
 import '../UniversalCSS.css'
 import StandardProductBox from '../StandardProductBox'
-import { getAllProductsTHUNK } from '../../store/product';
+import { getSingleProductTHUNK } from '../../store/product';
 
-export default function HomePage() {
+export default function SingleProduct() {
     const dispatch = useDispatch();
     const products = useSelector(state => state.products)
 
+    const productId = Number(useParams().productId)
+
+    const singleProduct = products[productId]
+
     useEffect(() => {
-        dispatch(getAllProductsTHUNK())
+        dispatch(getSingleProductTHUNK(productId))
     }, [dispatch])
 
     if (!products) return <div>loading</div>
@@ -22,11 +26,7 @@ export default function HomePage() {
     return(
         <div>
             Hello
-            {Object.values(products).map(product => {
-                return (
-                    <div key={product.SKU}>{product.SKU}</div>
-                )
-            })}
+
         </div>
     )
 

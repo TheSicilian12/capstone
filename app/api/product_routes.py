@@ -15,10 +15,22 @@ def get_all_products():
     # May need to update to include the data associated with the foreign keys
     all_products = Product.query.all()
     response = [product.to_dict() for product in all_products]
-    print('--------------------------All Products--------------------------------')
-    print('response: ', response)
-    print('all_products: ', all_products)
+    # print('--------------------------All Products--------------------------------')
+    # print('response: ', response)
+    # print('all_products: ', all_products)
     return {'products': response}
+
+# A Product by id
+# Any user
+@product_routes.route('/<int:id>')
+def get_single_product(id):
+    """
+    Query to get a signle product by id
+    """
+    # print('-----------------------------Single Product--------------------------------')
+    single_product = Product.query.get(id)
+    # print('-------single_product------ ', single_product.to_dict())
+    return {'product': single_product.to_dict()}
 
 # Delete a Product
 # Authorized user: logged in and owner of product

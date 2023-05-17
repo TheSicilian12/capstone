@@ -6,8 +6,8 @@ export default function StandardProductBox() {
 
 
     return(
-        <div className='border-black'>
-            Hello
+        <div className='border-black standard-product-box'>
+            
         </div>
     )
 }
