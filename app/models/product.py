@@ -35,6 +35,6 @@ class Product(db.Model):
             'productDetailsId': self.product_details_id,
             'ownerId': self.user_id,
             'productInventoryId': self.product_inventory_id,
-            'productDetails': self.product_details,
-            'productInventory': self.product_inventory
+            'productDetails': self.product_details.to_dict(),
+            'productInventory': self.product_inventory.to_dict()
         }

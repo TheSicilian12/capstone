@@ -20,7 +20,7 @@ class Product_Inventory(db.Model):
         return {
             'id': self.id,
             'inventory': self.inventory,
-            'product': self.product,
+            # 'product': self.product,
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }

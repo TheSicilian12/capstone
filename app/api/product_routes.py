@@ -15,6 +15,9 @@ def get_all_products():
     # May need to update to include the data associated with the foreign keys
     all_products = Product.query.all()
     response = [product.to_dict() for product in all_products]
+    print('--------------------------All Products--------------------------------')
+    print('response: ', response)
+    print('all_products: ', all_products)
     return {'products': response}
 
 # Delete a Product
