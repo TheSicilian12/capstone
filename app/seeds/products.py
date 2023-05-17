@@ -11,19 +11,19 @@ def seed_products():
     product3 = Product(
         SKU='a003', name='Not really sure, just found this in my backyard', user_id=3, price=150, product_inventory_id=5,  product_details_id=3)
     product4 = Product(
-        SKU='a003', name='This product is gonna change your whole life, for sure', user_id=2, price=40, product_inventory_id=7,  product_details_id=4)
+        SKU='a004', name='This product is gonna change your whole life, for sure', user_id=2, price=40, product_inventory_id=7,  product_details_id=4)
     product5 = Product(
-        SKU='a003', name='Buy this', price=10, user_id=3, product_inventory_id=9, product_details_id=5)
+        SKU='a005', name='Buy this', price=10, user_id=3, product_inventory_id=9, product_details_id=5)
     product6 = Product(
-        SKU='a003', name='Book!', price=80, user_id=2, product_inventory_id=2, product_details_id=6)
+        SKU='a006', name='Book!', price=80, user_id=2, product_inventory_id=2, product_details_id=6)
     product7 = Product(
-        SKU='a003', name='Movie!', price=75, user_id=3, product_inventory_id=4, product_details_id=7)
+        SKU='a007', name='Movie!', price=75, user_id=3, product_inventory_id=4, product_details_id=7)
     product8 = Product(
-        SKU='a003', name='Katana', price=1, user_id=2, product_inventory_id=6, product_details_id=8)
+        SKU='a008', name='Katana', price=1, user_id=2, product_inventory_id=6, product_details_id=8)
     product9 = Product(
-        SKU='a003', name='Mecha suit', price=155, user_id=3, product_inventory_id=8, product_details_id=9)
+        SKU='a009', name='Mecha suit', price=155, user_id=3, product_inventory_id=8, product_details_id=9)
     product10 = Product(
-        SKU='a003', name='Another product', price=100, user_id=2, product_inventory_id=10, product_details_id=10)
+        SKU='a010', name='Another product', price=100, user_id=2, product_inventory_id=10, product_details_id=10)
 
     db.session.add(product1)
     db.session.add(product2)
