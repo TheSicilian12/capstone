@@ -46,8 +46,8 @@ def seed_product_inventories():
 # it will reset the primary keys for you as well.
 def undo_product_inventories():
     if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.product_invenotries RESTART IDENTITY CASCADE;")
+        db.session.execute(f"TRUNCATE table {SCHEMA}.product_inventories RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute(text("DELETE FROM product_invenotries"))
+        db.session.execute(text("DELETE FROM product_inventories"))
 
     db.session.commit()
