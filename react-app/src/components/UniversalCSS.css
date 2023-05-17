@@ -14,6 +14,10 @@
     border: 2px solid red
 }
 
+.hidden {
+    display: none;
+}
+
 .display-flex {
     display: flex
 }

@@ -1,1 +1,8 @@
+.single-product-image-container {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    height: 40vh;
+}
+
 

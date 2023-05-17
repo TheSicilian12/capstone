@@ -24,9 +24,13 @@ export default function SingleProduct() {
     console.log("products: ", products)
 
     return(
-        <div>
+        <div className="single-product-image-container border-black">
             Hello
             {singleProduct.SKU}
+
+            <div>
+                
+            </div>
         </div>
     )
 
