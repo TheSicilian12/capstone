@@ -8,6 +8,8 @@ export default function ProductForm() {
     const [sku, setSKU] = useState("");
     const [name, setName] = useState("");
     const [price, setPrice] = useState("");
+    const [description, setDescription] = useState("");
+    const [inventory, setInventory] = useState("");
 
     return (
         <div>
@@ -42,6 +44,29 @@ export default function ProductForm() {
                         placeholder="price"
                         min="0"
                         step="0.01"
+                    >
+                    </input>
+                </label>
+
+                <label>
+                    Description
+                    <input
+                        type="text"
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                        placeholder="description"
+                    >
+                    </input>
+                </label>
+
+                <label>
+                    Inventory
+                    <input
+                        type="number"
+                        value={inventory}
+                        onChange={(e) => setInventory(e.target.value)}
+                        placeholder="inventory"
+                        min="0"
                     >
                     </input>
                 </label>
