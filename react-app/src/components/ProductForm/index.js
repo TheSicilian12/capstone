@@ -14,7 +14,18 @@ export default function ProductForm() {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        // if (SKU && name && price && description && inventory)
+        if (sku && name && price && description && inventory) {
+            const payload = {
+                SKU: sku,
+                name,
+                price,
+                desc: description,
+                inventory
+            }
+            createProduct = await dispatch()
+        } else {
+            return console.log("ERROR")
+        }
 
         console.log('submit button')
     }

@@ -2,6 +2,7 @@ import normalize from "./normalizer"
 
 const LOAD = 'products/all'
 const LOAD_ONE = 'products/single'
+const POST_PRODUCT = 'products/post'
 
 const load = (data) => ({
     type: LOAD,
@@ -10,6 +11,11 @@ const load = (data) => ({
 
 const loadOne = (data) => ({
     type: LOAD_ONE,
+    payload: data
+})
+
+const postProduct = (data) => ({
+    type: POST_PRODUCT,
     payload: data
 })
 
@@ -35,6 +41,25 @@ export const getSingleProductTHUNK = (productId) => async (dispatch) => {
     }
 }
 
+// Create a Product THUNK
+export const postProductTHUNK = (payload) => async (dispatch) => {
+    console.log('----Post Product----')
+    const {SKU, name, price, desc, inventory} = payload
+    const payloadProduct = {
+        SKU,
+        name,
+        price
+    }
+    const payloadProductDetails = {
+        desc
+    }
+    const payloadProductInventory = {
+        inventory
+    }
+
+
+
+}
 
 
 const initialState = {}
