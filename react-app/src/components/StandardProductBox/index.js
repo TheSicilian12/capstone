@@ -1,12 +1,12 @@
 import './StandardProductBox';
 
 
-export default StandardProductBox() {
+export default function StandardProductBox() {
 
 
     return(
         <div>
-        
+
         </div>
     )
 }
