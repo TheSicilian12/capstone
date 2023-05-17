@@ -5,6 +5,7 @@ import { Redirect, useParams } from 'react-router-dom';
 import './SingleProduct.css'
 import '../UniversalCSS.css'
 import StandardProductBox from '../StandardProductBox'
+import StandardButtons from '../StandardButtons';
 import { getSingleProductTHUNK } from '../../store/product';
 
 export default function SingleProduct() {
@@ -29,7 +30,7 @@ export default function SingleProduct() {
             {singleProduct.SKU}
 
             <div>
-                
+                {/* <StandardButtons text="test" /> */}
             </div>
         </div>
     )
