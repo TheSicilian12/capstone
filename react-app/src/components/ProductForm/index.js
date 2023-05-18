@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from "react-router-dom";
 import { postProductTHUNK } from '../../store/product';
+
 
 import './GroupForm.css'
 import '../UniversalCSS.css'
@@ -9,6 +11,7 @@ import '../UniversalCSS.css'
 export default function ProductForm() {
     const user = useSelector((state) => state.session.user)
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const [sku, setSKU] = useState("");
     const [name, setName] = useState("");
@@ -32,6 +35,11 @@ export default function ProductForm() {
 
             // Error if SKU already exists for a product
             const createProduct = await dispatch(postProductTHUNK(payload))
+            // console.log("createProduct: ", createProduct)
+            if (createProduct) {
+                // console.log(createProduct.product.id)
+                history.push(`/products/${createProduct.product.id}`)
+            }
         } else {
             return console.log("ERROR")
         }
