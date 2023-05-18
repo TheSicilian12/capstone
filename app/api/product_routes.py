@@ -75,12 +75,14 @@ def create_product(payload):
 
 # Edit a Product by Id
 # Authorized user: logged in and owner of product
-@product_routes.route('/<int:id>/update', methods=['POST'])
+@product_routes.route('/<int:id>/update', methods=['PUT'])
 @login_required
-def create_product(id):
+def edit_product(id):
     """
     Edit a product by id
     """
+    print("--------------------------Edit Product-----------------------------")
+
     product = Product.query.get(id)
 
     # Can only be edited by onwer of the product
@@ -88,6 +90,7 @@ def create_product(id):
         return {"errors": "Not an authorized route"}
 
     form = ProductForm()
+    print("-------------------form data: ", form.data)
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         product.SKU = form.data["SKU"]
@@ -99,7 +102,6 @@ def create_product(id):
         return product.to_dict()
     else:
         return {"errors": form.errors}
-
 
 # Delete a Product
 # Authorized user: logged in and owner of product

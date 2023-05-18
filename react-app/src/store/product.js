@@ -68,11 +68,12 @@ export const postProductTHUNK = (payload) => async (dispatch) => {
     }
 }
 
-export const editProductTHUNK = (payload) => async (dispatch) => {
+// Edit a route by Id THUNK
+export const editProductTHUNK = (payload, productId) => async (dispatch) => {
     console.log("----------------Edit Product---------------------------")
     console.log(payload)
     // const { SKU, name, price, desc, inventory, owner_id } = payload
-    const response = await fetch(`/api/products/${payload.productId}/update`, {
+    const response = await fetch(`/api/products/${productId}/update`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
-import { editProductTHUNK, postProductTHUNK } from '../../store/product';
+import {editProductTHUNK, postProductTHUNK } from '../../store/product';
 
 
 import './GroupForm.css'
@@ -40,8 +40,7 @@ export default function ProductForm({productInfo, formType, productId}) {
             }
             // console.log("createProduct: ", createProduct)
             if (formType === "edit") {
-                payload.productId = productId
-                data = await dispatch(editProductTHUNK(payload))
+                data = await dispatch(editProductTHUNK(payload, productId))
             }
 
             if (data) {
