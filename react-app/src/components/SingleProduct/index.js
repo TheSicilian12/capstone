@@ -29,7 +29,7 @@ export default function SingleProduct() {
             {singleProduct.SKU}
 
             <div>
-                <StandardButtons text="edit" />
+                <StandardButtons text="edit" path={`/products/${productId}/edit`} />
                 <StandardButtons text="delete" />
             </div>
 
