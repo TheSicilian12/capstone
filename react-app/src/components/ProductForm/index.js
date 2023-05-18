@@ -13,19 +13,19 @@ export default function ProductForm() {
     const [sku, setSKU] = useState("");
     const [name, setName] = useState("");
     const [price, setPrice] = useState("");
-    const [description, setDescription] = useState("");
+    const [desc, setDesc] = useState("");
     const [inventory, setInventory] = useState("");
 
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        if (sku && name && price && description && inventory) {
+        if (sku && name && price && desc && inventory) {
             const payload = {
                 SKU: sku,
                 name,
                 price,
-                desc: description,
+                desc: desc,
                 inventory,
                 owner_id: user.id
             }
@@ -82,8 +82,8 @@ export default function ProductForm() {
                     Description
                     <input
                         type="text"
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
+                        value={desc}
+                        onChange={(e) => setDesc(e.target.value)}
                         placeholder="description"
                     >
                     </input>
