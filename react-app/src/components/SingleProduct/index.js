@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import './SingleProduct.css'
 import '../UniversalCSS.css'
+import StandardButtons from '../StandardButtons';
 import { getSingleProductTHUNK } from '../../store/product';
 
 export default function SingleProduct() {
@@ -25,11 +26,13 @@ export default function SingleProduct() {
     return(
         <div className="single-product-image-container border-black">
             Hello
-            {/* {singleProduct.SKU} */}
+            {singleProduct.SKU}
 
             <div>
-                {/* <StandardButtons text="test" /> */}
+                <StandardButtons text="edit" />
+                <StandardButtons text="delete" />
             </div>
+
         </div>
     )
 

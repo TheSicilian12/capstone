@@ -2,6 +2,7 @@ import normalize from "./normalizer"
 
 const LOAD = 'products/all'
 const LOAD_ONE = 'products/single'
+const POST_PRODUCT = 'products/post'
 
 const load = (data) => ({
     type: LOAD,
@@ -10,6 +11,11 @@ const load = (data) => ({
 
 const loadOne = (data) => ({
     type: LOAD_ONE,
+    payload: data
+})
+
+const postProduct = (data) => ({
+    type: POST_PRODUCT,
     payload: data
 })
 
@@ -35,22 +41,52 @@ export const getSingleProductTHUNK = (productId) => async (dispatch) => {
     }
 }
 
-
-
-const initialState = {}
-
-export default function productReducer(state = initialState, action) {
-    switch(action.type) {
-        case LOAD: {
-            // console.log("action: ", action.payload.products)
-            const newState = {...action.payload}
-            return newState
-        }
-        case LOAD_ONE: {
-            const newState = {...action.payload}
-            return newState
-        }
-        default:
-            return state;
+// Create a Product THUNK
+// Product -> Details
+export const postProductTHUNK = (payload) => async (dispatch) => {
+    console.log('----Post Product----')
+    const { SKU, name, price, desc, inventory } = payload
+    const payloadProduct = {
+        SKU,
+        name,
+        price,
+        inventory
     }
-}
+    console.log("before response")
+    const response = await fetch("/api/products/create", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(
+            payloadProduct
+        )
+    })
+
+    console.log("after response")
+    // const data = await response.json()
+    // console.log("data: ", data)
+    console.log("response: ", response)
+    if (response.ok) {
+        console.log("response ok")
+    }
+    }
+
+
+    const initialState = {}
+
+    export default function productReducer(state = initialState, action) {
+        switch (action.type) {
+            case LOAD: {
+                // console.log("action: ", action.payload.products)
+                const newState = { ...action.payload }
+                return newState
+            }
+            case LOAD_ONE: {
+                const newState = { ...action.payload }
+                return newState
+            }
+            default:
+                return state;
+        }
+    }

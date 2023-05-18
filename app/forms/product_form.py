@@ -13,3 +13,6 @@ class ProductForm(FlaskForm):
     price = IntegerField(
         'price', validators=[DataRequired()]
     )
+    inventory = IntegerField(
+        "inventory", validators=[DataRequired()]
+    )

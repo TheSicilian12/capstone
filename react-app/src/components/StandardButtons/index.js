@@ -10,7 +10,7 @@ import '../UniversalCSS.css'
 export default function StandardButtons({text}) {
 
     return(
-        <button>
+        <button className="buttons-small">
             {text}
         </button>
     )
