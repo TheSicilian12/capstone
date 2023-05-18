@@ -51,6 +51,7 @@ export const postProductTHUNK = (payload) => async (dispatch) => {
         name,
         price,
         inventory,
+        desc,
         ownerId: userId
     }
     console.log("before response")

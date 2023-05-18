@@ -17,7 +17,7 @@ class Product(db.Model):
     updated_at = db.Column(db.DateTime)
 
     # Foreign Keys
-    category_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("categories.id")))
+    # category_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("categories.id")))
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
 
     # Relationships

@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField
-from wtforms.validators import DataRequired, Email, ValidationError
+from wtforms.validators import DataRequired, ValidationError
 from app.models import Product
 
 class ProductForm(FlaskForm):
@@ -21,7 +21,4 @@ class ProductForm(FlaskForm):
     ),
     user_id = IntegerField(
         'user_id', validators=[DataRequired()]
-    )
-    category_id = IntegerField(
-        'category_id'
     )

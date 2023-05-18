@@ -52,6 +52,7 @@ def create_product():
             name = data['name'],
             price = data['price'],
             inventory = data['inventory'],
+            desc=data['desc'],
             user_id = data['userId']
         )
         db.session.add(new_product)
@@ -62,7 +63,7 @@ def create_product():
             "product": new_product.to_dict()
         }
     else:
-        print('----------------------------after success return--------------------------------')
+        print('----------------------------before error return--------------------------------')
         return {
             "errors": form.errors
         }
