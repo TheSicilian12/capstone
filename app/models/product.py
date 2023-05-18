@@ -12,16 +12,15 @@ class Product(db.Model):
     name = db.Column(db.String(255), nullable=False)
     price = db.Column(db.Integer, nullable=False)
     inventory = db.Column(db.Integer)
+    desc = db.Column(db.String(1000))
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
     updated_at = db.Column(db.DateTime)
 
     # Foreign Keys
     category_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("categories.id")))
-    # product_details_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("product_details.id")))
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
 
     # Relationships
-    product_details = db.relationship("Product_Detail", back_populates="product", cascade="all")
 
     def to_dict(self):
         return {
@@ -30,8 +29,7 @@ class Product(db.Model):
             'name': self.name,
             'price': self.price,
             'categoryId': self.category_id,
-            'productDetailsId': self.product_details_id,
+            'desc': self.desc,
             'ownerId': self.user_id,
             'inventory': self.inventory,
-            # 'productDetails': self.product_details.to_dict(),
         }

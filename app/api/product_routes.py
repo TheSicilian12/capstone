@@ -1,7 +1,7 @@
 from flask import Blueprint, request
-from app.models import Product, Product_Detail, db, User
+from app.models import Product, db, User
 from flask_login import login_required, current_user
-from app.forms import ProductDetailsForm, ProductForm
+from app.forms import ProductForm
 
 product_routes = Blueprint("product", __name__)
 
@@ -51,7 +51,8 @@ def create_product():
             SKU = data['SKU'],
             name = data['name'],
             price = data['price'],
-            inventory = data['inventory']
+            inventory = data['inventory'],
+            user_id = data['userId']
         )
         db.session.add(new_product)
         db.session.commit()
@@ -65,32 +66,6 @@ def create_product():
         return {
             "errors": form.errors
         }
-
-
-# Add Product Details
-# Authorized user: logged in
-@product_routes.route('/create-details', methods=['POST'])
-@login_required
-def create_product_details():
-    # print('-----------------------------Add Product Details--------------------------------')
-    form = ProductForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
-        # print("-----------within form validate------------")
-        data = form.data
-        new_product_details = Product_Detail(
-            desc = data['desc'],
-        )
-        db.session.add(new_product_details)
-        db.session.commit()
-        # print("-----------------------------befure success return-----------------------------")
-        return {
-            "product": new_product_details.to_dict()
-        }
-    # print("------------------------------------before error return-----------------------------------")
-    return {
-        "errors": form.errors
-    }
 
 
 # Delete a Product

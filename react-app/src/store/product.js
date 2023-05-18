@@ -45,12 +45,13 @@ export const getSingleProductTHUNK = (productId) => async (dispatch) => {
 // Product -> Details
 export const postProductTHUNK = (payload) => async (dispatch) => {
     console.log('----Post Product----')
-    const { SKU, name, price, desc, inventory } = payload
+    const { SKU, name, price, desc, inventory, userId } = payload
     const payloadProduct = {
         SKU,
         name,
         price,
-        inventory
+        inventory,
+        ownerId: userId
     }
     console.log("before response")
     const response = await fetch("/api/products/create", {

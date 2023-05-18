@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { postProductTHUNK } from '../../store/product';
 
 import './GroupForm.css'
@@ -7,6 +7,7 @@ import '../UniversalCSS.css'
 
 
 export default function ProductForm() {
+    const user = useSelector((state) => state.session.user)
     const dispatch = useDispatch();
 
     const [sku, setSKU] = useState("");
@@ -25,7 +26,8 @@ export default function ProductForm() {
                 name,
                 price,
                 desc: description,
-                inventory
+                inventory,
+                userId: user.id
             }
 
             // Error if SKU already exists for a product
