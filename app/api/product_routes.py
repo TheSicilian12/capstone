@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from app.models import Product, Product_Detail, Product_Inventory, db, User
+from app.models import Product, Product_Detail, db, User
 from flask_login import login_required, current_user
 from app.forms import ProductDetailsForm, ProductForm
 
@@ -85,28 +85,6 @@ def create_product_details():
         "errors": form.errors
     }
 
-
-# Add Product Invetory
-# Authorized user: logged in
-@product_routes.route('/create-inventory', methods=['POST'])
-@login_required
-def create_product_inventory():
-    # print('-----------------------------Add Product Inventory--------------------------------')
-    form = ProductForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
-        data = form.data
-        new_product_inventory = Product_Detail(
-            inventory = data['inventory'],
-        )
-        db.session.add(new_product_inventory)
-        db.session.commit()
-        return {
-            "product": new_product_inventory.to_dict()
-        }
-    return {
-        "errors": form.errors
-    }
 
 # Delete a Product
 # Authorized user: logged in and owner of product

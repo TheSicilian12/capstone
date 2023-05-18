@@ -6,5 +6,4 @@ from .cart import Cart
 from .category import Category
 from .comment import Comment
 from .product_details import Product_Detail
-from .product_inventory import Product_Inventory
 from .product import Product
