@@ -28,8 +28,8 @@ class Product(db.Model):
             'SKU': self.SKU,
             'name': self.name,
             'price': self.price,
-            'categoryId': self.category_id,
+            # 'categoryId': self.category_id,
             'desc': self.desc,
-            'ownerId': self.user_id,
+            'ownerId': self.owner_id,
             'inventory': self.inventory,
         }

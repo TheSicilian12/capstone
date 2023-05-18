@@ -45,7 +45,8 @@ export const getSingleProductTHUNK = (productId) => async (dispatch) => {
 // Product -> Details
 export const postProductTHUNK = (payload) => async (dispatch) => {
     console.log('----Post Product----')
-    // const { SKU, name, price, desc, inventory, owner_id } = payload
+    const { SKU, name, price, desc, inventory, owner_id } = payload
+    console.log("thunk desc: ", desc)
     // const payloadProduct = {
     //     SKU,
     //     name,

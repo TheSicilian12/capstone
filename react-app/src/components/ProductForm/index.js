@@ -15,7 +15,7 @@ export default function ProductForm() {
     const [price, setPrice] = useState("");
     const [desc, setDesc] = useState("");
     const [inventory, setInventory] = useState("");
-
+    console.log("desc: ", desc)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -25,7 +25,7 @@ export default function ProductForm() {
                 SKU: sku,
                 name,
                 price,
-                desc: desc,
+                desc,
                 inventory,
                 owner_id: user.id
             }

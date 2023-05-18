@@ -45,6 +45,8 @@ def create_product():
     print('-----------------------------Add Product--------------------------------')
     form = ProductForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    # print form.data to see what the form is receiving
+    print("-------------------------------------", form.data)
     if form.validate_on_submit():
         data = form.data
         new_product = Product(
