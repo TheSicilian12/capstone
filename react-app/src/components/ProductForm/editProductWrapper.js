@@ -24,6 +24,6 @@ export default function EditProductForm() {
     }
 
     return (
-        <ProductForm productInfo={productInfo}/>
+        <ProductForm productInfo={productInfo} formType={"edit"} productId={productId}/>
     )
 }

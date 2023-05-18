@@ -68,6 +68,25 @@ export const postProductTHUNK = (payload) => async (dispatch) => {
     }
 }
 
+export const editProductTHUNK = (payload) => async (dispatch) => {
+    console.log("----------------Edit Product---------------------------")
+    console.log(payload)
+    // const { SKU, name, price, desc, inventory, owner_id } = payload
+    const response = await fetch(`/api/products/${payload.productId}/update`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(
+            payload
+        )
+    })
+    if (response.ok) {
+        const data = await response.json()
+        return data
+    }
+}
+
 
 const initialState = {}
 

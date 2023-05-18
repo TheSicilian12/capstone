@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
-import { postProductTHUNK } from '../../store/product';
+import { editProductTHUNK, postProductTHUNK } from '../../store/product';
 
 
 import './GroupForm.css'
 import '../UniversalCSS.css'
 
 
-export default function ProductForm({productInfo}) {
+export default function ProductForm({productInfo, formType, productId}) {
     // console.log("productInfo: ", productInfo ? productInfo.SKU : "test")
+    console.log("edit: ", formType)
     const user = useSelector((state) => state.session.user)
     const dispatch = useDispatch();
     const history = useHistory();
@@ -24,7 +25,7 @@ export default function ProductForm({productInfo}) {
         e.preventDefault()
 
         if (sku && name && price && desc && inventory) {
-            const payload = {
+            let payload = {
                 SKU: sku,
                 name,
                 price,
@@ -33,12 +34,19 @@ export default function ProductForm({productInfo}) {
                 owner_id: user.id
             }
 
-            // Error if SKU already exists for a product
-            const createProduct = await dispatch(postProductTHUNK(payload))
+            let data
+            if (formType === "new") {
+                data = await dispatch(postProductTHUNK(payload))
+            }
             // console.log("createProduct: ", createProduct)
-            if (createProduct) {
+            if (formType === "edit") {
+                payload.productId = productId
+                data = await dispatch(editProductTHUNK(payload))
+            }
+
+            if (data) {
                 // console.log(createProduct.product.id)
-                history.push(`/products/${createProduct.product.id}`)
+                history.push(`/products/${data.product.id}`)
             }
         } else {
             return console.log("ERROR")

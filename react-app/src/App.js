@@ -32,7 +32,7 @@ function App() {
             <HomePage />
           </Route>
           <Route path="/products/new" exact>
-            <ProductForm />
+            <ProductForm formType={"new"}/>
           </Route>
           <Route path="/products/:productId/edit" exact>
             <EditProductForm />
