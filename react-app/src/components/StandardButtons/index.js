@@ -16,6 +16,4 @@ export default function StandardButtons({text, path}) {
             {text}
         </button>
     )
-
-
 }

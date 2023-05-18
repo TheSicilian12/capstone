@@ -2,10 +2,14 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
+
+import DeleteSingleProductModal from '../DeleteSingleProductModal';
+
 import './SingleProduct.css'
 import '../UniversalCSS.css'
 import StandardButtons from '../StandardButtons';
 import { getSingleProductTHUNK } from '../../store/product';
+import OpenModalButton from '../OpenModalButton';
 
 export default function SingleProduct() {
     const dispatch = useDispatch();
@@ -30,7 +34,12 @@ export default function SingleProduct() {
 
             <div>
                 <StandardButtons text="edit" path={`/products/${productId}/edit`} />
-                <StandardButtons text="delete" />
+                {/* <StandardButtons text="delete" /> */}
+                <OpenModalButton
+                    buttonText="Sign Up"
+                   
+                    modalComponent={<DeleteSingleProductModal />}
+            />
             </div>
 
         </div>
