@@ -3,6 +3,7 @@ import normalize from "./normalizer"
 const LOAD = 'products/all'
 const LOAD_ONE = 'products/single'
 const POST_PRODUCT = 'products/post'
+const DELETE_PRODUCT = 'products/delete'
 
 const load = (data) => ({
     type: LOAD,
@@ -19,7 +20,7 @@ const postProduct = (data) => ({
     payload: data
 })
 
-// Get All Products THUNK
+// Get all products THUNK
 export const getAllProductsTHUNK = () => async (dispatch) => {
     const response = await fetch('/api/products')
     if (response.ok) {
@@ -29,7 +30,7 @@ export const getAllProductsTHUNK = () => async (dispatch) => {
     }
 }
 
-// Get Single Product by Id THUNK
+// Get single product by id THUNK
 export const getSingleProductTHUNK = (productId) => async (dispatch) => {
     // console.log('----Get Single Product THUNK----')
     const response = await fetch(`/api/products/${productId}`)
@@ -41,7 +42,7 @@ export const getSingleProductTHUNK = (productId) => async (dispatch) => {
     }
 }
 
-// Create a Product THUNK
+// Create a product THUNK
 // Product -> Details
 export const postProductTHUNK = (payload) => async (dispatch) => {
     // console.log('----Post Product----')
@@ -68,7 +69,7 @@ export const postProductTHUNK = (payload) => async (dispatch) => {
     }
 }
 
-// Edit a route by Id THUNK
+// Edit a product by id THUNK
 export const editProductTHUNK = (payload, productId) => async (dispatch) => {
     console.log("----------------Edit Product---------------------------")
     console.log(payload)
@@ -88,6 +89,21 @@ export const editProductTHUNK = (payload, productId) => async (dispatch) => {
     }
 }
 
+// Delete a product by id THUNK
+export const deleteProductTHUNK = (productId) => async (dispatch) => {
+    const response = await fetch(`/api/products/${productId}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+    if (response.ok) {
+        return "Success"
+    }
+    else {
+        return ["Failure"]
+    }
+}
 
 const initialState = {}
 
