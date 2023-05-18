@@ -27,7 +27,7 @@ export default function ProductForm() {
                 price,
                 desc: description,
                 inventory,
-                userId: user.id
+                owner_id: user.id
             }
 
             // Error if SKU already exists for a product

@@ -19,6 +19,6 @@ class ProductForm(FlaskForm):
     desc = StringField(
         'desc', validators=[DataRequired()]
     ),
-    user_id = IntegerField(
-        'user_id', validators=[DataRequired()]
+    owner_id = IntegerField(
+        'owner_id', validators=[DataRequired()]
     )

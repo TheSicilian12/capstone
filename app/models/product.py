@@ -18,7 +18,7 @@ class Product(db.Model):
 
     # Foreign Keys
     # category_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("categories.id")))
-    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
+    owner_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
 
     # Relationships
 

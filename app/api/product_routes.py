@@ -53,7 +53,7 @@ def create_product():
             price = data['price'],
             inventory = data['inventory'],
             desc=data['desc'],
-            user_id = data['userId']
+            owner_id = data['owner_id']
         )
         db.session.add(new_product)
         db.session.commit()
