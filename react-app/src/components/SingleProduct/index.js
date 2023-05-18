@@ -34,10 +34,9 @@ export default function SingleProduct() {
 
             <div>
                 <StandardButtons text="edit" path={`/products/${productId}/edit`} />
-                {/* <StandardButtons text="delete" /> */}
                 <OpenModalButton
-                    buttonText="Sign Up"
-                   
+                    buttonText="Delete"
+                    className="buttons-small"
                     modalComponent={<DeleteSingleProductModal />}
             />
             </div>
