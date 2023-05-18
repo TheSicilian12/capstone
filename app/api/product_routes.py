@@ -83,23 +83,28 @@ def edit_product(id):
     """
     print("--------------------------Edit Product-----------------------------")
 
-    product = Product.query.get(id)
-
-    # Can only be edited by onwer of the product
-    if current_user.id != product.owner_id:
-        return {"errors": "Not an authorized route"}
-
     form = ProductForm()
-    print("-------------------form data: ", form.data)
     form['csrf_token'].data = request.cookies['csrf_token']
+    print("------------------------------form data: ", form.data)
+
+
     if form.validate_on_submit():
+        product = Product.query.get(id)
+
+        # Can only be edited by onwer of the product
+        if current_user.id != product.owner_id:
+            return {"errors": "Not an authorized route"}
+
         product.SKU = form.data["SKU"]
-        product.name = form.data['name'],
-        product.price = form.data['price'],
-        product.inventory = form.data['inventory'],
-        product.desc = form.data['desc'],
+        product.name = form.data['name']
+        product.price = form.data['price']
+        product.inventory = form.data['inventory']
+        product.desc = form.data['desc']
         db.session.commit()
-        return product.to_dict()
+        return {
+            "product": product.to_dict()
+            }
+
     else:
         return {"errors": form.errors}
 
