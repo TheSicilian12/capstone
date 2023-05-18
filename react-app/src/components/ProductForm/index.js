@@ -8,17 +8,17 @@ import './GroupForm.css'
 import '../UniversalCSS.css'
 
 
-export default function ProductForm() {
+export default function ProductForm({productInfo}) {
+    // console.log("productInfo: ", productInfo ? productInfo.SKU : "test")
     const user = useSelector((state) => state.session.user)
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const [sku, setSKU] = useState("");
-    const [name, setName] = useState("");
-    const [price, setPrice] = useState("");
-    const [desc, setDesc] = useState("");
-    const [inventory, setInventory] = useState("");
-    console.log("desc: ", desc)
+    const [sku, setSKU] = useState(productInfo ? productInfo.SKU : "");
+    const [name, setName] = useState(productInfo ? productInfo.name : "");
+    const [price, setPrice] = useState(productInfo ? productInfo.price : "");
+    const [desc, setDesc] = useState(productInfo ? productInfo.desc : "");
+    const [inventory, setInventory] = useState(productInfo ? productInfo.inventory : "");
 
     const handleSubmit = async (e) => {
         e.preventDefault()
