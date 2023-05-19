@@ -18,10 +18,24 @@ def get_all_carts():
     return {'carts': response}
 
 
+# Get single cart
+@cart_routes.route('/<int:user_id>')
+# @login_required
+def get_single_cart(user_id):
+    """
+    Query for single cart
+    """
+    print("--------------------------Get Single Cart--------------------------------")
+    single_cart = Cart.query.filter(Cart.user_id == user_id).all()
+    response = [cart.to_dict() for cart in single_cart]
+    print("------------------------response: ", response[0])
+    return {'carts': response}
+
+
 # Get all items by cart id
-@cart_routes.route('/<int:id>')
+@cart_routes.route('/<int:id>/items')
 @login_required
-def get_single_carts(id):
+def get_items_single_cart(id):
     """
     Query for items by cart id
     """
@@ -41,12 +55,13 @@ def get_single_carts(id):
 
 
 # Add an item to a cart by id
-@cart_routes.route('/add-item')
+@cart_routes.route('/add', methods=["POST"])
 @login_required
 def post_item_carts():
     """
     Post a single item to a cart
     """
+    print("-------------------------Add item to cart by id----------------------------------")
     form = CartItemForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():

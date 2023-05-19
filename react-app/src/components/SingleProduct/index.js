@@ -8,13 +8,14 @@ import './SingleProduct.css'
 import '../UniversalCSS.css'
 import StandardButtons from '../StandardButtons';
 import { getSingleProductTHUNK } from '../../store/product';
-import { postItemCartTHUNK } from '../../store/cart'
+import { postItemCartTHUNK, getSingleCartTHUNK } from '../../store/cart'
 import OpenModalButton from '../OpenModalButton';
 
 export default function SingleProduct() {
     const dispatch = useDispatch();
     const products = useSelector(state => state.products)
     const user = useSelector(state => state.session.user)
+    const cart = useSelector(state => state.cart.carts)
 
     const productId = Number(useParams().productId)
 
@@ -22,6 +23,7 @@ export default function SingleProduct() {
     // console.log('singleProduct: ', singleProduct)
     useEffect(() => {
         dispatch(getSingleProductTHUNK(productId))
+        dispatch(getSingleCartTHUNK(user.id))
     }, [dispatch])
 
     if (!singleProduct) return <div>loading</div>
@@ -29,13 +31,13 @@ export default function SingleProduct() {
     // console.log("products: ", products)
 
     const addProduct = () => {
+        console.log("cart: ", cart.id)
         console.log("userId: ", user.id)
         console.log("productId: ", productId)
         const payload = {
-            user_id: user.id,
+            cart_id: cart.id,
             product_id: productId
         }
-
         dispatch(postItemCartTHUNK(payload))
     }
 

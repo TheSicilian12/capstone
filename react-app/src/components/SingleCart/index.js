@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import './SingleCart.css'
 import '../UniversalCSS.css'
-import { getSingleCartTHUNK } from '../../store/cart';
+import { getItemsSingleCartTHUNK } from '../../store/cart';
 
 export default function SingleProduct() {
     const dispatch = useDispatch();
@@ -13,12 +13,13 @@ export default function SingleProduct() {
     const cartId = Number(useParams().cartId)
 
     const singleCart = cart.items
+
     console.log('singleCart: ', singleCart)
     useEffect(() => {
-        dispatch(getSingleCartTHUNK(cartId))
+        dispatch(getItemsSingleCartTHUNK(cartId))
     }, [dispatch])
 
-    if (!singleCart) return <div>loading cart</div>
+    if (!singleCart) return <div>loading</div>
 
     console.log("cart: ", cart)
 
