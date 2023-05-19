@@ -29,7 +29,7 @@ def get_single_cart(user_id):
     single_cart = Cart.query.filter(Cart.user_id == user_id).all()
     response = [cart.to_dict() for cart in single_cart]
     print("------------------------response: ", response[0])
-    return {'carts': response}
+    return {'carts': response[0]}
 
 
 # Get all items by cart id

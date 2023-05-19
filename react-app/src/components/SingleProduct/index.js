@@ -16,6 +16,7 @@ export default function SingleProduct() {
     const products = useSelector(state => state.products)
     const user = useSelector(state => state.session.user)
     const cart = useSelector(state => state.cart.carts)
+    // console.log("cart: ", typeof cart)
 
     const productId = Number(useParams().productId)
 
