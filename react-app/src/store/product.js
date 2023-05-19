@@ -1,17 +1,17 @@
 import normalize from "./normalizer"
 
-const LOAD = 'products/all'
-const LOAD_ONE = 'products/single'
+const LOAD_PRODUCT = 'products/all'
+const LOAD_ONE_PRODUCT = 'products/single'
 const POST_PRODUCT = 'products/post'
 const DELETE_PRODUCT = 'products/delete'
 
 const load = (data) => ({
-    type: LOAD,
+    type: LOAD_PRODUCT,
     payload: data
 })
 
 const loadOne = (data) => ({
-    type: LOAD_ONE,
+    type: LOAD_ONE_PRODUCT,
     payload: data
 })
 
@@ -22,6 +22,7 @@ const postProduct = (data) => ({
 
 // Get all products THUNK
 export const getAllProductsTHUNK = () => async (dispatch) => {
+    console.log("----Get all products THUNK----")
     const response = await fetch('/api/products')
     if (response.ok) {
         const await_response = await response.json();
@@ -32,7 +33,7 @@ export const getAllProductsTHUNK = () => async (dispatch) => {
 
 // Get single product by id THUNK
 export const getSingleProductTHUNK = (productId) => async (dispatch) => {
-    // console.log('----Get Single Product THUNK----')
+    console.log('----Get Single Product THUNK----')
     const response = await fetch(`/api/products/${productId}`)
     // console.log('after response: ', response)
     if (response.ok) {
@@ -91,6 +92,7 @@ export const editProductTHUNK = (payload, productId) => async (dispatch) => {
 
 // Delete a product by id THUNK
 export const deleteProductTHUNK = (productId) => async (dispatch) => {
+    console.log("----Delete product THUNK----")
     const response = await fetch(`/api/products/${productId}`, {
         method: "DELETE",
         headers: {
@@ -109,12 +111,12 @@ const initialState = {}
 
 export default function productReducer(state = initialState, action) {
     switch (action.type) {
-        case LOAD: {
+        case LOAD_PRODUCT: {
             // console.log("action: ", action.payload.products)
-            const newState = { ...action.payload }
+            const newState = {...action.payload }
             return newState
         }
-        case LOAD_ONE: {
+        case LOAD_ONE_PRODUCT: {
             const newState = { ...action.payload }
             return newState
         }

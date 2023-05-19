@@ -19,7 +19,7 @@ class Cart_Item(db.Model):
         return {
             'id': self.id,
             'cartId': self.cart_id,
-            'productId': self.productId,
+            'productId': self.product_id,
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }
