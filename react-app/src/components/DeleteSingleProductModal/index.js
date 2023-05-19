@@ -1,15 +1,17 @@
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
+import { deleteProductTHUNK } from "../../store/product";
 import "./DeleteSingleProductModal.css";
 import '../UniversalCSS.css'
 
-export default function DeleteSingleProductModal() {
+export default function DeleteSingleProductModal({productId}) {
   const dispatch = useDispatch();
-
   const { closeModal } = useModal();
 
+  const id = productId
+
   const deleter = async () => {
-    // await dispatch(deleteProduct(id))
+    await dispatch(deleteProductTHUNK(id))
     closeModal()
   };
 

@@ -37,7 +37,7 @@ export default function SingleProduct() {
                 <OpenModalButton
                     buttonText="Delete"
                     className="buttons-small"
-                    modalComponent={<DeleteSingleProductModal />}
+                    modalComponent={<DeleteSingleProductModal productId={productId}/>}
             />
             </div>
 
