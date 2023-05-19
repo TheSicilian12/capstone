@@ -45,8 +45,25 @@ export const getSingleCartTHUNK = (cartId) => async (dispatch) => {
 
         dispatch(loadOne(singleCart))
     }
-
 }
+
+// Add an item to a cart by id
+export const postItemCartTHUNK = (payload) => async (dispatch) => {
+    const response = await fetch("/api/carts/add-item", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(
+            payload
+        )
+    })
+    if (response.ok) {
+        const data = await response.json()
+        return data
+    }
+}
+
 
 const initialState = {}
 

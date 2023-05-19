@@ -31,6 +31,7 @@ export default function SingleProduct() {
                     <div key={item.id}>
                         {/* <NavLink key={item.id} to={`/products/${item.id}`}>{item.SKU}</NavLink> */}
                         <ul>{item.id}</ul>
+                        <ul>{item.product.name}</ul>
                     </div>
                 )
             })}

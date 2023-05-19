@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from app.models import Cart, Cart_Item, Product, db, User
 from flask_login import login_required, current_user
-# from app.forms import ProductForm
+from app.forms import CartItemForm
 
 cart_routes = Blueprint("cart", __name__)
 
@@ -38,3 +38,28 @@ def get_single_carts(id):
 
     # print("response: ", response)
     return {'items': response}
+
+# Add an item to a cart by id
+@cart_routes.route('/add-item')
+@login_required
+def post_item_carts():
+    """
+    Post a single item to a cart
+    """
+    form = CartItemForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        data = form.data
+        new_item = Cart_Item(
+            cart_id = data['cart_id'],
+            product_id = data['product_id']
+        )
+        db.session.add(new_item)
+        db.session.commit()
+        return {
+            "item": new_item.to_dict()
+        }
+    else:
+        return {
+            "errors": form.errors
+        }
