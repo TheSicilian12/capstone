@@ -9,6 +9,7 @@ import HomePage from "./components/HomePage";
 import SingleProduct from "./components/SingleProduct";
 import ProductForm from "./components/ProductForm";
 import EditProductForm from "./components/ProductForm/editProductWrapper";
+import AllCarts from "./components/AllCarts";
 
 function App() {
   const dispatch = useDispatch();
@@ -39,6 +40,9 @@ function App() {
           </Route>
           <Route path="/products/:productId" exact>
             <SingleProduct />
+          </Route>
+          <Route path="/carts" exact>
+            <AllCarts />
           </Route>
         </Switch>
       )}
