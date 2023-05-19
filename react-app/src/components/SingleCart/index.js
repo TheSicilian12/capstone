@@ -18,7 +18,7 @@ export default function SingleProduct() {
         dispatch(getSingleCartTHUNK(cartId))
     }, [dispatch])
 
-    if (!singleCart) return <div>loading</div>
+    if (!singleCart) return <div>loading cart</div>
 
     console.log("cart: ", cart)
 

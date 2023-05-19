@@ -19,7 +19,7 @@ export default function SingleProduct() {
     const productId = Number(useParams().productId)
 
     const singleProduct = products.product
-    console.log('singleProduct: ', singleProduct)
+    // console.log('singleProduct: ', singleProduct)
     useEffect(() => {
         dispatch(getSingleProductTHUNK(productId))
     }, [dispatch])
@@ -29,9 +29,14 @@ export default function SingleProduct() {
     // console.log("products: ", products)
 
     const addProduct = () => {
+        console.log("userId: ", user.id)
+        console.log("productId: ", productId)
+        const payload = {
+            user_id: user.id,
+            product_id: productId
+        }
 
-
-        // dispatch(postItemCartTHUNK())
+        dispatch(postItemCartTHUNK(payload))
     }
 
     return(

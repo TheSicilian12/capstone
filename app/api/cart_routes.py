@@ -39,6 +39,7 @@ def get_single_carts(id):
     # print("response: ", response)
     return {'items': response}
 
+
 # Add an item to a cart by id
 @cart_routes.route('/add-item')
 @login_required

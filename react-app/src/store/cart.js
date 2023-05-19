@@ -1,5 +1,4 @@
 import normalize from "./normalizer"
-import { getSingleProductTHUNK } from "./product"
 
 const LOAD = 'products/all'
 const LOAD_ONE = 'products/single'
@@ -31,18 +30,10 @@ export const getSingleCartTHUNK = (cartId) => async (dispatch) => {
     // console.log("----Get Single Cart THUNK----")
     // console.log("before response")
     const response = await fetch(`/api/carts/${cartId}`)
-    // console.log("after response")
     if (response.ok) {
-        // console.log("response if")
         const await_response = await response.json();
         console.log("await_response: ", await_response.items)
-
-        // await_response.items.forEach(item =>
-        //     dispatch(getSingleProductTHUNK(item.productId))
-        // )
-
         const singleCart = normalize(await_response.items)
-
         dispatch(loadOne(singleCart))
     }
 }
@@ -73,6 +64,7 @@ export default function cartReducer(state = initialState, action) {
             const newState = { ...action.payload }
             return newState
         }
+        //this mimics the product and does not reflect the cart
         case LOAD_ONE: {
             const newState = { items: {...action.payload} }
             return newState
