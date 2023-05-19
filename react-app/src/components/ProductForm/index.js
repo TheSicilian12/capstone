@@ -10,7 +10,7 @@ import '../UniversalCSS.css'
 
 export default function ProductForm({productInfo, formType, productId}) {
     // console.log("productInfo: ", productInfo ? productInfo.SKU : "test")
-    console.log("edit: ", formType)
+    console.log("formType: ", formType)
     const user = useSelector((state) => state.session.user)
     const dispatch = useDispatch();
     const history = useHistory();
@@ -20,6 +20,7 @@ export default function ProductForm({productInfo, formType, productId}) {
     const [price, setPrice] = useState(productInfo ? productInfo.price : "");
     const [desc, setDesc] = useState(productInfo ? productInfo.desc : "");
     const [inventory, setInventory] = useState(productInfo ? productInfo.inventory : "");
+
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -36,14 +37,17 @@ export default function ProductForm({productInfo, formType, productId}) {
 
             let data
             if (formType === "new") {
+                console.log("new if statement")
                 data = await dispatch(postProductTHUNK(payload))
             }
             // console.log("createProduct: ", createProduct)
             if (formType === "edit") {
+                console.log("edit if statement")
                 data = await dispatch(editProductTHUNK(payload, productId))
             }
 
             if (data) {
+                console.log("data if statement")
                 // console.log(createProduct.product.id)
                 history.push(`/products/${data.product.id}`)
             }

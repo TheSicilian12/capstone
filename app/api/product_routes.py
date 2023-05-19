@@ -38,7 +38,8 @@ def get_single_product(id):
 # Authorized user: logged in
 @product_routes.route('/create', methods=['POST'])
 @login_required
-def create_product(payload):
+# def create_product(payload):
+def create_product():
     """
     Create a product
     """
@@ -47,30 +48,29 @@ def create_product(payload):
     form['csrf_token'].data = request.cookies['csrf_token']
     # print form.data to see what the form is receiving
     # print("-------------------------------------", form.data)
-    # print("--------------------------------------", request.method)
-    if request.method == "POST":
-        if form.validate_on_submit():
-            data = form.data
-            new_product = Product(
-                SKU = data['SKU'],
-                name = data['name'],
-                price = data['price'],
-                inventory = data['inventory'],
-                desc=data['desc'],
-                owner_id = data['owner_id']
-            )
-            db.session.add(new_product)
-            db.session.commit()
-            # print('--------------------------------------------new_product: ')
-            print('-------------------------------before success return--------------------------')
-            return {
-                "product": new_product.to_dict()
-            }
-        else:
-            print('----------------------------before error return--------------------------------')
-            return {
-                "errors": form.errors
-            }
+    # pint("--------------------------------------", request.method)
+    if form.validate_on_submit():
+        data = form.data
+        new_product = Product(
+            SKU = data['SKU'],
+            name = data['name'],
+            price = data['price'],
+            inventory = data['inventory'],
+            desc=data['desc'],
+            owner_id = data['owner_id']
+        )
+        db.session.add(new_product)
+        db.session.commit()
+        # print('--------------------------------------------new_product: ')
+        print('-------------------------------before success return--------------------------')
+        return {
+            "product": new_product.to_dict()
+        }
+    else:
+        print('----------------------------before error return--------------------------------')
+        return {
+            "errors": form.errors
+        }
 
 
 # Edit a Product by Id
