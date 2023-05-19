@@ -38,7 +38,8 @@ export default function SingleProduct() {
                     buttonText="Delete"
                     className="buttons-small"
                     modalComponent={<DeleteSingleProductModal productId={productId}/>}
-            />
+                />
+                <button>Add to shopping cart</button>
             </div>
 
         </div>
