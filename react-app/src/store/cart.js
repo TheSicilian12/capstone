@@ -26,11 +26,16 @@ export const getAllCartsTHUNK = () => async (dispatch) => {
 
 // Get a single cart by id THUNK
 export const getSingleCartTHUNK = (cartId) => async (dispatch) => {
-    const response = await fetch(`/api/carts/test/${cartId}`)
+    console.log("----Get Single Cart THUNK----")
+    console.log("before response")
+    const response = await fetch(`/api/carts/${cartId}`)
+    console.log("after response")
     if (response.ok) {
+        console.log("response if")
         const await_response = await response.json();
         dispatch(loadOne(await_response))
     }
+
 }
 
 const initialState = {}

@@ -8,6 +8,7 @@ cart_routes = Blueprint("cart", __name__)
 # Get all carts
 # just for testing
 @cart_routes.route('')
+@login_required
 def get_all_carts():
     """
     Query for all carts
@@ -18,11 +19,14 @@ def get_all_carts():
 
 
 # Get all items by cart id
-# @cart_routes.route('/test/<int:id>')
-# def get_all_carts(id):
-#     """
-#     Query for items by cart id
-#     """
-#     cart_items = Cart_Item.query.filter(Cart_Item.cart_id == 1).all
-#     responsetest = [item.to_dict() for item in cart_items]
-#     return {'items': responsetest}
+@cart_routes.route('/<int:id>')
+@login_required
+def get_single_carts(id):
+    """
+    Query for items by cart id
+    """
+    # print("------------------------------------GET ALL ITEMS BY CART ID------------------------------------------------")
+    cart_items = Cart_Item.query.filter(Cart_Item.cart_id == id).all()
+    # print("--------------------------------------", cart_items)
+    response = [item.to_dict() for item in cart_items]
+    return {'items': response}
