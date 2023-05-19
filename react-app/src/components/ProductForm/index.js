@@ -1,35 +1,52 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { postProductTHUNK } from '../../store/product';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from "react-router-dom";
+import {editProductTHUNK, postProductTHUNK } from '../../store/product';
+
 
 import './GroupForm.css'
 import '../UniversalCSS.css'
 
 
-export default function ProductForm() {
+export default function ProductForm({productInfo, formType, productId}) {
+    // console.log("productInfo: ", productInfo ? productInfo.SKU : "test")
+    console.log("edit: ", formType)
+    const user = useSelector((state) => state.session.user)
     const dispatch = useDispatch();
+    const history = useHistory();
 
-    const [sku, setSKU] = useState("");
-    const [name, setName] = useState("");
-    const [price, setPrice] = useState("");
-    const [description, setDescription] = useState("");
-    const [inventory, setInventory] = useState("");
-
+    const [sku, setSKU] = useState(productInfo ? productInfo.SKU : "");
+    const [name, setName] = useState(productInfo ? productInfo.name : "");
+    const [price, setPrice] = useState(productInfo ? productInfo.price : "");
+    const [desc, setDesc] = useState(productInfo ? productInfo.desc : "");
+    const [inventory, setInventory] = useState(productInfo ? productInfo.inventory : "");
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        if (sku && name && price && description && inventory) {
-            const payload = {
+        if (sku && name && price && desc && inventory) {
+            let payload = {
                 SKU: sku,
                 name,
                 price,
-                desc: description,
-                inventory
+                desc,
+                inventory,
+                owner_id: user.id
             }
 
-            // Error if SKU already exists for a product
-            const createProduct = await dispatch(postProductTHUNK(payload))
+            let data
+            if (formType === "new") {
+                data = await dispatch(postProductTHUNK(payload))
+            }
+            // console.log("createProduct: ", createProduct)
+            if (formType === "edit") {
+                data = await dispatch(editProductTHUNK(payload, productId))
+            }
+
+            if (data) {
+                // console.log(createProduct.product.id)
+                history.push(`/products/${data.product.id}`)
+            }
         } else {
             return console.log("ERROR")
         }
@@ -80,8 +97,8 @@ export default function ProductForm() {
                     Description
                     <input
                         type="text"
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
+                        value={desc}
+                        onChange={(e) => setDesc(e.target.value)}
                         placeholder="description"
                     >
                     </input>

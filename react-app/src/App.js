@@ -7,7 +7,8 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import HomePage from "./components/HomePage";
 import SingleProduct from "./components/SingleProduct";
-import ProductForm from "./components/ProductForm"
+import ProductForm from "./components/ProductForm";
+import EditProductForm from "./components/ProductForm/editProductWrapper";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,10 +32,10 @@ function App() {
             <HomePage />
           </Route>
           <Route path="/products/new" exact>
-            <ProductForm />
+            <ProductForm formType={"new"}/>
           </Route>
           <Route path="/products/:productId/edit" exact>
-            <div>working on new first</div>
+            <EditProductForm />
           </Route>
           <Route path="/products/:productId" exact>
             <SingleProduct />
