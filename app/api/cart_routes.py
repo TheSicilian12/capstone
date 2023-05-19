@@ -18,7 +18,7 @@ def get_all_carts():
 
 
 # Get all items by cart id
-# @cart_routes.route('/<int:id>')
+# @cart_routes.route('/test/<int:id>')
 # def get_all_carts(id):
 #     """
 #     Query for items by cart id
