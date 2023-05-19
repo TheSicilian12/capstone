@@ -14,6 +14,7 @@ import OpenModalButton from '../OpenModalButton';
 export default function SingleProduct() {
     const dispatch = useDispatch();
     const products = useSelector(state => state.products)
+    const user = useSelector(state => state.session.user)
 
     const productId = Number(useParams().productId)
 
@@ -28,6 +29,8 @@ export default function SingleProduct() {
     // console.log("products: ", products)
 
     const addProduct = () => {
+
+
         // dispatch(postItemCartTHUNK())
     }
 
