@@ -26,14 +26,16 @@ export const getAllCartsTHUNK = () => async (dispatch) => {
 
 // Get a single cart by id THUNK
 export const getSingleCartTHUNK = (cartId) => async (dispatch) => {
-    console.log("----Get Single Cart THUNK----")
-    console.log("before response")
+    // console.log("----Get Single Cart THUNK----")
+    // console.log("before response")
     const response = await fetch(`/api/carts/${cartId}`)
-    console.log("after response")
+    // console.log("after response")
     if (response.ok) {
-        console.log("response if")
+        // console.log("response if")
         const await_response = await response.json();
-        dispatch(loadOne(await_response))
+        // console.log("await_response: ", await_response)
+        const singleCart = normalize(await_response.items)
+        dispatch(loadOne(singleCart))
     }
 
 }
@@ -47,7 +49,7 @@ export default function cartReducer(state = initialState, action) {
             return newState
         }
         case LOAD_ONE: {
-            const newState = { ...action.payload }
+            const newState = { items: {...action.payload} }
             return newState
         }
         default:
