@@ -5,20 +5,25 @@ import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import '../UniversalCSS.css'
 
-function Navigation({ isLoaded }){
+function Navigation({ isLoaded }) {
 	const sessionUser = useSelector(state => state.session.user);
 
 	return (
-		<ul>
-			<li>
-				<NavLink exact to="/">Home</NavLink>
-			</li>
-			{isLoaded && (
+		<div className="nav-background nav-container">
+			<ul>
 				<li>
-					<ProfileButton user={sessionUser} />
+					<NavLink exact to="/">Home</NavLink>
 				</li>
-			)}
-		</ul>
+				{isLoaded && (
+					<li>
+						<ProfileButton user={sessionUser} />
+					</li>
+				)}
+			</ul>
+			<div>
+				Shopping Cart Item Total:
+			</div>
+		</div>
 	);
 }
 

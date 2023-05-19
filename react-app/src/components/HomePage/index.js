@@ -1,6 +1,6 @@
-import React, { useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { NavLink } from 'react-router-dom';
 
 import './HomePage.css';
 import '../UniversalCSS.css'
@@ -18,12 +18,14 @@ export default function HomePage() {
 
     console.log("products: ", products)
 
-    return(
+    return (
         <div>
             Hello
             {Object.values(products).map(product => {
                 return (
-                    <div key={product.SKU}>{product.SKU}</div>
+                    <div key={product.SKU}>
+                        <NavLink key={product.SKU} to={`/products/${product.id}`}>{product.SKU}</NavLink>
+                    </div>
                 )
             })}
         </div>

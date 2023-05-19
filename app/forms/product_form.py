@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, IntegerField
+from wtforms import StringField, IntegerField, FloatField
 from wtforms.validators import DataRequired, ValidationError
 from app.models import Product
 
@@ -10,9 +10,16 @@ class ProductForm(FlaskForm):
     name = StringField(
         'name', validators=[DataRequired()]
     )
+    # Change to floatfield
     price = IntegerField(
         'price', validators=[DataRequired()]
     )
     inventory = IntegerField(
-        "inventory", validators=[DataRequired()]
+        'inventory', validators=[DataRequired()]
+    )
+    desc = StringField(
+        'desc', validators=[DataRequired()]
+    )
+    owner_id = IntegerField(
+        'owner_id', validators=[DataRequired()]
     )
