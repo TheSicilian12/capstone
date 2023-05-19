@@ -47,8 +47,9 @@ def get_items_single_cart(id):
 
     for item in response:
         product = Product.query.get(item["productId"])
-        print(product.to_dict())
-        item["product"] = product.to_dict()
+        print("------------------product: ", product)
+        # print(product.to_dict())
+        # item["product"] = product.to_dict()
 
     # print("response: ", response)
     return {'items': response}
@@ -79,3 +80,16 @@ def post_item_carts():
         return {
             "errors": form.errors
         }
+
+
+# Delete an item from a cart by id
+@cart_routes.route('/<int:item_id>', methods=["DELETE"])
+@login_required
+def delete_item_carts(item_id):
+    """
+    Delete an item from a cart by id
+    """
+    item = Product.query.get(item_id)
+    db.session.delete(item)
+    db.session.commit()
+    return "Product deleted"
