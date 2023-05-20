@@ -76,7 +76,7 @@ export const postItemCartTHUNK = (payload) => async (dispatch) => {
 export const deleteItemCartTHUNK = (itemId) => async (dispatch) => {
     // console.log("----Delete item cart THUNK----")
     // console.log("before response")
-    const response = await fetch(`/api/carts/${itemId}`, {
+    const response = await fetch(`/api/carts/${itemId}/item`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",

@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import './SingleCart.css'
 import '../UniversalCSS.css'
-import { getItemsSingleCartTHUNK } from '../../store/cart';
+import { getItemsSingleCartTHUNK, deleteItemCartTHUNK } from '../../store/cart';
 
 export default function SingleProduct() {
     const dispatch = useDispatch();
@@ -24,9 +24,9 @@ export default function SingleProduct() {
     console.log("cart: ", cart)
 
     const remove = (itemId) => {
-        // console.log(itemId)
-        // console.log("remove button")
-        // dispatch(deleteItemCartTHUNK(itemId))
+        console.log(itemId)
+        console.log("remove button")
+        dispatch(deleteItemCartTHUNK(itemId))
     }
 
     return(
@@ -40,7 +40,7 @@ export default function SingleProduct() {
                         <ul>item id: {item.id}</ul>
                         <ul>product name: {item.product.name}</ul>
                         <ul>product id: {item.product.id}</ul>
-                        <button>Remove from cart</button>
+                        <button onClick={() => remove(item.id)}>Remove from cart</button>
                     </div>
                     // <div>hello</div>
                 )

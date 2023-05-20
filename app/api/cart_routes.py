@@ -84,13 +84,13 @@ def post_item_carts():
 
 
 # Delete an item from a cart by id
-@cart_routes.route('/<int:item_id>', methods=["DELETE"])
+@cart_routes.route('/<int:item_id>/item', methods=["DELETE"])
 @login_required
 def delete_item_carts(item_id):
     """
     Delete an item from a cart by id
     """
-    item = Product.query.get(item_id)
+    item = Cart_Item.query.get(item_id)
     db.session.delete(item)
     db.session.commit()
-    return "Product deleted"
+    return "Product deleted from cart"
