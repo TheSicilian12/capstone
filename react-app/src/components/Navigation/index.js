@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import { deleteCartTHUNK, getItemsSingleCartTHUNK, getSingleCartTHUNK, postCartTHUNK } from '../../store/cart';
+
+import { useCart } from '../../context/CartContext';
 import './Navigation.css';
 import '../UniversalCSS.css'
 
@@ -12,14 +14,16 @@ function Navigation({ isLoaded }) {
 	const cartId = useSelector(state => state.cart.id)
 	const dispatch = useDispatch()
 
-	let itemCount
-	items ? itemCount = Object.values(items).length : itemCount = 0
+	const {totalItems, setTotalItems} = useCart()
 
-	console.log("itemCount: ",itemCount)
+	// let itemCount
+	// items ? itemCount = Object.values(items).length : itemCount = 0
 
-	console.log("cartId: ", cartId)
+	// console.log("itemCount: ",itemCount)
+
+	// console.log("cartId: ", cartId)
 	const addCart = () => {
-		console.log("add cart")
+		// console.log("add cart")
 		const payload = {
 			user_id: sessionUser.id,
 			total_price: 0
@@ -28,7 +32,7 @@ function Navigation({ isLoaded }) {
 	}
 
 	const deleteCart = () => {
-		console.log("delete cart")
+		// console.log("delete cart")
 
 		dispatch(deleteCartTHUNK(sessionUser.id))
 	}
@@ -46,7 +50,7 @@ function Navigation({ isLoaded }) {
 				)}
 			</ul>
 			<div>
-				Shopping Cart Item Total: {itemCount}
+				Shopping Cart Item Total: {totalItems}
 			</div>
 			<button onClick={addCart}>Start a cart</button>
 			<button onClick={deleteCart}>Delete your cart</button>

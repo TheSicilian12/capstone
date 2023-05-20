@@ -17,17 +17,17 @@ function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const user = useSelector(state => state.session.user)
-  const cart = useSelector(state => state.cart)
+  // const user = useSelector(state => state.session.user)
+  // const cart = useSelector(state => state.cart)
 
   useEffect(() => {
     dispatch(authenticate()).then(() => setIsLoaded(true));
-    dispatch(getSingleCartTHUNK(1))
+    // dispatch(getSingleCartTHUNK(1))
   }, [dispatch]);
 
 
-  console.log("---------------------user: ", user)
-  console.log("---------------------cart: ", cart)
+  // console.log("---------------------user: ", user)
+  // console.log("---------------------cart: ", cart)
 
   return (
     <>
