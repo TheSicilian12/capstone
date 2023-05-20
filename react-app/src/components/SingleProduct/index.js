@@ -10,6 +10,7 @@ import StandardButtons from '../StandardButtons';
 import { getSingleProductTHUNK } from '../../store/product';
 import { postItemCartTHUNK, getSingleCartTHUNK } from '../../store/cart'
 import OpenModalButton from '../OpenModalButton';
+import AddItemCart from '../AddItemCart';
 
 export default function SingleProduct() {
     const dispatch = useDispatch();
@@ -29,18 +30,8 @@ export default function SingleProduct() {
 
     if (!singleProduct) return <div>loading</div>
 
-    // console.log("products: ", products)
-
-    const addProduct = () => {
-        console.log("cart: ", cart.id)
-        console.log("userId: ", user.id)
-        console.log("productId: ", productId)
-        const payload = {
-            cart_id: cart.id,
-            product_id: productId
-        }
-        dispatch(postItemCartTHUNK(payload))
-    }
+    const cartId = cart?.id
+    const userId = user.id
 
     return(
         <div className="single-product-image-container border-black">
@@ -54,7 +45,7 @@ export default function SingleProduct() {
                     className="buttons-small"
                     modalComponent={<DeleteSingleProductModal productId={productId}/>}
                 />
-                <button onClick={addProduct}>Add to shopping cart</button>
+                <AddItemCart cartId={cartId} userId={userId} productId={productId}/>
             </div>
 
         </div>

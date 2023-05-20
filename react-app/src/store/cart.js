@@ -150,7 +150,7 @@ export const deleteItemCartTHUNK = (itemId) => async (dispatch) => {
 
 
 const initialState = {
-    totalPrice: {}
+    totalPrice: {},
 }
 
 export default function cartReducer(state = initialState, action) {
@@ -162,7 +162,7 @@ export default function cartReducer(state = initialState, action) {
         //this mimics the product and does not reflect the cart
         case LOAD_ONE_CART: {
             console.log("reducer: ", action.payload)
-            const newState = { items: {...action.payload.items}, totalPrice: action.payload.totalPrice  }
+            const newState = { ...state, items: {...action.payload.items}, totalPrice: action.payload.totalPrice  }
             return newState
         }
         case DELETE_ITEM_CART: {
