@@ -149,7 +149,9 @@ export const deleteItemCartTHUNK = (itemId) => async (dispatch) => {
 }
 
 
-const initialState = {}
+const initialState = {
+    totalPrice: {}
+}
 
 export default function cartReducer(state = initialState, action) {
     switch (action.type) {

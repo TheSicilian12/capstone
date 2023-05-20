@@ -8,8 +8,14 @@ import '../UniversalCSS.css'
 
 function Navigation({ isLoaded }) {
 	const sessionUser = useSelector(state => state.session.user);
+	const items = useSelector(state => state.cart?.items)
 	const dispatch = useDispatch()
 	const cartId = useSelector(state => state.cart.id)
+
+	let itemCount
+	items ? itemCount = Object.values(items).length : itemCount = 0
+
+	console.log(itemCount)
 
 	console.log("cartId: ", cartId)
 	const addCart = () => {
@@ -40,7 +46,7 @@ function Navigation({ isLoaded }) {
 				)}
 			</ul>
 			<div>
-				Shopping Cart Item Total:
+				Shopping Cart Item Total: {itemCount}
 			</div>
 			<button onClick={addCart}>Start a cart</button>
 			<button onClick={deleteCart}>Delete your cart</button>
