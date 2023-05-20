@@ -1,12 +1,24 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import { postCartTHUNK } from '../../store/cart';
 import './Navigation.css';
 import '../UniversalCSS.css'
 
 function Navigation({ isLoaded }) {
 	const sessionUser = useSelector(state => state.session.user);
+	const dispatch = useDispatch()
+
+	const addCart = () => {
+		console.log("add cart")
+		const payload = {
+			user_id: sessionUser.id,
+			total_price: 1
+		}
+
+		dispatch(postCartTHUNK(payload))
+	}
 
 	return (
 		<div className="nav-background nav-container">
@@ -23,6 +35,7 @@ function Navigation({ isLoaded }) {
 			<div>
 				Shopping Cart Item Total:
 			</div>
+			<button onClick={addCart}>Start a cart</button>
 		</div>
 	);
 }

@@ -65,7 +65,7 @@ export const getItemsSingleCartTHUNK = (cartId) => async (dispatch) => {
 // Add an item to a cart by id
 export const postItemCartTHUNK = (payload) => async (dispatch) => {
     console.log("----Add item to cart----")
-    const response = await fetch("/api/carts/add", {
+    const response = await fetch("/api/carts/add-item", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -79,6 +79,29 @@ export const postItemCartTHUNK = (payload) => async (dispatch) => {
         return data
     }
 }
+
+
+// Add a cart
+export const postCartTHUNK = (payload) => async (dispatch) => {
+    console.log("----Add cart----")
+    const {user_id, total_price} = payload
+    console.log(user_id)
+    console.log(total_price)
+    const response = await fetch("/api/carts/add-cart", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(
+            payload
+        )
+    })
+    if (response.ok) {
+        const data = await response.json()
+        return data
+    }
+}
+
 
 // Delete an item by id
 export const deleteItemCartTHUNK = (itemId) => async (dispatch) => {

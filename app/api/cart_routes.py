@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from app.models import Cart, Cart_Item, Product, db, User
 from flask_login import login_required, current_user
-from app.forms import CartItemForm
+from app.forms import CartItemForm, CartForm
 
 cart_routes = Blueprint("cart", __name__)
 
@@ -57,7 +57,7 @@ def get_items_single_cart(id):
 
 
 # Add an item to a cart by id
-@cart_routes.route('/add', methods=["POST"])
+@cart_routes.route('/add-item', methods=["POST"])
 @login_required
 def post_item_carts():
     """
@@ -78,6 +78,39 @@ def post_item_carts():
             "item": new_item.to_dict()
         }
     else:
+        return {
+            "errors": form.errors
+        }
+
+
+# Add a cart
+@cart_routes.route('/add-cart', methods=["POST"])
+@login_required
+def post_carts():
+    """
+    Post a cart
+    """
+    print("-------------------------Add cart----------------------------------")
+    form = CartForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    # checkCartExists = Cart.query.filter(Cart.user_id == current_user.id).all()
+    print("---------------------------------", form.data)
+    print("---------------------", form.validate_on_submit())
+    if form.validate_on_submit():
+        print("------------------------------------if statement")
+        data = form.data
+        new_cart = Cart(
+            total_price = data['total_price'],
+            user_id = data['user_id']
+        )
+        db.session.add(new_cart)
+        db.session.commit()
+        return {
+            "cart": new_cart.to_dict()
+        }
+    else:
+        print("------------------------before errors--------------------------")
         return {
             "errors": form.errors
         }
