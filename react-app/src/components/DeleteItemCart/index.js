@@ -21,6 +21,4 @@ export default function DeleteItemCart({item, cartId}) {
             <button onClick={remove}>Remove from cart</button>
         </div>
     )
-
-
 }
