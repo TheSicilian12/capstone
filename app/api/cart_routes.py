@@ -93,4 +93,4 @@ def delete_item_carts(item_id):
     item = Cart_Item.query.get(item_id)
     db.session.delete(item)
     db.session.commit()
-    return "Product deleted from cart"
+    return {"item": item.to_dict()}
