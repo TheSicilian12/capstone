@@ -54,9 +54,19 @@ export const getItemsSingleCartTHUNK = (cartId) => async (dispatch) => {
     // console.log("before response")
     const response = await fetch(`/api/carts/${cartId}/items`)
     if (response.ok) {
-        const await_response = await response.json();
-        console.log("await_response: ", await_response.items)
-        const singleCart = normalize(await_response.items)
+        let await_response = await response.json();
+        // console.log("await_response: ", await_response.items)
+        let totalPrice = 0;
+        Object.values(await_response)[0].map(item => totalPrice += item.product.price)
+        // console.log("Object.values: ", Object.values(await_response)[0])
+
+        // console.log("price: ", totalPrice)
+        let singleCart = {}
+        singleCart.items = normalize(await_response.items)
+        singleCart.totalPrice = totalPrice
+        // console.log("singleCart: ", singleCart)
+
+
         dispatch(loadOne(singleCart))
     }
 }
@@ -149,7 +159,8 @@ export default function cartReducer(state = initialState, action) {
         }
         //this mimics the product and does not reflect the cart
         case LOAD_ONE_CART: {
-            const newState = { items: {...action.payload} }
+            console.log("reducer: ", action.payload)
+            const newState = { items: {...action.payload.items}, totalPrice: action.payload.totalPrice  }
             return newState
         }
         case DELETE_ITEM_CART: {

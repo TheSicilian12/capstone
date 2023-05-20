@@ -15,7 +15,7 @@ export default function SingleProduct() {
 
     const singleCart = cart.items
 
-    console.log('singleCart: ', singleCart)
+    console.log('singleCart frontend: ', singleCart)
     useEffect(() => {
         dispatch(getItemsSingleCartTHUNK(cartId))
     }, [dispatch])
@@ -34,7 +34,7 @@ export default function SingleProduct() {
     return(
         <div className="single-product-image-container">
             Hello
-            Items
+            Items total:
             {Object.values(singleCart).map(item => {
                 return (
                     <div key={item.id} className="border-black">
