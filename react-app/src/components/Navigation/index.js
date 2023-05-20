@@ -18,7 +18,6 @@ function Navigation({ isLoaded }) {
 			user_id: sessionUser.id,
 			total_price: 0
 		}
-
 		dispatch(postCartTHUNK(payload))
 	}
 
