@@ -4,8 +4,9 @@ from wtforms.validators import DataRequired, ValidationError
 from app.models import Cart
 
 class CartForm(FlaskForm):
+    # currently allowing data to not be required for total_price because a 0 would be falsy.
     total_price = IntegerField(
-        'total_price', validators=[DataRequired()]
+        'total_price'
     )
     user_id = IntegerField(
         'user_id', validators=[DataRequired()]

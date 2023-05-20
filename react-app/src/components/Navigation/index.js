@@ -14,7 +14,7 @@ function Navigation({ isLoaded }) {
 		console.log("add cart")
 		const payload = {
 			user_id: sessionUser.id,
-			total_price: 1
+			total_price: 0
 		}
 
 		dispatch(postCartTHUNK(payload))
