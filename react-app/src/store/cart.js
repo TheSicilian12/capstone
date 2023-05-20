@@ -2,6 +2,9 @@ import normalize from "./normalizer"
 
 const LOAD_CART = 'cart/all'
 const LOAD_ONE_CART = 'carts/single'
+const POST_CART = 'cart/post'
+const DELETE_ITEM_CART = 'cart/delete/item'
+const DELETE_CART = 'cart/delete'
 
 const load = (data) => ({
     type: LOAD_CART,
@@ -10,6 +13,11 @@ const load = (data) => ({
 
 const loadOne = (data) => ({
     type: LOAD_ONE_CART,
+    payload: data
+})
+
+const deleteItemCart = (data) => ({
+    type: DELETE_ITEM_CART,
     payload: data
 })
 
@@ -57,7 +65,7 @@ export const getItemsSingleCartTHUNK = (cartId) => async (dispatch) => {
 // Add an item to a cart by id
 export const postItemCartTHUNK = (payload) => async (dispatch) => {
     console.log("----Add item to cart----")
-    const response = await fetch("/api/carts/add", {
+    const response = await fetch("/api/carts/add-item", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -69,6 +77,64 @@ export const postItemCartTHUNK = (payload) => async (dispatch) => {
     if (response.ok) {
         const data = await response.json()
         return data
+    }
+}
+
+
+// Add a cart
+export const postCartTHUNK = (payload) => async (dispatch) => {
+    console.log("----Add cart----")
+    const {user_id, total_price} = payload
+    console.log(user_id)
+    console.log(total_price)
+    const response = await fetch("/api/carts/add-cart", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(
+            payload
+        )
+    })
+    if (response.ok) {
+        const data = await response.json()
+        return data
+    }
+}
+
+export const deleteCartTHUNK = (userId) => async (dispatch) => {
+    const response = await fetch(`/api/carts/${userId}/cart`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+    if (response.ok) {
+        return "Sucess"
+    }
+    else {
+        return ["Failure"]
+    }
+}
+
+
+// Delete an item by id
+export const deleteItemCartTHUNK = (itemId) => async (dispatch) => {
+    // console.log("----Delete item cart THUNK----")
+    // console.log("before response")
+    const response = await fetch(`/api/carts/${itemId}/item`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+    // console.log("after response")
+    if (response.ok) {
+        dispatch(deleteItemCart(itemId))
+        return "Sucess"
+    }
+    else {
+        return ["Failure"]
     }
 }
 
@@ -85,6 +151,13 @@ export default function cartReducer(state = initialState, action) {
         case LOAD_ONE_CART: {
             const newState = { items: {...action.payload} }
             return newState
+        }
+        case DELETE_ITEM_CART: {
+            const newState = { ...state }
+            console.log("newState: ", newState)
+            delete newState["items"][action.payload]
+            console.log("newState: ", newState)
+            return { ...newState }
         }
         default:
             return state;

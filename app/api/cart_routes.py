@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from app.models import Cart, Cart_Item, Product, db, User
 from flask_login import login_required, current_user
-from app.forms import CartItemForm
+from app.forms import CartItemForm, CartForm
 
 cart_routes = Blueprint("cart", __name__)
 
@@ -47,15 +47,17 @@ def get_items_single_cart(id):
 
     for item in response:
         product = Product.query.get(item["productId"])
-        print(product.to_dict())
-        item["product"] = product.to_dict()
+        print("------------------product: ", product)
+        # print(product.to_dict())
+        if product:
+            item["product"] = product.to_dict()
 
-    # print("response: ", response)
+    print("response: ", response)
     return {'items': response}
 
 
 # Add an item to a cart by id
-@cart_routes.route('/add', methods=["POST"])
+@cart_routes.route('/add-item', methods=["POST"])
 @login_required
 def post_item_carts():
     """
@@ -79,3 +81,72 @@ def post_item_carts():
         return {
             "errors": form.errors
         }
+
+
+# Add a cart
+@cart_routes.route('/add-cart', methods=["POST"])
+@login_required
+def post_carts():
+    """
+    Post a cart
+    """
+    print("-------------------------Add cart----------------------------------")
+    form = CartForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    checkCartExists = Cart.query.filter(Cart.user_id == current_user.id).all()
+    print("-----------------------------", len(checkCartExists))
+    if len(checkCartExists):
+        return {
+            "errors": "Cart already exists"
+        }
+
+    # print("---------------------------------", form.data)
+    # print("---------------------", form.validate_on_submit())
+    if form.validate_on_submit():
+        # print("------------------------------------if statement")
+        data = form.data
+        new_cart = Cart(
+            total_price = data['total_price'],
+            user_id = data['user_id']
+        )
+        db.session.add(new_cart)
+        db.session.commit()
+        return {
+            "cart": new_cart.to_dict()
+        }
+    else:
+        # print("------------------------before errors--------------------------")
+        return {
+            "errors": form.errors
+        }
+
+
+# Delete a cart by user id
+@cart_routes.route('/<int:user_id>/cart', methods=["DELETE"])
+@login_required
+def delete_cart(user_id):
+    """
+    Delete a cart
+    """
+    print("-------------------------------Delete a cart by user id")
+    cart_list = Cart.query.filter(Cart.user_id == user_id).all()
+    print("-----------------------------", cart_list)
+    for cart in cart_list:
+        db.session.delete(cart)
+    # db.session.delete(cart)
+    db.session.commit()
+    return {"cart": "deleted"}
+
+
+# Delete an item from a cart by id
+@cart_routes.route('/<int:item_id>/item', methods=["DELETE"])
+@login_required
+def delete_item_carts(item_id):
+    """
+    Delete an item from a cart by id
+    """
+    item = Cart_Item.query.get(item_id)
+    db.session.delete(item)
+    db.session.commit()
+    return {"item": item.to_dict()}
