@@ -94,11 +94,17 @@ def post_carts():
     form = CartForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
-    # checkCartExists = Cart.query.filter(Cart.user_id == current_user.id).all()
-    print("---------------------------------", form.data)
-    print("---------------------", form.validate_on_submit())
+    checkCartExists = Cart.query.filter(Cart.user_id == current_user.id).all()
+    print("-----------------------------", len(checkCartExists))
+    if len(checkCartExists):
+        return {
+            "errors": "Cart already exists"
+        }
+
+    # print("---------------------------------", form.data)
+    # print("---------------------", form.validate_on_submit())
     if form.validate_on_submit():
-        print("------------------------------------if statement")
+        # print("------------------------------------if statement")
         data = form.data
         new_cart = Cart(
             total_price = data['total_price'],
@@ -110,7 +116,7 @@ def post_carts():
             "cart": new_cart.to_dict()
         }
     else:
-        print("------------------------before errors--------------------------")
+        # print("------------------------before errors--------------------------")
         return {
             "errors": form.errors
         }
