@@ -15,6 +15,10 @@ class Cart(db.Model):
     # Foreign Keys
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
 
+    # Relationships
+    cart_items = db.relationship("Cart_Item", back_populates="cart", cascade="all, delete-orphan")
+
+
     def to_dict(self):
         return {
             'id': self.id,

@@ -122,6 +122,23 @@ def post_carts():
         }
 
 
+# Delete a cart by user id
+@cart_routes.route('/<int:user_id>/cart', methods=["DELETE"])
+@login_required
+def delete_cart(user_id):
+    """
+    Delete a cart
+    """
+    print("-------------------------------Delete a cart by user id")
+    cart_list = Cart.query.filter(Cart.user_id == user_id).all()
+    print("-----------------------------", cart_list)
+    for cart in cart_list:
+        db.session.delete(cart)
+    # db.session.delete(cart)
+    db.session.commit()
+    return {"cart": "deleted"}
+
+
 # Delete an item from a cart by id
 @cart_routes.route('/<int:item_id>/item', methods=["DELETE"])
 @login_required

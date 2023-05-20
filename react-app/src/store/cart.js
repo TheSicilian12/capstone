@@ -102,6 +102,21 @@ export const postCartTHUNK = (payload) => async (dispatch) => {
     }
 }
 
+export const deleteCartTHUNK = (userId) => async (dispatch) => {
+    const response = await fetch(`/api/carts/${userId}/cart`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+    if (response.ok) {
+        return "Sucess"
+    }
+    else {
+        return ["Failure"]
+    }
+}
+
 
 // Delete an item by id
 export const deleteItemCartTHUNK = (itemId) => async (dispatch) => {
