@@ -16,7 +16,7 @@ export default function HomePage() {
 
     if (!products) return <div>loading</div>
 
-    console.log("products: ", products)
+    // console.log("products: ", products)
 
     return (
         <div>

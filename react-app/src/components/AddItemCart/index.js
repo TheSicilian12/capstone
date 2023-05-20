@@ -4,10 +4,11 @@ import { useParams } from 'react-router-dom';
 
 import './AddItemCart.css'
 import '../UniversalCSS.css'
-import { postItemCartTHUNK } from '../../store/cart';
+import { getItemsSingleCartTHUNK, postItemCartTHUNK } from '../../store/cart';
 
 export default function AddItemCart({cartId, userId, productId}) {
     const dispatch = useDispatch()
+
 
     const addProduct = () => {
         console.log("cart: ", cartId)
@@ -18,6 +19,7 @@ export default function AddItemCart({cartId, userId, productId}) {
             product_id: productId
         }
         dispatch(postItemCartTHUNK(payload))
+        dispatch(getItemsSingleCartTHUNK(cartId))
     }
 
     return(

@@ -11,6 +11,7 @@ import { getSingleProductTHUNK } from '../../store/product';
 import { postItemCartTHUNK, getSingleCartTHUNK } from '../../store/cart'
 import OpenModalButton from '../OpenModalButton';
 import AddItemCart from '../AddItemCart';
+import SingleCart from '../SingleCart';
 
 export default function SingleProduct() {
     const dispatch = useDispatch();
@@ -47,6 +48,7 @@ export default function SingleProduct() {
                 />
                 <AddItemCart cartId={cartId} userId={userId} productId={productId}/>
             </div>
+            
 
         </div>
     )

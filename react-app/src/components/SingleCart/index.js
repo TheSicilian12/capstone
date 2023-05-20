@@ -7,7 +7,7 @@ import '../UniversalCSS.css'
 import { getItemsSingleCartTHUNK, deleteItemCartTHUNK } from '../../store/cart';
 import DeleteItemCart from '../DeleteItemCart';
 
-export default function SingleProduct() {
+export default function SingleCart() {
     const dispatch = useDispatch();
     const cart = useSelector(state => state.cart)
 

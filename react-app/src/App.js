@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
@@ -11,13 +11,23 @@ import ProductForm from "./components/ProductForm";
 import EditProductForm from "./components/ProductForm/editProductWrapper";
 import AllCarts from "./components/AllCarts";
 import SingleCart from "./components/SingleCart";
+import { getItemsSingleCartTHUNK, getSingleCartTHUNK } from "./store/cart";
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+
+  const user = useSelector(state => state.session.user)
+  const cart = useSelector(state => state.cart)
+
   useEffect(() => {
     dispatch(authenticate()).then(() => setIsLoaded(true));
+    dispatch(getSingleCartTHUNK(1))
   }, [dispatch]);
+
+
+  console.log("---------------------user: ", user)
+  console.log("---------------------cart: ", cart)
 
   return (
     <>
