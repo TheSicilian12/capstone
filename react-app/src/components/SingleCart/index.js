@@ -42,6 +42,7 @@ export default function SingleProduct() {
                         <ul>product id: {item.product.id}</ul>
                         <button>Remove from cart</button>
                     </div>
+                    // <div>hello</div>
                 )
             })}
         </div>

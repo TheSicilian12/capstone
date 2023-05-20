@@ -49,9 +49,10 @@ def get_items_single_cart(id):
         product = Product.query.get(item["productId"])
         print("------------------product: ", product)
         # print(product.to_dict())
-        # item["product"] = product.to_dict()
+        if product:
+            item["product"] = product.to_dict()
 
-    # print("response: ", response)
+    print("response: ", response)
     return {'items': response}
 
 
