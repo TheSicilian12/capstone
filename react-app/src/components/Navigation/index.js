@@ -1,21 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
-import { deleteCartTHUNK, getSingleCartTHUNK, postCartTHUNK } from '../../store/cart';
+import { deleteCartTHUNK, getItemsSingleCartTHUNK, getSingleCartTHUNK, postCartTHUNK } from '../../store/cart';
 import './Navigation.css';
 import '../UniversalCSS.css'
 
 function Navigation({ isLoaded }) {
 	const sessionUser = useSelector(state => state.session.user);
 	const items = useSelector(state => state.cart?.items)
-	const dispatch = useDispatch()
 	const cartId = useSelector(state => state.cart.id)
+	const dispatch = useDispatch()
 
 	let itemCount
 	items ? itemCount = Object.values(items).length : itemCount = 0
 
-	console.log(itemCount)
+	console.log("itemCount: ",itemCount)
 
 	console.log("cartId: ", cartId)
 	const addCart = () => {
