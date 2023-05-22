@@ -92,9 +92,14 @@ def update_item_carts():
     # print("------------------form: ", form.data)
 
     if form.validate_on_submit():
-        # print("-----------------if statement")
-        # print("-------------------- product id: ", form.data["product_ids"])
-        cart.productIds.append(form.data["product_ids"])
+        print("-----------------if statement")
+        print("-------------------- product id: ", form.data["product_ids"])
+
+        # Not saving after appending directly to cart.to_dict()["productIds"]
+        productList = cart.to_dict()["productIds"]
+        productList = productList.append(form.data["product_ids"])
+        cart.to_dict()["productIds"] = productList
+        print("-------------------after append: ", cart.to_dict()["productIds"])
         db.session.commit()
         print("-----------------cart: ", cart.to_dict())
 
