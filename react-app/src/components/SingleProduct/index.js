@@ -22,6 +22,8 @@ export default function SingleProduct() {
 
     const productId = Number(useParams().productId)
 
+    console.log("productId: ", productId)
+
     const singleProduct = products.product
     // console.log('singleProduct: ', singleProduct)
     useEffect(() => {
@@ -48,7 +50,7 @@ export default function SingleProduct() {
                 />
                 <AddItemCart cartId={cartId} userId={userId} productId={productId}/>
             </div>
-            
+
 
         </div>
     )

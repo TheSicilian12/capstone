@@ -75,7 +75,9 @@ export const getItemsSingleCartTHUNK = (cartId) => async (dispatch) => {
 // Add an item to a cart by id
 export const updateItemCartTHUNK = (payload) => async (dispatch) => {
     console.log("----Add item to cart----")
-    console.log("payload: ", payload)
+    const {user_id, product_ids, total_price} = payload
+    console.log("-----------------------", typeof product_ids)
+    // console.log("payload: ", payload)
     const response = await fetch("/api/carts/add-item", {
         method: "PUT",
         headers: {

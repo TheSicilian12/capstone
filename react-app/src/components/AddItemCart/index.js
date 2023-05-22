@@ -12,13 +12,16 @@ export default function AddItemCart({cartId, userId, productId}) {
     const {totalItems, setTotalItems} = useCart()
     const user = useSelector(state => state.session.user)
 
+    console.log("-----------button productId: ", productId)
+
     const addProduct = () => {
         // console.log("cart: ", cartId)
         // console.log("userId: ", userId)
-        // console.log("productId: ", productId)
+        console.log("productId: ", productId)
         const payload = {
             user_id: user.id,
-            product_id: productId
+            product_ids: 1,
+            total_price: 100
         }
         dispatch(updateItemCartTHUNK(payload))
         // dispatch(getItemsSingleCartTHUNK(cartId))

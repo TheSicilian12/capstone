@@ -77,22 +77,23 @@ def get_single_cart():
 # Add an item to a cart by id
 @cart_routes.route('/add-item', methods=["PUT"])
 @login_required
-def post_item_carts():
+def update_item_carts():
     """
     Add a single item to a cart
     """
     print("-------------------------Add item to cart by id----------------------------------")
 
     cart = Cart.query.filter(Cart.user_id == current_user.id).first()
+    print("------------------initial cart: ", cart.to_dict())
 
     form = CartForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print("-------------------------------------------------")
-    print("------------------form: ", form.validate_on_submit())
+    # print("-------------------------------------------------")
+    # print("------------------form: ", form.data)
 
     if form.validate_on_submit():
-        print("-----------------if statement")
-        print("-------------------- product id: ", form.data["product_ids"])
+        # print("-----------------if statement")
+        # print("-------------------- product id: ", form.data["product_ids"])
         cart.productIds.append(form.data["product_ids"])
         db.session.commit()
         print("-----------------cart: ", cart.to_dict())
