@@ -23,16 +23,16 @@ if (process.env.NODE_ENV !== "production") {
 // HTML elements on top of the all the other HTML elements:
 function Root() {
 	return (
-		<CartContext>
-			<ModalProvider>
-				<Provider store={store}>
+		<ModalProvider>
+			<Provider store={store}>
+				<CartContext>
 					<BrowserRouter>
 						<App />
 						<Modal />
 					</BrowserRouter>
-				</Provider>
-			</ModalProvider>
-		</CartContext>
+				</CartContext>
+			</Provider>
+		</ModalProvider>
 	);
 }
 

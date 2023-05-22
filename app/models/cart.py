@@ -1,3 +1,4 @@
+import json
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from datetime import datetime
 
@@ -9,14 +10,13 @@ class Cart(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     total_price = db.Column(db.Integer)
+    productIds = db.Column(db.PickleType())
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
     updated_at = db.Column(db.DateTime)
 
+
     # Foreign Keys
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
-
-    # Relationships
-    cart_items = db.relationship("Cart_Item", back_populates="cart", cascade="all, delete-orphan")
 
 
     def to_dict(self):
@@ -24,6 +24,7 @@ class Cart(db.Model):
             'id': self.id,
             'totalPrice': self.total_price,
             'userId': self.user_id,
+            'productIds': self.productIds,
             'createdAt': self.created_at,
             'updatedAt': self.updated_at
         }

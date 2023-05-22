@@ -5,9 +5,11 @@ from sqlalchemy.sql import text
 # Adds a demo user, you can add other users here if you want
 def seed_carts():
     cart1 = Cart(
-        user_id=2)
+        user_id=2,
+        productIds=[1, 2, 2, 3])
     cart2 = Cart(
-        user_id=3)
+        user_id=3,
+        productIds=[1, 2, 3, 4, 5, 5])
 
     db.session.add(cart1)
     db.session.add(cart2)

@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
 import './AddItemCart.css'
 import '../UniversalCSS.css'
-import { getItemsSingleCartTHUNK, postItemCartTHUNK } from '../../store/cart';
+import { getItemsSingleCartTHUNK, getSingleCartTHUNK, postItemCartTHUNK } from '../../store/cart';
 
 export default function AddItemCart({cartId, userId, productId}) {
     const dispatch = useDispatch()
