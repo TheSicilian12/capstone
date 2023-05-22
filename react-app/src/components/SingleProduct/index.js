@@ -37,25 +37,30 @@ export default function SingleProduct() {
     const cartId = cart?.id
     const userId = user.id
 
-    return(
-        <div className="single-product-page-container border-black">
-            <div className="single-product-image-container border-black">
-                <StandardButtons text="edit" path={`/products/${productId}/edit`} />
-                <OpenModalButton
-                    buttonText="Delete"
-                    className="buttons-small"
-                    modalComponent={<DeleteSingleProductModal productId={productId}/>}
-                />
-            </div>
+    return (
+        <div className="border-blue single-product-page-container">
+            <div className="border-black single-product-container">
+                {/* <div className="border-blue single-product-image-container box">
+                    <StandardButtons text="edit" path={`/products/${productId}/edit`} />
+                    <OpenModalButton
+                        buttonText="Delete"
+                        className="buttons-small"
+                        modalComponent={<DeleteSingleProductModal productId={productId} />}
+                    />
+                </div> */}
+                <div className="border-black single-product-image-container">
+                    hello
+                </div>
 
-            <div className="border-black">
-                {singleProduct.name}
-            </div>
+                <div className="border-black single-product-info-container">
+                    {singleProduct.name}
+                </div>
 
-            <div className="single-product-cart-container border-black">
-                Add to cart
-                <AddItemCart cartId={cartId} userId={userId} productId={productId}/>
-                <DeleteItemCart itemId={productId} />
+                <div className="border-black single-product-cart-container">
+                    Add to cart
+                    <AddItemCart cartId={cartId} userId={userId} productId={productId} />
+                    <DeleteItemCart itemId={productId} />
+                </div>
             </div>
         </div>
     )
