@@ -49,7 +49,9 @@ export default function SingleProduct() {
                     />
                 </div> */}
                 <div className="border-black single-product-image-container">
-                    hello
+                    <div className="border-black single-prdocut-main-image">
+
+                    </div>
                 </div>
 
                 <div className="border-black single-product-info-container">
