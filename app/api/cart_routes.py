@@ -99,7 +99,7 @@ def update_item_carts():
         productList = []
         if cart.to_dict()["productIds"]:
             productList = [productId for productId in cart.to_dict()["productIds"]]
-    
+
         productList.append(form.data["product_ids"])
         print("-------------productList: ", productList)
         cart.product_ids = productList
@@ -155,18 +155,26 @@ def post_carts():
 
 
 # Delete a cart by user id
-@cart_routes.route('/<int:user_id>/cart', methods=["DELETE"])
+@cart_routes.route('/delete', methods=["DELETE"])
 @login_required
-def delete_cart(user_id):
+def delete_cart():
     """
     Delete a cart
     """
     print("-------------------------------Delete a cart by user id")
-    cart_list = Cart.query.filter(Cart.user_id == user_id).all()
-    print("-----------------------------", cart_list)
-    for cart in cart_list:
-        db.session.delete(cart)
-    # db.session.delete(cart)
+    cart = Cart.query.filter(Cart.user_id == current_user.id).first()
+
+    # print("----------------user_id: ", current_user.id)
+
+    # print("--------------------cart: ", cart.to_dict())
+
+    if current_user.id != cart.user_id:
+
+        return {"errors": "error"}
+
+    print("-----------------------------", cart)
+
+    db.session.delete(cart)
     db.session.commit()
     return {"cart": "deleted"}
 

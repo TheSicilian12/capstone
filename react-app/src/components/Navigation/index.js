@@ -31,8 +31,8 @@ function Navigation({ isLoaded }) {
 	}
 
 	const deleteCart = () => {
-		// console.log("delete cart")
-		dispatch(deleteCartTHUNK(sessionUser.id))
+		console.log("delete cart")
+		dispatch(deleteCartTHUNK())
 	}
 
 	return (
