@@ -133,10 +133,10 @@ export const deleteCartTHUNK = (userId) => async (dispatch) => {
 
 
 // Delete an item by id
-export const deleteItemCartTHUNK = (itemId) => async (dispatch) => {
+export const deleteItemCartTHUNK = (productId) => async (dispatch) => {
     // console.log("----Delete item cart THUNK----")
     // console.log("before response")
-    const response = await fetch(`/api/carts/${itemId}/item`, {
+    const response = await fetch(`/api/carts/${productId}/item`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -144,7 +144,7 @@ export const deleteItemCartTHUNK = (itemId) => async (dispatch) => {
     })
     // console.log("after response")
     if (response.ok) {
-        dispatch(deleteItemCart(itemId))
+        // dispatch(deleteItemCart(productId))
         return "Sucess"
     }
     else {

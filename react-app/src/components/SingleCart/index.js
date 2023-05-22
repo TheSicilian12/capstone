@@ -26,12 +26,12 @@ export default function SingleCart() {
     console.log('singleCart frontend: ', singleCart.items)
     // console.log("cart: ", cart)
 
-    const remove = (itemId) => {
-        console.log(itemId)
-        console.log("remove button")
-        dispatch(deleteItemCartTHUNK(itemId))
-        // dispatch(getItemsSingleCartTHUNK(cartId))
-    }
+    // const remove = (itemId) => {
+    //     console.log(itemId)
+    //     console.log("remove button")
+    //     dispatch(deleteItemCartTHUNK(itemId))
+    //     // dispatch(getItemsSingleCartTHUNK(cartId))
+    // }
 
 
 
@@ -46,8 +46,8 @@ export default function SingleCart() {
                         {/* <NavLink key={item.id} to={`/products/${item.id}`}>{item.SKU}</NavLink> */}
                         <ul>product name: {item.name}</ul>
                         <ul>product id: {item.id}</ul>
-                        <button onClick={remove}>Remove from cart</button>
-                        {/* <DeleteItemCart item={item} cartId={cartId}/> */}
+                        {/* <button onClick={remove}>Remove from cart</button> */}
+                        <DeleteItemCart item={item}/>
                     </div>
                     // <div>hello</div>
                 )

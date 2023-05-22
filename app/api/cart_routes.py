@@ -92,33 +92,19 @@ def update_item_carts():
     # print("------------------form: ", form.data)
 
     if form.validate_on_submit():
-        print("-----------------if statement")
-        # print("-------------------- product id: ", form.data["product_ids"])
-
-        # Not saving after appending directly to cart.to_dict()["productIds"]
+        # print("-----------------if statement")
         productList = [productId for productId in cart.to_dict()["productIds"]]
         productList.append(form.data["product_ids"])
-
-        # cart["productIds"] = [5]
-        # cart.product_ids.append(form.data["product_ids"])
-        # productList = cart.product_ids
-        # productList.append(form.data["product_ids"])
-        print("-------------productList: ", productList)
+        # print("-------------productList: ", productList)
         cart.product_ids = productList
-        print("-------------------after append: ", cart.to_dict()["productIds"])
-        # db.session.add(cart)
+        # print("-------------------after append: ", cart.to_dict()["productIds"])
         db.session.commit()
-        # db.session.refresh(cart)
-        print("-----------------cart: ", cart.to_dict())
-
-
+        # print("-----------------cart: ", cart.to_dict())
         return cart.to_dict()
     else:
         return {
             "errors": "error"
         }
-
-
 
 
 # Add a cart
@@ -178,13 +164,20 @@ def delete_cart(user_id):
 
 
 # Delete an item from a cart by id
-# @cart_routes.route('/<int:item_id>/item', methods=["DELETE"])
-# @login_required
-# def delete_item_carts(item_id):
-#     """
-#     Delete an item from a cart by id
-#     """
-#     item = Cart_Item.query.get(item_id)
-#     db.session.delete(item)
-#     db.session.commit()
-#     return {"item": item.to_dict()}
+@cart_routes.route('/<int:product_id>/item', methods=["DELETE"])
+@login_required
+def delete_item_carts(product_id):
+    """
+    Delete an item from a cart by id
+    """
+    cart = Cart.query.filter(Cart.user_id == current_user.id).first()
+
+    productList = [productId for productId in cart.to_dict()["productIds"]]
+
+    productList.remove(product_id)
+
+    cart.product_ids = productList
+
+    db.session.commit()
+
+    return {"item": "deleted"}
