@@ -18,7 +18,7 @@ export default function AddItemCart({cartId, userId, productId}) {
         console.log("productId: ", productId)
         const payload = {
             user_id: user.id,
-            product_ids: 1,
+            product_ids: productId,
             total_price: 100
         }
         dispatch(updateItemCartTHUNK(payload))

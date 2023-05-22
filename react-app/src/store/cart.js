@@ -137,7 +137,7 @@ export const deleteCartTHUNK = () => async (dispatch) => {
 
 // Delete an item by id
 export const deleteItemCartTHUNK = (productId) => async (dispatch) => {
-    // console.log("----Delete item cart THUNK----")
+    console.log("----Delete item cart THUNK----")
     // console.log("before response")
     const response = await fetch(`/api/carts/${productId}/item`, {
         method: "DELETE",

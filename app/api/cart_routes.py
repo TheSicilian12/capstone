@@ -84,17 +84,17 @@ def update_item_carts():
     print("-------------------------Add item to cart by id----------------------------------")
 
     cart = Cart.query.filter(Cart.user_id == current_user.id).first()
-    print("-------------------------------------------------")
-    print("------------------initial cart: ", cart.to_dict())
+    # print("-------------------------------------------------")
+    # print("------------------initial cart: ", cart.to_dict())
     form = CartForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print("-------------------------------------------------")
-    print("------------------form: ", form.data)
+    # print("-------------------------------------------------")
+    # print("------------------form: ", form.data)
 
     if form.validate_on_submit():
-        print("-----------------if statement")
+        # print("-----------------if statement")
 
-        print("----------------cart items: ", cart.to_dict()["productIds"])
+        # print("----------------cart items: ", cart.to_dict()["productIds"])
 
         productList = []
         if cart.to_dict()["productIds"]:
@@ -186,6 +186,7 @@ def delete_item_carts(product_id):
     """
     Delete an item from a cart by id
     """
+    print("-------------------------Delete item from a cart-------------------------")
     cart = Cart.query.filter(Cart.user_id == current_user.id).first()
 
     productList = [productId for productId in cart.to_dict()["productIds"]]

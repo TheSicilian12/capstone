@@ -12,10 +12,10 @@ export default function DeleteItemCart({itemId}) {
 
 
     const remove = async () => {
-        console.log(itemId)
+        console.log("itemId: ", itemId)
         console.log("remove button")
         await dispatch(deleteItemCartTHUNK(itemId))
-        dispatch(getSingleCartTHUNK(user.id))
+        // dispatch(getSingleCartTHUNK(user.id))
     }
 
     return(

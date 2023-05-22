@@ -55,7 +55,7 @@ export default function SingleProduct() {
             <div className="single-product-cart-container border-black">
                 Add to cart
                 <AddItemCart cartId={cartId} userId={userId} productId={productId}/>
-                <DeleteItemCart item={productId} />
+                <DeleteItemCart itemId={productId} />
             </div>
         </div>
     )
