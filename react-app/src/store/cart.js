@@ -35,9 +35,9 @@ export const getAllCartsTHUNK = () => async (dispatch) => {
 
 
 // Get a single cart by user id THUNK
-export const getSingleCartTHUNK = (userId) => async (dispatch) => {
+export const getSingleCartTHUNK = () => async (dispatch) => {
     console.log("----Get single cart THUNK")
-    const response = await fetch(`/api/carts/${userId}`)
+    const response = await fetch(`/api/carts/yours`)
     if (response.ok) {
         const await_response = await response.json();
         // console.log("await_response: ", await_response)

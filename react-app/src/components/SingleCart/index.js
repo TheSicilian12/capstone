@@ -18,7 +18,7 @@ export default function SingleCart() {
     // const totalPrice = cart.totalPrice
 
     useEffect(() => {
-        dispatch(getSingleCartTHUNK(user.id))
+        dispatch(getSingleCartTHUNK())
     }, [dispatch])
 
 
@@ -44,7 +44,6 @@ export default function SingleCart() {
                     <div className="border-black">
                         <h1>hello</h1>
                         {/* <NavLink key={item.id} to={`/products/${item.id}`}>{item.SKU}</NavLink> */}
-                        <ul>item id: {item.id}</ul>
                         <ul>product name: {item.name}</ul>
                         <ul>product id: {item.id}</ul>
                         <button onClick={remove}>Remove from cart</button>

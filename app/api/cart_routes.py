@@ -19,16 +19,18 @@ def get_all_carts():
 
 
 # Get single cart
-@cart_routes.route('/<int:user_id>')
+@cart_routes.route('/yours')
 # @login_required
-def get_single_cart(user_id):
+def get_single_cart():
     """
     Query for single cart
     """
     print("--------------------------Get Single Cart--------------------------------")
     # single_cart = Cart.query.filter(Cart.user_id == user_id).all()
     # print("-----------user_id", user_id)
-    single_cart = Cart.query.filter(Cart.user_id == user_id).first()
+
+    print("--------------current user: ", current_user.id)
+    single_cart = Cart.query.filter(Cart.user_id == current_user.id).first()
     # print("--------------response: ", single_cart)
     response = single_cart.to_dict()
     # response = [cart.to_dict() for cart in single_cart]
@@ -41,7 +43,7 @@ def get_single_cart(user_id):
         # response["product"] = item.to_dict()
         response["items"].update({productKey: item.to_dict()})
         productKey += 1
-        print("--------------------item: ", item.to_dict()["id"])
+        # print("--------------------item: ", item.to_dict()["id"])
 
     del response["productIds"]
     # print("------------------------response: ", response)
