@@ -14,7 +14,7 @@ export default function HomePage() {
 
     useEffect(() => {
         dispatch(getAllProductsTHUNK())
-        // dispatch(getSingleCartTHUNK())
+        dispatch(getSingleCartTHUNK())
     }, [dispatch])
 
     if (!products) return <div>loading homepage</div>
