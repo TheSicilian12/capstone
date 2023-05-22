@@ -11,6 +11,12 @@
     height: 80vh;
 }
 
+.single-prdocut-main-image {
+    width: 80%;
+    height: 70%;
+    background-color: lightgray;
+}
+
 .single-product-image-container {
     display: flex;
     flex-direction: column;
@@ -19,17 +25,17 @@
     height: 50%;
 }
 
-.single-prdocut-main-image {
-    width: 80%;
-    height: 70%;
-    background-color: lightgray;
-}
+
 
 .single-product-info-container {
     display: flex;
     flex-direction: column;
     width: 50%;
     height: 50%;
+}
+
+.single-product-header-container {
+    display: flex;
 }
 
 .single-product-cart-container {
