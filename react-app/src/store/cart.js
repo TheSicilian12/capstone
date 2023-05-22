@@ -145,7 +145,7 @@ export const deleteItemCartTHUNK = (productId) => async (dispatch) => {
     })
     // console.log("after response")
     if (response.ok) {
-        // dispatch(deleteItemCart(productId))
+        dispatch(getSingleCartTHUNK())
         return "Sucess"
     }
     else {
