@@ -6,10 +6,12 @@ from sqlalchemy.sql import text
 def seed_carts():
     cart1 = Cart(
         user_id=2,
-        productIds=[1, 2, 2, 3])
+        productIds=[1, 2, 2, 3],
+        total_price=350)
     cart2 = Cart(
         user_id=3,
-        productIds=[1, 2, 3, 4, 5, 5])
+        productIds=[1, 2, 3, 4, 5, 5],
+        total_price=360)
 
     db.session.add(cart1)
     db.session.add(cart2)

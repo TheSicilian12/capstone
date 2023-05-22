@@ -27,17 +27,23 @@ def get_single_cart(user_id):
     """
     print("--------------------------Get Single Cart--------------------------------")
     # single_cart = Cart.query.filter(Cart.user_id == user_id).all()
-    single_cart = Cart.query.get(2)
+    # print("-----------user_id", user_id)
+    single_cart = Cart.query.filter(Cart.user_id == user_id).first()
+    # print("--------------response: ", single_cart)
     response = single_cart.to_dict()
     # response = [cart.to_dict() for cart in single_cart]
 
+    productKey = 0
     response["items"] = {}
     for item in single_cart.to_dict()['productIds']:
+        print("item: ", item)
         item = Product.query.get(item)
         # response["product"] = item.to_dict()
-        response["items"].update({item.to_dict()["id"]: item.to_dict()})
-        # print("--------------------item: ", item.to_dict()["id"])
+        response["items"].update({productKey: item.to_dict()})
+        productKey += 1
+        print("--------------------item: ", item.to_dict()["id"])
 
+    del response["productIds"]
     # print("------------------------response: ", response)
     return {'carts': response}
 

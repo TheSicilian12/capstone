@@ -156,6 +156,7 @@ const initialState = {
 export default function cartReducer(state = initialState, action) {
     switch (action.type) {
         case LOAD_CART: {
+            // console.log("cart: ", action.payload)
             const newState = { ...action.payload }
             return newState
         }
