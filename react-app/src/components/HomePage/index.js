@@ -19,8 +19,6 @@ export default function HomePage() {
 
     if (!products) return <div>loading homepage</div>
 
-    // console.log("items: ", Object.keys(items).length)
-
     return (
         <div>
             Hello
