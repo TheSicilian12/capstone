@@ -9,7 +9,6 @@ import * as sessionActions from "./store/session";
 import App from "./App";
 
 import "./index.css";
-import CartContext from "./context/CartContext";
 
 const store = configureStore();
 
@@ -25,12 +24,10 @@ function Root() {
 	return (
 		<ModalProvider>
 			<Provider store={store}>
-				<CartContext>
 					<BrowserRouter>
 						<App />
 						<Modal />
 					</BrowserRouter>
-				</CartContext>
 			</Provider>
 		</ModalProvider>
 	);

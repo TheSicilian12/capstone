@@ -31,7 +31,7 @@ export default function SingleProduct() {
         dispatch(getSingleCartTHUNK(user.id))
     }, [dispatch])
 
-    if (!singleProduct) return <div>loading</div>
+    if (!singleProduct) return <div>loading single product</div>
 
     const cartId = cart?.id
     const userId = user.id

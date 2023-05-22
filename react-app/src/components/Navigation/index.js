@@ -4,14 +4,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import { deleteCartTHUNK, getItemsSingleCartTHUNK, getSingleCartTHUNK, postCartTHUNK } from '../../store/cart';
 
-import { useCart } from '../../context/CartContext';
 import './Navigation.css';
 import '../UniversalCSS.css'
 
 function Navigation({ isLoaded }) {
 	const sessionUser = useSelector(state => state.session.user);
-	const items = useSelector(state => state.cart.carts.items)
-	const cartId = useSelector(state => state.cart.id)
+	const items = useSelector(state => state.cart.carts?.items)
+	// const cartId = useSelector(state => state.cart.id)
 	const dispatch = useDispatch()
 
 	let totalItems = 0;
@@ -24,7 +23,8 @@ function Navigation({ isLoaded }) {
 		// console.log("add cart")
 		const payload = {
 			user_id: sessionUser.id,
-			total_price: 0
+			total_price: 0,
+			product_ids: []
 		}
 		dispatch(postCartTHUNK(payload))
 		// dispatch(getSingleCartTHUNK())

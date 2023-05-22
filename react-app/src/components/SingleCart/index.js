@@ -22,7 +22,7 @@ export default function SingleCart() {
     }, [dispatch])
 
 
-    if (!singleCart) return <div>loading</div>
+    if (!singleCart) return <div>loading single cart</div>
     console.log('singleCart frontend: ', singleCart.items)
     // console.log("cart: ", cart)
 

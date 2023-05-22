@@ -20,7 +20,7 @@ export default function EditProductForm() {
     // console.log("product info: ", productInfo)
 
     if (!productInfo) {
-       return (<div>loading</div>)
+       return (<div>loading edit</div>)
     }
 
     return (

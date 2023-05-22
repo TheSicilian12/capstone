@@ -99,9 +99,10 @@ export const updateItemCartTHUNK = (payload) => async (dispatch) => {
 // Add a cart
 export const postCartTHUNK = (payload) => async (dispatch) => {
     console.log("----Add cart----")
-    const {user_id, total_price} = payload
-    console.log(user_id)
-    console.log(total_price)
+    const {user_id, total_price, product_ids} = payload
+    // console.log(user_id)
+    // console.log(total_price)
+    console.log(product_ids)
     const response = await fetch("/api/carts/add-cart", {
         method: "POST",
         headers: {
@@ -112,6 +113,7 @@ export const postCartTHUNK = (payload) => async (dispatch) => {
         )
     })
     if (response.ok) {
+        console.log("if statment")
         const data = await response.json()
         return data
     }

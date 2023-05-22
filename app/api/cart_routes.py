@@ -89,13 +89,19 @@ def update_item_carts():
     form = CartForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     # print("-------------------------------------------------")
-    # print("------------------form: ", form.data)
+    print("------------------form: ", form.data)
 
     if form.validate_on_submit():
-        # print("-----------------if statement")
-        productList = [productId for productId in cart.to_dict()["productIds"]]
+        print("-----------------if statement")
+
+        print("----------------cart items: ", cart.to_dict()["productIds"])
+
+        productList = []
+        if cart.to_dict()["productIds"]:
+            productList = [productId for productId in cart.to_dict()["productIds"]]
+    
         productList.append(form.data["product_ids"])
-        # print("-------------productList: ", productList)
+        print("-------------productList: ", productList)
         cart.product_ids = productList
         # print("-------------------after append: ", cart.to_dict()["productIds"])
         db.session.commit()
@@ -120,12 +126,14 @@ def post_carts():
 
     checkCartExists = Cart.query.filter(Cart.user_id == current_user.id).all()
     print("-----------------------------", len(checkCartExists))
-    if len(checkCartExists):
+    if len(checkCartExists) != 0:
         return {
             "errors": "Cart already exists"
         }
 
-    # print("---------------------------------", form.data)
+
+    print("---------------------------------", form.data)
+    print("---------------------------------", form.validate_on_submit())
     # print("---------------------", form.validate_on_submit())
     if form.validate_on_submit():
         # print("------------------------------------if statement")

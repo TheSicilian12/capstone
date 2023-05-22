@@ -2,14 +2,12 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import { useCart } from '../../context/CartContext';
 import './AddItemCart.css'
 import '../UniversalCSS.css'
 import { getItemsSingleCartTHUNK, getSingleCartTHUNK, updateItemCartTHUNK } from '../../store/cart';
 
 export default function AddItemCart({cartId, userId, productId}) {
     const dispatch = useDispatch()
-    const {totalItems, setTotalItems} = useCart()
     const user = useSelector(state => state.session.user)
 
     console.log("-----------button productId: ", productId)
@@ -25,7 +23,6 @@ export default function AddItemCart({cartId, userId, productId}) {
         }
         dispatch(updateItemCartTHUNK(payload))
         // dispatch(getItemsSingleCartTHUNK(cartId))
-        setTotalItems(totalItems + 1)
     }
 
     return(
