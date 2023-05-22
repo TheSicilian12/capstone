@@ -6,17 +6,22 @@ import { useCart } from '../../context/CartContext';
 import './HomePage.css';
 import '../UniversalCSS.css'
 import { getAllProductsTHUNK } from '../../store/product';
+import { getSingleCartTHUNK } from '../../store/cart';
 
 export default function HomePage() {
     const dispatch = useDispatch();
     const products = useSelector(state => state.products)
+    const items = useSelector(state => state.cart.carts.items)
     const {totalItems, setTotalItems} = useCart()
 
     useEffect(() => {
         dispatch(getAllProductsTHUNK())
+        dispatch(getSingleCartTHUNK())
     }, [dispatch])
 
     if (!products) return <div>loading</div>
+
+    // console.log("items: ", Object.keys(items).length)
 
     return (
         <div>

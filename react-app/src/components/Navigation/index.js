@@ -10,18 +10,16 @@ import '../UniversalCSS.css'
 
 function Navigation({ isLoaded }) {
 	const sessionUser = useSelector(state => state.session.user);
-	const items = useSelector(state => state.cart?.items)
+	const items = useSelector(state => state.cart.carts.items)
 	const cartId = useSelector(state => state.cart.id)
 	const dispatch = useDispatch()
 
-	const {totalItems, setTotalItems} = useCart()
+	let totalItems = 0;
+	if (items) {
+		console.log("items: ", Object.keys(items).length)
+		totalItems = Object.keys(items).length
+	}
 
-	// let itemCount
-	// items ? itemCount = Object.values(items).length : itemCount = 0
-
-	// console.log("itemCount: ",itemCount)
-
-	// console.log("cartId: ", cartId)
 	const addCart = () => {
 		// console.log("add cart")
 		const payload = {
@@ -29,11 +27,11 @@ function Navigation({ isLoaded }) {
 			total_price: 0
 		}
 		dispatch(postCartTHUNK(payload))
+		// dispatch(getSingleCartTHUNK())
 	}
 
 	const deleteCart = () => {
 		// console.log("delete cart")
-
 		dispatch(deleteCartTHUNK(sessionUser.id))
 	}
 

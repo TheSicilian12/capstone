@@ -90,6 +90,7 @@ export const updateItemCartTHUNK = (payload) => async (dispatch) => {
     if (response.ok) {
         const data = await response.json()
         console.log("data: ", data)
+        dispatch(getSingleCartTHUNK())
         return data
     }
 }
