@@ -75,30 +75,34 @@ def get_single_cart():
 
 
 # Add an item to a cart by id
-# @cart_routes.route('/add-item', methods=["POST"])
-# @login_required
-# def post_item_carts():
-#     """
-#     Post a single item to a cart
-#     """
-#     print("-------------------------Add item to cart by id----------------------------------")
-#     form = CartItemForm()
-#     form['csrf_token'].data = request.cookies['csrf_token']
-#     if form.validate_on_submit():
-#         data = form.data
-#         new_item = Cart_Item(
-#             cart_id = data['cart_id'],
-#             product_id = data['product_id']
-#         )
-#         db.session.add(new_item)
-#         db.session.commit()
-#         return {
-#             "item": new_item.to_dict()
-#         }
-#     else:
-#         return {
-#             "errors": form.errors
-#         }
+@cart_routes.route('/add-item', methods=["PUT"])
+@login_required
+def post_item_carts():
+    """
+    Add a single item to a cart
+    """
+    print("-------------------------Add item to cart by id----------------------------------")
+
+    cart = Cart.query.filter(Cart.user_id == current_user.id).first()
+
+    form = CartForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    print("-------------------------------------------------")
+    print("------------------form: ", form.validate_on_submit())
+
+    if form.validate_on_submit():
+        print("-----------------if statement")
+        print("-------------------- product id: ", form.data["product_ids"])
+        cart.productIds.append(form.data["product_ids"])
+        db.session.commit()
+        print("-----------------cart: ", cart.to_dict())
+
+
+        return cart.to_dict()
+    else:
+        return {
+            "errors": "error"
+        }
 
 
 # Add a cart

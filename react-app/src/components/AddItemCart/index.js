@@ -5,21 +5,22 @@ import { useParams } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
 import './AddItemCart.css'
 import '../UniversalCSS.css'
-import { getItemsSingleCartTHUNK, getSingleCartTHUNK, postItemCartTHUNK } from '../../store/cart';
+import { getItemsSingleCartTHUNK, getSingleCartTHUNK, updateItemCartTHUNK } from '../../store/cart';
 
 export default function AddItemCart({cartId, userId, productId}) {
     const dispatch = useDispatch()
     const {totalItems, setTotalItems} = useCart()
+    const user = useSelector(state => state.session.user)
 
     const addProduct = () => {
-        console.log("cart: ", cartId)
-        console.log("userId: ", userId)
-        console.log("productId: ", productId)
+        // console.log("cart: ", cartId)
+        // console.log("userId: ", userId)
+        // console.log("productId: ", productId)
         const payload = {
-            cart_id: cartId,
+            user_id: user.id,
             product_id: productId
         }
-        dispatch(postItemCartTHUNK(payload))
+        dispatch(updateItemCartTHUNK(payload))
         // dispatch(getItemsSingleCartTHUNK(cartId))
         setTotalItems(totalItems + 1)
     }

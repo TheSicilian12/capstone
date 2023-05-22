@@ -73,10 +73,11 @@ export const getItemsSingleCartTHUNK = (cartId) => async (dispatch) => {
 
 
 // Add an item to a cart by id
-export const postItemCartTHUNK = (payload) => async (dispatch) => {
+export const updateItemCartTHUNK = (payload) => async (dispatch) => {
     console.log("----Add item to cart----")
+    console.log("payload: ", payload)
     const response = await fetch("/api/carts/add-item", {
-        method: "POST",
+        method: "PUT",
         headers: {
             "Content-Type": "application/json",
         },
@@ -86,6 +87,7 @@ export const postItemCartTHUNK = (payload) => async (dispatch) => {
     })
     if (response.ok) {
         const data = await response.json()
+        console.log("data: ", data)
         return data
     }
 }

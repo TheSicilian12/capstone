@@ -10,7 +10,7 @@ class Cart(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     total_price = db.Column(db.Integer)
-    productIds = db.Column(db.PickleType())
+    product_ids = db.Column(db.PickleType())
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
     updated_at = db.Column(db.DateTime)
 
@@ -24,7 +24,7 @@ class Cart(db.Model):
             'id': self.id,
             'totalPrice': self.total_price,
             'userId': self.user_id,
-            'productIds': self.productIds,
+            'productIds': self.product_ids,
             'createdAt': self.created_at,
             'updatedAt': self.updated_at
         }
