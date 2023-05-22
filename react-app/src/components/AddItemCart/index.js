@@ -13,8 +13,8 @@ export default function AddItemCart({cartId, userId, productId}) {
     console.log("-----------button productId: ", productId)
 
     const addProduct = () => {
-        // console.log("cart: ", cartId)
-        // console.log("userId: ", userId)
+        console.log("cart: ", cartId)
+        console.log("userId: ", userId)
         console.log("productId: ", productId)
         const payload = {
             user_id: user.id,

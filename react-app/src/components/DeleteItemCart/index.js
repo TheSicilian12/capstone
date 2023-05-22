@@ -6,15 +6,15 @@ import './DeleteItemCart.css'
 import '../UniversalCSS.css'
 import { getSingleCartTHUNK, deleteItemCartTHUNK } from '../../store/cart';
 
-export default function DeleteItemCart({item}) {
+export default function DeleteItemCart({itemId}) {
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
 
 
     const remove = async () => {
-        console.log(item.id)
+        console.log(itemId)
         console.log("remove button")
-        await dispatch(deleteItemCartTHUNK(item.id))
+        await dispatch(deleteItemCartTHUNK(itemId))
         dispatch(getSingleCartTHUNK(user.id))
     }
 

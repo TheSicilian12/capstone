@@ -12,6 +12,7 @@ import { postItemCartTHUNK, getSingleCartTHUNK } from '../../store/cart'
 import OpenModalButton from '../OpenModalButton';
 import AddItemCart from '../AddItemCart';
 import SingleCart from '../SingleCart';
+import DeleteItemCart from '../DeleteItemCart';
 
 export default function SingleProduct() {
     const dispatch = useDispatch();
@@ -37,21 +38,25 @@ export default function SingleProduct() {
     const userId = user.id
 
     return(
-        <div className="single-product-image-container border-black">
-            Hello
-            {singleProduct.SKU}
-
-            <div>
+        <div className="single-product-page-container border-black">
+            <div className="single-product-image-container border-black">
                 <StandardButtons text="edit" path={`/products/${productId}/edit`} />
                 <OpenModalButton
                     buttonText="Delete"
                     className="buttons-small"
                     modalComponent={<DeleteSingleProductModal productId={productId}/>}
                 />
-                <AddItemCart cartId={cartId} userId={userId} productId={productId}/>
             </div>
 
+            <div className="border-black">
+                {singleProduct.name}
+            </div>
 
+            <div className="single-product-cart-container border-black">
+                Add to cart
+                <AddItemCart cartId={cartId} userId={userId} productId={productId}/>
+                <DeleteItemCart item={productId} />
+            </div>
         </div>
     )
 

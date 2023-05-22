@@ -88,7 +88,7 @@ def update_item_carts():
 
     form = CartForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    # print("-------------------------------------------------")
+    print("-------------------------------------------------")
     print("------------------form: ", form.data)
 
     if form.validate_on_submit():
