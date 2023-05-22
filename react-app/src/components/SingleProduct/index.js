@@ -53,11 +53,14 @@ export default function SingleProduct() {
                 </div>
 
                 <div className="border-black single-product-info-container">
-                    {singleProduct.name}
+                    <h1>{singleProduct.name}</h1>
+                    <p>{singleProduct.desc}</p>
                 </div>
 
                 <div className="border-black single-product-cart-container">
                     Add to cart
+                    {products.product.inventory ? <div className="text-green">In Stock</div>
+                    : <div className="text-red">false</div>}
                     <AddItemCart cartId={cartId} userId={userId} productId={productId} />
                     <DeleteItemCart itemId={productId} />
                 </div>
