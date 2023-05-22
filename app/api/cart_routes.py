@@ -84,8 +84,8 @@ def update_item_carts():
     print("-------------------------Add item to cart by id----------------------------------")
 
     cart = Cart.query.filter(Cart.user_id == current_user.id).first()
+    print("-------------------------------------------------")
     print("------------------initial cart: ", cart.to_dict())
-
     form = CartForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     print("-------------------------------------------------")
