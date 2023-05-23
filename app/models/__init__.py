@@ -5,3 +5,4 @@ from .cart import Cart
 from .category import Category
 from .comment import Comment
 from .product import Product
+from .image import Image

@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from app.models import Product, db, User
+from app.models import Product, db, User, Image
 from flask_login import login_required, current_user
 from app.forms import ProductForm
 
@@ -30,8 +30,23 @@ def get_single_product(id):
     """
     # print('-----------------------------Single Product--------------------------------')
     single_product = Product.query.get(id)
+
+    if not single_product:
+        # print("-------------------no single product--------------------")
+        return {"No product", 400}
+
+    response = single_product.to_dict()
+
+    images = Image.query.filter(Image.product_id == id).all()
+
+    imageKey = 0
+    response["images"] = {}
+    for image in images:
+        response["images"].update({imageKey: image.to_dict()})
+        imageKey += 1
+
     # print('-------single_product------ ', single_product.to_dict())
-    return {'product': single_product.to_dict()}
+    return {'product': response}
 
 
 # Add a Product

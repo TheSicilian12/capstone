@@ -9,8 +9,7 @@ class Image(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     main_image = db.Column(db.Boolean, nullable=False)
-
-
+    image_url = db.Column(db.String(1000))
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
     updated_at = db.Column(db.DateTime)
 
@@ -23,11 +22,7 @@ class Image(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'SKU': self.SKU,
-            'name': self.name,
-            'price': self.price,
-            # 'categoryId': self.category_id,
-            'desc': self.desc,
-            'ownerId': self.owner_id,
-            'inventory': self.inventory,
+            'main_image': self.main_image,
+            'image_url': self.image_url,
+            'product_id': self.product_id
         }
