@@ -29,15 +29,22 @@ export default function ProductForm({productInfo, formType, productId}) {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        if (sku && name && price && desc && inventory) {
+
+
+        if (sku && name && price && desc && inventory && mainImage) {
             let payload = {
                 SKU: sku,
                 name,
                 price,
                 desc,
                 inventory,
+                main_image: mainImage,
                 owner_id: user.id
             }
+
+        if (subImage1) payload.sub_image_1 = subImage1
+        if (subImage2) payload.sub_image_2 = subImage2
+        if (subImage3) payload.sub_image_3 = subImage3
 
             let data
             if (formType === "new") {
