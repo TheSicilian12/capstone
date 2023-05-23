@@ -36,6 +36,16 @@ export default function SingleProduct() {
 
     const cartId = cart?.id
     const userId = user.id
+    let mainImage;
+    let images = [];
+
+    Object.values(products.product.images).forEach(image => {
+        // console.log("image: ", image)
+        if (image.main_image) mainImage = image
+        else images.push(image)
+    })
+
+    // console.log("mainImage: ", mainImage)
 
     const editRedirect = () => {
         history.push(`/products/${productId}/edit`)
@@ -48,7 +58,7 @@ export default function SingleProduct() {
                     {/* <div className="single-prdocut-main-image"> */}
                     <img className='single-prdocut-main-image'
                         //super cool!
-                        src={"https://media.contentapi.ea.com/content/dam/eacom/lost-in-random/images/2021/06/lost-in-random-feature-image-16x9.jpg.adapt.crop16x9.1023w.jpg"}
+                        src={`${mainImage.image_url}`}
                     />
                     {/* </div> */}
                 </div>
