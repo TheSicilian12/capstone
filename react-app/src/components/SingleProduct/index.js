@@ -45,9 +45,12 @@ export default function SingleProduct() {
         <div className="border-blue single-product-page-container">
             <div className="border-black single-product-container">
                 <div className="border-black single-product-image-container">
-                    <div className="single-prdocut-main-image">
-
-                    </div>
+                    {/* <div className="single-prdocut-main-image"> */}
+                    <img className='single-prdocut-main-image'
+                        //super cool!
+                        src={"https://media.contentapi.ea.com/content/dam/eacom/lost-in-random/images/2021/06/lost-in-random-feature-image-16x9.jpg.adapt.crop16x9.1023w.jpg"}
+                    />
+                    {/* </div> */}
                 </div>
 
                 <div className="border-black single-product-info-container">
