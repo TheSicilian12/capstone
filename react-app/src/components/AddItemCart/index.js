@@ -6,7 +6,7 @@ import './AddItemCart.css'
 import '../UniversalCSS.css'
 import { getItemsSingleCartTHUNK, getSingleCartTHUNK, updateItemCartTHUNK } from '../../store/cart';
 
-export default function AddItemCart({cartId, userId, productId}) {
+export default function AddItemCart({cartId, userId, productId, className}) {
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
 
@@ -26,8 +26,10 @@ export default function AddItemCart({cartId, userId, productId}) {
     }
 
     return(
-        <div>
-            <button onClick={addProduct}>Add to shopping cart</button>
-        </div>
+            <button
+                className={className ? `${className}` : ""}
+                onClick={addProduct}>
+                    Add to shopping cart
+            </button>
     )
 }

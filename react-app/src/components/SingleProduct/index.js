@@ -95,8 +95,8 @@ export default function SingleProduct() {
                     Add to cart
                     {products.product.inventory ? <div className="text-green">In Stock</div>
                         : <div className="text-red">false</div>}
-                    <AddItemCart cartId={cartId} userId={userId} productId={productId} />
-                    <DeleteItemCart itemId={productId} />
+                    <AddItemCart className={"button-full margin2"} cartId={cartId} userId={userId} productId={productId} />
+                    <DeleteItemCart className={"button-full margin2"} itemId={productId} />
                 </div>
             </div>
 
