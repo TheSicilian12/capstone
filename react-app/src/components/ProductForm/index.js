@@ -28,7 +28,7 @@ export default function ProductForm({productInfo, formType, productId}) {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-
+        console.log("add product")
 
 
         if (sku && name && price && desc && inventory && mainImage) {
@@ -48,22 +48,22 @@ export default function ProductForm({productInfo, formType, productId}) {
 
             let data
             if (formType === "new") {
-                console.log("new if statement")
+                // console.log("new if statement")
                 data = await dispatch(postProductTHUNK(payload))
             }
             // console.log("createProduct: ", createProduct)
             if (formType === "edit") {
-                console.log("edit if statement")
+                // console.log("edit if statement")
                 data = await dispatch(editProductTHUNK(payload, productId))
             }
 
             if (data) {
-                console.log("data if statement")
+                // console.log("data if statement")
                 // console.log(createProduct.product.id)
                 history.push(`/products/${data.product.id}`)
             }
         } else {
-            return console.log("ERROR")
+            return console.log("ERROR In ADD / EDIT a produact")
         }
 
         console.log('submit button')

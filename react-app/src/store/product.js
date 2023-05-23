@@ -47,25 +47,52 @@ export const getSingleProductTHUNK = (productId) => async (dispatch) => {
 // Product -> Details
 export const postProductTHUNK = (payload) => async (dispatch) => {
     console.log('----Post Product----')
-    const { SKU, name, price, desc, inventory, owner_id } = payload
-    console.log("thunk desc: ", desc)
-    console.log("before response")
+    const { SKU, name, price, desc, inventory, owner_id, main_image, sub_image_1, sub_image_2, sub_image_3 } = payload
+    // Post product
+    // Post image associated to product
+
+    const payloadProduct = {
+        SKU,
+        name,
+        price,
+        desc,
+        inventory,
+        owner_id
+    }
+
+    let payloadImage = {
+        main_image,
+    }
+
+    if (sub_image_1) payloadImage.sub_image_1 = sub_image_1
+    if (sub_image_2) payloadImage.sub_image_2 = sub_image_2
+    if (sub_image_3) payloadImage.sub_image_3 = sub_image_3
+
+    // console.log("before fetch")
     const response = await fetch("/api/products/create", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(
-            payload
+            payloadProduct
         )
     })
-
-    console.log("after response")
-    // const data = await response.json()
-    // console.log("data: ", data)
-    // console.log("response: ", response)
     if (response.ok) {
         const data = await response.json()
+        // console.log("data: ", data.product.id)
+        payloadImage.product_id = data.product.id
+
+        const responseImage = await fetch("/api/images/create", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(
+                payloadImage
+            )
+        })
+
         return data
     }
 }
