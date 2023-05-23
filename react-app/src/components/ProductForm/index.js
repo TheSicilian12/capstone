@@ -20,6 +20,10 @@ export default function ProductForm({productInfo, formType, productId}) {
     const [price, setPrice] = useState(productInfo ? productInfo.price : "");
     const [desc, setDesc] = useState(productInfo ? productInfo.desc : "");
     const [inventory, setInventory] = useState(productInfo ? productInfo.inventory : "");
+    const [mainImage, setMainImage] = useState("");
+    const [subImage1, setSubImage1] = useState("");
+    const [subImage2, setSubImage2] = useState("");
+    const [subImage3, setSubImage3] = useState("");
 
 
     const handleSubmit = async (e) => {
@@ -120,6 +124,46 @@ export default function ProductForm({productInfo, formType, productId}) {
                     </input>
                 </label>
 
+                <label>
+                    Main Image
+                    <input
+                        type="text"
+                        value={mainImage}
+                        onChange={(e) => setMainImage(e.target.value)}
+                        placeholder="Main Image URL"
+                    >
+                    </input>
+                </label>
+                <label>
+                    Additional Image
+                    <input
+                        type="text"
+                        value={subImage1}
+                        onChange={(e) => setSubImage1(e.target.value)}
+                        placeholder="Additional Image URL"
+                    >
+                    </input>
+                </label>
+                <label>
+                    Additional Image
+                    <input
+                        type="text"
+                        value={subImage2}
+                        onChange={(e) => setSubImage2(e.target.value)}
+                        placeholder="Additional Image URL"
+                    >
+                    </input>
+                </label>
+                <label>
+                    Additional Image
+                    <input
+                        type="text"
+                        value={subImage2}
+                        onChange={(e) => setSubImage2(e.target.value)}
+                        placeholder="Additional Image URL"
+                    >
+                    </input>
+                </label>
                 <button type="submit">
                     Product
                 </button>

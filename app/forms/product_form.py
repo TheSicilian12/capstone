@@ -23,3 +23,16 @@ class ProductForm(FlaskForm):
     owner_id = IntegerField(
         'owner_id', validators=[DataRequired()]
     )
+
+    main_image = StringField(
+        'main_image', validators=[DataRequired()]
+    )
+    sub_image_1 = StringField(
+        'sub_image_1'
+    )
+    sub_image_1 = StringField(
+        'sub_image_1'
+    )
+    sub_image_1 = StringField(
+        'sub_image_1'
+    )
