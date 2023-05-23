@@ -30,6 +30,14 @@
 
 } */
 
+.padding5 {
+    padding: 5px;
+}
+
+.margin2 {
+    margin: 2px;
+}
+
 
 .display-flex {
     display: flex
@@ -40,6 +48,7 @@
 }
 
 .justify-center {
+    display: flex;
     justify-content: center;
 }
 

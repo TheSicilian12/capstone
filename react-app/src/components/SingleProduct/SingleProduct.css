@@ -11,7 +11,7 @@
     height: 80vh;
 }
 
-.single-prdocut-main-image {
+.single-product-main-image {
     width: 80%;
     height: 70%;
     background-color: lightgray;
@@ -25,7 +25,11 @@
     height: 50%;
 }
 
-
+.single-product-image-mini-container {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+}
 
 .single-product-info-container {
     display: flex;

@@ -13,6 +13,7 @@ import OpenModalButton from '../OpenModalButton';
 import AddItemCart from '../AddItemCart';
 import SingleCart from '../SingleCart';
 import DeleteItemCart from '../DeleteItemCart';
+import SingleProductMiniImage from '../SingleProductMiniImage';
 
 export default function SingleProduct() {
     const dispatch = useDispatch();
@@ -46,6 +47,7 @@ export default function SingleProduct() {
     })
 
     // console.log("mainImage: ", mainImage)
+    console.log("images: ", images)
 
     const editRedirect = () => {
         history.push(`/products/${productId}/edit`)
@@ -54,14 +56,24 @@ export default function SingleProduct() {
     return (
         <div className="border-blue single-product-page-container">
             <div className="border-black single-product-container">
+
                 <div className="border-black single-product-image-container">
-                    {/* <div className="single-prdocut-main-image"> */}
-                    <img className='single-prdocut-main-image'
-                        //super cool!
+                    <img className='single-product-main-image'
                         src={`${mainImage.image_url}`}
                     />
-                    {/* </div> */}
+
+                    <div className='display-flex margin2'>
+                        {images.map(image => {
+                            return (<div className="justify-center">
+                                <SingleProductMiniImage
+                                    className={"single-product-image-mini-container"}
+                                    imageUrl={image.image_url} />
+                            </div>)
+                        })
+                        }
+                    </div>
                 </div>
+
 
                 <div className="border-black single-product-info-container">
                     <div className="border-blue single-product-header-container">
@@ -84,6 +96,7 @@ export default function SingleProduct() {
                     <DeleteItemCart itemId={productId} />
                 </div>
             </div>
+
         </div>
     )
 }

@@ -9,6 +9,21 @@ def seed_images():
       main_image=True,
       image_url="https://media.contentapi.ea.com/content/dam/eacom/lost-in-random/images/2021/06/lost-in-random-feature-image-16x9.jpg.adapt.crop16x9.1023w.jpg"
       )
+    image1sub1 = Image(
+      product_id=1,
+      main_image=False,
+      image_url="https://upload.wikimedia.org/wikipedia/commons/a/a5/6sided_dice.jpg"
+      )
+    image1sub2 = Image(
+      product_id=1,
+      main_image=False,
+      image_url="https://upload.wikimedia.org/wikipedia/commons/a/a5/6sided_dice.jpg"
+      )
+    image1sub3 = Image(
+      product_id=1,
+      main_image=False,
+      image_url="https://upload.wikimedia.org/wikipedia/commons/a/a5/6sided_dice.jpg"
+      )
     image2 = Image(
       product_id=2,
       main_image=True,
@@ -66,6 +81,9 @@ def seed_images():
     db.session.add(image8)
     db.session.add(image9)
     db.session.add(image10)
+    db.session.add(image1sub1)
+    db.session.add(image1sub2)
+    db.session.add(image1sub3)
     db.session.commit()
 
 
