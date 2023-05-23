@@ -18,6 +18,19 @@
     display: none;
 }
 
+.text-red {
+    color: red;
+}
+
+.text-green {
+    color: green;
+}
+
+.button-small {
+    
+}
+
+
 .display-flex {
     display: flex
 }

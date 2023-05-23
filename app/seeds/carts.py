@@ -1,13 +1,17 @@
-from app.models import db, Cart, environment, SCHEMA
+from app.models import db, Cart, Product, environment, SCHEMA
 from sqlalchemy.sql import text
 
 
 # Adds a demo user, you can add other users here if you want
 def seed_carts():
     cart1 = Cart(
-        user_id=2)
+        user_id=2,
+        product_ids=[1, 2, 2, 3],
+        total_price=350)
     cart2 = Cart(
-        user_id=3)
+        user_id=3,
+        product_ids=[1, 2, 3, 4, 5, 5],
+        total_price=360)
 
     db.session.add(cart1)
     db.session.add(cart2)
@@ -27,3 +31,4 @@ def undo_carts():
         db.session.execute(text("DELETE FROM carts"))
 
     db.session.commit()
+

@@ -35,9 +35,9 @@ export const getAllCartsTHUNK = () => async (dispatch) => {
 
 
 // Get a single cart by user id THUNK
-export const getSingleCartTHUNK = (userId) => async (dispatch) => {
+export const getSingleCartTHUNK = () => async (dispatch) => {
     console.log("----Get single cart THUNK")
-    const response = await fetch(`/api/carts/${userId}`)
+    const response = await fetch(`/api/carts/yours`)
     if (response.ok) {
         const await_response = await response.json();
         // console.log("await_response: ", await_response)
@@ -54,19 +54,32 @@ export const getItemsSingleCartTHUNK = (cartId) => async (dispatch) => {
     // console.log("before response")
     const response = await fetch(`/api/carts/${cartId}/items`)
     if (response.ok) {
-        const await_response = await response.json();
-        console.log("await_response: ", await_response.items)
-        const singleCart = normalize(await_response.items)
+        let await_response = await response.json();
+        // console.log("await_response: ", await_response.items)
+        let totalPrice = 0;
+        Object.values(await_response)[0].map(item => totalPrice += item.product.price)
+        // console.log("Object.values: ", Object.values(await_response)[0])
+
+        // console.log("price: ", totalPrice)
+        let singleCart = {}
+        singleCart.items = normalize(await_response.items)
+        singleCart.totalPrice = totalPrice
+        // console.log("singleCart: ", singleCart)
+
+
         dispatch(loadOne(singleCart))
     }
 }
 
 
 // Add an item to a cart by id
-export const postItemCartTHUNK = (payload) => async (dispatch) => {
+export const updateItemCartTHUNK = (payload) => async (dispatch) => {
     console.log("----Add item to cart----")
+    const {user_id, product_ids, total_price} = payload
+    console.log("-----------------------", typeof product_ids)
+    // console.log("payload: ", payload)
     const response = await fetch("/api/carts/add-item", {
-        method: "POST",
+        method: "PUT",
         headers: {
             "Content-Type": "application/json",
         },
@@ -76,6 +89,8 @@ export const postItemCartTHUNK = (payload) => async (dispatch) => {
     })
     if (response.ok) {
         const data = await response.json()
+        console.log("data: ", data)
+        dispatch(getSingleCartTHUNK())
         return data
     }
 }
@@ -84,9 +99,10 @@ export const postItemCartTHUNK = (payload) => async (dispatch) => {
 // Add a cart
 export const postCartTHUNK = (payload) => async (dispatch) => {
     console.log("----Add cart----")
-    const {user_id, total_price} = payload
-    console.log(user_id)
-    console.log(total_price)
+    const {user_id, total_price, product_ids} = payload
+    // console.log(user_id)
+    // console.log(total_price)
+    console.log(product_ids)
     const response = await fetch("/api/carts/add-cart", {
         method: "POST",
         headers: {
@@ -97,13 +113,14 @@ export const postCartTHUNK = (payload) => async (dispatch) => {
         )
     })
     if (response.ok) {
+        console.log("if statment")
         const data = await response.json()
         return data
     }
 }
 
-export const deleteCartTHUNK = (userId) => async (dispatch) => {
-    const response = await fetch(`/api/carts/${userId}/cart`, {
+export const deleteCartTHUNK = () => async (dispatch) => {
+    const response = await fetch(`/api/carts/delete`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -119,10 +136,10 @@ export const deleteCartTHUNK = (userId) => async (dispatch) => {
 
 
 // Delete an item by id
-export const deleteItemCartTHUNK = (itemId) => async (dispatch) => {
-    // console.log("----Delete item cart THUNK----")
+export const deleteItemCartTHUNK = (productId) => async (dispatch) => {
+    console.log("----Delete item cart THUNK----")
     // console.log("before response")
-    const response = await fetch(`/api/carts/${itemId}/item`, {
+    const response = await fetch(`/api/carts/${productId}/item`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -130,7 +147,7 @@ export const deleteItemCartTHUNK = (itemId) => async (dispatch) => {
     })
     // console.log("after response")
     if (response.ok) {
-        dispatch(deleteItemCart(itemId))
+        dispatch(getSingleCartTHUNK())
         return "Sucess"
     }
     else {
@@ -139,17 +156,21 @@ export const deleteItemCartTHUNK = (itemId) => async (dispatch) => {
 }
 
 
-const initialState = {}
+const initialState = {
+    totalPrice: {},
+}
 
 export default function cartReducer(state = initialState, action) {
     switch (action.type) {
         case LOAD_CART: {
+            // console.log("cart: ", action.payload)
             const newState = { ...action.payload }
             return newState
         }
         //this mimics the product and does not reflect the cart
         case LOAD_ONE_CART: {
-            const newState = { items: {...action.payload} }
+            console.log("reducer: ", action.payload)
+            const newState = { ...state, items: {...action.payload.items}, totalPrice: action.payload.totalPrice  }
             return newState
         }
         case DELETE_ITEM_CART: {

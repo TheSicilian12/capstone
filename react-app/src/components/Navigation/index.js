@@ -1,37 +1,45 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
-import { deleteCartTHUNK, getSingleCartTHUNK, postCartTHUNK } from '../../store/cart';
+import { deleteCartTHUNK, getItemsSingleCartTHUNK, getSingleCartTHUNK, postCartTHUNK } from '../../store/cart';
+
 import './Navigation.css';
 import '../UniversalCSS.css'
 
 function Navigation({ isLoaded }) {
 	const sessionUser = useSelector(state => state.session.user);
+	const items = useSelector(state => state.cart.carts?.items)
+	// const cartId = useSelector(state => state.cart.id)
 	const dispatch = useDispatch()
-	const cartId = useSelector(state => state.cart.id)
 
-	console.log("cartId: ", cartId)
+	let totalItems = 0;
+	if (items) {
+		console.log("items: ", Object.keys(items).length)
+		totalItems = Object.keys(items).length
+	}
+
 	const addCart = () => {
-		console.log("add cart")
+		// console.log("add cart")
 		const payload = {
 			user_id: sessionUser.id,
-			total_price: 0
+			total_price: 0,
+			product_ids: []
 		}
 		dispatch(postCartTHUNK(payload))
+		// dispatch(getSingleCartTHUNK())
 	}
 
 	const deleteCart = () => {
 		console.log("delete cart")
-
-		dispatch(deleteCartTHUNK(sessionUser.id))
+		dispatch(deleteCartTHUNK())
 	}
 
 	return (
 		<div className="nav-background nav-container">
 			<ul>
 				<li>
-					<NavLink exact to="/">Home</NavLink>
+					<NavLink exact to="/homepage">Home</NavLink>
 				</li>
 				{isLoaded && (
 					<li>
@@ -40,7 +48,7 @@ function Navigation({ isLoaded }) {
 				)}
 			</ul>
 			<div>
-				Shopping Cart Item Total:
+				Shopping Cart Item Total: {totalItems}
 			</div>
 			<button onClick={addCart}>Start a cart</button>
 			<button onClick={deleteCart}>Delete your cart</button>

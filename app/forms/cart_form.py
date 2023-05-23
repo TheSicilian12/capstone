@@ -11,3 +11,6 @@ class CartForm(FlaskForm):
     user_id = IntegerField(
         'user_id', validators=[DataRequired()]
     )
+    product_ids = IntegerField(
+        'product_ids'
+    )

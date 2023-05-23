@@ -14,7 +14,7 @@ export default function AllCarts() {
         dispatch(getAllCartsTHUNK())
     }, [dispatch])
 
-    if (!carts) return <div>loading</div>
+    if (!carts) return <div>loading all carts</div>
 
     console.log("carts: ", carts)
 

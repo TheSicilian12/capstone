@@ -5,18 +5,19 @@ import { NavLink } from 'react-router-dom';
 import './HomePage.css';
 import '../UniversalCSS.css'
 import { getAllProductsTHUNK } from '../../store/product';
+import { getSingleCartTHUNK } from '../../store/cart';
 
 export default function HomePage() {
     const dispatch = useDispatch();
     const products = useSelector(state => state.products)
+    // const items = useSelector(state => state.cart.carts.items)
 
     useEffect(() => {
         dispatch(getAllProductsTHUNK())
+        dispatch(getSingleCartTHUNK())
     }, [dispatch])
 
-    if (!products) return <div>loading</div>
-
-    console.log("products: ", products)
+    if (!products) return <div>loading homepage</div>
 
     return (
         <div>
