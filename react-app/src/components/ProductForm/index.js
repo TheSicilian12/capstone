@@ -39,12 +39,13 @@ export default function ProductForm({productInfo, formType, productId}) {
                 desc,
                 inventory,
                 main_image: mainImage,
+                subImages: [],
                 owner_id: user.id
             }
 
-        if (subImage1) payload.sub_image_1 = subImage1
-        if (subImage2) payload.sub_image_2 = subImage2
-        if (subImage3) payload.sub_image_3 = subImage3
+        if (subImage1) payload.subImages.push(subImage1)
+        if (subImage2) payload.subImages.push(subImage2)
+        if (subImage3) payload.subImages.push(subImage3)
 
             let data
             if (formType === "new") {
@@ -60,7 +61,7 @@ export default function ProductForm({productInfo, formType, productId}) {
             if (data) {
                 // console.log("data if statement")
                 // console.log(createProduct.product.id)
-                history.push(`/products/${data.product.id}`)
+                // history.push(`/products/${data.product.id}`)
             }
         } else {
             return console.log("ERROR In ADD / EDIT a produact")
@@ -165,8 +166,8 @@ export default function ProductForm({productInfo, formType, productId}) {
                     Additional Image
                     <input
                         type="text"
-                        value={subImage2}
-                        onChange={(e) => setSubImage2(e.target.value)}
+                        value={subImage3}
+                        onChange={(e) => setSubImage3(e.target.value)}
                         placeholder="Additional Image URL"
                     >
                     </input>

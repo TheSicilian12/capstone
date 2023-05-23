@@ -47,7 +47,7 @@ export const getSingleProductTHUNK = (productId) => async (dispatch) => {
 // Product -> Details
 export const postProductTHUNK = (payload) => async (dispatch) => {
     console.log('----Post Product----')
-    const { SKU, name, price, desc, inventory, owner_id, main_image, sub_image_1, sub_image_2, sub_image_3 } = payload
+    const { SKU, name, price, desc, inventory, owner_id, main_image, images } = payload
     // Post product
     // Post image associated to product
 
@@ -60,15 +60,9 @@ export const postProductTHUNK = (payload) => async (dispatch) => {
         owner_id
     }
 
-    let payloadImage = {
-        main_image,
-    }
+    console.log("images: ", images)
 
-    if (sub_image_1) payloadImage.sub_image_1 = sub_image_1
-    if (sub_image_2) payloadImage.sub_image_2 = sub_image_2
-    if (sub_image_3) payloadImage.sub_image_3 = sub_image_3
-
-    // console.log("before fetch")
+    console.log("before fetch")
     const response = await fetch("/api/products/create", {
         method: "POST",
         headers: {
@@ -78,21 +72,48 @@ export const postProductTHUNK = (payload) => async (dispatch) => {
             payloadProduct
         )
     })
+    console.log("after fetch")
     if (response.ok) {
         const data = await response.json()
-        // console.log("data: ", data.product.id)
-        payloadImage.product_id = data.product.id
+        // // For each image a loop needs to occur to post the image.
 
-        const responseImage = await fetch("/api/images/create", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(
-                payloadImage
-            )
-        })
+        // Main image
+        let payloadMainImage = {
+            image_url: main_image,
+            main_image: true
+        }
+        const mainData = dispatch(postImageTHUNK(payloadMainImage, data.product.id))
 
+        if (mainData.ok) {
+            //Sub images
+            for (const image of images) {
+                let payloadImage = {
+                    image_url: image,
+                    main_image: false,
+                }
+                dispatch(postImageTHUNK(payloadImage, data.product.id))
+            }
+        }
+
+        return data
+    }
+}
+
+// Add an image
+export const postImageTHUNK = (payload, productId) => async (dispatch) => {
+    payload.product_id = productId
+
+    const response = await fetch("/api/images/create", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(
+            payload
+        )
+    })
+    if (response.ok) {
+        const data = await response.json()
         return data
     }
 }
@@ -140,7 +161,7 @@ export default function productReducer(state = initialState, action) {
     switch (action.type) {
         case LOAD_PRODUCT: {
             // console.log("action: ", action.payload.products)
-            const newState = {...action.payload }
+            const newState = { ...action.payload }
             return newState
         }
         case LOAD_ONE_PRODUCT: {
