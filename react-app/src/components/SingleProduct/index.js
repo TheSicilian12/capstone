@@ -76,14 +76,17 @@ export default function SingleProduct() {
 
 
                 <div className="border-black single-product-info-container">
-                    <div className="border-blue single-product-header-container">
+                    <div className="single-product-header-container">
                         <h1>{singleProduct.name}</h1>
-                        <button onClick={editRedirect}>Edit?</button>
-                        <OpenModalButton
-                            buttonText="Delete"
-                            className="buttons-small"
-                            modalComponent={<DeleteSingleProductModal productId={productId} />}
-                        />
+
+                        <div className="single-product-owner-buttons-container ">
+                            <button className="button-small margin2" onClick={editRedirect}>Edit</button>
+                            <OpenModalButton
+                                buttonText="Delete"
+                                className="button-small margin2"
+                                modalComponent={<DeleteSingleProductModal productId={productId} />}
+                            />
+                        </div>
                     </div>
                     <p>{singleProduct.desc}</p>
                 </div>

@@ -40,6 +40,7 @@
 
 .single-product-header-container {
     display: flex;
+    justify-content: space-between;
 }
 
 .single-product-cart-container {
@@ -47,6 +48,13 @@
     flex-direction: column;
     width: 20%;
     height: 50%;
+}
+
+.single-product-owner-buttons-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
 }
 
 
