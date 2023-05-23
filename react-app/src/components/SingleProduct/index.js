@@ -79,14 +79,14 @@ export default function SingleProduct() {
                     <div className="single-product-header-container">
                         <h1>{singleProduct.name}</h1>
 
-                        <div className="single-product-owner-buttons-container ">
+                        {user.id === singleProduct.ownerId && <div className="single-product-owner-buttons-container ">
                             <button className="button-small margin2" onClick={editRedirect}>Edit</button>
                             <OpenModalButton
                                 buttonText="Delete"
                                 className="button-small margin2"
                                 modalComponent={<DeleteSingleProductModal productId={productId} />}
                             />
-                        </div>
+                        </div>}
                     </div>
                     <p>{singleProduct.desc}</p>
                 </div>
