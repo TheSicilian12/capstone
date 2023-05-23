@@ -53,7 +53,7 @@ export default function SingleProduct() {
                 <div className="border-black single-product-info-container">
                     <div className="border-blue single-product-header-container">
                         <h1>{singleProduct.name}</h1>
-                        <button OnClick={editRedirect()}>Edit</button>
+                        <button onClick={editRedirect}>Edit?</button>
                         <OpenModalButton
                             buttonText="Delete"
                             className="buttons-small"
