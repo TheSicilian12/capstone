@@ -38,14 +38,36 @@ export default function ProductForm({productInfo, formType, productId}) {
                 price,
                 desc,
                 inventory,
-                main_image: mainImage,
-                subImages: [],
+                // main_image: mainImage,
+                // subImages: [],
+                images: [], //images is a list of dictionaries for mass upload
                 owner_id: user.id
             }
 
-        if (subImage1) payload.subImages.push(subImage1)
-        if (subImage2) payload.subImages.push(subImage2)
-        if (subImage3) payload.subImages.push(subImage3)
+            payload.images.push({
+                image_url: mainImage,
+                main_image: true
+            })
+
+            if (subImage1) {
+                payload.images.push({
+                    image_url: subImage1,
+                    main_image: false
+                })
+            }
+
+            if (subImage2) {
+                payload.images.push({
+                    image_url: subImage2,
+                    main_image: false
+                })
+            }
+
+            if (subImage3) {
+                payload.images.push({
+                    image_url: subImage3
+                })
+            }
 
             let data
             if (formType === "new") {

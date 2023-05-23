@@ -47,7 +47,7 @@ export const getSingleProductTHUNK = (productId) => async (dispatch) => {
 // Product -> Details
 export const postProductTHUNK = (payload) => async (dispatch) => {
     console.log('----Post Product----')
-    const { SKU, name, price, desc, inventory, owner_id, main_image, images } = payload
+    const { SKU, name, price, desc, inventory, owner_id, images } = payload
     // Post product
     // Post image associated to product
 
@@ -60,9 +60,6 @@ export const postProductTHUNK = (payload) => async (dispatch) => {
         owner_id
     }
 
-    console.log("images: ", images)
-
-    console.log("before fetch")
     const response = await fetch("/api/products/create", {
         method: "POST",
         headers: {
@@ -72,27 +69,17 @@ export const postProductTHUNK = (payload) => async (dispatch) => {
             payloadProduct
         )
     })
-    console.log("after fetch")
+
     if (response.ok) {
         const data = await response.json()
-        // // For each image a loop needs to occur to post the image.
+        // Images are in a list of dictionaries
 
-        // Main image
-        let payloadMainImage = {
-            image_url: main_image,
-            main_image: true
-        }
-        const mainData = dispatch(postImageTHUNK(payloadMainImage, data.product.id))
-
-        if (mainData.ok) {
-            //Sub images
-            for (const image of images) {
-                let payloadImage = {
-                    image_url: image,
-                    main_image: false,
-                }
-                dispatch(postImageTHUNK(payloadImage, data.product.id))
-            }
+        for (const image of images) {
+            // image.product_id = data.product.id
+            // await dispatch(postImageTHUNK(image))
+            await Promise.all(
+                images.map((image) => dispatch(postImageTHUNK(image, data.product.id)))
+            )
         }
 
         return data
@@ -101,17 +88,22 @@ export const postProductTHUNK = (payload) => async (dispatch) => {
 
 // Add an image
 export const postImageTHUNK = (payload, productId) => async (dispatch) => {
-    payload.product_id = productId
 
-    const response = await fetch("/api/images/create", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(
-            payload
-        )
-    })
+        payload.product_id = productId
+
+        const response = await fetch("/api/images/create", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(
+                payload
+            )
+        })
+
+        const data = await response.json()
+        console.log("data: ", data)
+
     if (response.ok) {
         const data = await response.json()
         return data
