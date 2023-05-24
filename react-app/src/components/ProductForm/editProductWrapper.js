@@ -23,7 +23,15 @@ export default function EditProductForm() {
        return (<div>loading edit</div>)
     }
 
+    let mainImageUrl;
+    let imageArray = [];
+    Object.values(productInfo.images).forEach(image => {
+        if (image.main_image === "yes") {
+            mainImageUrl = image.image_url
+        } else imageArray.push(image.image_url)
+    })
+
     return (
-        <ProductForm productInfo={productInfo} formType={"edit"} productId={productId}/>
+        <ProductForm productInfo={productInfo} formType={"edit"} productId={productId} mainImageUrl={mainImageUrl} imageArray={imageArray}/>
     )
 }

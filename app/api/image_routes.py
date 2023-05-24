@@ -43,3 +43,20 @@ def post_images():
     #     return {
     #         "errors": form.errors
     #     }
+
+
+# Edit an image by product id
+# Authorized user: logged in and owner of product
+@image_routes.route('/<int:id>/update', methods=['PUT'])
+@login_required
+def edit_image(id):
+    """
+    Edit an image by product id
+    """
+    print("--------------------------Edit Image-----------------------------")
+
+    form = ImageForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        product = Image.query.filter(Image.product_id == id).all()

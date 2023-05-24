@@ -8,7 +8,7 @@ import './GroupForm.css'
 import '../UniversalCSS.css'
 
 
-export default function ProductForm({productInfo, formType, productId}) {
+export default function ProductForm({productInfo, formType, productId, mainImageUrl, imageArray}) {
     // console.log("productInfo: ", productInfo ? productInfo.SKU : "test")
     console.log("formType: ", formType)
     const user = useSelector((state) => state.session.user)
@@ -20,10 +20,10 @@ export default function ProductForm({productInfo, formType, productId}) {
     const [price, setPrice] = useState(productInfo ? productInfo.price : "");
     const [desc, setDesc] = useState(productInfo ? productInfo.desc : "");
     const [inventory, setInventory] = useState(productInfo ? productInfo.inventory : "");
-    const [mainImage, setMainImage] = useState("");
-    const [subImage1, setSubImage1] = useState("");
-    const [subImage2, setSubImage2] = useState("");
-    const [subImage3, setSubImage3] = useState("");
+    const [mainImage, setMainImage] = useState(mainImageUrl ? mainImageUrl : "");
+    const [subImage1, setSubImage1] = useState(imageArray[0] ? imageArray[0] : "");
+    const [subImage2, setSubImage2] = useState(imageArray[1] ? imageArray[1] : "");
+    const [subImage3, setSubImage3] = useState(imageArray[2] ? imageArray[2] : "");
 
 
     const handleSubmit = async (e) => {
