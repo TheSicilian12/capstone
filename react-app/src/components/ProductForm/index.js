@@ -8,7 +8,7 @@ import './GroupForm.css'
 import '../UniversalCSS.css'
 
 
-export default function ProductForm({productInfo, formType, productId, mainImageUrl, imageArray}) {
+export default function ProductForm({productInfo, formType, productId, mainProductImage, imageArray}) {
     // console.log("productInfo: ", productInfo ? productInfo.SKU : "test")
     console.log("formType: ", formType)
     const user = useSelector((state) => state.session.user)
@@ -20,10 +20,10 @@ export default function ProductForm({productInfo, formType, productId, mainImage
     const [price, setPrice] = useState(productInfo ? productInfo.price : "");
     const [desc, setDesc] = useState(productInfo ? productInfo.desc : "");
     const [inventory, setInventory] = useState(productInfo ? productInfo.inventory : "");
-    const [mainImage, setMainImage] = useState(mainImageUrl ? mainImageUrl : "");
-    const [subImage1, setSubImage1] = useState(imageArray[0] ? imageArray[0] : "");
-    const [subImage2, setSubImage2] = useState(imageArray[1] ? imageArray[1] : "");
-    const [subImage3, setSubImage3] = useState(imageArray[2] ? imageArray[2] : "");
+    const [mainImage, setMainImage] = useState(mainProductImage ? mainProductImage.image_url : "");
+    const [subImage1, setSubImage1] = useState(imageArray[0] ? imageArray[0].image_url : "");
+    const [subImage2, setSubImage2] = useState(imageArray[1] ? imageArray[1].image_url : "");
+    const [subImage3, setSubImage3] = useState(imageArray[2] ? imageArray[2].image_url : "");
 
 
     const handleSubmit = async (e) => {
@@ -38,8 +38,6 @@ export default function ProductForm({productInfo, formType, productId, mainImage
                 price,
                 desc,
                 inventory,
-                // main_image: mainImage,
-                // subImages: [],
                 images: [], //images is a list of dictionaries for mass upload
                 owner_id: user.id
             }
@@ -48,6 +46,7 @@ export default function ProductForm({productInfo, formType, productId, mainImage
                 image_url: mainImage,
                 main_image: "yes"
             })
+            // if form type add to payload
 
             if (subImage1) {
                 payload.images.push({
