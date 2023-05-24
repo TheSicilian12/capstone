@@ -22,7 +22,6 @@ export default function HomePage() {
 
     return (
         <div className="border-black home-page-container">
-            Hello
             {Object.values(products).map(product => {
                 return (
                     <div key={product.SKU}>
