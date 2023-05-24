@@ -33,7 +33,7 @@ def get_all_products():
         # product["test"] = ["test"]
         images = Image.query.filter(Image.product_id == product["id"]).all()
         images = [image.to_dict() for image in images]
-        product["test"] = images
+        product["images"] = images
 
     # print("---------------------response: ", response)
     # print("---------------------testresponse: ", testresponse)

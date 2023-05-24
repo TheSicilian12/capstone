@@ -12,13 +12,20 @@ import { getSingleProductTHUNK } from '../../store/product';
 
 export default function ProductContainer({product}) {
     const history = useHistory();
-    
+
+    let mainImage = Object.values(product.images).find(image => {
+        return image.main_image === "yes"
+    })
+
+
     return(
        <div className="border-black">
             <NavLink key={product.SKU} to={`/products/${product.id}`}>
+                <img className=''
+                        src={`${mainImage.image_url}`}
+                    />
                 {product.name}
-                {product.images}
-
+                {product.price}
             </NavLink>
        </div>
     )
