@@ -1,8 +1,12 @@
-.home-page-container {
-    
+.homepage-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
-.home-page-container>* {
-    flex: 1 1 160px;
+
+.homepage-margin-top {
+    margin-top: 20px;
+}
+
+.homepage-margin-product {
+    margin: 15px;
 }

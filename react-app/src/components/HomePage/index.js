@@ -21,14 +21,16 @@ export default function HomePage() {
     if (!products) return <div>loading homepage</div>
 
     return (
-        <div className="border-black home-page-container">
-            {Object.values(products).map(product => {
-                return (
-                    <div key={product.SKU}>
-                        <ProductContainer product={product}/>
-                    </div>
-                )
-            })}
+        <div className="justify-center homepage-margin-top">
+            <div className="homepage-container">
+                {Object.values(products).map(product => {
+                    return (
+                        <div className="homepage-margin-product" key={product.SKU}>
+                            <ProductContainer product={product} />
+                        </div>
+                    )
+                })}
+            </div>
         </div>
     )
 

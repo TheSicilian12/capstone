@@ -19,12 +19,16 @@ export default function ProductContainer({product}) {
 
 
     return(
-            <NavLink className="border-black home-page-container homepage-single-product-container" key={product.SKU} to={`/products/${product.id}`}>
-                <img className='border-green single-product-container-image-width'
+        <div className="homepage-single-product-container">
+
+            <NavLink key={product.SKU} to={`/products/${product.id}`}>
+                <img className='single-product-container-image-width'
                         src={`${mainImage.image_url}`}
-                />
-                {product.name}
-                {product.price}
+                        />
+                <p className="justify-center">{product.name}</p>
+                <p className="justify-center">{product.price}</p>
+
             </NavLink>
+         </div>
     )
 }
