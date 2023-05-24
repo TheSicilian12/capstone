@@ -42,7 +42,7 @@ export default function SingleProduct() {
 
     Object.values(products.product.images).forEach(image => {
         // console.log("image: ", image)
-        if (image.main_image) mainImage = image
+        if (image.main_image === "yes") mainImage = image
         else images.push(image)
     })
 

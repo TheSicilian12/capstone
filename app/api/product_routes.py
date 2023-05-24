@@ -28,7 +28,7 @@ def get_single_product(id):
     """
     Query to get a signle product by id
     """
-    # print('-----------------------------Single Product--------------------------------')
+    print('-----------------------------Single Product--------------------------------')
     single_product = Product.query.get(id)
 
     if not single_product:
@@ -38,6 +38,8 @@ def get_single_product(id):
     response = single_product.to_dict()
 
     images = Image.query.filter(Image.product_id == id).all()
+
+    print("-------------images: ", images)
 
     imageKey = 0
     response["images"] = {}

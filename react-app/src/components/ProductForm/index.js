@@ -46,26 +46,27 @@ export default function ProductForm({productInfo, formType, productId}) {
 
             payload.images.push({
                 image_url: mainImage,
-                main_image: true
+                main_image: "yes"
             })
 
             if (subImage1) {
                 payload.images.push({
                     image_url: subImage1,
-                    main_image: false
+                    main_image: "no"
                 })
             }
 
             if (subImage2) {
                 payload.images.push({
                     image_url: subImage2,
-                    main_image: false
+                    main_image: "no"
                 })
             }
 
             if (subImage3) {
                 payload.images.push({
-                    image_url: subImage3
+                    image_url: subImage3,
+                    main_image: "no"
                 })
             }
 
@@ -83,7 +84,7 @@ export default function ProductForm({productInfo, formType, productId}) {
             if (data) {
                 // console.log("data if statement")
                 // console.log(createProduct.product.id)
-                // history.push(`/products/${data.product.id}`)
+                history.push(`/products/${data.product.id}`)
             }
         } else {
             return console.log("ERROR In ADD / EDIT a produact")

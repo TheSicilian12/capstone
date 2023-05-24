@@ -8,7 +8,8 @@ class Image(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    main_image = db.Column(db.Boolean, nullable=False)
+    # main_image = db.Column(db.Boolean, nullable=False)
+    main_image = db.Column(db.String(5))
     image_url = db.Column(db.String(1000))
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
     updated_at = db.Column(db.DateTime)

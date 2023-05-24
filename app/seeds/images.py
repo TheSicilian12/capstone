@@ -6,67 +6,67 @@ from sqlalchemy.sql import text
 def seed_images():
     image1 = Image(
       product_id=1,
-      main_image=True,
+      main_image="yes",
       image_url="https://media.contentapi.ea.com/content/dam/eacom/lost-in-random/images/2021/06/lost-in-random-feature-image-16x9.jpg.adapt.crop16x9.1023w.jpg"
       )
     image1sub1 = Image(
       product_id=1,
-      main_image=False,
+      main_image="no",
       image_url="https://upload.wikimedia.org/wikipedia/commons/a/a5/6sided_dice.jpg"
       )
     image1sub2 = Image(
       product_id=1,
-      main_image=False,
+      main_image="no",
       image_url="https://upload.wikimedia.org/wikipedia/commons/a/a5/6sided_dice.jpg"
       )
     image1sub3 = Image(
       product_id=1,
-      main_image=False,
+      main_image="no",
       image_url="https://upload.wikimedia.org/wikipedia/commons/a/a5/6sided_dice.jpg"
       )
     image2 = Image(
       product_id=2,
-      main_image=True,
+      main_image="yes",
       image_url="https://bayphoto.com/images/presentation/wood-boxes/box-with-photo-print.jpg"
       )
     image3 = Image(
       product_id=3,
-      main_image=True,
+      main_image="yes",
       image_url="https://bayphoto.com/images/presentation/wood-boxes/box-with-photo-print.jpg"
       )
     image4 = Image(
       product_id=4,
-      main_image=True,
+      main_image="yes",
       image_url="https://bayphoto.com/images/presentation/wood-boxes/box-with-photo-print.jpg"
       )
     image5 = Image(
       product_id=5,
-      main_image=True,
+      main_image="yes",
       image_url="https://bayphoto.com/images/presentation/wood-boxes/box-with-photo-print.jpg"
       )
     image6 = Image(
       product_id=6,
-      main_image=True,
+      main_image="yes",
       image_url="https://bayphoto.com/images/presentation/wood-boxes/box-with-photo-print.jpg"
       )
     image7 = Image(
       product_id=7,
-      main_image=True,
+      main_image="yes",
       image_url="https://bayphoto.com/images/presentation/wood-boxes/box-with-photo-print.jpg"
       )
     image8 = Image(
       product_id=8,
-      main_image=True,
+      main_image="yes",
       image_url="https://bayphoto.com/images/presentation/wood-boxes/box-with-photo-print.jpg"
       )
     image9 = Image(
       product_id=9,
-      main_image=True,
+      main_image="yes",
       image_url="https://bayphoto.com/images/presentation/wood-boxes/box-with-photo-print.jpg"
       )
     image10 = Image(
       product_id=10,
-      main_image=True,
+      main_image="yes",
       image_url="https://bayphoto.com/images/presentation/wood-boxes/box-with-photo-print.jpg"
       )
 

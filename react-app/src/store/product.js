@@ -50,7 +50,6 @@ export const postProductTHUNK = (payload) => async (dispatch) => {
     const { SKU, name, price, desc, inventory, owner_id, images } = payload
     // Post product
     // Post image associated to product
-
     const payloadProduct = {
         SKU,
         name,
@@ -59,7 +58,6 @@ export const postProductTHUNK = (payload) => async (dispatch) => {
         inventory,
         owner_id
     }
-
     const response = await fetch("/api/products/create", {
         method: "POST",
         headers: {
@@ -69,7 +67,6 @@ export const postProductTHUNK = (payload) => async (dispatch) => {
             payloadProduct
         )
     })
-
     if (response.ok) {
         const data = await response.json()
         // Images are in a list of dictionaries
@@ -77,18 +74,18 @@ export const postProductTHUNK = (payload) => async (dispatch) => {
         for (const image of images) {
             // image.product_id = data.product.id
             // await dispatch(postImageTHUNK(image))
-            await Promise.all(
-                images.map((image) => dispatch(postImageTHUNK(image, data.product.id)))
-            )
+            // await Promise.all(
+            //     images.map((image) => dispatch(postImageTHUNK(image, data.product.id)))
+            // )
+            await dispatch(postImageTHUNK(image, data.product.id))
         }
-
         return data
     }
 }
-
 // Add an image
 export const postImageTHUNK = (payload, productId) => async (dispatch) => {
 
+        console.log("----Post image----")
         payload.product_id = productId
 
         const response = await fetch("/api/images/create", {
@@ -101,13 +98,13 @@ export const postImageTHUNK = (payload, productId) => async (dispatch) => {
             )
         })
 
-        const data = await response.json()
-        console.log("data: ", data)
+        // const data = await response.json()
+        // console.log("data: ", data)
 
-    if (response.ok) {
-        const data = await response.json()
-        return data
-    }
+    // if (response.ok) {
+    //     const data = await response.json()
+    //     return data
+    // }
 }
 
 // Edit a product by id THUNK

@@ -18,8 +18,17 @@ def post_images():
     form['csrf_token'].data = request.cookies['csrf_token']
     print("-------------------before if")
     if form.validate_on_submit():
+        print("-----------------------after form validate")
         data = form.data
+        print("------------------before error validator: ", data["main_image"])
+
+        if not data["main_image"] == "yes" and not data["main_image"] == "no":
+            print("--------------error handling")
+            print("---------------------main image: ", data["main_image"])
+            return {"errors": "incorrect image type information"}
+
         print("--------------------data: ", data)
+        print("----------------------product id: ", data["product_id"])
         new_image = Image(
             product_id = data["product_id"],
             main_image = data["main_image"],
