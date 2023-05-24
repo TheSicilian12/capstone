@@ -6,6 +6,7 @@ import './HomePage.css';
 import '../UniversalCSS.css'
 import { getAllProductsTHUNK } from '../../store/product';
 import { getSingleCartTHUNK } from '../../store/cart';
+import ProductContainer from '../ProductContainer';
 
 export default function HomePage() {
     const dispatch = useDispatch();
@@ -25,7 +26,7 @@ export default function HomePage() {
             {Object.values(products).map(product => {
                 return (
                     <div key={product.SKU}>
-                        <NavLink key={product.SKU} to={`/products/${product.id}`}>{product.SKU}</NavLink>
+                        <ProductContainer product={product}/>
                     </div>
                 )
             })}

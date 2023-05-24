@@ -15,9 +15,28 @@ def get_all_products():
     # May need to update to include the data associated with the foreign keys
     all_products = Product.query.all()
     response = [product.to_dict() for product in all_products]
-    # print('--------------------------All Products--------------------------------')
-    # print('response: ', response)
+    print('--------------------------All Products--------------------------------')
+    # print('--------------------------response: ', response)
     # print('all_products: ', all_products)
+
+    testresponse = []
+    # for product in all_products:
+    #     images = Image.query.filter(Image.product_id == product.to_dict()["id"]).all()
+    #     # print("-------------------------product: ", product.to_dict()["id"])
+    #     placeholder = product.to_dict()
+    #     placeholder["images"] = [image.to_dict() for image in images]
+    #     # print("------------------product add: ", placeholder)
+    #     testresponse.append(placeholder)
+
+    for product in response:
+        print("-----------------------------product: ", product)
+        # product["test"] = ["test"]
+        images = Image.query.filter(Image.product_id == product["id"]).all()
+        images = [image.to_dict() for image in images]
+        product["test"] = images
+
+    # print("---------------------response: ", response)
+    # print("---------------------testresponse: ", testresponse)
     return {'products': response}
 
 

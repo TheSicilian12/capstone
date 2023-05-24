@@ -24,9 +24,14 @@ const postProduct = (data) => ({
 export const getAllProductsTHUNK = () => async (dispatch) => {
     console.log("----Get all products THUNK----")
     const response = await fetch('/api/products')
+    console.log("response: ", response)
     if (response.ok) {
         const await_response = await response.json();
+        console.log("await_response: ", await_response)
+
         const allProducts = normalize(await_response.products)
+
+        console.log("allProducts: ", allProducts)
         dispatch(load(allProducts))
     }
 }
