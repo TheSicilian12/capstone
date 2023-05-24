@@ -1,0 +1,8 @@
+.cart-modal {
+    background-color: aqua;
+    width: 20vw;
+    height: 40vw;
+    position: fixed;
+    right: 0;
+    top: 100px;
+}

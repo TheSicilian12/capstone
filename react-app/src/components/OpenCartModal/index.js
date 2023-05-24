@@ -1,5 +1,7 @@
 import React from 'react';
 import { useModal } from '../../context/Modal';
+
+import './OpenCartModal.css'
 import '../UniversalCSS.css'
 
 function OpenCartModal({
@@ -19,7 +21,7 @@ function OpenCartModal({
   };
 
   return (
-    <div>
+    <div className="cart-modal">
       Hello
     </div>
   );
