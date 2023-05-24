@@ -41,7 +41,7 @@ export default function SingleProduct() {
     let images = [];
 
     Object.values(products.product.images).forEach(image => {
-        // console.log("image: ", image)
+        console.log("image: ", image)
         if (image.main_image === "yes") mainImage = image
         else images.push(image)
     })
@@ -52,6 +52,8 @@ export default function SingleProduct() {
     const editRedirect = () => {
         history.push(`/products/${productId}/edit`)
     }
+
+    // console.log("mainImage: ", mainImage)
 
     return (
         <div className="border-blue single-product-page-container">

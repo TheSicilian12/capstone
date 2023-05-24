@@ -70,3 +70,22 @@ def edit_image(id):
         }
     else:
         return {"errors": form.errors}
+
+
+# Delete an image
+# Authorized user: logged in and owner of product
+@image_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def delete_one_image(id):
+    """
+    Delete an image by id
+    """
+    image = Image.query.get(id)
+    product = Product.query.get(image.product_id)
+
+    if current_user.id != product.owner_id:
+        return {"errors": "This is not an authorized route."}
+    else:
+        db.session.delete(image)
+        db.session.commit()
+        return "Image deleted"

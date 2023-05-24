@@ -85,21 +85,21 @@ export const postProductTHUNK = (payload) => async (dispatch) => {
 // Add an image
 export const postImageTHUNK = (payload, productId) => async (dispatch) => {
 
-        console.log("----Post image----")
-        payload.product_id = productId
+    console.log("----Post image----")
+    payload.product_id = productId
 
-        const response = await fetch("/api/images/create", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(
-                payload
-            )
-        })
+    const response = await fetch("/api/images/create", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(
+            payload
+        )
+    })
 
-        // const data = await response.json()
-        // console.log("data: ", data)
+    // const data = await response.json()
+    // console.log("data: ", data)
 
     // if (response.ok) {
     //     const data = await response.json()
@@ -144,26 +144,61 @@ export const editProductTHUNK = (payload, productId) => async (dispatch) => {
 
 // Edit an image by id
 export const editImageTHUNK = (payloadPlus, productId) => async (dispatch) => {
-    const {image_url, main_image, image_id} = payloadPlus
-
-    console.log("---- edit image ---")
-    console.log("image url: ", image_url)
-    console.log("main image: ", main_image)
+    const { image_url, main_image, image_id, deleteImg } = payloadPlus
+    console.log("imageId: ", image_id)
+    console.log("deleteImg: ", deleteImg)
+    // console.log("---- edit image ---")
+    // console.log("image url: ", image_url)
+    // console.log("main image: ", main_image)
     const payload = {
         product_id: productId,
         main_image,
         image_url,
     }
+    if (image_url === "") {
+        return "not valid"
+    }
+    if (deleteImg === "delete") {
+        // delete an image
+        await dispatch(deleteImageTHUNK(image_id))
+    } else if (!image_id) {
+        // add an image
+        let payload = {
+            main_image,
+            image_url
+        }
+        await dispatch(postImageTHUNK(payload, productId))
 
-    const response = await fetch(`/api/images/${image_id}/update`, {
-        method: "PUT",
+    } else {
+        // update an image
+        const response = await fetch(`/api/images/${image_id}/update`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(
+                payload
+            )
+        })
+        console.log("after fetch for image update")
+        // }
+    }
+}
+
+// Delete an image by id
+export const deleteImageTHUNK = (imageId) => async (dispatch) => {
+    const response = await fetch(`/api/images/${imageId}`, {
+        method: "DELETE",
         headers: {
             "Content-Type": "application/json",
-        },
-        body: JSON.stringify(
-            payload
-        )
+        }
     })
+    if (response.ok) {
+        return "Success"
+    }
+    else {
+        return ["Failure"]
+    }
 }
 
 // Delete a product by id THUNK

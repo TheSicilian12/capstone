@@ -48,27 +48,43 @@ export default function ProductForm({productInfo, formType, productId, mainProdu
             // if form type add to payload
             imageHolder.image_url = mainImage
             imageHolder.main_image = "yes"
+            imageHolder.deleteImg = "no"
             if (formType === "edit" && mainProductImage) imageHolder.image_id = mainProductImage.id
             payload.images.push(imageHolder)
+
 
             imageHolder = {}
             imageHolder.image_url = subImage1
             imageHolder.main_image = "no"
             if (formType === "edit" && imageArray[0]) imageHolder.image_id = imageArray[0].id
+            if (formType === "edit" && imageArray[0] && !subImage1) {
+                console.log("subImage1 if statement")
+                imageHolder.deleteImg = "delete"
+            } else imageHolder.deleteImg = "no"
 
             payload.images.push(imageHolder)
+
 
             imageHolder = {}
             imageHolder.image_url = subImage2
             imageHolder.main_image = "no"
             if (formType === "edit" && imageArray[1]) imageHolder.image_id = imageArray[1].id
+            if (formType === "edit" && imageArray[1] && !subImage2) {
+                imageHolder.deleteImg = "delete"
+            } else imageHolder.deleteImg = "no"
 
             payload.images.push(imageHolder)
+
+            console.log("subImg 2: ", imageHolder.delete)
+
 
             imageHolder = {}
             imageHolder.image_url = subImage3
             imageHolder.main_image = "no"
             if (formType === "edit" && imageArray[2]) imageHolder.image_id = imageArray[2].id
+            if (formType === "edit" && imageArray[2] && !subImage3) {
+                imageHolder.deleteImg = "delete"
+            } else imageHolder.deleteImg = "no"
 
             payload.images.push(imageHolder)
 
@@ -86,7 +102,7 @@ export default function ProductForm({productInfo, formType, productId, mainProdu
             if (data) {
                 // console.log("data if statement")
                 // console.log(createProduct.product.id)
-                history.push(`/products/${data.product.id}`)
+                // history.push(`/products/${data.product.id}`)
             }
         } else {
             return console.log("ERROR In ADD / EDIT a produact")
