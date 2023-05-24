@@ -49,7 +49,7 @@ function Navigation({ isLoaded }) {
 				)}
 			</ul>
 			<div>
-				Shopping Cart Item Total: {totalItems}
+				Shopping Cart Item Total: {totalItems ? totalItems : 0}
 			</div>
 			<button onClick={addCart}>Start a cart</button>
 			<button onClick={deleteCart}>Delete your cart</button>
