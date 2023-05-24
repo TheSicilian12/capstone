@@ -24,7 +24,7 @@ export default function SingleProduct() {
 
     const productId = Number(useParams().productId)
 
-    console.log("productId: ", productId)
+    // console.log("productId: ", productId)
 
     const singleProduct = products.product
     // console.log('singleProduct: ', singleProduct)
@@ -41,13 +41,13 @@ export default function SingleProduct() {
     let images = [];
 
     Object.values(products.product.images).forEach(image => {
-        console.log("image: ", image)
+        // console.log("image: ", image)
         if (image.main_image === "yes") mainImage = image
         else images.push(image)
     })
 
     // console.log("mainImage: ", mainImage)
-    console.log("images: ", images)
+    // console.log("images: ", images)
 
     const editRedirect = () => {
         history.push(`/products/${productId}/edit`)

@@ -22,23 +22,23 @@ const postProduct = (data) => ({
 
 // Get all products THUNK
 export const getAllProductsTHUNK = () => async (dispatch) => {
-    console.log("----Get all products THUNK----")
+    // console.log("----Get all products THUNK----")
     const response = await fetch('/api/products')
-    console.log("response: ", response)
+    // console.log("response: ", response)
     if (response.ok) {
         const await_response = await response.json();
-        console.log("await_response: ", await_response)
+        // console.log("await_response: ", await_response)
 
         const allProducts = normalize(await_response.products)
 
-        console.log("allProducts: ", allProducts)
+        // console.log("allProducts: ", allProducts)
         dispatch(load(allProducts))
     }
 }
 
 // Get single product by id THUNK
 export const getSingleProductTHUNK = (productId) => async (dispatch) => {
-    console.log('----Get Single Product THUNK----')
+    // console.log('----Get Single Product THUNK----')
     const response = await fetch(`/api/products/${productId}`)
     // console.log('after response: ', response)
     if (response.ok) {
@@ -51,7 +51,7 @@ export const getSingleProductTHUNK = (productId) => async (dispatch) => {
 // Create a product THUNK
 // Product -> Details
 export const postProductTHUNK = (payload) => async (dispatch) => {
-    console.log('----Post Product----')
+    // console.log('----Post Product----')
     const { SKU, name, price, desc, inventory, owner_id, images } = payload
     // Post product
     // Post image associated to product
@@ -90,7 +90,7 @@ export const postProductTHUNK = (payload) => async (dispatch) => {
 // Add an image
 export const postImageTHUNK = (payload, productId) => async (dispatch) => {
 
-    console.log("----Post image----")
+    // console.log("----Post image----")
     payload.product_id = productId
 
     const response = await fetch("/api/images/create", {
@@ -114,7 +114,7 @@ export const postImageTHUNK = (payload, productId) => async (dispatch) => {
 
 // Edit a product by id THUNK
 export const editProductTHUNK = (payload, productId) => async (dispatch) => {
-    console.log("----------------Edit Product---------------------------")
+    // console.log("----------------Edit Product---------------------------")
     // console.log(payload)
     const { SKU, name, price, desc, inventory, owner_id, images } = payload
 
@@ -150,8 +150,8 @@ export const editProductTHUNK = (payload, productId) => async (dispatch) => {
 // Edit an image by id
 export const editImageTHUNK = (payloadPlus, productId) => async (dispatch) => {
     const { image_url, main_image, image_id, deleteImg } = payloadPlus
-    console.log("imageId: ", image_id)
-    console.log("deleteImg: ", deleteImg)
+    // console.log("imageId: ", image_id)
+    // console.log("deleteImg: ", deleteImg)
     // console.log("---- edit image ---")
     // console.log("image url: ", image_url)
     // console.log("main image: ", main_image)
@@ -165,7 +165,7 @@ export const editImageTHUNK = (payloadPlus, productId) => async (dispatch) => {
     // }
     if (deleteImg === "delete") {
         // delete an image
-        console.log("delete route THUNK")
+        // console.log("delete route THUNK")
         await dispatch(deleteImageTHUNK(image_id))
     } else if (!image_id) {
         // add an image
@@ -209,7 +209,7 @@ export const deleteImageTHUNK = (imageId) => async (dispatch) => {
 
 // Delete a product by id THUNK
 export const deleteProductTHUNK = (productId) => async (dispatch) => {
-    console.log("----Delete product THUNK----")
+    // console.log("----Delete product THUNK----")
     const response = await fetch(`/api/products/${productId}`, {
         method: "DELETE",
         headers: {
