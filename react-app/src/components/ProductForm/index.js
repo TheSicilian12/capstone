@@ -42,32 +42,35 @@ export default function ProductForm({productInfo, formType, productId, mainProdu
                 owner_id: user.id
             }
 
-            payload.images.push({
-                image_url: mainImage,
-                main_image: "yes"
-            })
+            // This is  a bad way to do this, but I have a time crunch.
+            let imageHolder = {}
+
             // if form type add to payload
+            imageHolder.image_url = mainImage
+            imageHolder.main_image = "yes"
+            if (formType === "edit" && mainProductImage) imageHolder.image_id = mainProductImage.id
+            payload.images.push(imageHolder)
 
-            if (subImage1) {
-                payload.images.push({
-                    image_url: subImage1,
-                    main_image: "no"
-                })
-            }
+            imageHolder = {}
+            imageHolder.image_url = subImage1
+            imageHolder.main_image = "no"
+            if (formType === "edit" && imageArray[0]) imageHolder.image_id = imageArray[0].id
 
-            if (subImage2) {
-                payload.images.push({
-                    image_url: subImage2,
-                    main_image: "no"
-                })
-            }
+            payload.images.push(imageHolder)
 
-            if (subImage3) {
-                payload.images.push({
-                    image_url: subImage3,
-                    main_image: "no"
-                })
-            }
+            imageHolder = {}
+            imageHolder.image_url = subImage2
+            imageHolder.main_image = "no"
+            if (formType === "edit" && imageArray[1]) imageHolder.image_id = imageArray[1].id
+
+            payload.images.push(imageHolder)
+
+            imageHolder = {}
+            imageHolder.image_url = subImage3
+            imageHolder.main_image = "no"
+            if (formType === "edit" && imageArray[2]) imageHolder.image_id = imageArray[2].id
+
+            payload.images.push(imageHolder)
 
             let data
             if (formType === "new") {

@@ -45,7 +45,7 @@ def post_images():
     #     }
 
 
-# Edit an image by product id
+# Edit an image by id
 # Authorized user: logged in and owner of product
 @image_routes.route('/<int:id>/update', methods=['PUT'])
 @login_required
@@ -59,4 +59,14 @@ def edit_image(id):
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        product = Image.query.filter(Image.product_id == id).all()
+        image = Image.query.get(id)
+
+        image.main_image = form.data["main_image"]
+        image.image_url = form.data["image_url"]
+
+        db.session.commit()
+        return {
+            "image": image.to_dict()
+        }
+    else:
+        return {"errors": form.errors}

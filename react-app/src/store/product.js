@@ -133,17 +133,29 @@ export const editProductTHUNK = (payload, productId) => async (dispatch) => {
     })
     if (response.ok) {
         const data = await response.json()
-
+        console.log("images: ", images)
         for (const image of images) {
-            await dispatch(editImageTHUNK(image, productId))
+            // console.log("image dispatch")
+            if (image.image_url) await dispatch(editImageTHUNK(image, productId))
         }
         return data
     }
 }
 
-// Edit an image by product id
-export const editImageTHUNK = (payload, productId) => async (dispatch) => {
-    const response = await fetch(`/api/imges/${productId}/update`, {
+// Edit an image by id
+export const editImageTHUNK = (payloadPlus, productId) => async (dispatch) => {
+    const {image_url, main_image, image_id} = payloadPlus
+
+    console.log("---- edit image ---")
+    console.log("image url: ", image_url)
+    console.log("main image: ", main_image)
+    const payload = {
+        product_id: productId,
+        main_image,
+        image_url,
+    }
+
+    const response = await fetch(`/api/images/${image_id}/update`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
