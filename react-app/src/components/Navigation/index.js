@@ -33,6 +33,7 @@ function Navigation({ isLoaded }) {
 	const deleteCart = () => {
 		console.log("delete cart")
 		dispatch(deleteCartTHUNK())
+		dispatch(getSingleCartTHUNK())
 	}
 
 	return (
