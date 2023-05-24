@@ -19,6 +19,8 @@ class Image(db.Model):
     product_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("products.id")))
 
     # Relationships
+    product = db.relationship("Product", back_populates="images")
+
 
     def to_dict(self):
         return {

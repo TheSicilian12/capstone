@@ -21,6 +21,8 @@ class Product(db.Model):
     owner_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
 
     # Relationships
+    images = db.relationship("Image", back_populates="product", cascade="all, delete-orphan")
+
 
     def to_dict(self):
         return {

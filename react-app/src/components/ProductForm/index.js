@@ -21,9 +21,9 @@ export default function ProductForm({productInfo, formType, productId, mainProdu
     const [desc, setDesc] = useState(productInfo ? productInfo.desc : "");
     const [inventory, setInventory] = useState(productInfo ? productInfo.inventory : "");
     const [mainImage, setMainImage] = useState(mainProductImage ? mainProductImage.image_url : "");
-    const [subImage1, setSubImage1] = useState(imageArray[0] ? imageArray[0].image_url : "");
-    const [subImage2, setSubImage2] = useState(imageArray[1] ? imageArray[1].image_url : "");
-    const [subImage3, setSubImage3] = useState(imageArray[2] ? imageArray[2].image_url : "");
+    const [subImage1, setSubImage1] = useState(imageArray && imageArray[0] ? imageArray[0].image_url : "");
+    const [subImage2, setSubImage2] = useState(imageArray && imageArray[1] ? imageArray[1].image_url : "");
+    const [subImage3, setSubImage3] = useState(imageArray && imageArray[2] ? imageArray[2].image_url : "");
 
 
     const handleSubmit = async (e) => {
