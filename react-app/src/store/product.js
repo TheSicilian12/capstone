@@ -136,7 +136,7 @@ export const editProductTHUNK = (payload, productId) => async (dispatch) => {
         console.log("images: ", images)
         for (const image of images) {
             // console.log("image dispatch")
-            if (image.image_url) await dispatch(editImageTHUNK(image, productId))
+            if (image) await dispatch(editImageTHUNK(image, productId))
         }
         return data
     }
@@ -155,11 +155,12 @@ export const editImageTHUNK = (payloadPlus, productId) => async (dispatch) => {
         main_image,
         image_url,
     }
-    if (image_url === "") {
-        return "not valid"
-    }
+    // if (image_url === "") {
+    //     return "not valid"
+    // }
     if (deleteImg === "delete") {
         // delete an image
+        console.log("delete route THUNK")
         await dispatch(deleteImageTHUNK(image_id))
     } else if (!image_id) {
         // add an image

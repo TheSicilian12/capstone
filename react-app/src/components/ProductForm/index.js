@@ -57,7 +57,7 @@ export default function ProductForm({productInfo, formType, productId, mainProdu
             imageHolder.image_url = subImage1
             imageHolder.main_image = "no"
             if (formType === "edit" && imageArray[0]) imageHolder.image_id = imageArray[0].id
-            if (formType === "edit" && imageArray[0] && !subImage1) {
+            if (formType === "edit" && imageArray[0] && subImage1.length === 0) {
                 console.log("subImage1 if statement")
                 imageHolder.deleteImg = "delete"
             } else imageHolder.deleteImg = "no"
@@ -69,7 +69,7 @@ export default function ProductForm({productInfo, formType, productId, mainProdu
             imageHolder.image_url = subImage2
             imageHolder.main_image = "no"
             if (formType === "edit" && imageArray[1]) imageHolder.image_id = imageArray[1].id
-            if (formType === "edit" && imageArray[1] && !subImage2) {
+            if (formType === "edit" && imageArray[1] && subImage2.length === 0) {
                 imageHolder.deleteImg = "delete"
             } else imageHolder.deleteImg = "no"
 
@@ -82,7 +82,7 @@ export default function ProductForm({productInfo, formType, productId, mainProdu
             imageHolder.image_url = subImage3
             imageHolder.main_image = "no"
             if (formType === "edit" && imageArray[2]) imageHolder.image_id = imageArray[2].id
-            if (formType === "edit" && imageArray[2] && !subImage3) {
+            if (formType === "edit" && imageArray[2] && subImage3.length === 0) {
                 imageHolder.deleteImg = "delete"
             } else imageHolder.deleteImg = "no"
 
@@ -102,7 +102,7 @@ export default function ProductForm({productInfo, formType, productId, mainProdu
             if (data) {
                 // console.log("data if statement")
                 // console.log(createProduct.product.id)
-                // history.push(`/products/${data.product.id}`)
+                history.push(`/products/${data.product.id}`)
             }
         } else {
             return console.log("ERROR In ADD / EDIT a produact")
