@@ -1,0 +1,8 @@
+.home-page-container {
+    /* display: inline-block; */
+    display: flex;
+    flex-wrap: wrap;
+}
+.home-page-container>* {
+    flex: 1 1 160px;
+}

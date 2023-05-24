@@ -21,7 +21,7 @@ export default function HomePage() {
     if (!products) return <div>loading homepage</div>
 
     return (
-        <div>
+        <div className="border-black home-page-container">
             Hello
             {Object.values(products).map(product => {
                 return (
