@@ -16,7 +16,6 @@ function SignupFormModal() {
 	const [confirmPassword, setConfirmPassword] = useState("");
 	const [disConfirmPassErr, setDisConfirmPassErr] = useState(false);
 	const [errors, setErrors] = useState([]);
-	const [submitted, setSubmitted] = useState(false);
 	const { closeModal } = useModal();
 
 
@@ -70,8 +69,7 @@ function SignupFormModal() {
 						// required
 					/>
 				</label>
-				{disEmailErr && submitted && <div className="errors">{err.email}</div>}
-				{!disEmailErr && submitted && <div className="errors">{err.email}</div>}
+				{disEmailErr && <div className="errors">{err.email}</div>}
 				<label>
 					Username
 					<input
@@ -84,8 +82,7 @@ function SignupFormModal() {
 						// required
 					/>
 				</label>
-				{disUsernameErr && submitted && <div className="errors">{err.username}</div>}
-				{!disUsernameErr && submitted && <div className="errors">{err.username}</div>}
+				{disUsernameErr && <div className="errors">{err.username}</div>}
 				<label>
 					Password
 					<input
@@ -98,8 +95,7 @@ function SignupFormModal() {
 						// required
 					/>
 				</label>
-				{disPassErr && submitted && <div className="errors">{err.password}</div>}
-				{!disPassErr && submitted && <div className="errors">{err.password}</div>}
+				{disPassErr && <div className="errors">{err.password}</div>}
 				<label>
 					Confirm Password
 					<input
@@ -112,11 +108,11 @@ function SignupFormModal() {
 						// required
 					/>
 				</label>
-				{(disConfirmPassErr || disPassErr) && submitted && <div className="errors">{err.confirmPassword}</div>}
-				{/* {!disConfirmPassErr && submitted && <div className="errors">{err.confirmPassword}</div>} */}
+				{(disConfirmPassErr || disPassErr) && <div className="errors">{err.confirmPassword}</div>}
 				<button
 					type="submit"
-					onClick={() => setSubmitted(true)}>
+					onClick={() => setSubmitted(true)}
+					disabled={Object.values(err).length > 0}>
 						Sign Up
 				</button>
 				<button onClick={demoUserLogIn}>Log in as a demo user</button>
