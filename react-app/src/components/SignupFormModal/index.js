@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
-import { signUp } from "../../store/session";
+import { signUp, login } from "../../store/session";
 import "./SignupForm.css";
 import '../UniversalCSS.css'
 
@@ -31,6 +31,12 @@ function SignupFormModal() {
 			]);
 		}
 	};
+
+	const demoUserLogIn = (e) => {
+		e.preventDefault()
+		dispatch(login("demo@aa.io", "password"))
+		closeModal()
+	  }
 
 	return (
 		<>
@@ -78,6 +84,7 @@ function SignupFormModal() {
 					/>
 				</label>
 				<button type="submit">Sign Up</button>
+				<button onClick={demoUserLogIn}>Log in as a demo user</button>
 			</form>
 		</>
 	);
