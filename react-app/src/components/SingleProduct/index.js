@@ -30,13 +30,14 @@ export default function SingleProduct() {
     // console.log('singleProduct: ', singleProduct)
     useEffect(() => {
         dispatch(getSingleProductTHUNK(productId))
-        dispatch(getSingleCartTHUNK(user.id))
+        if (user) dispatch(getSingleCartTHUNK(user.id))
     }, [dispatch])
 
     if (!singleProduct) return <div>loading single product</div>
 
     const cartId = cart?.id
-    const userId = user.id
+    let userId;
+    if (user) userId = user.id
     let mainImage;
     let images = [];
 
@@ -81,7 +82,7 @@ export default function SingleProduct() {
                     <div className="single-product-header-container">
                         <h1>{singleProduct.name}</h1>
 
-                        {user.id === singleProduct.ownerId && <div className="single-product-owner-buttons-container ">
+                        { user && user.id === singleProduct.ownerId && <div className="single-product-owner-buttons-container ">
                             <button className="button-small margin2" onClick={editRedirect}>Edit</button>
                             <OpenModalButton
                                 buttonText="Delete"
@@ -97,8 +98,8 @@ export default function SingleProduct() {
                     Add to cart
                     {products.product.inventory ? <div className="text-green">In Stock</div>
                         : <div className="text-red">false</div>}
-                    <AddItemCart className={"button-full margin2"} cartId={cartId} userId={userId} productId={productId} />
-                    <DeleteItemCart className={"button-full margin2"} itemId={productId} />
+                    {user && <AddItemCart className={"button-full margin2"} cartId={cartId} userId={userId} productId={productId} />}
+                    {user && <DeleteItemCart className={"button-full margin2"} itemId={productId} />}
                 </div>
             </div>
 
