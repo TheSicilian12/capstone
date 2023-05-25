@@ -8,11 +8,17 @@ import '../UniversalCSS.css'
 function SignupFormModal() {
 	const dispatch = useDispatch();
 	const [email, setEmail] = useState("");
+	const [disEmailErr, setDisEmailErr] = useState(false);
 	const [username, setUsername] = useState("");
+	const [disUsernameErr, setDisUsernameErr] = useState(false);
 	const [password, setPassword] = useState("");
+	const [disPassErr, setDisPassErr] = useState(false);
 	const [confirmPassword, setConfirmPassword] = useState("");
+	const [disConfirmPassErr, setDisConfirmPassErr] = useState(false);
 	const [errors, setErrors] = useState([]);
+	const [submitted, setSubmitted] = useState(false);
 	const { closeModal } = useModal();
+
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -36,6 +42,12 @@ function SignupFormModal() {
 		closeModal()
 	  }
 
+	let err = {}
+	if (password.length < 8) err.password = "Password should be 8+ characters."
+	if (username.length < 4) err.username = "Username should be 4+ characters."
+	if (!email.includes("@")) err.email = "Please enter a valid email address."
+	if (password !== confirmPassword) err.confirmPassword = "This does not match the password."
+
 	return (
 		<>
 			<h1>Sign Up</h1>
@@ -50,38 +62,58 @@ function SignupFormModal() {
 					<input
 						type="text"
 						value={email}
-						onChange={(e) => setEmail(e.target.value)}
-						required
+						onChange={(e) => {
+							setEmail(e.target.value)
+							setDisEmailErr(true)
+						  }}
+						// required
 					/>
 				</label>
+				{disEmailErr && submitted && <div>{err.email}</div>}
 				<label>
 					Username
 					<input
 						type="text"
 						value={username}
-						onChange={(e) => setUsername(e.target.value)}
-						required
+						onChange={(e) => {
+							setUsername(e.target.value)
+							setDisUsernameErr(true)
+						}}
+						// required
 					/>
 				</label>
+				{disUsernameErr && submitted && <div>{err.username}</div>}
 				<label>
 					Password
 					<input
 						type="password"
 						value={password}
-						onChange={(e) => setPassword(e.target.value)}
-						required
+						onChange={(e) => {
+							setPassword(e.target.value)
+							setDisPassErr(true)
+						}}
+						// required
 					/>
 				</label>
+				{disPassErr && submitted && <div>{err.password}</div>}
 				<label>
 					Confirm Password
 					<input
 						type="password"
 						value={confirmPassword}
-						onChange={(e) => setConfirmPassword(e.target.value)}
-						required
+						onChange={(e) => {
+							setConfirmPassword(e.target.value)
+							setDisConfirmPassErr(true)
+						}}
+						// required
 					/>
 				</label>
-				<button type="submit">Sign Up</button>
+				{(disConfirmPassErr || disPassErr) && submitted && <div>{err.confirmPassword}</div>}
+				<button
+					type="submit"
+					onClick={() => setSubmitted(true)}>
+						Sign Up
+				</button>
 				<button onClick={demoUserLogIn}>Log in as a demo user</button>
 			</form>
 		</>
