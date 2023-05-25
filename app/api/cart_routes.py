@@ -32,6 +32,10 @@ def get_single_cart():
     print("--------------current user: ", current_user.id)
     single_cart = Cart.query.filter(Cart.user_id == current_user.id).first()
     # print("--------------response: ", single_cart)
+
+    if not single_cart:
+        return {"errors": "No cart"}
+
     response = single_cart.to_dict()
     # response = [cart.to_dict() for cart in single_cart]
 

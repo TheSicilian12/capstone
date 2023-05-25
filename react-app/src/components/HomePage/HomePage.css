@@ -1,0 +1,16 @@
+.homepage-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.homepage-margin-top {
+    margin-top: 20px;
+}
+
+.homepage-margin-product {
+    margin: 15px;
+}
+
+.homepage-product:hover{
+    box-shadow: 0px 0px 5px 2px pink;
+}

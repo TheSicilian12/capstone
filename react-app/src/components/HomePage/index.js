@@ -6,6 +6,7 @@ import './HomePage.css';
 import '../UniversalCSS.css'
 import { getAllProductsTHUNK } from '../../store/product';
 import { getSingleCartTHUNK } from '../../store/cart';
+import ProductContainer from '../ProductContainer';
 
 export default function HomePage() {
     const dispatch = useDispatch();
@@ -20,15 +21,16 @@ export default function HomePage() {
     if (!products) return <div>loading homepage</div>
 
     return (
-        <div>
-            Hello
-            {Object.values(products).map(product => {
-                return (
-                    <div key={product.SKU}>
-                        <NavLink key={product.SKU} to={`/products/${product.id}`}>{product.SKU}</NavLink>
-                    </div>
-                )
-            })}
+        <div className="justify-center homepage-margin-top">
+            <div className="homepage-container">
+                {Object.values(products).map(product => {
+                    return (
+                        <div className="homepage-margin-product homepage-product" key={product.SKU}>
+                            <ProductContainer product={product} />
+                        </div>
+                    )
+                })}
+            </div>
         </div>
     )
 

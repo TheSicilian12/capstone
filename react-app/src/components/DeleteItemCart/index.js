@@ -6,7 +6,7 @@ import './DeleteItemCart.css'
 import '../UniversalCSS.css'
 import { getSingleCartTHUNK, deleteItemCartTHUNK } from '../../store/cart';
 
-export default function DeleteItemCart({itemId}) {
+export default function DeleteItemCart({itemId, className}) {
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
 
@@ -19,8 +19,10 @@ export default function DeleteItemCart({itemId}) {
     }
 
     return(
-        <div>
-            <button onClick={remove}>Remove from cart</button>
-        </div>
+            <button
+                className={className ? `${className}` : ""}
+                onClick={remove}>
+                    Remove from cart
+            </button>
     )
 }

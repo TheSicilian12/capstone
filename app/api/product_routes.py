@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from app.models import Product, db, User
+from app.models import Product, db, User, Image
 from flask_login import login_required, current_user
 from app.forms import ProductForm
 
@@ -15,9 +15,28 @@ def get_all_products():
     # May need to update to include the data associated with the foreign keys
     all_products = Product.query.all()
     response = [product.to_dict() for product in all_products]
-    # print('--------------------------All Products--------------------------------')
-    # print('response: ', response)
+    print('--------------------------All Products--------------------------------')
+    # print('--------------------------response: ', response)
     # print('all_products: ', all_products)
+
+    testresponse = []
+    # for product in all_products:
+    #     images = Image.query.filter(Image.product_id == product.to_dict()["id"]).all()
+    #     # print("-------------------------product: ", product.to_dict()["id"])
+    #     placeholder = product.to_dict()
+    #     placeholder["images"] = [image.to_dict() for image in images]
+    #     # print("------------------product add: ", placeholder)
+    #     testresponse.append(placeholder)
+
+    for product in response:
+        print("-----------------------------product: ", product)
+        # product["test"] = ["test"]
+        images = Image.query.filter(Image.product_id == product["id"]).all()
+        images = [image.to_dict() for image in images]
+        product["images"] = images
+
+    # print("---------------------response: ", response)
+    # print("---------------------testresponse: ", testresponse)
     return {'products': response}
 
 
@@ -28,10 +47,27 @@ def get_single_product(id):
     """
     Query to get a signle product by id
     """
-    # print('-----------------------------Single Product--------------------------------')
+    print('-----------------------------Single Product--------------------------------')
     single_product = Product.query.get(id)
+
+    if not single_product:
+        # print("-------------------no single product--------------------")
+        return {"No product", 400}
+
+    response = single_product.to_dict()
+
+    images = Image.query.filter(Image.product_id == id).all()
+
+    print("-------------images: ", images)
+
+    imageKey = 0
+    response["images"] = {}
+    for image in images:
+        response["images"].update({imageKey: image.to_dict()})
+        imageKey += 1
+
     # print('-------single_product------ ', single_product.to_dict())
-    return {'product': single_product.to_dict()}
+    return {'product': response}
 
 
 # Add a Product

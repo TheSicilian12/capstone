@@ -11,7 +11,7 @@
     height: 80vh;
 }
 
-.single-prdocut-main-image {
+.single-product-main-image {
     width: 80%;
     height: 70%;
     background-color: lightgray;
@@ -25,7 +25,11 @@
     height: 50%;
 }
 
-
+.single-product-image-mini-container {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+}
 
 .single-product-info-container {
     display: flex;
@@ -36,13 +40,22 @@
 
 .single-product-header-container {
     display: flex;
+    justify-content: space-between;
 }
 
 .single-product-cart-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 20%;
     height: 50%;
+}
+
+.single-product-owner-buttons-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
 }
 
 
