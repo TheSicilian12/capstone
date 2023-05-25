@@ -16,10 +16,16 @@ const loadOne = (data) => ({
     payload: data
 })
 
+const postCart = (data) => ({
+    type: POST_CART,
+    payload: data
+})
+
 const deleteItemCart = (data) => ({
     type: DELETE_ITEM_CART,
     payload: data
 })
+
 
 // Get all carts THUNK
 export const getAllCartsTHUNK = () => async (dispatch) => {
@@ -115,6 +121,7 @@ export const postCartTHUNK = (payload) => async (dispatch) => {
     if (response.ok) {
         console.log("if statment")
         const data = await response.json()
+
         return data
     }
 }
