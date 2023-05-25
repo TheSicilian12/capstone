@@ -111,7 +111,6 @@ function SignupFormModal() {
 				{(disConfirmPassErr || disPassErr) && <div className="errors">{err.confirmPassword}</div>}
 				<button
 					type="submit"
-					onClick={() => setSubmitted(true)}
 					disabled={Object.values(err).length > 0}>
 						Sign Up
 				</button>
