@@ -15,9 +15,12 @@ function Navigation({ isLoaded }) {
 	const dispatch = useDispatch()
 	const [showMenu, setShowMenu] = useState(false);
 
-	const cartCheck = useSelector(state => cart)
-	console.log("cartCheck: ", cartCheck)
-
+	let cartCheck = false;
+	// if (cart.carts.items === undefined) cartCheck = true
+	console.log("cart: ", cart)
+	console.log("cart errors: ", cart["errors"])
+	console.log("cart exists", cart["errors"] === "No cart")
+	console.log("cart exists", cart["errors"] === false)
 
 	let totalItems = 0;
 	if (items) {
@@ -53,7 +56,7 @@ function Navigation({ isLoaded }) {
 					</li>
 				)}
 			</ul>
-			<button onClick={addCart}>Start a cart</button>
+			{cart["errors"] === "No cart" && <button onClick={addCart}>Start a cart</button>}
 		 	{/* <button onClick={deleteCart}>Delete your cart</button> */}
 			 <CartButton cart={cart} itemNum={totalItems}/>
 		</div>

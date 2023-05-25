@@ -31,7 +31,7 @@ def get_single_cart():
 
     print("--------------current user: ", current_user.id)
     single_cart = Cart.query.filter(Cart.user_id == current_user.id).first()
-    # print("--------------response: ", single_cart)
+    print("--------------response: ", single_cart)
 
     if not single_cart:
         return {"errors": "No cart"}
@@ -148,6 +148,7 @@ def post_carts():
         )
         db.session.add(new_cart)
         db.session.commit()
+        print("---------------------------new cart: ", new_cart.to_dict())
         return {
             "cart": new_cart.to_dict()
         }

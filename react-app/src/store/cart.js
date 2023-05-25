@@ -1,7 +1,7 @@
 import normalize from "./normalizer"
 
 const LOAD_CART = 'cart/all'
-const LOAD_ONE_CART = 'carts/single'
+const LOAD_ONE_CART = 'cart/single'
 const POST_CART = 'cart/post'
 const DELETE_ITEM_CART = 'cart/delete/item'
 const DELETE_CART = 'cart/delete'
@@ -119,8 +119,11 @@ export const postCartTHUNK = (payload) => async (dispatch) => {
         )
     })
     if (response.ok) {
-        console.log("if statment")
+        console.log("if statment post a cart")
         const data = await response.json()
+
+        dispatch(postCart(data))
+        // console.log("post cart: ", data)
 
         return data
     }
@@ -178,6 +181,11 @@ export default function cartReducer(state = initialState, action) {
         case LOAD_ONE_CART: {
             console.log("reducer: ", action.payload)
             const newState = { ...state, items: {...action.payload.items}, totalPrice: action.payload.totalPrice  }
+            return newState
+        }
+        case POST_CART: {
+            console.log("post cart reducer")
+            const newState = { ...action.payload }
             return newState
         }
         case DELETE_ITEM_CART: {
