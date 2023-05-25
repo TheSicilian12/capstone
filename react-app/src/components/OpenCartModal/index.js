@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useModal } from '../../context/Modal';
-import { getSingleCartTHUNK } from '../../store/cart';
+import { deleteCartTHUNK, getSingleCartTHUNK } from '../../store/cart';
 import CartModalProduct from '../CartModalProduct';
 
 import './OpenCartModal.css'
@@ -13,6 +13,8 @@ function OpenCartModal({
   modalComponent, // component to render inside the modal
   onButtonClick, // optional: callback function that will be called once the button that opens the modal is clicked
   onModalClose, // optional: callback function that will be called once the modal is closed
+
+  closeMenu,
 
   className
 }) {
@@ -34,10 +36,17 @@ function OpenCartModal({
     if (onButtonClick) onButtonClick();
   };
 
+  const deleteCart = () => {
+		dispatch(deleteCartTHUNK())
+		dispatch(getSingleCartTHUNK())
+    closeMenu(true)
+
+	}
+
   return (
     <div className="cart-modal">
       <h2 className="justify-center">Your Cart!</h2>
-
+      <button onClick={deleteCart}>Delete your cart</button>
       {items && Object.values(items).map((item) => (
         <CartModalProduct item={item}/>
       ))}

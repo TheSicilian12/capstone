@@ -15,14 +15,16 @@ function Navigation({ isLoaded }) {
 	const dispatch = useDispatch()
 	const [showMenu, setShowMenu] = useState(false);
 
+	const cartCheck = useSelector(state => cart)
+	console.log("cartCheck: ", cartCheck)
+
+
 	let totalItems = 0;
 	if (items) {
-		console.log("items: ", Object.keys(items).length)
 		totalItems = Object.keys(items).length
 	}
 
 	const addCart = () => {
-		// console.log("add cart")
 		const payload = {
 			user_id: sessionUser.id,
 			total_price: 0,
@@ -32,10 +34,10 @@ function Navigation({ isLoaded }) {
 		dispatch(getSingleCartTHUNK())
 	}
 
-	const deleteCart = () => {
-		dispatch(deleteCartTHUNK())
-		dispatch(getSingleCartTHUNK())
-	}
+	// const deleteCart = () => {
+	// 	dispatch(deleteCartTHUNK())
+	// 	dispatch(getSingleCartTHUNK())
+	// }
 
 	const closeMenu = () => setShowMenu(false);
 
@@ -51,11 +53,8 @@ function Navigation({ isLoaded }) {
 					</li>
 				)}
 			</ul>
-			{/* <div>
-				Shopping Cart Item Total: {totalItems ? totalItems : 0}
-			</div> */}
 			<button onClick={addCart}>Start a cart</button>
-		 	<button onClick={deleteCart}>Delete your cart</button>
+		 	{/* <button onClick={deleteCart}>Delete your cart</button> */}
 			 <CartButton cart={cart} itemNum={totalItems}/>
 		</div>
 	);

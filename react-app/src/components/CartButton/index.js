@@ -50,7 +50,7 @@ function CartButton({ user, itemNum }) {
       <ul className={ulClassName} ref={ulRef}>
          (
           <>
-            <OpenCartModal />
+            <OpenCartModal closeMenu={closeMenu}/>
           </>
         )
       </ul>

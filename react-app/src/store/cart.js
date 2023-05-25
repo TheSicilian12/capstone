@@ -23,7 +23,7 @@ const deleteItemCart = (data) => ({
 
 // Get all carts THUNK
 export const getAllCartsTHUNK = () => async (dispatch) => {
-    console.log("----Get all carts THUNK")
+    // console.log("----Get all carts THUNK")
     const response = await fetch('/api/carts')
     if (response.ok) {
         const await_response = await response.json();
@@ -36,7 +36,7 @@ export const getAllCartsTHUNK = () => async (dispatch) => {
 
 // Get a single cart by user id THUNK
 export const getSingleCartTHUNK = () => async (dispatch) => {
-    console.log("----Get single cart THUNK")
+    // console.log("----Get single cart THUNK")
     const response = await fetch(`/api/carts/yours`)
     if (response.ok) {
         const await_response = await response.json();
@@ -50,7 +50,7 @@ export const getSingleCartTHUNK = () => async (dispatch) => {
 // Get a single cart items by id THUNK
 // This would be getting the items in a cart
 export const getItemsSingleCartTHUNK = (cartId) => async (dispatch) => {
-    console.log("----Get Items Single Cart THUNK----")
+    // console.log("----Get Items Single Cart THUNK----")
     // console.log("before response")
     const response = await fetch(`/api/carts/${cartId}/items`)
     if (response.ok) {
@@ -74,9 +74,9 @@ export const getItemsSingleCartTHUNK = (cartId) => async (dispatch) => {
 
 // Add an item to a cart by id
 export const updateItemCartTHUNK = (payload) => async (dispatch) => {
-    console.log("----Add item to cart----")
+    // console.log("----Add item to cart----")
     const {user_id, product_ids, total_price} = payload
-    console.log("-----------------------", typeof product_ids)
+    // console.log("-----------------------", typeof product_ids)
     // console.log("payload: ", payload)
     const response = await fetch("/api/carts/add-item", {
         method: "PUT",
@@ -98,7 +98,7 @@ export const updateItemCartTHUNK = (payload) => async (dispatch) => {
 
 // Add a cart
 export const postCartTHUNK = (payload) => async (dispatch) => {
-    console.log("----Add cart----")
+    // console.log("----Add cart----")
     const {user_id, total_price, product_ids} = payload
     // console.log(user_id)
     // console.log(total_price)
@@ -137,7 +137,7 @@ export const deleteCartTHUNK = () => async (dispatch) => {
 
 // Delete an item by id
 export const deleteItemCartTHUNK = (productId) => async (dispatch) => {
-    console.log("----Delete item cart THUNK----")
+    // console.log("----Delete item cart THUNK----")
     // console.log("before response")
     const response = await fetch(`/api/carts/${productId}/item`, {
         method: "DELETE",
