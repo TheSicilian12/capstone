@@ -36,9 +36,9 @@ function OpenCartModal({
     if (onButtonClick) onButtonClick();
   };
 
-  const deleteCart = () => {
-		dispatch(deleteCartTHUNK())
-		dispatch(getSingleCartTHUNK())
+  const deleteCart = async () => {
+		await dispatch(deleteCartTHUNK())
+		await dispatch(getSingleCartTHUNK())
     closeMenu(true)
 
 	}

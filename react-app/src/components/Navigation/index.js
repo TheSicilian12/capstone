@@ -19,8 +19,8 @@ function Navigation({ isLoaded }) {
 	// if (cart.carts.items === undefined) cartCheck = true
 	console.log("cart: ", cart)
 	console.log("cart errors: ", cart["errors"])
-	console.log("cart exists", cart["errors"] === "No cart")
-	console.log("cart exists", cart["errors"] === false)
+	console.log("display start a cart button", cart["errors"] === "No cart")
+	console.log("display cart button", cart["errors"] !== "No cart")
 
 	let totalItems = 0;
 	if (items) {
@@ -57,8 +57,9 @@ function Navigation({ isLoaded }) {
 				)}
 			</ul>
 		 	<div>
-				{cart["errors"] === "No cart" && <button onClick={addCart}>Start a cart</button>}
-				{cart["errors"] !== "No cart" && <CartButton cart={cart} itemNum={totalItems}/>}
+				{!sessionUser && <h2>You must be logged in to start a cart</h2>}
+				{sessionUser && cart["errors"] === "No cart" && <button onClick={addCart}>Start a cart</button>}
+				{sessionUser && cart["errors"] !== "No cart" && <CartButton cart={cart} itemNum={totalItems}/>}
 			</div>
 		</div>
 	);
