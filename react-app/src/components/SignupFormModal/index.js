@@ -69,7 +69,7 @@ function SignupFormModal() {
 						// required
 					/>
 				</label>
-				{disEmailErr && submitted && <div>{err.email}</div>}
+				{disEmailErr && submitted && <div className="errors">{err.email}</div>}
 				<label>
 					Username
 					<input
@@ -82,7 +82,7 @@ function SignupFormModal() {
 						// required
 					/>
 				</label>
-				{disUsernameErr && submitted && <div>{err.username}</div>}
+				{disUsernameErr && submitted && <div className="errors">{err.username}</div>}
 				<label>
 					Password
 					<input
@@ -95,7 +95,7 @@ function SignupFormModal() {
 						// required
 					/>
 				</label>
-				{disPassErr && submitted && <div>{err.password}</div>}
+				{disPassErr && submitted && <div className="errors">{err.password}</div>}
 				<label>
 					Confirm Password
 					<input
@@ -108,7 +108,7 @@ function SignupFormModal() {
 						// required
 					/>
 				</label>
-				{(disConfirmPassErr || disPassErr) && submitted && <div>{err.confirmPassword}</div>}
+				{(disConfirmPassErr || disPassErr) && submitted && <div className="errors">{err.confirmPassword}</div>}
 				<button
 					type="submit"
 					onClick={() => setSubmitted(true)}>
