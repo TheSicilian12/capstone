@@ -1,0 +1,13 @@
+.cart-modal-product-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.cart-modal-product-delete-button {
+    display: flex;
+    align-items: center;
+}

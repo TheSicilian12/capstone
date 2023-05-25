@@ -1,8 +1,11 @@
 .cart-modal {
-    background-color: aqua;
-    width: 20vw;
-    height: 40vw;
+    background-color: whitesmoke;
+    width: 25vw;
+    height: 90vh;
     position: fixed;
     right: 0;
-    top: 100px;
+    top: 80px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    overflow: auto;
 }

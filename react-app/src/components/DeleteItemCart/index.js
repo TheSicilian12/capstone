@@ -22,7 +22,7 @@ export default function DeleteItemCart({itemId, className}) {
             <button
                 className={className ? `${className}` : ""}
                 onClick={remove}>
-                    Remove from cart
+                    Remove
             </button>
     )
 }
