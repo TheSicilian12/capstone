@@ -56,9 +56,10 @@ function Navigation({ isLoaded }) {
 					</li>
 				)}
 			</ul>
-			{cart["errors"] === "No cart" && <button onClick={addCart}>Start a cart</button>}
-		 	{/* <button onClick={deleteCart}>Delete your cart</button> */}
-			 <CartButton cart={cart} itemNum={totalItems}/>
+		 	<div>
+				{cart["errors"] === "No cart" && <button onClick={addCart}>Start a cart</button>}
+				{cart["errors"] !== "No cart" && <CartButton cart={cart} itemNum={totalItems}/>}
+			</div>
 		</div>
 	);
 }
