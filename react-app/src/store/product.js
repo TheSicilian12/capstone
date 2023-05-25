@@ -52,11 +52,10 @@ export const getSingleProductTHUNK = (productId) => async (dispatch) => {
 // Product -> Details
 export const postProductTHUNK = (payload) => async (dispatch) => {
     // console.log('----Post Product----')
-    const { SKU, name, price, desc, inventory, owner_id, images } = payload
+    const { name, price, desc, inventory, owner_id, images } = payload
     // Post product
     // Post image associated to product
     const payloadProduct = {
-        SKU,
         name,
         price,
         desc,
@@ -116,10 +115,9 @@ export const postImageTHUNK = (payload, productId) => async (dispatch) => {
 export const editProductTHUNK = (payload, productId) => async (dispatch) => {
     // console.log("----------------Edit Product---------------------------")
     // console.log(payload)
-    const { SKU, name, price, desc, inventory, owner_id, images } = payload
+    const { name, price, desc, inventory, owner_id, images } = payload
 
     const payloadProduct = {
-        SKU,
         name,
         price,
         desc,

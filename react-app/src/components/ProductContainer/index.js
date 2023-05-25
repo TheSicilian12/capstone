@@ -21,7 +21,7 @@ export default function ProductContainer({product}) {
     return(
         <div className="homepage-single-product-container">
 
-            <NavLink key={product.SKU} to={`/products/${product.id}`}>
+            <NavLink key={product.id} to={`/products/${product.id}`}>
                 <img className='single-product-container-image-width'
                         src={`${mainImage.image_url}`}
                         />

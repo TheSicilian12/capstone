@@ -8,9 +8,9 @@ class Product(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    SKU = db.Column(db.String(255), nullable=False, unique=True)
+    # SKU = db.Column(db.String(255), nullable=False, unique=True)
     name = db.Column(db.String(255), nullable=False)
-    price = db.Column(db.Integer, nullable=False)
+    price = db.Column(db.Float, nullable=False)
     inventory = db.Column(db.Integer)
     desc = db.Column(db.String(1000))
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
@@ -27,7 +27,7 @@ class Product(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'SKU': self.SKU,
+            # 'SKU': self.SKU,
             'name': self.name,
             'price': self.price,
             # 'categoryId': self.category_id,
