@@ -138,7 +138,7 @@ export default function ProductForm({ productInfo, formType, productId, mainProd
     if (price <= 0) err.price = "The product needs to cost something."
     if (desc.length < 50) err.desc = "The product's description should be 50+ characters."
     if (price.toString().includes('.')) {
-        if (price.split('.')[1].length !== 2) {
+        if (price.toString().split('.')[1].length > 2) {
             err.price = 'Please either round the price or specify the price to two decimals.'
         }
     }

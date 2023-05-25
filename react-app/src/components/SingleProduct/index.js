@@ -57,17 +57,17 @@ export default function SingleProduct() {
     // console.log("mainImage: ", mainImage)
 
     return (
-        <div className="border-blue single-product-page-container">
-            <div className="border-black single-product-container">
+        <div className="single-product-page-container">
+            <div className="single-product-container">
 
-                <div className="border-black single-product-image-container">
+                <div className="single-product-image-container">
                     <img className='single-product-main-image'
                         src={`${mainImage.image_url}`}
                     />
 
-                    <div className='display-flex margin2'>
+                    <div className='single-product-sub-images-container display-flex'>
                         {images.map(image => {
-                            return (<div className="justify-center">
+                            return (<div className="single-product-sub-single-image-container justify-center">
                                 <SingleProductMiniImage
                                     className={"single-product-image-mini-container"}
                                     imageUrl={image.image_url} />

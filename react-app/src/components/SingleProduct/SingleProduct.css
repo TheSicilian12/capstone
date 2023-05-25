@@ -17,10 +17,21 @@
     background-color: lightgray;
 }
 
+.single-product-sub-images-container {
+    width: 80%;
+    height: 20%
+}
+
+.single-product-sub-single-image-container {
+    border: 1px solid red;
+    width: 33%
+}
+
 .single-product-image-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 25%;
     height: 50%;
 }
@@ -28,7 +39,8 @@
 .single-product-image-mini-container {
     display: flex;
     flex-direction: row;
-    width: 90%;
+    width: 100%;
+    margin-top: 5px;
 }
 
 .single-product-info-container {
