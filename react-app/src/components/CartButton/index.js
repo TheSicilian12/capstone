@@ -8,7 +8,7 @@ import SignupFormModal from "../SignupFormModal";
 import '../UniversalCSS.css'
 import OpenCartModal from "../OpenCartModal";
 
-function CartButton({ user }) {
+function CartButton({ user, itemNum }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
@@ -44,7 +44,8 @@ function CartButton({ user }) {
   return (
     <>
       <button onClick={openMenu}>
-       Cart
+       Cart <br />
+       Items: {itemNum ? itemNum : 0}
       </button>
       <ul className={ulClassName} ref={ulRef}>
          (
