@@ -43,6 +43,7 @@ function SignupFormModal() {
 	  }
 
 	let err = {}
+	console.log("password length: ", password.length)
 	if (password.length < 8) err.password = "Password should be 8+ characters."
 	if (username.length < 4) err.username = "Username should be 4+ characters."
 	if (!email.includes("@")) err.email = "Please enter a valid email address."
@@ -70,6 +71,7 @@ function SignupFormModal() {
 					/>
 				</label>
 				{disEmailErr && submitted && <div className="errors">{err.email}</div>}
+				{!disEmailErr && submitted && <div className="errors">{err.email}</div>}
 				<label>
 					Username
 					<input
@@ -83,6 +85,7 @@ function SignupFormModal() {
 					/>
 				</label>
 				{disUsernameErr && submitted && <div className="errors">{err.username}</div>}
+				{!disUsernameErr && submitted && <div className="errors">{err.username}</div>}
 				<label>
 					Password
 					<input
@@ -96,6 +99,7 @@ function SignupFormModal() {
 					/>
 				</label>
 				{disPassErr && submitted && <div className="errors">{err.password}</div>}
+				{!disPassErr && submitted && <div className="errors">{err.password}</div>}
 				<label>
 					Confirm Password
 					<input
@@ -109,6 +113,7 @@ function SignupFormModal() {
 					/>
 				</label>
 				{(disConfirmPassErr || disPassErr) && submitted && <div className="errors">{err.confirmPassword}</div>}
+				{/* {(!disConfirmPassErr && !disPassErr) && submitted && <div className="errors">{err.confirmPassword}</div>} */}
 				<button
 					type="submit"
 					onClick={() => setSubmitted(true)}>
