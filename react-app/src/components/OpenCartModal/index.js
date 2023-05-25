@@ -36,9 +36,8 @@ function OpenCartModal({
 
   return (
     <div className="cart-modal">
-      Hello
+      <h2 className="justify-center">Your Cart!</h2>
 
-      {items && <div>hello</div>}
       {items && Object.values(items).map((item) => (
         <CartModalProduct item={item}/>
       ))}
