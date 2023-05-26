@@ -15,10 +15,10 @@ export default function DeleteSingleProductModal({productId}) {
   const id = productId
 
   const deleter = async () => {
-    // await dispatch(deleteProductTHUNK(id))
-    await dispatch(deleteAllItemsCartTHUNK(id))
+    await dispatch(deleteProductTHUNK(id))
+    // await dispatch(deleteAllItemsCartTHUNK(id))
     closeModal()
-    // history.push("/")
+    history.push("/")
   };
 
   return (
