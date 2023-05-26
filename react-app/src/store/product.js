@@ -1,3 +1,4 @@
+import { deleteAllItemsCartTHUNK, updateItemCartTHUNK } from "./cart"
 import normalize from "./normalizer"
 
 const LOAD_PRODUCT = 'products/all'
@@ -136,7 +137,7 @@ export const editProductTHUNK = (payload, productId) => async (dispatch) => {
     })
     if (response.ok) {
         const data = await response.json()
-        console.log("images: ", images)
+        // console.log("images: ", images)
         for (const image of images) {
             // console.log("image dispatch")
             if (image) await dispatch(editImageTHUNK(image, productId))
@@ -184,7 +185,7 @@ export const editImageTHUNK = (payloadPlus, productId) => async (dispatch) => {
                 payload
             )
         })
-        console.log("after fetch for image update")
+        // console.log("after fetch for image update")
         // }
     }
 }
@@ -215,6 +216,13 @@ export const deleteProductTHUNK = (productId) => async (dispatch) => {
         }
     })
     if (response.ok) {
+        // console.log("delete product thunk ok")
+        // When a product is deleted a cart needs to be updated!
+        // payloadCart = {
+        //     user_id: userId,
+        //     product_ids: productId
+        // }
+        dispatch(deleteAllItemsCartTHUNK(productId))
         return "Success"
     }
     else {

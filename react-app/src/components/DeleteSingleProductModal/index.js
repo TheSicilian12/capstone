@@ -4,6 +4,7 @@ import { useModal } from "../../context/Modal";
 import { deleteProductTHUNK } from "../../store/product";
 import "./DeleteSingleProductModal.css";
 import '../UniversalCSS.css'
+import { deleteAllItemsCartTHUNK } from "../../store/cart";
 
 export default function DeleteSingleProductModal({productId}) {
   const dispatch = useDispatch();

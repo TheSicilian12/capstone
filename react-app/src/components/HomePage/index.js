@@ -11,11 +11,12 @@ import ProductContainer from '../ProductContainer';
 export default function HomePage() {
     const dispatch = useDispatch();
     const products = useSelector(state => state.products)
+    const user = useSelector(state => state.session.user)
     // const items = useSelector(state => state.cart.carts.items)
 
     useEffect(() => {
         dispatch(getAllProductsTHUNK())
-        dispatch(getSingleCartTHUNK())
+        if (user) dispatch(getSingleCartTHUNK())
     }, [dispatch])
 
     if (!products) return <div>loading homepage</div>

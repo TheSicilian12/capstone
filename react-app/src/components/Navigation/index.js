@@ -17,10 +17,10 @@ function Navigation({ isLoaded }) {
 
 	let cartCheck = false;
 	// if (cart.carts.items === undefined) cartCheck = true
-	console.log("cart: ", cart)
-	console.log("cart errors: ", cart["errors"])
-	console.log("display start a cart button", cart["errors"] === "No cart")
-	console.log("display cart button", cart["errors"] !== "No cart")
+	// console.log("cart: ", cart)
+	// console.log("cart errors: ", cart["errors"])
+	// console.log("display start a cart button", cart["errors"] === "No cart")
+	// console.log("display cart button", cart["errors"] !== "No cart")
 
 	let totalItems = 0;
 	if (items) {

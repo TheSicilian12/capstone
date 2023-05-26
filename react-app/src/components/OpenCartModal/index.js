@@ -28,9 +28,9 @@ function OpenCartModal({
     dispatch(getSingleCartTHUNK())
   }, [dispatch])
 
-  if (items) console.log("items: ", Object.values(items).forEach(item => {
-    console.log("hello!!!!!!!!!")
-  }))
+  // if (items) console.log("items: ", Object.values(items).forEach(item => {
+  //   console.log("hello!!!!!!!!!")
+  // }))
 
   const onClick = () => {
     if (onModalClose) setOnModalClose(onModalClose);
@@ -53,7 +53,7 @@ function OpenCartModal({
   return (
     <div className="cart-modal">
       <h2 className="justify-center">Your Cart!</h2>
-      <button onClick={goToCart}>Check out</button>
+      <button onClick={goToCart}>Go to Checkout</button>
       <button onClick={deleteCart}>Delete your cart</button>
       {items && Object.values(items).map((item) =>
         <CartModalProduct item={item}/>

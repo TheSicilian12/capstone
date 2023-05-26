@@ -5,6 +5,7 @@ const LOAD_ONE_CART = 'cart/single'
 const POST_CART = 'cart/post'
 const DELETE_ITEM_CART = 'cart/delete/item'
 const DELETE_CART = 'cart/delete'
+const CLEAR_STATE = 'cart/clearState'
 
 const load = (data) => ({
     type: LOAD_CART,
@@ -24,6 +25,10 @@ const postCart = (data) => ({
 const deleteItemCart = (data) => ({
     type: DELETE_ITEM_CART,
     payload: data
+})
+
+const clearState = () => ({
+    type: CLEAR_STATE
 })
 
 
@@ -78,7 +83,7 @@ export const getItemsSingleCartTHUNK = (cartId) => async (dispatch) => {
 }
 
 
-// Add an item to a cart by id
+// add an item in a cart by id
 export const updateItemCartTHUNK = (payload) => async (dispatch) => {
     // console.log("----Add item to cart----")
     const {user_id, product_ids, total_price} = payload
@@ -165,6 +170,33 @@ export const deleteItemCartTHUNK = (productId) => async (dispatch) => {
     }
 }
 
+// Delete all items by id form all carts
+export const deleteAllItemsCartTHUNK = (productId) => async (dispatch) => {
+    console.log("----Delete item cart THUNK----")
+    console.log("productId: ", productId)
+    // console.log("before response")
+    const response = await fetch(`/api/carts/${productId}/spec-items`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+    // console.log("after response")
+    if (response.ok) {
+        return "Sucess"
+    }
+    else {
+        return ["Failure"]
+    }
+}
+
+// Clear cart state
+export const clearCartState = () => async (dispatch) => {
+    dispatch(clearState())
+
+}
+
+
 
 const initialState = {
     totalPrice: {},
@@ -190,9 +222,14 @@ export default function cartReducer(state = initialState, action) {
         }
         case DELETE_ITEM_CART: {
             const newState = { ...state }
-            console.log("newState: ", newState)
+            // console.log("newState: ", newState)
             delete newState["items"][action.payload]
-            console.log("newState: ", newState)
+            // console.log("newState: ", newState)
+            return { ...newState }
+        }
+        case CLEAR_STATE: {
+            console.log("clear cart state reducer")
+            const newState = { "cart": "No cart"}
             return { ...newState }
         }
         default:

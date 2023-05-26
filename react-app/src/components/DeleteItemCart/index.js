@@ -12,8 +12,8 @@ export default function DeleteItemCart({itemId, className}) {
 
 
     const remove = async () => {
-        console.log("itemId: ", itemId)
-        console.log("remove button")
+        // console.log("itemId: ", itemId)
+        // console.log("remove button")
         await dispatch(deleteItemCartTHUNK(itemId))
         // dispatch(getSingleCartTHUNK(user.id))
     }

@@ -16,7 +16,7 @@ export default function AllCarts() {
 
     if (!carts) return <div>loading all carts</div>
 
-    console.log("carts: ", carts)
+    // console.log("carts: ", carts)
 
     return (
         <div>

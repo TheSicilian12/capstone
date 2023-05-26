@@ -10,12 +10,12 @@ export default function AddItemCart({cartId, userId, productId, className}) {
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
 
-    console.log("-----------button productId: ", productId)
+    // console.log("-----------button productId: ", productId)
 
     const addProduct = () => {
-        console.log("cart: ", cartId)
-        console.log("userId: ", userId)
-        console.log("productId: ", productId)
+        // console.log("cart: ", cartId)
+        // console.log("userId: ", userId)
+        // console.log("productId: ", productId)
         const payload = {
             user_id: user.id,
             product_ids: productId,

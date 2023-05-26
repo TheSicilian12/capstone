@@ -75,28 +75,33 @@ export default function SingleProduct() {
                 <div className="border-black single-product-info-container">
                     <div className="single-product-header-container">
                         <h1>{singleProduct.name}</h1>
-
-                        { user && user.id === singleProduct.ownerId && <div className="single-product-owner-buttons-container ">
-                            <button className="button-small margin2" onClick={editRedirect}>Edit</button>
-                            <OpenModalButton
-                                buttonText="Delete"
-                                className="button-small margin2"
-                                modalComponent={<DeleteSingleProductModal productId={productId} />}
-                            />
-                        </div>}
                     </div>
-                    <p>{singleProduct.desc}</p>
+                    <p className="single-product-desc-container">{singleProduct.desc}</p>
                 </div>
 
-                <div className="border-black single-product-cart-container">
+                {/* If not logged in, see add to cart section, but no options, if logged in add to cart option, if owner then edit section */}
+
+                {!(user.id === singleProduct.ownerId) ? <div className="border-black single-product-cart-container">
                     Add to cart
                     {products.product.inventory ? <div className="text-green">In Stock</div>
                         : <div className="text-red">false</div>}
                     {user && <AddItemCart className={"button-full margin2"} cartId={cartId} userId={userId} productId={productId} />}
                     {user && <DeleteItemCart className={"button-full margin2"} itemId={productId} />}
                 </div>
-            </div>
+                    : <div className="border-black single-product-cart-container">
+                        Edit your product
+                        <div className="single-product-owner-buttons-container ">
+                            <button className="button-small margin2" onClick={editRedirect}>Edit</button>
+                            <OpenModalButton
+                                buttonText="Delete"
+                                className="button-small margin2"
+                                modalComponent={<DeleteSingleProductModal productId={productId} />}
+                            />
+                        </div>
 
+                    </div>}
+
+            </div>
         </div>
     )
 }
