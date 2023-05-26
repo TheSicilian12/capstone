@@ -33,7 +33,7 @@ export default function SingleCart() {
                 {Object.values(singleCart.items).map(item => {
                     return (
                         <div className="border-black shopping-cart-product-container">
-                            <div className="border-black">
+                            <div className="">
                                 <p className="shopping-cart-bold">{item.name}</p>
                                 <ul>stock: {item.inventory}</ul>
                                 {item.inventory > 5 && <p>In Stock</p>}
@@ -45,7 +45,7 @@ export default function SingleCart() {
                                 {item.inventory === 0 && <p>Out of stock</p>}
                                 <DeleteItemCart itemId={item.id} />
                             </div>
-                            <p className="shopping-cart-product-price-container">${item.price}</p>
+                            <p className="shopping-cart-bold">${item.price}</p>
                         </div>
                     )
                 })}
