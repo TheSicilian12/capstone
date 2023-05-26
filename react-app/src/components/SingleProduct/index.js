@@ -47,9 +47,6 @@ export default function SingleProduct() {
         else images.push(image)
     })
 
-    // console.log("mainImage: ", mainImage)
-    // console.log("images: ", images)
-
     const editRedirect = () => {
         history.push(`/products/${productId}/edit`)
     }
