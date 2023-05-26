@@ -43,6 +43,12 @@ function App() {
           <Route path="/" exact>
             <HomePage />
           </Route>
+          <Route path="/login" exact>
+            <LoginFormPage />
+          </Route>
+          <Route path="/signup" exact>
+            <SignupFormPage />
+          </Route>
           <Route path="/products/new" exact>
             <ProductForm formType={"new"}/>
           </Route>

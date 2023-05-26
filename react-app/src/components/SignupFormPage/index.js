@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { signUp } from "../../store/session";
+import { signUp, login } from "../../store/session";
 import './SignupForm.css';
 import '../UniversalCSS.css'
 
@@ -9,10 +9,14 @@ function SignupFormPage() {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [errors, setErrors] = useState([]);
+	const [disEmailErr, setDisEmailErr] = useState(false);
+	const [username, setUsername] = useState("");
+	const [disUsernameErr, setDisUsernameErr] = useState(false);
+	const [password, setPassword] = useState("");
+	const [disPassErr, setDisPassErr] = useState(false);
+	const [confirmPassword, setConfirmPassword] = useState("");
+	const [disConfirmPassErr, setDisConfirmPassErr] = useState(false);
+	const [errors, setErrors] = useState([]);
 
   if (sessionUser) return <Redirect to="/" />;
 
@@ -28,6 +32,18 @@ function SignupFormPage() {
     }
   };
 
+  const demoUserLogIn = (e) => {
+		e.preventDefault()
+		dispatch(login("demo@aa.io", "password"))
+	  }
+
+  let err = {}
+	// console.log("password length: ", password.length)
+	if (password.length < 8) err.password = "Password should be 8+ characters."
+	if (username.length < 4) err.username = "Username should be 4+ characters."
+	if (!email.includes("@")) err.email = "Please enter a valid email address."
+	if (password !== confirmPassword) err.confirmPassword = "This does not match the password."
+
   return (
     <>
       <h1>Sign Up</h1>
@@ -40,38 +56,55 @@ function SignupFormPage() {
           <input
             type="text"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
+           onChange={(e) => {
+							setEmail(e.target.value)
+							setDisEmailErr(true)
+						  }}
+            // required
           />
         </label>
+        {disEmailErr && <div className="errors">{err.email}</div>}
         <label>
           Username
           <input
             type="text"
             value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
+            onChange={(e) => {
+							setUsername(e.target.value)
+							setDisUsernameErr(true)
+						}}
+            // required
           />
         </label>
+        {disUsernameErr && <div className="errors">{err.username}</div>}
         <label>
           Password
           <input
             type="password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
+            onChange={(e) => {
+							setPassword(e.target.value)
+							setDisPassErr(true)
+						}}
+            // required
           />
         </label>
+        {disPassErr && <div className="errors">{err.password}</div>}
         <label>
           Confirm Password
           <input
             type="password"
             value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
+            onChange={(e) => {
+							setConfirmPassword(e.target.value)
+							setDisConfirmPassErr(true)
+						}}
+            // required
           />
         </label>
+        {(disConfirmPassErr || disPassErr) && <div className="errors">{err.confirmPassword}</div>}
         <button type="submit">Sign Up</button>
+        <button onClick={demoUserLogIn}>Log in as a demo user</button>
       </form>
     </>
   );
