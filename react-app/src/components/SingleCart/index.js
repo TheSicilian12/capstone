@@ -25,7 +25,6 @@ export default function SingleCart() {
     if (!singleCart) return <div>loading single cart</div>
     console.log('singleCart frontend: ', singleCart.items)
 
-
     return (
         <div className="border-black shopping-cart-page-container">
             <div className="shopping-cart-container">
