@@ -103,7 +103,11 @@ function SignupFormPage() {
           />
         </label>
         {(disConfirmPassErr || disPassErr) && <div className="errors">{err.confirmPassword}</div>}
-        <button type="submit">Sign Up</button>
+        <button
+          type="submit"
+          disabled={Object.values(err).length > 0}>
+            Sign Up
+        </button>
         <button onClick={demoUserLogIn}>Log in as a demo user</button>
       </form>
     </>

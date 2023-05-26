@@ -33,11 +33,6 @@ function CartButton({ user, itemNum }) {
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
-  const handleLogout = (e) => {
-    e.preventDefault();
-    dispatch(logout());
-  };
-
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
   const closeMenu = () => setShowMenu(false);
 

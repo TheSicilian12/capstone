@@ -70,7 +70,11 @@ function LoginFormPage() {
           />
         </label>
         {disPassErr && <div className="errors">{err.password}</div>}
-        <button type="submit">Log In</button>
+        <button
+          type="submit"
+          disabled={Object.values(err).length > 0}>
+            Log In
+        </button>
         <button onClick={demoUserLogIn}>Log in as a demo user</button>
       </form>
     </>
