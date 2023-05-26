@@ -1,3 +1,4 @@
+import { deleteAllItemsCartTHUNK, updateItemCartTHUNK } from "./cart"
 import normalize from "./normalizer"
 
 const LOAD_PRODUCT = 'products/all'
@@ -215,6 +216,12 @@ export const deleteProductTHUNK = (productId) => async (dispatch) => {
         }
     })
     if (response.ok) {
+        // When a product is deleted a cart needs to be updated!
+        // payloadCart = {
+        //     user_id: userId,
+        //     product_ids: productId
+        // }
+        dispatch(deleteAllItemsCartTHUNK(productId))
         return "Success"
     }
     else {

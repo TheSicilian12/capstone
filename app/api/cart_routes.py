@@ -203,3 +203,29 @@ def delete_item_carts(product_id):
     db.session.commit()
 
     return {"item": "deleted"}
+
+# Delete all items by id from all carts
+@cart_routes.route('/<int:product_id>/spec-items', methods=["DELETE"])
+@login_required
+def delete_spec_items_carts(product_id):
+    """
+    Delete all items of a specifc id from a cart
+    """
+    print("-------------------------Delete specific items from all carts-------------------------")
+    all_carts = Cart.query.all()
+    # all_carts_to_dict = [cart.to_dict() for cart in all_carts]
+
+
+    for cart in all_carts.to_dict():
+        print("---------------------------------------------cart: ", cart)
+        productList = []
+        if int(product_id) in cart.to_dict()["productIds"]:
+            newList = [prodId for prodId in cart.to_dict()["productIds"] if prodId != product_id]
+            print("-------------------------------new list: ", newList)
+            cart.product_ids = newList
+            print("---------------------------------cart with newList: ", cart)
+            db.sesssion.commit()
+            print("-------------------------------------------------------------")
+
+
+    return {"items": "deleted"}

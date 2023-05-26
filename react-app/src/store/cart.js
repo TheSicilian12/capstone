@@ -78,7 +78,7 @@ export const getItemsSingleCartTHUNK = (cartId) => async (dispatch) => {
 }
 
 
-// Add an item to a cart by id
+// add an item in a cart by id
 export const updateItemCartTHUNK = (payload) => async (dispatch) => {
     // console.log("----Add item to cart----")
     const {user_id, product_ids, total_price} = payload
@@ -165,6 +165,24 @@ export const deleteItemCartTHUNK = (productId) => async (dispatch) => {
     }
 }
 
+// Delete all items by id form all carts
+export const deleteAllItemsCartTHUNK = (productId) => async (dispatch) => {
+    // console.log("----Delete item cart THUNK----")
+    // console.log("before response")
+    const response = await fetch(`/api/carts/${productId}/spec-items`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+    // console.log("after response")
+    if (response.ok) {
+        return "Sucess"
+    }
+    else {
+        return ["Failure"]
+    }
+}
 
 const initialState = {
     totalPrice: {},
