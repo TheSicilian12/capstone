@@ -82,7 +82,6 @@ export default function SingleProduct() {
                 </div>
 
                 {/* If not logged in, see add to cart section, but no options, if logged in add to cart option, if owner then edit section */}
-
                 {!user || !(user.id === singleProduct.ownerId) ? <div className="border-black single-product-cart-container">
                     Add to cart
                     {products.product.inventory ? <div className="text-green">In Stock</div>
