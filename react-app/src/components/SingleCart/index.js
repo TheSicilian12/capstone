@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 
 import './SingleCart.css'
 import '../UniversalCSS.css'
@@ -9,8 +9,10 @@ import DeleteItemCart from '../DeleteItemCart';
 
 export default function SingleCart() {
     const dispatch = useDispatch();
+    const history = useHistory();
     const user = useSelector(state => state.session.user)
     const cart = useSelector(state => state.cart)
+
 
     // const cartId = Number(useParams().cartId)
 
@@ -21,7 +23,10 @@ export default function SingleCart() {
         dispatch(getSingleCartTHUNK())
     }, [dispatch])
 
-    if (!singleCart) return <div>Your cart is currently empty</div>
+    if (!singleCart) return <div>
+        Your cart is currently empty
+        <button onClick={() => history.push("/")}>Keep Shopping</button>
+        </div>
     // console.log('singleCart frontend: ', singleCart.items)
 
     const purchase = async () => {
