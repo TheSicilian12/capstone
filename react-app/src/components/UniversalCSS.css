@@ -26,9 +26,9 @@
     color: green;
 }
 
-/* .button-small {
-
-} */
+.errors {
+    color: red;
+}
 
 .padding5 {
     padding: 5px;

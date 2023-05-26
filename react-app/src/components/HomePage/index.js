@@ -25,7 +25,7 @@ export default function HomePage() {
             <div className="homepage-container">
                 {Object.values(products).map(product => {
                     return (
-                        <div className="homepage-margin-product homepage-product" key={product.SKU}>
+                        <div className="homepage-margin-product homepage-product" key={product.id}>
                             <ProductContainer product={product} />
                         </div>
                     )

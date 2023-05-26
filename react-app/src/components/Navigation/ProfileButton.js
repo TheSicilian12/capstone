@@ -35,6 +35,7 @@ function ProfileButton({ user }) {
   const handleLogout = (e) => {
     e.preventDefault();
     dispatch(logout());
+    closeMenu()
   };
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
@@ -51,7 +52,10 @@ function ProfileButton({ user }) {
             <li>{user.username}</li>
             <li>{user.email}</li>
             <li>
-              <button onClick={() => history.push('/products/new')}>Add Product</button>
+              <button onClick={() => (
+                history.push('/products/new'),
+                closeMenu()
+                )}>Add Product</button>
             </li>
             <li>
               <button onClick={handleLogout}>Log Out</button>

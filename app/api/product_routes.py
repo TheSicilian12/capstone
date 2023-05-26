@@ -88,7 +88,7 @@ def create_product():
     if form.validate_on_submit():
         data = form.data
         new_product = Product(
-            SKU = data['SKU'],
+            # SKU = data['SKU'],
             name = data['name'],
             price = data['price'],
             inventory = data['inventory'],
@@ -131,7 +131,7 @@ def edit_product(id):
         if current_user.id != product.owner_id:
             return {"errors": "Not an authorized route"}
 
-        product.SKU = form.data["SKU"]
+        # product.SKU = form.data["SKU"]
         product.name = form.data['name']
         product.price = form.data['price']
         product.inventory = form.data['inventory']
