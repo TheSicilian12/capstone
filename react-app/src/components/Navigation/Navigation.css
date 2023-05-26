@@ -6,13 +6,20 @@
   display: none;
 }
 
+.full {
+  width: 100vw
+}
+
 .nav-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  /* width: 100%; */
+  width: 100vw;
   height: 110px;
+  margin: 0px;
+  padding: 0px;
 }
 
 .nav-logo{
