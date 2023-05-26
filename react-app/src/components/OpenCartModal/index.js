@@ -47,9 +47,9 @@ function OpenCartModal({
     <div className="cart-modal">
       <h2 className="justify-center">Your Cart!</h2>
       <button onClick={deleteCart}>Delete your cart</button>
-      {items && Object.values(items).map((item) => (
+      {items && Object.values(items).map((item) =>
         <CartModalProduct item={item}/>
-      ))}
+      )}
 
 
 
