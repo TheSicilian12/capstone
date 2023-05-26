@@ -78,17 +78,18 @@ export default function SingleProduct() {
                     <div className="single-product-header-container">
                         <h1>{singleProduct.name}</h1>
                     </div>
-                    <p className="single-product-desc-container">{singleProduct.desc}</p>
+                    <p className="single-product-desc-container">{singleProduct?.desc}</p>
                 </div>
 
                 {/* If not logged in, see add to cart section, but no options, if logged in add to cart option, if owner then edit section */}
 
-                {!(user.id === singleProduct.ownerId) ? <div className="border-black single-product-cart-container">
+                {!user || !(user.id === singleProduct.ownerId) ? <div className="border-black single-product-cart-container">
                     Add to cart
                     {products.product.inventory ? <div className="text-green">In Stock</div>
                         : <div className="text-red">false</div>}
                     {user && <AddItemCart className={"button-full margin2"} cartId={cartId} userId={userId} productId={productId} />}
                     {user && <DeleteItemCart className={"button-full margin2"} itemId={productId} />}
+                    {!user && <div>You must log in to start shopping</div>}
                 </div>
                     : <div className="border-black single-product-cart-container">
                         Edit your product
@@ -100,9 +101,7 @@ export default function SingleProduct() {
                                 modalComponent={<DeleteSingleProductModal productId={productId} />}
                             />
                         </div>
-
                     </div>}
-
             </div>
         </div>
     )
