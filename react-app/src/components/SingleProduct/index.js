@@ -54,8 +54,6 @@ export default function SingleProduct() {
         history.push(`/products/${productId}/edit`)
     }
 
-    // console.log("mainImage: ", mainImage)
-
     return (
         <div className="single-product-page-container">
             <div className="single-product-container">
