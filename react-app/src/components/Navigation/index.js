@@ -50,12 +50,10 @@ function Navigation({ isLoaded }) {
 
 	return (
 		<div className="shinano-color-background nav-container">
-			<ul>
 					<img
-						width={"150px"}
+						className="nav-logo"
 						onClick={() => history.push("/")}
 						src={shinanoLogoMini}/>
-			</ul>
 		 	<div>
 				{isLoaded && <ProfileButton user={sessionUser} />}
 				{!sessionUser && <h2>You must be logged in to start a cart</h2>}

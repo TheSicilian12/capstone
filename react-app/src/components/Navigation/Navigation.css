@@ -10,4 +10,19 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 110px;
+}
+
+.nav-logo{
+  width: 150px;
+  height: 90px;
+  margin-left: 15px;
+}
+.nav-logo:hover{
+  width: 150px;
+  height: 90px;
+  margin-left: 15px;
+  border: 2px solid white;
 }
