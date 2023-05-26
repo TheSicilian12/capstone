@@ -16,7 +16,7 @@ export default function DeleteSingleProductModal({productId}) {
   const deleter = async () => {
     await dispatch(deleteProductTHUNK(id))
     closeModal()
-    history.push("/homepage")
+    history.push("/")
   };
 
   return (
