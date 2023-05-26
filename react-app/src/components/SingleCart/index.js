@@ -21,7 +21,6 @@ export default function SingleCart() {
         dispatch(getSingleCartTHUNK())
     }, [dispatch])
 
-
     if (!singleCart) return <div>loading single cart</div>
     console.log('singleCart frontend: ', singleCart.items)
 
