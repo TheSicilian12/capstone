@@ -23,11 +23,22 @@ export default function SingleCart() {
         dispatch(getSingleCartTHUNK())
     }, [dispatch])
 
-    if (!singleCart) return <div>
+    const keepShopping = async () => {
+        const payload = {
+            user_id: user.id,
+			total_price: 0,
+			product_ids: []
+		}
+		await dispatch(postCartTHUNK(payload))
+        history.push("/")
+        await dispatch(getSingleCartTHUNK())
+    }
+
+    if (!singleCart || Object.values(singleCart.items).length === 0) return <div>
         Your cart is currently empty
-        <button onClick={() => history.push("/")}>Keep Shopping</button>
+        <button onClick={keepShopping}>Keep Shopping</button>
         </div>
-    // console.log('singleCart frontend: ', singleCart.items)
+    // console.log('singleCart frontend: ', Object.values(singleCart.items))
 
     const purchase = async () => {
         await dispatch(deleteCartTHUNK())
