@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import './SingleCart.css'
 import '../UniversalCSS.css'
-import { deleteItemCartTHUNK, getSingleCartTHUNK } from '../../store/cart';
+import { deleteCartTHUNK, deleteItemCartTHUNK, getSingleCartTHUNK, postCartTHUNK } from '../../store/cart';
 import DeleteItemCart from '../DeleteItemCart';
 
 export default function SingleCart() {
@@ -21,14 +21,26 @@ export default function SingleCart() {
         dispatch(getSingleCartTHUNK())
     }, [dispatch])
 
-    if (!singleCart) return <div>loading single cart</div>
-    console.log('singleCart frontend: ', singleCart.items)
+    if (!singleCart) return <div>Your cart is currently empty</div>
+    // console.log('singleCart frontend: ', singleCart.items)
+
+    const purchase = async () => {
+        await dispatch(deleteCartTHUNK())
+        const payload = {
+            user_id: user.id,
+			total_price: 0,
+			product_ids: []
+		}
+		await dispatch(postCartTHUNK(payload))
+		// dispatch(getSingleCartTHUNK())
+        await dispatch(getSingleCartTHUNK())
+    }
 
     return (
         <div className="border-black shopping-cart-page-container">
             <div className="shopping-cart-container">
                 Shopping Cart
-                {/* {Object.values(singleCart.items).map(item => {
+                {Object.values(singleCart.items).map(item => {
                     return (
                         <div className="border-black shopping-cart-product-container">
                             <div className="">
@@ -46,8 +58,8 @@ export default function SingleCart() {
                             <p className="shopping-cart-bold">${item.price}</p>
                         </div>
                     )
-                })} */}
-                {Object.keys(singleCart.quantityDict).map(qKey => {
+                })}
+                {/* {Object.keys(singleCart.quantityDict).map(qKey => {
                     let items = Object.values(singleCart.items)
                     // console.log("item obj: ", items)
                     // console.log("qKey: ", qKey)
@@ -73,10 +85,11 @@ export default function SingleCart() {
                             <p className="shopping-cart-bold">${item.price}</p>
                         </div>
                     )
-                })}
+                })} */}
             </div>
             <div className=" border-black shopping-cart-checkout-container">
                 Checkout
+                <button onClick={purchase}>Purchase!</button>
             </div>
         </div>
     )
