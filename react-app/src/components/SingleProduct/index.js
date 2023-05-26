@@ -85,7 +85,7 @@ export default function SingleProduct() {
                             />
                         </div>}
                     </div>
-                    <p>{singleProduct.desc}</p>
+                    <p className="single-product-desc-container">{singleProduct.desc}</p>
                 </div>
 
                 <div className="border-black single-product-cart-container">
