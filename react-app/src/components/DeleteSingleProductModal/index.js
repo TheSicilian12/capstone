@@ -4,6 +4,7 @@ import { useModal } from "../../context/Modal";
 import { deleteProductTHUNK } from "../../store/product";
 import "./DeleteSingleProductModal.css";
 import '../UniversalCSS.css'
+import { deleteAllItemsCartTHUNK } from "../../store/cart";
 
 export default function DeleteSingleProductModal({productId}) {
   const dispatch = useDispatch();
@@ -14,9 +15,10 @@ export default function DeleteSingleProductModal({productId}) {
   const id = productId
 
   const deleter = async () => {
-    await dispatch(deleteProductTHUNK(id))
+    // await dispatch(deleteProductTHUNK(id))
+    await dispatch(deleteAllItemsCartTHUNK(id))
     closeModal()
-    history.push("/")
+    // history.push("/")
   };
 
   return (

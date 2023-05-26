@@ -159,4 +159,4 @@ def delete_one_product(id):
     else:
         db.session.delete(product)
         db.session.commit()
-        return "Product deleted"
+        return {"product": "Product deleted"}

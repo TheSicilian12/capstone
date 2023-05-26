@@ -216,6 +216,7 @@ export const deleteProductTHUNK = (productId) => async (dispatch) => {
         }
     })
     if (response.ok) {
+        console.log("delete product thunk ok")
         // When a product is deleted a cart needs to be updated!
         // payloadCart = {
         //     user_id: userId,

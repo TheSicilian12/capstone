@@ -212,19 +212,22 @@ def delete_spec_items_carts(product_id):
     Delete all items of a specifc id from a cart
     """
     print("-------------------------Delete specific items from all carts-------------------------")
+    print("------------------------------------product id: ", product_id)
+
     all_carts = Cart.query.all()
     # all_carts_to_dict = [cart.to_dict() for cart in all_carts]
+    print("---------------------------------------------all carts: ", all_carts)
 
-
-    for cart in all_carts.to_dict():
-        print("---------------------------------------------cart: ", cart)
+    for cart in all_carts:
+        print("---------------------------------------------cart: ", cart.to_dict())
         productList = []
-        if int(product_id) in cart.to_dict()["productIds"]:
+        if cart.to_dict()["productIds"] and int(product_id) in cart.to_dict()["productIds"]:
             newList = [prodId for prodId in cart.to_dict()["productIds"] if prodId != product_id]
             print("-------------------------------new list: ", newList)
-            cart.product_ids = newList
-            print("---------------------------------cart with newList: ", cart)
-            db.sesssion.commit()
+            updateCart = Cart.query.get(cart.to_dict()["id"])
+            updateCart.product_ids = newList
+            print("---------------------------------cart with newList: ", cart.to_dict())
+            db.session.commit()
             print("-------------------------------------------------------------")
 
 
