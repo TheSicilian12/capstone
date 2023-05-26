@@ -61,7 +61,7 @@ function App() {
           {/* <Route path="/carts" exact>
             <AllCarts />
           </Route> */}
-          <Route path="/carts" exact>
+          <Route path="/cart" exact>
             <SingleCart />
           </Route>
         </Switch>

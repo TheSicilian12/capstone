@@ -35,7 +35,8 @@ export default function SingleCart() {
                         <div className="shopping-cart-product-container">
                             <div className="border-black">
                                 <h2>product name: {item.name}</h2>
-                                <ul>product id: {item.id}</ul>
+                                <ul>price: ${item.price}</ul>
+                                <ul>stock: {item.inventory}</ul>
                                 <DeleteItemCart itemId={item.id} />
                             </div>
                         </div>

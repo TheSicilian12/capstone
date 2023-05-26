@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { useModal } from '../../context/Modal';
 import { deleteCartTHUNK, getSingleCartTHUNK } from '../../store/cart';
 import CartModalProduct from '../CartModalProduct';
@@ -20,6 +21,7 @@ function OpenCartModal({
 }) {
   const { setModalContent, setOnModalClose } = useModal();
   const dispatch = useDispatch()
+  const history = useHistory()
   const items = useSelector(state => state.cart.carts?.items)
 
   useEffect(() => {
@@ -43,9 +45,15 @@ function OpenCartModal({
 
 	}
 
+  const goToCart = () => {
+    history.push("/cart")
+    closeMenu(true)
+  }
+
   return (
     <div className="cart-modal">
       <h2 className="justify-center">Your Cart!</h2>
+      <button onClick={goToCart}>Check out</button>
       <button onClick={deleteCart}>Delete your cart</button>
       {items && Object.values(items).map((item) =>
         <CartModalProduct item={item}/>
