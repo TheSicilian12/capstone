@@ -20,11 +20,13 @@ export default function SingleProduct() {
     const products = useSelector(state => state.products)
     const user = useSelector(state => state.session.user)
     const cart = useSelector(state => state.cart.carts)
+    const cartCheck = useSelector(state => state.cart)
     const history = useHistory()
 
     const productId = Number(useParams().productId)
 
     // console.log("productId: ", productId)
+    // console.log("cartCheck: ", cartCheck)
 
     const singleProduct = products.product
     // console.log('singleProduct: ', singleProduct)
