@@ -9,7 +9,9 @@ import { getSingleCartTHUNK, deleteItemCartTHUNK } from '../../store/cart';
 export default function DeleteItemCart({itemId, className}) {
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
+    const cartCheck = useSelector(state => state.cart)
 
+    if (cartCheck["errors"]) className = "button-disabled"
 
     const remove = async () => {
         // console.log("itemId: ", itemId)
@@ -21,7 +23,9 @@ export default function DeleteItemCart({itemId, className}) {
     return(
             <button
                 className={className ? `${className}` : ""}
-                onClick={remove}>
+                onClick={remove}
+                disabled={cartCheck["errors"]}
+                >
                     Remove
             </button>
     )
