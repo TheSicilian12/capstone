@@ -32,13 +32,13 @@ export default function SingleCart() {
                 Shopping Cart
                 {Object.values(singleCart.items).map(item => {
                     return (
-                        <div className="shopping-cart-product-container">
+                        <div className="border-black shopping-cart-product-container">
                             <div className="border-black">
-                                <h2>product name: {item.name}</h2>
-                                <ul>price: ${item.price}</ul>
+                                <p className="shopping-cart-bold">{item.name}</p>
                                 <ul>stock: {item.inventory}</ul>
                                 <DeleteItemCart itemId={item.id} />
                             </div>
+                            <p className="shopping-cart-product-price-container">${item.price}</p>
                         </div>
                     )
                 })}
