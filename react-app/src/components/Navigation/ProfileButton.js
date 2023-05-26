@@ -56,7 +56,7 @@ function ProfileButton({ user }) {
               <button onClick={() => (
                 history.push('/products/new'),
                 closeMenu()
-                )}>Add Product</button>
+              )}>Add Product</button>
             </li>
             <li>
               <button onClick={handleLogout}>Log Out</button>
@@ -64,11 +64,18 @@ function ProfileButton({ user }) {
           </>
         ) : (
           <>
-            <OpenModalButton
+            {/* <OpenModalButton
               buttonText="Log In"
               onItemClick={closeMenu}
               modalComponent={<LoginFormModal />}
-            />
+            /> */}
+            <button
+              onClick={() => {
+                history.push("/login")
+                closeMenu()
+              }}>
+              Log In
+            </button>
 
 
             {/* <OpenModalButton
@@ -80,8 +87,8 @@ function ProfileButton({ user }) {
               onClick={() => {
                 history.push("/signup")
                 closeMenu()
-                }}>
-                Sign Up
+              }}>
+              Sign Up
             </button>
           </>
         )}
