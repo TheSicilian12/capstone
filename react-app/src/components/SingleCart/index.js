@@ -27,24 +27,25 @@ export default function SingleCart() {
 
 
     return (
-        <div className="single-product-image-container">
-            <div>
+        <div className="border-black shopping-cart-page-container">
+            <div className="shopping-cart-container">
+                Shopping Cart
                 {Object.values(singleCart.items).map(item => {
                     return (
-                        <div className="border-black">
-                            <h1>hello</h1>
-                            {/* <NavLink key={item.id} to={`/products/${item.id}`}>{item.SKU}</NavLink> */}
-                            <ul>product name: {item.name}</ul>
-                            <ul>product id: {item.id}</ul>
-                            {/* <button onClick={remove}>Remove from cart</button> */}
-                            <DeleteItemCart itemId={item.id} />
+                        <div className="shopping-cart-product-container">
+                            <div className="border-black">
+                                <h2>product name: {item.name}</h2>
+                                <ul>product id: {item.id}</ul>
+                                <DeleteItemCart itemId={item.id} />
+                            </div>
                         </div>
-
                     )
                 })}
             </div>
+            <div className=" border-black shopping-cart-checkout-container">
+                Checkout
+            </div>
         </div>
-
     )
 
 

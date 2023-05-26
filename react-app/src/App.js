@@ -58,10 +58,10 @@ function App() {
           <Route path="/products/:productId" exact>
             <SingleProduct />
           </Route>
-          <Route path="/carts" exact>
+          {/* <Route path="/carts" exact>
             <AllCarts />
-          </Route>
-          <Route path="/carts/:cartId" exact>
+          </Route> */}
+          <Route path="/carts" exact>
             <SingleCart />
           </Route>
         </Switch>
