@@ -6,6 +6,7 @@ import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import '../UniversalCSS.css'
+import SignupFormPage from "../SignupFormPage";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -55,7 +56,7 @@ function ProfileButton({ user }) {
               <button onClick={() => (
                 history.push('/products/new'),
                 closeMenu()
-                )}>Add Product</button>
+              )}>Add Product</button>
             </li>
             <li>
               <button onClick={handleLogout}>Log Out</button>
@@ -63,17 +64,32 @@ function ProfileButton({ user }) {
           </>
         ) : (
           <>
-            <OpenModalButton
+            {/* <OpenModalButton
               buttonText="Log In"
               onItemClick={closeMenu}
               modalComponent={<LoginFormModal />}
-            />
+            /> */}
+            <button
+              onClick={() => {
+                history.push("/login")
+                closeMenu()
+              }}>
+              Log In
+            </button>
 
-            <OpenModalButton
+
+            {/* <OpenModalButton
               buttonText="Sign Up"
               onItemClick={closeMenu}
               modalComponent={<SignupFormModal />}
-            />
+            /> */}
+            <button
+              onClick={() => {
+                history.push("/signup")
+                closeMenu()
+              }}>
+              Sign Up
+            </button>
           </>
         )}
       </ul>

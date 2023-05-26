@@ -1,1 +1,21 @@
+.shopping-cart-page-container {
+    display: flex;
+    justify-content: center;
+}
 
+.shopping-cart-container {
+    width: 60vw;
+}
+
+.shopping-cart-product-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.shopping-cart-bold {
+    font-weight: bold;
+}
+
+.shopping-cart-checkout-container {
+    width: 15vw;
+}

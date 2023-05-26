@@ -21,30 +21,37 @@ export default function SingleCart() {
         dispatch(getSingleCartTHUNK())
     }, [dispatch])
 
-
     if (!singleCart) return <div>loading single cart</div>
     console.log('singleCart frontend: ', singleCart.items)
 
-
     return (
-        <div className="single-product-image-container">
-            <div>
+        <div className="border-black shopping-cart-page-container">
+            <div className="shopping-cart-container">
+                Shopping Cart
                 {Object.values(singleCart.items).map(item => {
                     return (
-                        <div className="border-black">
-                            <h1>hello</h1>
-                            {/* <NavLink key={item.id} to={`/products/${item.id}`}>{item.SKU}</NavLink> */}
-                            <ul>product name: {item.name}</ul>
-                            <ul>product id: {item.id}</ul>
-                            {/* <button onClick={remove}>Remove from cart</button> */}
-                            <DeleteItemCart itemId={item.id} />
+                        <div className="border-black shopping-cart-product-container">
+                            <div className="">
+                                <p className="shopping-cart-bold">{item.name}</p>
+                                <ul>stock: {item.inventory}</ul>
+                                {item.inventory > 5 && <p>In Stock</p>}
+                                {item.inventory === 5 && <p>Only 5 left in stock</p>}
+                                {item.inventory === 4 && <p>Only 4 left in stock</p>}
+                                {item.inventory === 3 && <p>Only 3 left in stock</p>}
+                                {item.inventory === 2 && <p>Only 2 left in stock</p>}
+                                {item.inventory === 1 && <p>Only 1 left in stock</p>}
+                                {item.inventory === 0 && <p>Out of stock</p>}
+                                <DeleteItemCart itemId={item.id} />
+                            </div>
+                            <p className="shopping-cart-bold">${item.price}</p>
                         </div>
-
                     )
                 })}
             </div>
+            <div className=" border-black shopping-cart-checkout-container">
+                Checkout
+            </div>
         </div>
-
     )
 
 

@@ -40,8 +40,14 @@ function App() {
           <Route path="/signup" exact>
             <SignupFormPage />
           </Route>
-          <Route path="/homepage" exact>
+          <Route path="/" exact>
             <HomePage />
+          </Route>
+          <Route path="/login" exact>
+            <LoginFormPage />
+          </Route>
+          <Route path="/signup" exact>
+            <SignupFormPage />
           </Route>
           <Route path="/products/new" exact>
             <ProductForm formType={"new"}/>
@@ -52,10 +58,10 @@ function App() {
           <Route path="/products/:productId" exact>
             <SingleProduct />
           </Route>
-          <Route path="/carts" exact>
+          {/* <Route path="/carts" exact>
             <AllCarts />
-          </Route>
-          <Route path="/carts/:cartId" exact>
+          </Route> */}
+          <Route path="/cart" exact>
             <SingleCart />
           </Route>
         </Switch>
