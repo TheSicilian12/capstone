@@ -14,3 +14,7 @@ class CartForm(FlaskForm):
     product_ids = IntegerField(
         'product_ids'
     )
+    # Not sure
+    quantity_dict = IntegerField(
+        'quantity_dict'
+    )

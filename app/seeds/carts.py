@@ -7,10 +7,12 @@ def seed_carts():
     cart1 = Cart(
         user_id=2,
         product_ids=[1, 2, 2, 3],
+        quantity_dict={1: 1, 2: 2, 3:1},
         total_price=350)
     cart2 = Cart(
         user_id=3,
         product_ids=[1, 2, 3, 4, 5, 5],
+        quantity_dict={1: 1, 2: 1, 3: 1, 4: 1, 5: 2},
         total_price=360)
 
     db.session.add(cart1)
@@ -31,4 +33,3 @@ def undo_carts():
         db.session.execute(text("DELETE FROM carts"))
 
     db.session.commit()
-

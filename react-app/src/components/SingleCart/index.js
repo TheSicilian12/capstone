@@ -28,12 +28,39 @@ export default function SingleCart() {
         <div className="border-black shopping-cart-page-container">
             <div className="shopping-cart-container">
                 Shopping Cart
-                {Object.values(singleCart.items).map(item => {
+                {/* {Object.values(singleCart.items).map(item => {
                     return (
                         <div className="border-black shopping-cart-product-container">
                             <div className="">
                                 <p className="shopping-cart-bold">{item.name}</p>
                                 <ul>stock: {item.inventory}</ul>
+                                {item.inventory > 5 && <p>In Stock</p>}
+                                {item.inventory === 5 && <p>Only 5 left in stock</p>}
+                                {item.inventory === 4 && <p>Only 4 left in stock</p>}
+                                {item.inventory === 3 && <p>Only 3 left in stock</p>}
+                                {item.inventory === 2 && <p>Only 2 left in stock</p>}
+                                {item.inventory === 1 && <p>Only 1 left in stock</p>}
+                                {item.inventory === 0 && <p>Out of stock</p>}
+                                <DeleteItemCart itemId={item.id} />
+                            </div>
+                            <p className="shopping-cart-bold">${item.price}</p>
+                        </div>
+                    )
+                })} */}
+                {Object.keys(singleCart.quantityDict).map(qKey => {
+                    let items = Object.values(singleCart.items)
+                    // console.log("item obj: ", items)
+                    // console.log("qKey: ", qKey)
+                    // console.log("qKey type: ", typeof qKey)
+                    let item = items.find(item => item.id === Number(qKey))
+                    // console.log("cart item: ", item)
+                    return (
+                        <div className="border-black shopping-cart-product-container">
+                            <div className="">
+                                <p className="shopping-cart-bold">{item.name}</p>
+                                <p>stock: {item.inventory}</p>
+                                <p>quantity: {singleCart.quantityDict[Number(qKey)]}</p>
+
                                 {item.inventory > 5 && <p>In Stock</p>}
                                 {item.inventory === 5 && <p>Only 5 left in stock</p>}
                                 {item.inventory === 4 && <p>Only 4 left in stock</p>}
