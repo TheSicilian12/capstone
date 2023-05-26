@@ -77,7 +77,6 @@ export default function SingleProduct() {
                     </div>
                 </div>
 
-
                 <div className="border-black single-product-info-container">
                     <div className="single-product-header-container">
                         <h1>{singleProduct.name}</h1>
