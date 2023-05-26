@@ -1,3 +1,7 @@
+:root {
+    --shinanoMain: #ffb7c5;
+}
+
 .border-black {
     border: 2px solid black
 }
@@ -16,6 +20,14 @@
 
 .hidden {
     display: none;
+}
+
+.shinano-color-background {
+    background-color: var(--shinanoMain);
+}
+
+.shinano-color-text {
+    color: var(--shinanoMain)
 }
 
 .text-red {

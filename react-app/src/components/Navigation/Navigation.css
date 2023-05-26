@@ -6,10 +6,6 @@
   display: none;
 }
 
-.nav-background {
-  background-color: aqua;
-}
-
 .nav-container {
   display: flex;
   flex-direction: row;

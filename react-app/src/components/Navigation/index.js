@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import { deleteCartTHUNK, getItemsSingleCartTHUNK, getSingleCartTHUNK, postCartTHUNK } from '../../store/cart';
 import CartButton from '../CartButton';
+import shinanoLogoMini from "../assets/Images/ShinanoLogoSmall.jpg"
 
 import './Navigation.css';
 import '../UniversalCSS.css'
 
 function Navigation({ isLoaded }) {
+	const dispatch = useDispatch()
+	const history = useHistory()
+
 	const sessionUser = useSelector(state => state.session.user);
 	const items = useSelector(state => state.cart.carts?.items)
 	const cart = useSelector(state => state.cart)
-	const dispatch = useDispatch()
+
 	const [showMenu, setShowMenu] = useState(false);
 
 	let cartCheck = false;
@@ -45,18 +49,15 @@ function Navigation({ isLoaded }) {
 	const closeMenu = () => setShowMenu(false);
 
 	return (
-		<div className="nav-background nav-container">
+		<div className="shinano-color-background nav-container">
 			<ul>
-				<li>
-					<NavLink exact to="/">Home</NavLink>
-				</li>
-				{isLoaded && (
-					<li>
-						<ProfileButton user={sessionUser} />
-					</li>
-				)}
+					<img
+						width={"150px"}
+						onClick={() => history.push("/")}
+						src={shinanoLogoMini}/>
 			</ul>
 		 	<div>
+				{isLoaded && <ProfileButton user={sessionUser} />}
 				{!sessionUser && <h2>You must be logged in to start a cart</h2>}
 				{sessionUser && cart["errors"] === "No cart" && <button onClick={addCart}>Start a cart</button>}
 				{sessionUser && cart["errors"] !== "No cart" && <CartButton cart={cart} itemNum={totalItems}/>}
