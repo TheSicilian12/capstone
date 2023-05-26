@@ -10,7 +10,7 @@ import '../UniversalCSS.css'
 
 export default function ProductForm({ productInfo, formType, productId, mainProductImage, imageArray }) {
     // console.log("productInfo: ", productInfo ? productInfo.SKU : "test")
-    console.log("formType: ", formType)
+    // console.log("formType: ", formType)
     const user = useSelector((state) => state.session.user)
     const dispatch = useDispatch();
     const history = useHistory();
@@ -36,7 +36,7 @@ export default function ProductForm({ productInfo, formType, productId, mainProd
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log("add product")
+        // console.log("add product")
 
 
         if (name && price && desc && inventory && mainImage) {
@@ -66,7 +66,7 @@ export default function ProductForm({ productInfo, formType, productId, mainProd
             imageHolder.main_image = "no"
             if (formType === "edit" && imageArray[0]) imageHolder.image_id = imageArray[0].id
             if (formType === "edit" && imageArray[0] && subImage1.length === 0) {
-                console.log("subImage1 if statement")
+                // console.log("subImage1 if statement")
                 imageHolder.deleteImg = "delete"
             } else imageHolder.deleteImg = "no"
 
@@ -83,7 +83,7 @@ export default function ProductForm({ productInfo, formType, productId, mainProd
 
             payload.images.push(imageHolder)
 
-            console.log("subImg 2: ", imageHolder.delete)
+            // console.log("subImg 2: ", imageHolder.delete)
 
 
             imageHolder = {}
@@ -116,7 +116,7 @@ export default function ProductForm({ productInfo, formType, productId, mainProd
             return console.log("ERROR In ADD / EDIT a produact")
         }
 
-        console.log('submit button')
+        // console.log('submit button')
     }
 
     const checkValidImage = (checkImage) => {
