@@ -67,7 +67,7 @@ export default function SingleProduct() {
 
                     <div className='single-product-sub-images-container display-flex'>
                         {images.map(image => {
-                            return (<div className="single-product-sub-single-image-container justify-center">
+                            return (<div className="border-black single-product-sub-single-image-container">
                                 <SingleProductMiniImage
                                     className={"single-product-image-mini-container"}
                                     imageUrl={image.image_url} />
