@@ -48,11 +48,9 @@ function CartButton({ user, itemNum }) {
        Items: {itemNum ? itemNum : 0}
       </button>
       <ul className={ulClassName} ref={ulRef}>
-         (
           <>
             <OpenCartModal closeMenu={closeMenu}/>
           </>
-        )
       </ul>
     </>
   );
