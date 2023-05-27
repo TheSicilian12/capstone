@@ -5,15 +5,24 @@
 
 .shopping-cart-page-info {
     display: flex;
+    width: 50vw;
+    flex-wrap: wrap;
+}
+
+.shipping-cart-text-container {
+    margin-left: 10px;
 }
 
 .shopping-cart-container {
     width: 60vw;
+    margin-right: 40px;
 }
 
 .shopping-cart-product-container {
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid gray;
+    padding: 15px;
 }
 
 .shopping-cart-bold {

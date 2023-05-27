@@ -53,20 +53,20 @@ export default function SingleCart() {
     }
 
     return (
-        <div className="border-black shopping-cart-page-container">
+        <div className="shopping-cart-page-container">
             <div className="shopping-cart-container">
                 Shopping Cart
                 {Object.values(singleCart.items).map(item => {
                     return (
-                        <div className="border-black shopping-cart-product-container">
+                        <div className="shopping-cart-product-container">
                             <div className="shopping-cart-page-info">
                                 <img
                                     className="shopping-cart-image"
                                     src={item.mainImage.image_url}
                                 />
-                                <div>
+                                <div className="shipping-cart-text-container">
                                     <p className="shopping-cart-bold">{item.item.name}</p>
-                                    <ul>stock: {item.item.inventory}</ul>
+
                                     {item.item.inventory > 5 && <p>In Stock</p>}
                                     {item.item.inventory === 5 && <p>Only 5 left in stock</p>}
                                     {item.item.inventory === 4 && <p>Only 4 left in stock</p>}
@@ -74,7 +74,11 @@ export default function SingleCart() {
                                     {item.item.inventory === 2 && <p>Only 2 left in stock</p>}
                                     {item.item.inventory === 1 && <p>Only 1 left in stock</p>}
                                     {item.item.inventory === 0 && <p>Out of stock</p>}
-                                    <DeleteItemCart itemId={item.item.id} />
+
+                                    <div className="shopping-cart-page-info-quan-delete">
+                                        Quantity:
+                                        <DeleteItemCart itemId={item.item.id} />
+                                    </div>
                                 </div>
                             </div>
                             <p className="shopping-cart-bold">${item.item.price}</p>
