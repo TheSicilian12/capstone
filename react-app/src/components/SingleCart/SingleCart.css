@@ -6,11 +6,15 @@
 .shopping-cart-page-info {
     display: flex;
     width: 50vw;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
 }
 
-.shipping-cart-text-container {
+.shopping-cart-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     margin-left: 10px;
+    width: 30vw;
 }
 
 .shopping-cart-container {

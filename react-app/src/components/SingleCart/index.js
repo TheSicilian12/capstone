@@ -67,7 +67,7 @@ export default function SingleCart() {
         // console.log("e: ", e)
         // console.log("key check: ", itemCart[e.item.id])
         if (!itemCart[e.item.id]) {
-            itemCart[e.item.id] = {quantity: 1, item: e.item, mainImage: e.mainImage.image_url}
+            itemCart[e.item.id] = { quantity: 1, item: e.item, mainImage: e.mainImage.image_url }
         } else {
             itemCart[e.item.id].quantity += 1;
         }
@@ -77,7 +77,7 @@ export default function SingleCart() {
     return (
         <div className="shopping-cart-page-container">
             <div className="shopping-cart-container">
-                Shopping Cart
+                <h1>Shopping Cart</h1>
                 {/* {Object.values(singleCart.items).map(item => { */}
                 {Object.values(itemCart).map(item => {
                     return (
@@ -87,18 +87,18 @@ export default function SingleCart() {
                                     className="shopping-cart-image"
                                     src={item.mainImage}
                                 />
-                                <div className="shipping-cart-text-container">
+                                <div className="shopping-cart-text-container">
                                     <p className="shopping-cart-bold">{item.item.name}</p>
 
-                                    {item.item.inventory > 5 && <p>In Stock</p>}
-                                    {item.item.inventory === 5 && <p>Only 5 left in stock</p>}
-                                    {item.item.inventory === 4 && <p>Only 4 left in stock</p>}
-                                    {item.item.inventory === 3 && <p>Only 3 left in stock</p>}
-                                    {item.item.inventory === 2 && <p>Only 2 left in stock</p>}
-                                    {item.item.inventory === 1 && <p>Only 1 left in stock</p>}
-                                    {item.item.inventory === 0 && <p>Out of stock</p>}
 
                                     <div className="shopping-cart-page-info-quan-delete">
+                                        {item.item.inventory > 5 && <p>In Stock</p>}
+                                        {item.item.inventory === 5 && <p>Only 5 left in stock</p>}
+                                        {item.item.inventory === 4 && <p>Only 4 left in stock</p>}
+                                        {item.item.inventory === 3 && <p>Only 3 left in stock</p>}
+                                        {item.item.inventory === 2 && <p>Only 2 left in stock</p>}
+                                        {item.item.inventory === 1 && <p>Only 1 left in stock</p>}
+                                        {item.item.inventory === 0 && <p>Out of stock</p>}
                                         Quantity: {item.quantity}
                                         <DeleteItemCart itemId={item.item.id} />
                                     </div>
