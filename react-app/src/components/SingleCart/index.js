@@ -4,7 +4,7 @@ import { useParams, useHistory } from 'react-router-dom';
 
 import './SingleCart.css'
 import '../UniversalCSS.css'
-import { deleteCartTHUNK, deleteItemCartTHUNK, deleteSpecItemSpecCartTHUNK, getSingleCartTHUNK, postCartTHUNK } from '../../store/cart';
+import { deleteCartTHUNK, deleteItemCartTHUNK, deleteSpecItemSpecCartTHUNK, getSingleCartTHUNK, postCartTHUNK, updateItemCartTHUNK } from '../../store/cart';
 import DeleteItemCart from '../DeleteItemCart';
 
 export default function SingleCart() {
@@ -41,6 +41,15 @@ export default function SingleCart() {
 
     const deleteSingle = async (id) => {
         await dispatch(deleteItemCartTHUNK(id))
+    }
+
+    const addSingle = async (item) => {
+        const payload = {
+            user_id: user.id,
+            product_ids: item.id,
+            total_price: 1
+        }
+        await dispatch(updateItemCartTHUNK(payload))
     }
 
     if (!singleCart || Object.values(singleCart.items).length === 0) return <div>
@@ -113,15 +122,21 @@ export default function SingleCart() {
                                         {item.item.inventory === 0 && <p>Out of stock</p>}
                                         <div className="shopping-cart-quan-del-container">
                                             <div className="shopping-cart-quantity-container">Qty: {item.quantity}</div>
+
                                             <button
-                                                className="shopping-cart-delete-button"
-                                                onClick={() => deleteAll(item.item.id)}>
-                                                    Delete
+                                                className="border-black shopping-cart-no-display-button"
+                                                onClick={() => addSingle(item.item)}>
+                                                    <i className="shopping-cart-plus-minus fa fa-plus"></i>
                                             </button>
                                             <button
-                                                className="shopping-cart-delete-button"
+                                                className="border-black shopping-cart-no-display-button"
                                                 onClick={() => deleteSingle(item.item.id)}>
-                                                    Remove one
+                                                    <i className="shopping-cart-plus-minus fa fa-minus"></i>
+                                            </button>
+                                            <button
+                                                className="shopping-cart-no-display-button"
+                                                onClick={() => deleteAll(item.item.id)}>
+                                                    Delete
                                             </button>
                                             {/* <DeleteItemCart itemId={item.item.id} /> */}
                                         </div>

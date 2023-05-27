@@ -51,7 +51,7 @@
     margin-right: 5px;
 }
 
-.shopping-cart-delete-button {
+.shopping-cart-no-display-button {
     border: none;
     background: none;
 }
@@ -107,4 +107,15 @@
     margin-left: 10px;
     margin-right: 10px;
     margin-top: 5px;
+}
+
+.shopping-cart-plus-minus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--shinanoMain);
+    border: 4px solid var(--shinanoMain);
+    border-radius: 30px;
+    width: 30px;
+    height: 30px;
 }
