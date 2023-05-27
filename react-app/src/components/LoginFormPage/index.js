@@ -92,17 +92,16 @@ function LoginFormPage() {
           Log in as a demo user
         </button>
       </form>
-
       <div className="login-page-sign-up">
-        <p className="login-page-signup-text">New to Shinano?</p>
+        <div className="login-page-signup-text">New to Shinano?</div>
         <button
-          className="login-page-button login-page-signup-button"
+          className="login-page-signup-button"
           onClick={() => history.push("/signup")}>
           Create your Shinano account
         </button>
       </div>
-
     </div>
+
   );
 }
 
