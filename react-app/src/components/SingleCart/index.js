@@ -60,6 +60,10 @@ export default function SingleCart() {
                     return (
                         <div className="border-black shopping-cart-product-container">
                             <div className="">
+                                <img
+                                    width="50px"
+                                    src={item.mainImage.image_url}
+                                />
                                 <p className="shopping-cart-bold">{item.item.name}</p>
                                 <ul>stock: {item.item.inventory}</ul>
                                 {item.item.inventory > 5 && <p>In Stock</p>}
@@ -69,9 +73,9 @@ export default function SingleCart() {
                                 {item.item.inventory === 2 && <p>Only 2 left in stock</p>}
                                 {item.item.inventory === 1 && <p>Only 1 left in stock</p>}
                                 {item.item.inventory === 0 && <p>Out of stock</p>}
-                                <DeleteItemCart itemId={item.id} />
+                                <DeleteItemCart itemId={item.item.id} />
                             </div>
-                            <p className="shopping-cart-bold">${item.price}</p>
+                            <p className="shopping-cart-bold">${item.item.price}</p>
                         </div>
                     )
                 })}
