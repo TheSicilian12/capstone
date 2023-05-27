@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import { editProductTHUNK, postProductTHUNK } from '../../store/product';
-
+import shinanoLogoMini from "../assets/Images/ShinanoLogoSmall.jpg"
 
 import './GroupForm.css'
 import '../UniversalCSS.css'
@@ -153,11 +153,16 @@ export default function ProductForm({ productInfo, formType, productId, mainProd
 
 
     return (
-        <div>
-            Product Form
+        <div className="login-container">
+            <div className="login-logo-container">
+                <img
+                    className="login-logo"
+                    src={shinanoLogoMini} />
+            </div>
             <form
                 onSubmit={handleSubmit}
             >
+                <h1 className="login-form-header">Product Form</h1>
                 {/* <label>
                     SKU
                     <input
@@ -168,8 +173,10 @@ export default function ProductForm({ productInfo, formType, productId, mainProd
                     >
                     </input>
                 </label> */}
-                <label>
-                    Name
+                <div className="login-form-input-contianer">
+                    <label>
+                        Name
+                    </label>
                     <input
                         type="text"
                         value={name}
@@ -180,10 +187,13 @@ export default function ProductForm({ productInfo, formType, productId, mainProd
                         placeholder="product name"
                     >
                     </input>
-                </label>
-                {disNameErr && <div className="errors">{err.name}</div>}
-                <label>
-                    Price
+                    {disNameErr && <div className="errors">{err.name}</div>}
+                </div>
+                <div className="login-form-input-contianer">
+
+                    <label>
+                        Price
+                    </label>
                     <input
                         type="number"
                         value={price}
@@ -196,10 +206,13 @@ export default function ProductForm({ productInfo, formType, productId, mainProd
                         step="0.01"
                     >
                     </input>
-                </label>
-                {disPriceErr && <div className="errors">{err.price}</div>}
-                <label>
-                    Description
+                    {disPriceErr && <div className="errors">{err.price}</div>}
+                </div>
+                <div className="login-form-input-contianer">
+
+                    <label>
+                        Description
+                    </label>
                     <input
                         type="text"
                         value={desc}
@@ -210,10 +223,13 @@ export default function ProductForm({ productInfo, formType, productId, mainProd
                         placeholder="description"
                     >
                     </input>
-                </label>
-                {disDescErr && <div className="errors">{err.desc}</div>}
-                <label>
-                    Inventory
+                    {disDescErr && <div className="errors">{err.desc}</div>}
+                </div>
+                <div className="login-form-input-contianer">
+
+                    <label>
+                        Inventory
+                    </label>
                     <input
                         type="number"
                         value={inventory}
@@ -225,10 +241,13 @@ export default function ProductForm({ productInfo, formType, productId, mainProd
                         min="0"
                     >
                     </input>
-                </label>
-                {disInventoryErr && <div className="errors">{err.inventory}</div>}
-                <label>
-                    Main Image
+                    {disInventoryErr && <div className="errors">{err.inventory}</div>}
+                </div>
+                <div className="login-form-input-contianer">
+
+                    <label>
+                        Main Image
+                    </label>
                     <input
                         type="text"
                         value={mainImage}
@@ -239,10 +258,13 @@ export default function ProductForm({ productInfo, formType, productId, mainProd
                         placeholder="Main Image URL"
                     >
                     </input>
-                </label>
-                {disMainImageErr && <div className="errors">{err.mainImage}</div>}
-                <label>
-                    Additional Image
+                    {disMainImageErr && <div className="errors">{err.mainImage}</div>}
+                </div>
+                <div className="login-form-input-contianer">
+
+                    <label>
+                        Additional Image
+                    </label>
                     <input
                         type="text"
                         value={subImage1}
@@ -250,13 +272,16 @@ export default function ProductForm({ productInfo, formType, productId, mainProd
                             setSubImage1(e.target.value)
                             setDisSubImage1Err(true)
                         }}
-                        placeholder="Additional Image URL"
+                        placeholder="Additional Image URL - Optional"
                     >
                     </input>
-                </label>
-                {disSubImage1Err && <div className="errors">{err.subImage1}</div>}
-                <label>
-                    Additional Image
+                    {disSubImage1Err && <div className="errors">{err.subImage1}</div>}
+                </div>
+                <div className="login-form-input-contianer">
+
+                    <label>
+                        Additional Image
+                    </label>
                     <input
                         type="text"
                         value={subImage2}
@@ -264,13 +289,15 @@ export default function ProductForm({ productInfo, formType, productId, mainProd
                             setSubImage2(e.target.value)
                             setDisSubImage2Err(true)
                         }}
-                        placeholder="Additional Image URL"
+                        placeholder="Additional Image URL - Optional"
                     >
                     </input>
-                </label>
-                {disSubImage2Err && <div className="errors">{err.subImage2}</div>}
-                <label>
-                    Additional Image
+                    {disSubImage2Err && <div className="errors">{err.subImage2}</div>}
+                </div>
+                <div className="login-form-input-contianer">
+                    <label>
+                        Additional Image
+                    </label>
                     <input
                         type="text"
                         value={subImage3}
@@ -278,11 +305,11 @@ export default function ProductForm({ productInfo, formType, productId, mainProd
                             setSubImage3(e.target.value)
                             setDisSubImage3Err(true)
                         }}
-                        placeholder="Additional Image URL"
+                        placeholder="Additional Image URL - Optional"
                     >
                     </input>
-                </label>
-                {disSubImage3Err && <div className="errors">{err.subImage3}</div>}
+                    {disSubImage3Err && <div className="errors">{err.subImage3}</div>}
+                </div>
                 <button
                     type="submit"
                     disabled={Object.values(err).length > 0}>

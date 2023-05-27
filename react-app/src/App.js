@@ -29,7 +29,7 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route path="/" exact>
-          <Navigation isLoaded={isLoaded} />
+            <Navigation isLoaded={isLoaded} />
             <HomePage />
           </Route>
           <Route path="/signup" exact>
@@ -39,18 +39,23 @@ function App() {
             <LoginFormPage />
           </Route>
           <Route path="/signup" exact>
+            <Navigation isLoaded={isLoaded} />
             <SignupFormPage />
           </Route>
           <Route path="/products/new" exact>
+            <Navigation isLoaded={isLoaded} />
             <ProductForm formType={"new"} />
           </Route>
           <Route path="/products/:productId/edit" exact>
+            <Navigation isLoaded={isLoaded} />
             <EditProductForm />
           </Route>
           <Route path="/products/:productId" exact>
+            <Navigation isLoaded={isLoaded} />
             <SingleProduct />
           </Route>
           <Route path="/cart" exact>
+            <Navigation isLoaded={isLoaded} />
             <SingleCart />
           </Route>
         </Switch>
