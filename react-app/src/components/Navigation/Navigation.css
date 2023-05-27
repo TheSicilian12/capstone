@@ -54,6 +54,11 @@
   justify-content: space-around;
 }
 
+.nav-bar-info-container{
+  font-family: var(--shinanoText);
+  font-weight: lighter;
+  color: white;
+}
 .nav-bar-info-container:hover {
   border: 2px solid white;
 }

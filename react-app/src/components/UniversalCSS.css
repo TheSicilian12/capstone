@@ -1,5 +1,6 @@
 :root {
     --shinanoMain: #ffb7c5;
+    --shinanoText: 'Times New Roman', Times, serif;
 }
 
 .border-black {
@@ -29,7 +30,7 @@
 .cart-item-num {
     font-weight: bold;
     font-size: xx-large;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: var(--shinanoText);
     color: white;
 }
 

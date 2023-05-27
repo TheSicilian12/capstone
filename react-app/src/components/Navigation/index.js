@@ -106,7 +106,7 @@ function Navigation({ isLoaded }) {
 					</>
 				</ul>
 
-				{!sessionUser && <h2>You must be logged in to start a cart</h2>}
+				{!sessionUser && <h2>Error</h2>}
 				{sessionUser && cart["errors"] === "No cart" && <button onClick={addCart}>Start a cart</button>}
 
 			</div>
