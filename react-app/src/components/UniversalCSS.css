@@ -1,3 +1,8 @@
+:root {
+    --shinanoMain: #ffb7c5;
+    --shinanoText: 'Times New Roman', Times, serif;
+}
+
 .border-black {
     border: 2px solid black
 }
@@ -14,8 +19,27 @@
     border: 2px solid red
 }
 
+.border-none{
+    border: none;
+}
+
 .hidden {
     display: none;
+}
+
+.cart-item-num {
+    font-weight: bold;
+    font-size: xx-large;
+    font-family: var(--shinanoText);
+    color: white;
+}
+
+.shinano-color-background {
+    background-color: var(--shinanoMain);
+}
+
+.shinano-color-text {
+    color: var(--shinanoMain)
 }
 
 .text-red {
@@ -63,7 +87,7 @@
     width: 50px;
     height: 20px;
     border-radius: 10px;
-    background-color: pink;
+    background-color:  var(--shinanoMain);
 }
 .button-small:hover {
     display: flex;
@@ -72,7 +96,7 @@
     width: 50px;
     height: 20px;
     border-radius: 10px;
-    background-color: pink;
+    background-color:  var(--shinanoMain);
     box-shadow: 2px 4px 2px gray;
 }
 
@@ -83,7 +107,7 @@
     width: 100%;
     height: 20px;
     border-radius: 10px;
-    background-color: pink;
+    background-color:  var(--shinanoMain);
 }
 .button-full:hover {
     display: flex;
@@ -92,7 +116,23 @@
     width: 100%;
     height: 20px;
     border-radius: 10px;
-    background-color: pink;
+    background-color: var(--shinanoMain);
+    box-shadow: 2px 4px 2px gray;
+}
+
+.button-no-dimensions{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    background-color:  var(--shinanoMain);
+}
+.button-no-dimensions:hover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    background-color: var(--shinanoMain);
     box-shadow: 2px 4px 2px gray;
 }
 

@@ -14,6 +14,9 @@ function ProfileButton({ user }) {
   const ulRef = useRef();
   const history = useHistory();
 
+  let userCheck = false;
+  if (user !== null) userCheck = true;
+
   const openMenu = () => {
     if (showMenu) return;
     setShowMenu(true);
@@ -23,9 +26,10 @@ function ProfileButton({ user }) {
     if (!showMenu) return;
 
     const closeMenu = (e) => {
-      if (!ulRef.current.contains(e.target)) {
-        setShowMenu(false);
-      }
+      // if (!ulRef.current.contains(e.target)) {
+      //   setShowMenu(false);
+      // }
+      setShowMenu(false);
     };
 
     document.addEventListener("click", closeMenu);
@@ -45,8 +49,14 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
+      <button
+        className="nav-bar-info-container
+        border-none shinano-color-background"
+        onClick={openMenu}>
+        {/* <i className="fas fa-user-circle" /> */}
+        Hello, {userCheck ? `${user.username}` : "sign in"} <br />
+        Account Info
+
       </button>
       <ul className={ulClassName} ref={ulRef}>
         {user ? (

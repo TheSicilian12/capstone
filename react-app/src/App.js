@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
@@ -9,20 +9,14 @@ import HomePage from "./components/HomePage";
 import SingleProduct from "./components/SingleProduct";
 import ProductForm from "./components/ProductForm";
 import EditProductForm from "./components/ProductForm/editProductWrapper";
-import AllCarts from "./components/AllCarts";
 import SingleCart from "./components/SingleCart";
-import { getItemsSingleCartTHUNK, getSingleCartTHUNK } from "./store/cart";
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // const user = useSelector(state => state.session.user)
-  // const cart = useSelector(state => state.cart)
-
   useEffect(() => {
     dispatch(authenticate()).then(() => setIsLoaded(true));
-    // dispatch(getSingleCartTHUNK(1))
   }, [dispatch]);
 
 
@@ -31,17 +25,15 @@ function App() {
 
   return (
     <>
-      <Navigation isLoaded={isLoaded} />
+      {/* <Navigation isLoaded={isLoaded} /> */}
       {isLoaded && (
         <Switch>
-          <Route path="/login" exact>
-            <LoginFormPage />
+          <Route path="/" exact>
+          <Navigation isLoaded={isLoaded} />
+            <HomePage />
           </Route>
           <Route path="/signup" exact>
             <SignupFormPage />
-          </Route>
-          <Route path="/" exact>
-            <HomePage />
           </Route>
           <Route path="/login" exact>
             <LoginFormPage />
@@ -50,7 +42,7 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route path="/products/new" exact>
-            <ProductForm formType={"new"}/>
+            <ProductForm formType={"new"} />
           </Route>
           <Route path="/products/:productId/edit" exact>
             <EditProductForm />
@@ -58,9 +50,6 @@ function App() {
           <Route path="/products/:productId" exact>
             <SingleProduct />
           </Route>
-          {/* <Route path="/carts" exact>
-            <AllCarts />
-          </Route> */}
           <Route path="/cart" exact>
             <SingleCart />
           </Route>
