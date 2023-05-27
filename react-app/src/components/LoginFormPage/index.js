@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { login } from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
+import shinanoLogoMini from "../assets/Images/ShinanoLogoSmall.jpg"
 import "./LoginForm.css";
 import '../UniversalCSS.css'
 
@@ -36,8 +37,14 @@ function LoginFormPage() {
 
   return (
     <div className="login-container">
+      <div className="login-logo-container">
+        <img
+          className="login-logo"
+          src={shinanoLogoMini} />
+
+      </div>
       <form className="login-form-container" onSubmit={handleSubmit}>
-      <h1 className="login-form-header">Sign in</h1>
+        <h1 className="login-form-header">Sign in</h1>
         {Object.values(errors).length > 0 && <div className="errors">Invalid data</div>}
         <div className="login-form-input-contianer">
           <label>

@@ -3,6 +3,33 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 40px;
+    /* background-image: url("../assets/Images/ShinanaBackGrounColor.jpg"); */
+    /* background-size: cover; */
+    /* background-position: center; */
+    /* height: 100%; */
+    /* width: 100%; */
+    /* position: absolute; */
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+
+.login-logo {
+  width: 150px;
+  height: 90px;
+  margin-left: 15px;
+}
+
+.login-logo-container {
+    display: flex;
+    justify-content: center;
+    width: 40vw;
+    background: var(--shinanoMain);
+    border: 5px solid var(--shinanoMain);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
 
 .login-form-container {
@@ -10,6 +37,9 @@
     flex-direction: column;
     align-items: center;
     width: 40vw;
+    border: 5px solid var(--shinanoMain);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 .login-form-header {
