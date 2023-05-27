@@ -14,6 +14,9 @@ function ProfileButton({ user }) {
   const ulRef = useRef();
   const history = useHistory();
 
+  let userCheck = false;
+  if (user !== null) userCheck = true;
+
   const openMenu = () => {
     if (showMenu) return;
     setShowMenu(true);
@@ -46,7 +49,10 @@ function ProfileButton({ user }) {
   return (
     <>
       <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
+        {/* <i className="fas fa-user-circle" /> */}
+        Hello, {userCheck ? `${user.username}` : "sign in"} <br />
+        Account Info
+
       </button>
       <ul className={ulClassName} ref={ulRef}>
         {user ? (

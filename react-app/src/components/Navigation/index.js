@@ -86,7 +86,12 @@ function Navigation({ isLoaded }) {
 				src={shinanoLogoMini} />
 
 			<div className="nav-prof-cart-container">
-				{isLoaded && <ProfileButton user={sessionUser} />}
+				{isLoaded &&
+
+				<ProfileButton user={sessionUser} />
+				
+				}
+
 
 				{sessionUser && cart["errors"] !== "No cart" && <div className="cart-item-num nav-bar-cart-item-container cart-hover">
 					<img
