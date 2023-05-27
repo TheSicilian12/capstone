@@ -64,3 +64,23 @@
 .login-page-last-input-margin {
     margin-bottom: 25px;
 }
+
+.login-page-sign-up {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.login-page-signup-text{
+    color: gray;
+}
+
+.login-page-signup-button {
+    background: white;
+    color: var(--shinanoMain);
+  }
+  .login-page-signup-button:hover {
+    background: var(--shinanoMain);
+    color: white;
+  }
