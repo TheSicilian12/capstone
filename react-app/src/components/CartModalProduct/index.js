@@ -14,7 +14,7 @@ export default function CartModalProduct({item}) {
 
     return (
        <div className="cart-modal-product-container">
-            <div className="">
+            <div className="cart-modal-product-margin">
                 <p>{item.name}</p>
                 <p>${item.price}</p>
             </div>
