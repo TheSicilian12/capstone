@@ -38,7 +38,7 @@ export default function SingleCart() {
         Your cart is currently empty
         <button onClick={keepShopping}>Keep Shopping</button>
         </div>
-    // console.log('singleCart frontend: ', Object.values(singleCart.items))
+    console.log('singleCart frontend: ', singleCart.items)
 
     const purchase = async () => {
         await dispatch(deleteCartTHUNK())
@@ -60,15 +60,15 @@ export default function SingleCart() {
                     return (
                         <div className="border-black shopping-cart-product-container">
                             <div className="">
-                                <p className="shopping-cart-bold">{item.name}</p>
-                                <ul>stock: {item.inventory}</ul>
-                                {item.inventory > 5 && <p>In Stock</p>}
-                                {item.inventory === 5 && <p>Only 5 left in stock</p>}
-                                {item.inventory === 4 && <p>Only 4 left in stock</p>}
-                                {item.inventory === 3 && <p>Only 3 left in stock</p>}
-                                {item.inventory === 2 && <p>Only 2 left in stock</p>}
-                                {item.inventory === 1 && <p>Only 1 left in stock</p>}
-                                {item.inventory === 0 && <p>Out of stock</p>}
+                                <p className="shopping-cart-bold">{item.item.name}</p>
+                                <ul>stock: {item.item.inventory}</ul>
+                                {item.item.inventory > 5 && <p>In Stock</p>}
+                                {item.item.inventory === 5 && <p>Only 5 left in stock</p>}
+                                {item.item.inventory === 4 && <p>Only 4 left in stock</p>}
+                                {item.item.inventory === 3 && <p>Only 3 left in stock</p>}
+                                {item.item.inventory === 2 && <p>Only 2 left in stock</p>}
+                                {item.item.inventory === 1 && <p>Only 1 left in stock</p>}
+                                {item.item.inventory === 0 && <p>Out of stock</p>}
                                 <DeleteItemCart itemId={item.id} />
                             </div>
                             <p className="shopping-cart-bold">${item.price}</p>
