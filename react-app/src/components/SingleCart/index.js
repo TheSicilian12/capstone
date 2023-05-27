@@ -52,17 +52,40 @@ export default function SingleCart() {
         await dispatch(getSingleCartTHUNK())
     }
 
+    // patch for the quanitity display issue
+    // itemCart = {
+    //     itemId: {
+    //         item: {},
+    //         quantity: num,
+    //         mainImage: str
+    //     }
+    // }
+
+
+    let itemCart = {}
+    for (let e of Object.values(singleCart.items)) {
+        // console.log("e: ", e)
+        // console.log("key check: ", itemCart[e.item.id])
+        if (!itemCart[e.item.id]) {
+            itemCart[e.item.id] = {quantity: 1, item: e.item, mainImage: e.mainImage.image_url}
+        } else {
+            itemCart[e.item.id].quantity += 1;
+        }
+    }
+    console.log("itemCart: ", itemCart)
+
     return (
         <div className="shopping-cart-page-container">
             <div className="shopping-cart-container">
                 Shopping Cart
-                {Object.values(singleCart.items).map(item => {
+                {/* {Object.values(singleCart.items).map(item => { */}
+                {Object.values(itemCart).map(item => {
                     return (
                         <div className="shopping-cart-product-container">
                             <div className="shopping-cart-page-info">
                                 <img
                                     className="shopping-cart-image"
-                                    src={item.mainImage.image_url}
+                                    src={item.mainImage}
                                 />
                                 <div className="shipping-cart-text-container">
                                     <p className="shopping-cart-bold">{item.item.name}</p>
@@ -76,7 +99,7 @@ export default function SingleCart() {
                                     {item.item.inventory === 0 && <p>Out of stock</p>}
 
                                     <div className="shopping-cart-page-info-quan-delete">
-                                        Quantity:
+                                        Quantity: {item.quantity}
                                         <DeleteItemCart itemId={item.item.id} />
                                     </div>
                                 </div>
