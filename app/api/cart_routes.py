@@ -207,6 +207,23 @@ def delete_item_carts(product_id):
 
     return {"item": "deleted"}
 
+
+# Delete all spec items from spec cart
+@cart_routes.route('/<int:product_id>/spec-item-cart', methods=["DELETE"])
+@login_required
+def delete_spec_item_spec_cart(product_id):
+    print("-------------------------Delete spec item from spec cart-------------------------")
+    cart = Cart.query.filter(Cart.user_id == current_user.id).first()
+
+    productList = [productId for productId in cart.to_dict()["productIds"] if productId != product_id]
+
+    cart.product_ids = productList
+
+    db.session.commit()
+
+    return {"item": "deleted"}
+
+
 # Delete all items by id from all carts
 @cart_routes.route('/<int:product_id>/spec-items', methods=["DELETE"])
 @login_required

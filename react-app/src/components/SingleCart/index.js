@@ -4,7 +4,7 @@ import { useParams, useHistory } from 'react-router-dom';
 
 import './SingleCart.css'
 import '../UniversalCSS.css'
-import { deleteCartTHUNK, deleteItemCartTHUNK, getSingleCartTHUNK, postCartTHUNK } from '../../store/cart';
+import { deleteCartTHUNK, deleteItemCartTHUNK, deleteSpecItemSpecCartTHUNK, getSingleCartTHUNK, postCartTHUNK } from '../../store/cart';
 import DeleteItemCart from '../DeleteItemCart';
 
 export default function SingleCart() {
@@ -34,13 +34,10 @@ export default function SingleCart() {
         await dispatch(getSingleCartTHUNK())
     }
 
-    // const deleteAll = async (id, quant) => {
-    //     console.log("id, quant: ", id, quant)
-    //     await deleteItemCartTHUNK(id)
-    //     // while (quant > 0) {
-    //     //     quant = quant - 1;
-    //     // }
-    // }
+    const deleteAll = async (id) => {
+        console.log("delete all button")
+        await dispatch(deleteSpecItemSpecCartTHUNK(id))
+    }
 
     if (!singleCart || Object.values(singleCart.items).length === 0) return <div>
         Your cart is currently empty
@@ -113,6 +110,7 @@ export default function SingleCart() {
                                         <div className="shopping-cart-quan-del-container">
                                             <div className="shopping-cart-quantity-container">Qty: {item.quantity}</div>
                                             <DeleteItemCart itemId={item.item.id} />
+                                            <button onClick={() => deleteAll(item.item.id, item.quantity)}>Delete all</button>
                                         </div>
                                         {/* <button onClick={() => deleteAll(item.item.id, item.quantity)} className="shopping-cart-delete-button">Delete</button> */}
                                     </div>
