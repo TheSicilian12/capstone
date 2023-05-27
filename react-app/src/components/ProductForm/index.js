@@ -151,7 +151,6 @@ export default function ProductForm({ productInfo, formType, productId, mainProd
     if (subImage2 && !checkValidImage(subImage2)) err.subImage2 = "Image url must end in png, jpg, or jpeg."
     if (subImage3 && !checkValidImage(subImage3)) err.subImage3 = "Image url must end in png, jpg, or jpeg."
 
-
     return (
         <div className="login-container">
             <div className="login-logo-container">
