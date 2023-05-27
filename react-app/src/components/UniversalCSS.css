@@ -22,6 +22,13 @@
     display: none;
 }
 
+.cart-item-num {
+    font-weight: bold;
+    font-size: xx-large;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+}
+
 .shinano-color-background {
     background-color: var(--shinanoMain);
 }

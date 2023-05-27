@@ -84,19 +84,26 @@ function Navigation({ isLoaded }) {
 				className="nav-logo"
 				onClick={() => history.push("/")}
 				src={shinanoLogoMini} />
-			<div>
-				{sessionUser && cart["errors"] !== "No cart" && <CartButton cart={cart} itemNum={totalItems} />}
-				{sessionUser && cart["errors"] !== "No cart" && <img
-					className="nav-cart"
-					onClick={cartSideBar}
-					src={shinanoCart} />}
+
+			<div className="nav-prof-cart-container">
+				{isLoaded && <ProfileButton user={sessionUser} />}
+
+				{sessionUser && cart["errors"] !== "No cart" && <div className="cart-item-num nav-bar-cart-item-container cart-hover">
+					<img
+						className="nav-cart"
+						onClick={cartSideBar}
+						src={shinanoCart} />
+					<div>
+						{totalItems}
+					</div>
+				</div>}
+
 				<ul className={ulClassName} ref={ulRef}>
 					<>
 						<OpenCartModal closeMenu={closeMenu} />
 					</>
 				</ul>
 
-				{isLoaded && <ProfileButton user={sessionUser} />}
 				{!sessionUser && <h2>You must be logged in to start a cart</h2>}
 				{sessionUser && cart["errors"] === "No cart" && <button onClick={addCart}>Start a cart</button>}
 
