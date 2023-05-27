@@ -52,11 +52,24 @@ export default function SingleCart() {
         await dispatch(updateItemCartTHUNK(payload))
     }
 
-    if (!singleCart || Object.values(singleCart.items).length === 0) return <div>
-        Your cart is currently empty
-        <button onClick={keepShopping}>Keep Shopping</button>
-    </div>
-    console.log('singleCart frontend: ', singleCart.items)
+    if (!singleCart || Object.values(singleCart.items).length === 0) return (
+        <div className="cart-empty-container">
+            <div className="login-logo-container keep-shopping-info">
+                Your cart is empty
+            </div>
+            <div
+                onClick={keepShopping}
+                className="border-black keep-shopping login-form-container">
+                {/* <button
+                    className=""
+                    onClick={keepShopping}>
+                    Keep Shopping
+                </button> */}
+                Keep Shopping
+            </div>
+        </div>
+    )
+    // console.log('singleCart frontend: ', singleCart.items)
 
     const purchase = async () => {
         await dispatch(deleteCartTHUNK())
@@ -126,17 +139,17 @@ export default function SingleCart() {
                                             <button
                                                 className="border-black shopping-cart-no-display-button"
                                                 onClick={() => addSingle(item.item)}>
-                                                    <i className="shopping-cart-plus-minus fa fa-plus"></i>
+                                                <i className="shopping-cart-plus-minus fa fa-plus"></i>
                                             </button>
                                             <button
                                                 className="border-black shopping-cart-no-display-button"
                                                 onClick={() => deleteSingle(item.item.id)}>
-                                                    <i className="shopping-cart-plus-minus fa fa-minus"></i>
+                                                <i className="shopping-cart-plus-minus fa fa-minus"></i>
                                             </button>
                                             <button
                                                 className="shopping-cart-no-display-button"
                                                 onClick={() => deleteAll(item.item.id)}>
-                                                    Delete
+                                                Delete
                                             </button>
                                             {/* <DeleteItemCart itemId={item.item.id} /> */}
                                         </div>

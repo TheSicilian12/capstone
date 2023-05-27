@@ -119,3 +119,32 @@
     width: 30px;
     height: 30px;
 }
+
+.cart-empty-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.keep-shopping {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: var(--shinanoMain);
+    font-weight: 1000;
+    font-size:xx-large;
+}
+.keep-shopping:hover {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: white;
+    background: var(--shinanoMain);
+    font-weight: 1000;
+    font-size:xx-large;
+}
+
+.keep-shopping-info {
+    color: white;
+    font-weight: 1000;
+    font-size:xx-large;
+}
