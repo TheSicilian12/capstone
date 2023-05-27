@@ -166,7 +166,9 @@ export default function ProductForm({ productInfo, formType, productId, mainProd
                 className="login-form-container"
                 onSubmit={handleSubmit}
             >
-                <h1 className="login-form-header">Product Form</h1>
+                <h1 className="login-form-header">
+                    {formType === "new" ? "Add a product" : "Edit your product"}
+                </h1>
                 {/* <label>
                     SKU
                     <input
