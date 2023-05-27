@@ -101,7 +101,6 @@ function LoginFormPage() {
         </button>
       </div>
     </div>
-
   );
 }
 
