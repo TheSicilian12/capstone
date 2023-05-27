@@ -26,10 +26,10 @@ export default function SingleCart() {
     const keepShopping = async () => {
         const payload = {
             user_id: user.id,
-			total_price: 0,
-			product_ids: []
-		}
-		await dispatch(postCartTHUNK(payload))
+            total_price: 0,
+            product_ids: []
+        }
+        await dispatch(postCartTHUNK(payload))
         history.push("/")
         await dispatch(getSingleCartTHUNK())
     }
@@ -37,18 +37,18 @@ export default function SingleCart() {
     if (!singleCart || Object.values(singleCart.items).length === 0) return <div>
         Your cart is currently empty
         <button onClick={keepShopping}>Keep Shopping</button>
-        </div>
+    </div>
     console.log('singleCart frontend: ', singleCart.items)
 
     const purchase = async () => {
         await dispatch(deleteCartTHUNK())
         const payload = {
             user_id: user.id,
-			total_price: 0,
-			product_ids: []
-		}
-		await dispatch(postCartTHUNK(payload))
-		// dispatch(getSingleCartTHUNK())
+            total_price: 0,
+            product_ids: []
+        }
+        await dispatch(postCartTHUNK(payload))
+        // dispatch(getSingleCartTHUNK())
         await dispatch(getSingleCartTHUNK())
     }
 
@@ -59,21 +59,23 @@ export default function SingleCart() {
                 {Object.values(singleCart.items).map(item => {
                     return (
                         <div className="border-black shopping-cart-product-container">
-                            <div className="">
+                            <div className="shopping-cart-page-info">
                                 <img
                                     className="shopping-cart-image"
                                     src={item.mainImage.image_url}
                                 />
-                                <p className="shopping-cart-bold">{item.item.name}</p>
-                                <ul>stock: {item.item.inventory}</ul>
-                                {item.item.inventory > 5 && <p>In Stock</p>}
-                                {item.item.inventory === 5 && <p>Only 5 left in stock</p>}
-                                {item.item.inventory === 4 && <p>Only 4 left in stock</p>}
-                                {item.item.inventory === 3 && <p>Only 3 left in stock</p>}
-                                {item.item.inventory === 2 && <p>Only 2 left in stock</p>}
-                                {item.item.inventory === 1 && <p>Only 1 left in stock</p>}
-                                {item.item.inventory === 0 && <p>Out of stock</p>}
-                                <DeleteItemCart itemId={item.item.id} />
+                                <div>
+                                    <p className="shopping-cart-bold">{item.item.name}</p>
+                                    <ul>stock: {item.item.inventory}</ul>
+                                    {item.item.inventory > 5 && <p>In Stock</p>}
+                                    {item.item.inventory === 5 && <p>Only 5 left in stock</p>}
+                                    {item.item.inventory === 4 && <p>Only 4 left in stock</p>}
+                                    {item.item.inventory === 3 && <p>Only 3 left in stock</p>}
+                                    {item.item.inventory === 2 && <p>Only 2 left in stock</p>}
+                                    {item.item.inventory === 1 && <p>Only 1 left in stock</p>}
+                                    {item.item.inventory === 0 && <p>Out of stock</p>}
+                                    <DeleteItemCart itemId={item.item.id} />
+                                </div>
                             </div>
                             <p className="shopping-cart-bold">${item.item.price}</p>
                         </div>

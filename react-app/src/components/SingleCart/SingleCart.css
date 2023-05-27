@@ -3,6 +3,10 @@
     justify-content: center;
 }
 
+.shopping-cart-page-info {
+    display: flex;
+}
+
 .shopping-cart-container {
     width: 60vw;
 }
