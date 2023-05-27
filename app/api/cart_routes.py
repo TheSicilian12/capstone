@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from app.models import Cart, Product, db, User
+from app.models import Cart, Product, db, User, Image
 from flask_login import login_required, current_user
 from app.forms import CartForm
 
@@ -43,9 +43,12 @@ def get_single_cart():
     response["items"] = {}
     for item in single_cart.to_dict()['productIds']:
         print("item: ", item)
+        mainImage = Image.query.filter(Image.product_id == item, Image.main_image == "yes").all()[0]
         item = Product.query.get(item)
         # response["product"] = item.to_dict()
-        response["items"].update({productKey: item.to_dict()})
+        print("-------------------mainImage: ", mainImage)
+
+        response["items"].update({productKey: {"item": item.to_dict(), "mainImage": mainImage.to_dict()}})
         productKey += 1
         # print("--------------------item: ", item.to_dict()["id"])
 
