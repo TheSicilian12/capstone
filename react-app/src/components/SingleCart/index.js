@@ -116,7 +116,7 @@ export default function SingleCart() {
                                     </div>
                                 </div>
                             </div>
-                            <p className="shopping-cart-bold">${Number(item.item.price) * Number(item.quantity)}</p>
+                            <p className="shopping-cart-bold">${(Number(item.item.price) * Number(item.quantity)).toFixed(2)}</p>
                         </div>
                     )
                 })}
