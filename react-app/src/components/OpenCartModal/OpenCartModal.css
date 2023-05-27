@@ -1,11 +1,13 @@
 .cart-modal {
-    background-color: whitesmoke;
+    background-color: white;
+    border-left: 5px solid var(--shinanoMain);
+    border-bottom: 5px solid var(--shinanoMain);
     width: 25vw;
-    height: 100vh;
+    height: 95vh;
     position: fixed;
     right: 0;
     top: 0;
     /* border-top-left-radius: 15px; */
-    /* border-bottom-left-radius: 15px; */
+    border-bottom-left-radius: 15px;
     overflow: auto;
 }
