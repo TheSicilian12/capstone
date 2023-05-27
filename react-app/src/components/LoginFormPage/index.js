@@ -61,7 +61,7 @@ function LoginFormPage() {
           />
           {disEmailErr && <div className="errors">{err.email}</div>}
         </div>
-        <div className="login-form-input-contianer">
+        <div className="login-form-input-contianer login-page-last-input-margin">
           <label>
             Password
           </label>
@@ -77,11 +77,16 @@ function LoginFormPage() {
           {disPassErr && <div className="errors">{err.password}</div>}
         </div>
         <button
+          className="login-page-button button-no-dimensions"
           type="submit"
           disabled={Object.values(err).length > 0}>
           Log In
         </button>
-        <button onClick={demoUserLogIn}>Log in as a demo user</button>
+        <button
+          className="login-page-button button-no-dimensions"
+          onClick={demoUserLogIn}>
+            Log in as a demo user
+          </button>
       </form>
     </div>
   );

@@ -120,6 +120,22 @@
     box-shadow: 2px 4px 2px gray;
 }
 
+.button-no-dimensions{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    background-color:  var(--shinanoMain);
+}
+.button-no-dimensions:hover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    background-color: var(--shinanoMain);
+    box-shadow: 2px 4px 2px gray;
+}
+
 .button-disabled {
     display: flex;
     flex-direction: column;

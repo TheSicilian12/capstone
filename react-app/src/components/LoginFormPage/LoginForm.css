@@ -46,7 +46,6 @@
     display: flex;
     justify-content: left;
     width: 38vw;
-
 }
 
 .login-form-input-contianer {
@@ -54,4 +53,14 @@
     flex-direction: column;
     width: 38vw;
     margin-bottom: 10px;
+}
+
+.login-page-button {
+    width: 38vw;
+    height: 25px;
+    margin-bottom: 10px;
+}
+
+.login-page-last-input-margin {
+    margin-bottom: 25px;
 }
