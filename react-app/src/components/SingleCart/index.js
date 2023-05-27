@@ -35,8 +35,12 @@ export default function SingleCart() {
     }
 
     const deleteAll = async (id) => {
-        console.log("delete all button")
+        // console.log("delete all button")
         await dispatch(deleteSpecItemSpecCartTHUNK(id))
+    }
+
+    const deleteSingle = async (id) => {
+        await dispatch(deleteItemCartTHUNK(id))
     }
 
     if (!singleCart || Object.values(singleCart.items).length === 0) return <div>
@@ -111,10 +115,15 @@ export default function SingleCart() {
                                             <div className="shopping-cart-quantity-container">Qty: {item.quantity}</div>
                                             <button
                                                 className="shopping-cart-delete-button"
-                                                onClick={() => deleteAll(item.item.id, item.quantity)}>
+                                                onClick={() => deleteAll(item.item.id)}>
                                                     Delete
                                             </button>
-                                            <DeleteItemCart itemId={item.item.id} />
+                                            <button
+                                                className="shopping-cart-delete-button"
+                                                onClick={() => deleteSingle(item.item.id)}>
+                                                    Remove one
+                                            </button>
+                                            {/* <DeleteItemCart itemId={item.item.id} /> */}
                                         </div>
                                         {/* <button onClick={() => deleteAll(item.item.id, item.quantity)} className="shopping-cart-delete-button">Delete</button> */}
                                     </div>
