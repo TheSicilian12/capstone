@@ -30,22 +30,19 @@ function LoginFormPage() {
   }
 
   let err = {}
-	if (password.length < 8) err.password = "Password should be 8+ characters."
-	if (!email.includes("@")) err.email = "Please enter a valid email address."
-
+  if (password.length < 8) err.password = "Password should be 8+ characters."
+  const regEx = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/);
+  if (!regEx.test(email)) err.email = "Please enter a valid email address."
 
   return (
-    <>
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
-        <ul>
-          {/* {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
-          ))} */}
-          {Object.values(errors).length > 0 && <div className="errors">Invalid data</div>}
-        </ul>
-        <label>
-          Email
+    <div className="login-container">
+      <form className="login-form-container" onSubmit={handleSubmit}>
+      <h1 className="login-form-header">Sign in</h1>
+        {Object.values(errors).length > 0 && <div className="errors">Invalid data</div>}
+        <div className="login-form-input-contianer">
+          <label>
+            Email
+          </label>
           <input
             type="text"
             value={email}
@@ -53,12 +50,14 @@ function LoginFormPage() {
               setEmail(e.target.value)
               setDisEmailErr(true)
             }}
-            // required
+          // required
           />
-        </label>
-        {disEmailErr && <div className="errors">{err.email}</div>}
-        <label>
-          Password
+          {disEmailErr && <div className="errors">{err.email}</div>}
+        </div>
+        <div className="login-form-input-contianer">
+          <label>
+            Password
+          </label>
           <input
             type="password"
             value={password}
@@ -66,18 +65,18 @@ function LoginFormPage() {
               setPassword(e.target.value)
               setDisPassErr(true)
             }}
-            // required
+          // required
           />
-        </label>
-        {disPassErr && <div className="errors">{err.password}</div>}
+          {disPassErr && <div className="errors">{err.password}</div>}
+        </div>
         <button
           type="submit"
           disabled={Object.values(err).length > 0}>
-            Log In
+          Log In
         </button>
         <button onClick={demoUserLogIn}>Log in as a demo user</button>
       </form>
-    </>
+    </div>
   );
 }
 

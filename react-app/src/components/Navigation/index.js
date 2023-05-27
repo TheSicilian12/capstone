@@ -1,9 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
-import { deleteCartTHUNK, getItemsSingleCartTHUNK, getSingleCartTHUNK, postCartTHUNK } from '../../store/cart';
-import CartButton from '../CartButton';
+import { getSingleCartTHUNK, postCartTHUNK } from '../../store/cart';
 import shinanoLogoMini from "../assets/Images/ShinanoLogoSmall.jpg"
 import shinanoCart from "../assets/Images/Cart.jpg"
 
@@ -14,7 +13,6 @@ import OpenCartModal from '../OpenCartModal';
 function Navigation({ isLoaded }) {
 	const dispatch = useDispatch()
 	const history = useHistory()
-
 	const sessionUser = useSelector(state => state.session.user);
 	const items = useSelector(state => state.cart.carts?.items)
 	const cart = useSelector(state => state.cart)
