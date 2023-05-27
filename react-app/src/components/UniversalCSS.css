@@ -18,6 +18,10 @@
     border: 2px solid red
 }
 
+.border-none{
+    border: none;
+}
+
 .hidden {
     display: none;
 }

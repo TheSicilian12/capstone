@@ -50,4 +50,10 @@
 .nav-prof-cart-container {
   display: flex;
   margin-right: 4rem;
+  width: 200px;
+  justify-content: space-around;
+}
+
+.nav-bar-info-container:hover {
+  border: 2px solid white;
 }

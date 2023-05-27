@@ -48,7 +48,10 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
+      <button
+        className="nav-bar-info-container 
+        border-none shinano-color-background"
+        onClick={openMenu}>
         {/* <i className="fas fa-user-circle" /> */}
         Hello, {userCheck ? `${user.username}` : "sign in"} <br />
         Account Info
