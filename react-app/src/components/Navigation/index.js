@@ -106,8 +106,8 @@ function Navigation({ isLoaded }) {
 					</>
 				</ul>
 
-				{!sessionUser && <h2>Error</h2>}
-				{sessionUser && cart["errors"] === "No cart" && <button onClick={addCart}>Start a cart</button>}
+				{!sessionUser && <p className="nav-bar-signed-out-text">Sign In and Start Shop</p>}
+				{sessionUser && cart["errors"] === "No cart" && <button className="nav-bar-start-cart-button" onClick={addCart}>Start a cart</button>}
 
 			</div>
 		</div>
