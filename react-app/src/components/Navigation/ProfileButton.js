@@ -26,9 +26,10 @@ function ProfileButton({ user }) {
     if (!showMenu) return;
 
     const closeMenu = (e) => {
-      if (!ulRef.current.contains(e.target)) {
-        setShowMenu(false);
-      }
+      // if (!ulRef.current.contains(e.target)) {
+      //   setShowMenu(false);
+      // }
+      setShowMenu(false);
     };
 
     document.addEventListener("click", closeMenu);
@@ -49,7 +50,7 @@ function ProfileButton({ user }) {
   return (
     <>
       <button
-        className="nav-bar-info-container 
+        className="nav-bar-info-container
         border-none shinano-color-background"
         onClick={openMenu}>
         {/* <i className="fas fa-user-circle" /> */}

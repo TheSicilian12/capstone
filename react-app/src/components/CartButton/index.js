@@ -23,9 +23,10 @@ function CartButton({ user, itemNum }) {
     if (!showMenu) return;
 
     const closeMenu = (e) => {
-      if (!ulRef.current.contains(e.target)) {
-        setShowMenu(false);
-      }
+      // if (!ulRef.current.contains(e.target)) {
+      //   setShowMenu(false);
+      // }
+      setShowMenu(false);
     };
 
     document.addEventListener("click", closeMenu);
