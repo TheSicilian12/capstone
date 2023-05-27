@@ -61,7 +61,7 @@ export default function SingleCart() {
                         <div className="border-black shopping-cart-product-container">
                             <div className="">
                                 <img
-                                    width="50px"
+                                    className="shopping-cart-image"
                                     src={item.mainImage.image_url}
                                 />
                                 <p className="shopping-cart-bold">{item.item.name}</p>

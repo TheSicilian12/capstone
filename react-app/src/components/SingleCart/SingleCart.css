@@ -19,3 +19,8 @@
 .shopping-cart-checkout-container {
     width: 15vw;
 }
+
+.shopping-cart-image {
+    width: 140px;
+    height: 180px
+}
