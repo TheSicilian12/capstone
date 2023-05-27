@@ -4,7 +4,7 @@ import { useParams, useHistory } from 'react-router-dom';
 
 import './SingleCart.css'
 import '../UniversalCSS.css'
-import { deleteCartTHUNK, deleteItemCartTHUNK, getSingleCartTHUNK, postCartTHUNK } from '../../store/cart';
+import { deleteCartTHUNK, deleteItemCartTHUNK, deleteSpecItemSpecCartTHUNK, getSingleCartTHUNK, postCartTHUNK, updateItemCartTHUNK } from '../../store/cart';
 import DeleteItemCart from '../DeleteItemCart';
 
 export default function SingleCart() {
@@ -26,55 +26,146 @@ export default function SingleCart() {
     const keepShopping = async () => {
         const payload = {
             user_id: user.id,
-			total_price: 0,
-			product_ids: []
-		}
-		await dispatch(postCartTHUNK(payload))
+            total_price: 0,
+            product_ids: []
+        }
+        await dispatch(postCartTHUNK(payload))
         history.push("/")
         await dispatch(getSingleCartTHUNK())
     }
 
-    if (!singleCart || Object.values(singleCart.items).length === 0) return <div>
-        Your cart is currently empty
-        <button onClick={keepShopping}>Keep Shopping</button>
+    const deleteAll = async (id) => {
+        // console.log("delete all button")
+        await dispatch(deleteSpecItemSpecCartTHUNK(id))
+    }
+
+    const deleteSingle = async (id) => {
+        await dispatch(deleteItemCartTHUNK(id))
+    }
+
+    const addSingle = async (item) => {
+        const payload = {
+            user_id: user.id,
+            product_ids: item.id,
+            total_price: 1
+        }
+        await dispatch(updateItemCartTHUNK(payload))
+    }
+
+    if (!singleCart || Object.values(singleCart.items).length === 0) return (
+        <div className="cart-empty-container">
+            <div className="login-logo-container keep-shopping-info">
+                Your cart is empty
+            </div>
+            <div
+                onClick={keepShopping}
+                className="border-black keep-shopping login-form-container">
+                {/* <button
+                    className=""
+                    onClick={keepShopping}>
+                    Keep Shopping
+                </button> */}
+                Keep Shopping
+            </div>
         </div>
-    // console.log('singleCart frontend: ', Object.values(singleCart.items))
+    )
+    // console.log('singleCart frontend: ', singleCart.items)
 
     const purchase = async () => {
         await dispatch(deleteCartTHUNK())
         const payload = {
             user_id: user.id,
-			total_price: 0,
-			product_ids: []
-		}
-		await dispatch(postCartTHUNK(payload))
-		// dispatch(getSingleCartTHUNK())
+            total_price: 0,
+            product_ids: []
+        }
+        await dispatch(postCartTHUNK(payload))
+        // dispatch(getSingleCartTHUNK())
         await dispatch(getSingleCartTHUNK())
     }
 
+    // patch for the quanitity display issue
+    // itemCart = {
+    //     itemId: {
+    //         item: {},
+    //         quantity: num,
+    //         mainImage: str
+    //     }
+    // }
+
+
+    let itemCart = {}
+    let subTotal = 0;
+    for (let e of Object.values(singleCart.items)) {
+        // console.log("e: ", e)
+        // console.log("key check: ", itemCart[e.item.id])
+        subTotal += e.item.price
+        if (!itemCart[e.item.id]) {
+            itemCart[e.item.id] = { quantity: 1, item: e.item, mainImage: e.mainImage.image_url }
+        } else {
+            itemCart[e.item.id].quantity += 1;
+        }
+    }
+    // console.log("itemCart: ", itemCart)
+    // console.log("subTotal: ", subTotal)
+
     return (
-        <div className="border-black shopping-cart-page-container">
-            <div className="shopping-cart-container">
-                Shopping Cart
-                {Object.values(singleCart.items).map(item => {
+        <div className="shopping-cart-page-container">
+            <div className="shopping-cart-container white-background">
+                <h1>Shopping Cart</h1>
+                {/* {Object.values(singleCart.items).map(item => { */}
+                {Object.values(itemCart).map(item => {
                     return (
-                        <div className="border-black shopping-cart-product-container">
-                            <div className="">
-                                <p className="shopping-cart-bold">{item.name}</p>
-                                <ul>stock: {item.inventory}</ul>
-                                {item.inventory > 5 && <p>In Stock</p>}
-                                {item.inventory === 5 && <p>Only 5 left in stock</p>}
-                                {item.inventory === 4 && <p>Only 4 left in stock</p>}
-                                {item.inventory === 3 && <p>Only 3 left in stock</p>}
-                                {item.inventory === 2 && <p>Only 2 left in stock</p>}
-                                {item.inventory === 1 && <p>Only 1 left in stock</p>}
-                                {item.inventory === 0 && <p>Out of stock</p>}
-                                <DeleteItemCart itemId={item.id} />
+                        <div className="shopping-cart-product-container">
+                            <div className="shopping-cart-page-info">
+                                <img
+                                    className="shopping-cart-image"
+                                    src={item.mainImage}
+                                />
+                                <div className="shopping-cart-text-container">
+                                    <p className="shopping-cart-bold">{item.item.name}</p>
+
+
+                                    <div className="shopping-cart-page-info-quan-delete">
+                                        {item.item.inventory > 5 && <p>In Stock</p>}
+                                        {item.item.inventory === 5 && <p>Only 5 left in stock</p>}
+                                        {item.item.inventory === 4 && <p>Only 4 left in stock</p>}
+                                        {item.item.inventory === 3 && <p>Only 3 left in stock</p>}
+                                        {item.item.inventory === 2 && <p>Only 2 left in stock</p>}
+                                        {item.item.inventory === 1 && <p>Only 1 left in stock</p>}
+                                        {item.item.inventory === 0 && <p>Out of stock</p>}
+                                        <div className="shopping-cart-quan-del-container">
+                                            <div className="shopping-cart-quantity-container">Qty: {item.quantity}</div>
+
+                                            <button
+                                                className="border-black shopping-cart-no-display-button"
+                                                onClick={() => addSingle(item.item)}>
+                                                <i className="shopping-cart-plus-minus fa fa-plus"></i>
+                                            </button>
+                                            <button
+                                                className="border-black shopping-cart-no-display-button"
+                                                onClick={() => deleteSingle(item.item.id)}>
+                                                <i className="shopping-cart-plus-minus fa fa-minus"></i>
+                                            </button>
+                                            <button
+                                                className="shopping-cart-no-display-button"
+                                                onClick={() => deleteAll(item.item.id)}>
+                                                Delete
+                                            </button>
+                                            {/* <DeleteItemCart itemId={item.item.id} /> */}
+                                        </div>
+                                        {/* <button onClick={() => deleteAll(item.item.id, item.quantity)} className="shopping-cart-delete-button">Delete</button> */}
+                                    </div>
+                                </div>
                             </div>
-                            <p className="shopping-cart-bold">${item.price}</p>
+                            <p className="shopping-cart-bold">${(Number(item.item.price) * Number(item.quantity)).toFixed(2)}</p>
                         </div>
                     )
                 })}
+                <div className="subTotal-container">
+                    <h7 className="subTotal-main-margin">Subtotal({Object.values(singleCart.items).length} items): </h7>
+                    {/* Rounding update needed */}
+                    <h7 className="subTotal-main-margin subTotal-price-bold">${subTotal.toFixed(2)}</h7>
+                </div>
                 {/* {Object.keys(singleCart.quantityDict).map(qKey => {
                     let items = Object.values(singleCart.items)
                     // console.log("item obj: ", items)
@@ -103,9 +194,17 @@ export default function SingleCart() {
                     )
                 })} */}
             </div>
-            <div className=" border-black shopping-cart-checkout-container">
-                Checkout
-                <button onClick={purchase}>Purchase!</button>
+            <div className="border-black shopping-cart-checkout-container white-background">
+                <div className="cart-subTotal-container">
+                    <h7 className="cart-subTotal-main-margin">Subtotal({Object.values(singleCart.items).length} items): </h7>
+                    {/* This does not round correctly! */}
+                    <h7 className="cart-subTotal-main-margin cart-subTotal-price-bold">${subTotal.toFixed(2)}</h7>
+                </div>
+                <button
+                    className="button-no-dimensions cart-checkout-button"
+                    onClick={purchase}>
+                    Checkout
+                </button>
             </div>
         </div>
     )

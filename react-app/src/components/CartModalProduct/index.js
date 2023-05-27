@@ -14,12 +14,12 @@ export default function CartModalProduct({item}) {
 
     return (
        <div className="cart-modal-product-container">
-            <div className="">
-                <p>{item.name}</p>
-                <p>${item.price}</p>
+            <div className="cart-modal-product-margin">
+                <p>{item.item.name}</p>
+                <p>${item.item.price}</p>
             </div>
             <div className="cart-modal-product-delete-button">
-                <DeleteItemCart className={"button-full margin2"} itemId={item.id} />
+                <DeleteItemCart className={"button-full-red margin2 "} itemId={item.item.id} />
             </div>
        </div>
     )

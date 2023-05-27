@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from app.models import Cart, Product, db, User
+from app.models import Cart, Product, db, User, Image
 from flask_login import login_required, current_user
 from app.forms import CartForm
 
@@ -43,9 +43,12 @@ def get_single_cart():
     response["items"] = {}
     for item in single_cart.to_dict()['productIds']:
         print("item: ", item)
+        mainImage = Image.query.filter(Image.product_id == item, Image.main_image == "yes").all()[0]
         item = Product.query.get(item)
         # response["product"] = item.to_dict()
-        response["items"].update({productKey: item.to_dict()})
+        print("-------------------mainImage: ", mainImage)
+
+        response["items"].update({productKey: {"item": item.to_dict(), "mainImage": mainImage.to_dict()}})
         productKey += 1
         # print("--------------------item: ", item.to_dict()["id"])
 
@@ -203,6 +206,23 @@ def delete_item_carts(product_id):
     db.session.commit()
 
     return {"item": "deleted"}
+
+
+# Delete all spec items from spec cart
+@cart_routes.route('/<int:product_id>/spec-item-cart', methods=["DELETE"])
+@login_required
+def delete_spec_item_spec_cart(product_id):
+    print("-------------------------Delete spec item from spec cart-------------------------")
+    cart = Cart.query.filter(Cart.user_id == current_user.id).first()
+
+    productList = [productId for productId in cart.to_dict()["productIds"] if productId != product_id]
+
+    cart.product_ids = productList
+
+    db.session.commit()
+
+    return {"item": "deleted"}
+
 
 # Delete all items by id from all carts
 @cart_routes.route('/<int:product_id>/spec-items', methods=["DELETE"])

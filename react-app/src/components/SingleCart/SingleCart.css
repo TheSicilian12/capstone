@@ -3,13 +3,57 @@
     justify-content: center;
 }
 
+.white-background {
+    background-color: white;
+}
+
+
+.shopping-cart-page-info {
+    display: flex;
+    width: 50vw;
+    /* flex-wrap: wrap; */
+}
+
+.shopping-cart-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 10px;
+    width: 30vw;
+}
+
 .shopping-cart-container {
     width: 60vw;
+    margin-right: 50px;
 }
 
 .shopping-cart-product-container {
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid gray;
+    padding: 15px;
+}
+
+.shopping-cart-quan-del-container {
+    display: flex;
+}
+
+.shopping-cart-quantity-container {
+    border: 1px solid var(--shinanoMain);
+    background-color: var(--shinanoMain);
+    border-radius: 15px;
+    width: 50px;
+    /* justify-items: center;
+    align-items: center;
+    align-self: center; */
+    padding: 5px;
+    padding-left: 10px;
+    margin-right: 5px;
+}
+
+.shopping-cart-no-display-button {
+    border: none;
+    background: none;
 }
 
 .shopping-cart-bold {
@@ -17,5 +61,90 @@
 }
 
 .shopping-cart-checkout-container {
-    width: 15vw;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    width: 20vw;
+    height: 15vh;
+    margin-top: 25px;
+    margin-left: 15px;
+}
+
+.shopping-cart-image {
+    width: 120px;
+    height: 160px;
+}
+
+.subTotal-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5px;
+}
+
+.subTotal-main-margin {
+    margin: 2px;
+}
+
+.subTotal-price-bold {
+    font-weight: bolder;
+}
+
+.cart-subTotal-container {
+    display: flex;
+    margin: 10px;
+}
+
+.cart-subTotal-main-margin {
+    margin: 2px;
+}
+
+.cart-subTotal-price-bold {
+    font-weight: bolder;
+}
+
+.cart-checkout-button {
+   /* width: 100%; */
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.shopping-cart-plus-minus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--shinanoMain);
+    border: 4px solid var(--shinanoMain);
+    border-radius: 30px;
+    width: 30px;
+    height: 30px;
+}
+
+.cart-empty-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.keep-shopping {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: var(--shinanoMain);
+    font-weight: 1000;
+    font-size:xx-large;
+}
+.keep-shopping:hover {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: white;
+    background: var(--shinanoMain);
+    font-weight: 1000;
+    font-size:xx-large;
+}
+
+.keep-shopping-info {
+    color: white;
+    font-weight: 1000;
+    font-size:xx-large;
 }

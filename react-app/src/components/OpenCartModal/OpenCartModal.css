@@ -1,11 +1,23 @@
 .cart-modal {
-    background-color: whitesmoke;
+    background-color: white;
+    border-left: 5px solid var(--shinanoMain);
+    border-bottom: 5px solid var(--shinanoMain);
     width: 25vw;
-    height: 90vh;
+    height: 95vh;
     position: fixed;
     right: 0;
-    top: 80px;
-    border-top-left-radius: 15px;
+    top: 8px;
+    /* border-top-left-radius: 15px; */
     border-bottom-left-radius: 15px;
     overflow: auto;
+}
+
+.cart-modal-button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.cart-modal-button-margin {
+    margin: 10px;
+    margin-bottom: 15px;
 }

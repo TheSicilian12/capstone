@@ -28,10 +28,6 @@ function OpenCartModal({
     dispatch(getSingleCartTHUNK())
   }, [dispatch])
 
-  // if (items) console.log("items: ", Object.values(items).forEach(item => {
-  //   console.log("hello!!!!!!!!!")
-  // }))
-
   const onClick = () => {
     if (onModalClose) setOnModalClose(onModalClose);
     setModalContent(modalComponent);
@@ -39,11 +35,11 @@ function OpenCartModal({
   };
 
   const deleteCart = async () => {
-		await dispatch(deleteCartTHUNK())
-		await dispatch(getSingleCartTHUNK())
+    await dispatch(deleteCartTHUNK())
+    await dispatch(getSingleCartTHUNK())
     closeMenu(true)
 
-	}
+  }
 
   const goToCart = () => {
     history.push("/cart")
@@ -53,15 +49,23 @@ function OpenCartModal({
   return (
     <div className="cart-modal">
       <h2 className="justify-center">Your Cart!</h2>
-      <button onClick={goToCart}>Go to Checkout</button>
-      <button onClick={deleteCart}>Delete your cart</button>
+      <div className="cart-modal-button-container">
+        <button
+          className="button-no-dimensions cart-modal-button-margin"
+          onClick={goToCart}>
+          Go to Checkout
+        </button>
+
+        <button
+          className="button-full-red cart-modal-button-margin"
+          onClick={deleteCart}>
+          Delete your cart
+        </button>
+      </div>
+
       {items && Object.values(items).map((item) =>
-        <CartModalProduct item={item}/>
+        <CartModalProduct item={item} />
       )}
-
-
-
-
     </div>
   );
 }

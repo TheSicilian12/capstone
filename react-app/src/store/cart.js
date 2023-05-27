@@ -170,7 +170,31 @@ export const deleteItemCartTHUNK = (productId) => async (dispatch) => {
     }
 }
 
+// Delete all items by id from a specific cart
+// DON'T GET THIS MIXED UP
+export const deleteSpecItemSpecCartTHUNK = (productId) => async (dispatch) => {
+    console.log("----Delete spec item from spec----")
+    // console.log("before response")
+    const response = await fetch(`/api/carts/${productId}/spec-item-cart`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+    // console.log("after response")
+    if (response.ok) {
+        dispatch(getSingleCartTHUNK())
+        return "Sucess"
+    }
+    else {
+        return ["Failure"]
+    }
+}
+
+
+
 // Delete all items by id form all carts
+// DON'T GET THIS MIXED UP
 export const deleteAllItemsCartTHUNK = (productId) => async (dispatch) => {
     console.log("----Delete item cart THUNK----")
     console.log("productId: ", productId)
