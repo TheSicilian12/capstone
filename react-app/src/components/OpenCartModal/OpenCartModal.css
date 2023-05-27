@@ -11,3 +11,13 @@
     border-bottom-left-radius: 15px;
     overflow: auto;
 }
+
+.cart-modal-button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.cart-modal-button-margin {
+    margin: 10px;
+    margin-bottom: 15px;
+}

@@ -19,7 +19,7 @@ export default function CartModalProduct({item}) {
                 <p>${item.price}</p>
             </div>
             <div className="cart-modal-product-delete-button">
-                <DeleteItemCart className={"button-full margin2"} itemId={item.id} />
+                <DeleteItemCart className={"button-full-red margin2 "} itemId={item.id} />
             </div>
        </div>
     )
