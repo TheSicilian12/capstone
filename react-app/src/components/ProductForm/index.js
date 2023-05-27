@@ -151,6 +151,10 @@ export default function ProductForm({ productInfo, formType, productId, mainProd
     if (subImage2 && !checkValidImage(subImage2)) err.subImage2 = "Image url must end in png, jpg, or jpeg."
     if (subImage3 && !checkValidImage(subImage3)) err.subImage3 = "Image url must end in png, jpg, or jpeg."
 
+    // Disable button if errors
+    let disableLogin = "button-disabled";
+    if (!Object.values(err).length > 0) disableLogin = "button-no-dimensions"
+
     return (
         <div className="login-container">
             <div className="login-logo-container">
@@ -311,6 +315,7 @@ export default function ProductForm({ productInfo, formType, productId, mainProd
                     {disSubImage3Err && <div className="errors">{err.subImage3}</div>}
                 </div>
                 <button
+                    className={`login-page-button ${disableLogin}`}
                     type="submit"
                     disabled={Object.values(err).length > 0}>
                     {formType === "new" ? "Add Product" : "Edit Product"}
