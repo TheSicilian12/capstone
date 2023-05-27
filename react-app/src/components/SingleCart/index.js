@@ -120,7 +120,10 @@ export default function SingleCart() {
                         </div>
                     )
                 })}
-                <h4>Subtotal({Object.values(singleCart.items).length} items): ${subTotal}</h4>
+                <div className="subTotal-container">
+                    <h7 className="subTotal-main-margin">Subtotal({Object.values(singleCart.items).length} items): </h7>
+                    <h7 className="subTotal-main-margin subTotal-price-bold">${subTotal}</h7>
+                </div>
                 {/* {Object.keys(singleCart.quantityDict).map(qKey => {
                     let items = Object.values(singleCart.items)
                     // console.log("item obj: ", items)

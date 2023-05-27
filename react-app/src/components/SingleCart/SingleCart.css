@@ -49,5 +49,19 @@
 
 .shopping-cart-image {
     width: 120px;
-    height: 160px
+    height: 160px;
+}
+
+.subTotal-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5px;
+}
+
+.subTotal-main-margin {
+    margin: 2px;
+}
+
+.subTotal-price-bold {
+    font-weight: bolder;
 }
