@@ -109,8 +109,12 @@ export default function SingleCart() {
                                         {item.item.inventory === 0 && <p>Out of stock</p>}
                                         <div className="shopping-cart-quan-del-container">
                                             <div className="shopping-cart-quantity-container">Qty: {item.quantity}</div>
+                                            <button
+                                                className="shopping-cart-delete-button"
+                                                onClick={() => deleteAll(item.item.id, item.quantity)}>
+                                                    Delete
+                                            </button>
                                             <DeleteItemCart itemId={item.item.id} />
-                                            <button onClick={() => deleteAll(item.item.id, item.quantity)}>Delete all</button>
                                         </div>
                                         {/* <button onClick={() => deleteAll(item.item.id, item.quantity)} className="shopping-cart-delete-button">Delete</button> */}
                                     </div>
