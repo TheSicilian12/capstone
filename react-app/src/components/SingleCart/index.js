@@ -153,8 +153,15 @@ export default function SingleCart() {
                 })} */}
             </div>
             <div className="border-black shopping-cart-checkout-container white-background">
-                Checkout
-                <button onClick={purchase}>Purchase!</button>
+                <div className="cart-subTotal-container">
+                    <h7 className="cart-subTotal-main-margin">Subtotal({Object.values(singleCart.items).length} items): </h7>
+                    <h7 className="cart-subTotal-main-margin cart-subTotal-price-bold">${subTotal}</h7>
+                </div>
+                <button
+                    className="button-no-dimensions cart-checkout-button"
+                    onClick={purchase}>
+                        Checkout
+                </button>
             </div>
         </div>
     )
