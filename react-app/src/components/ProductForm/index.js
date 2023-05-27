@@ -160,6 +160,7 @@ export default function ProductForm({ productInfo, formType, productId, mainProd
                     src={shinanoLogoMini} />
             </div>
             <form
+                className="login-form-container"
                 onSubmit={handleSubmit}
             >
                 <h1 className="login-form-header">Product Form</h1>
