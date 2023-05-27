@@ -71,16 +71,19 @@ export default function SingleCart() {
 
 
     let itemCart = {}
+    let subTotal = 0;
     for (let e of Object.values(singleCart.items)) {
         // console.log("e: ", e)
         // console.log("key check: ", itemCart[e.item.id])
+        subTotal += e.item.price
         if (!itemCart[e.item.id]) {
             itemCart[e.item.id] = { quantity: 1, item: e.item, mainImage: e.mainImage.image_url }
         } else {
             itemCart[e.item.id].quantity += 1;
         }
     }
-    console.log("itemCart: ", itemCart)
+    // console.log("itemCart: ", itemCart)
+    // console.log("subTotal: ", subTotal)
 
     return (
         <div className="shopping-cart-page-container">
@@ -117,6 +120,7 @@ export default function SingleCart() {
                         </div>
                     )
                 })}
+                <h4>Subtotal({Object.values(singleCart.items).length} items): ${subTotal}</h4>
                 {/* {Object.keys(singleCart.quantityDict).map(qKey => {
                     let items = Object.values(singleCart.items)
                     // console.log("item obj: ", items)
