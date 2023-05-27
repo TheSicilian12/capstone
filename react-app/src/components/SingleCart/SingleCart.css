@@ -3,6 +3,11 @@
     justify-content: center;
 }
 
+.white-background {
+    background-color: white;
+}
+
+
 .shopping-cart-page-info {
     display: flex;
     width: 50vw;

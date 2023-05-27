@@ -84,7 +84,7 @@ export default function SingleCart() {
 
     return (
         <div className="shopping-cart-page-container">
-            <div className="shopping-cart-container">
+            <div className="shopping-cart-container white-background">
                 <h1>Shopping Cart</h1>
                 {/* {Object.values(singleCart.items).map(item => { */}
                 {Object.values(itemCart).map(item => {
@@ -113,7 +113,7 @@ export default function SingleCart() {
                                     </div>
                                 </div>
                             </div>
-                            <p className="shopping-cart-bold">${item.item.price}</p>
+                            <p className="shopping-cart-bold">${Number(item.item.price) * Number(item.quantity)}</p>
                         </div>
                     )
                 })}
@@ -145,7 +145,7 @@ export default function SingleCart() {
                     )
                 })} */}
             </div>
-            <div className=" border-black shopping-cart-checkout-container">
+            <div className="border-black shopping-cart-checkout-container white-background">
                 Checkout
                 <button onClick={purchase}>Purchase!</button>
             </div>
