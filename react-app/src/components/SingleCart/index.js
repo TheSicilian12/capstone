@@ -34,6 +34,14 @@ export default function SingleCart() {
         await dispatch(getSingleCartTHUNK())
     }
 
+    // const deleteAll = async (id, quant) => {
+    //     console.log("id, quant: ", id, quant)
+    //     await deleteItemCartTHUNK(id)
+    //     // while (quant > 0) {
+    //     //     quant = quant - 1;
+    //     // }
+    // }
+
     if (!singleCart || Object.values(singleCart.items).length === 0) return <div>
         Your cart is currently empty
         <button onClick={keepShopping}>Keep Shopping</button>
@@ -99,8 +107,9 @@ export default function SingleCart() {
                                         {item.item.inventory === 2 && <p>Only 2 left in stock</p>}
                                         {item.item.inventory === 1 && <p>Only 1 left in stock</p>}
                                         {item.item.inventory === 0 && <p>Out of stock</p>}
-                                        Quantity: {item.quantity}
+                                        Qty: {item.quantity}
                                         <DeleteItemCart itemId={item.item.id} />
+                                        {/* <button onClick={() => deleteAll(item.item.id, item.quantity)} className="shopping-cart-delete-button">Delete</button> */}
                                     </div>
                                 </div>
                             </div>

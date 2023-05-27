@@ -29,6 +29,11 @@
     padding: 15px;
 }
 
+.shopping-cart-delete-button {
+    border: none;
+    background: none;
+}
+
 .shopping-cart-bold {
     font-weight: bold;
 }
