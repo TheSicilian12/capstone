@@ -62,6 +62,10 @@
     margin: 2px;
 }
 
+.text-underline-none {
+    text-decoration: none;
+}
+
 .display-flex {
     display: flex
 }

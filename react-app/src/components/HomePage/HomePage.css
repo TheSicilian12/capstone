@@ -18,8 +18,30 @@
 }
 
 .homepage-footer {
-    border-top: 1px solid lightgray;
-    margin: 10px;
     display: flex;
     justify-content: center;
+    margin: 10px;
+}
+
+.homepage-footer-item-container {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid lightgray;
+    margin: 10px;
+    width: 70vw;
+}
+
+.homepage-footer-item {
+    margin: 10px;
+    padding: 10px;
+    color: black;
+    /* background: var(--shinanoMain); */
+    /* border-radius: 15px; */
+}
+.homepage-footer-item:hover {
+    margin: 10px;
+    padding: 10px;
+    color: black;
+    background: var(--shinanoMain);
+    border-radius: 15px;
 }

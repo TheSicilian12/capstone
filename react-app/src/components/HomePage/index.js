@@ -33,9 +33,9 @@ export default function HomePage() {
                 })}
             </div>
                 <div className="homepage-footer">
-                    <div>
-                        <a href={"https://www.linkedin.com/in/michael-guidera-376214260/"} target="_blank">Michael Guidera</a>
-                        <a href={"https://github.com/TheSicilian12/capstone"} target="_blank">Shinano Repository</a>
+                    <div className="homepage-footer-item-container">
+                        <a className="text-underline-none homepage-footer-item" href={"https://www.linkedin.com/in/michael-guidera-376214260/"} target="_blank">Michael Guidera</a>
+                        <a className="text-underline-none homepage-footer-item" href={"https://github.com/TheSicilian12/capstone"} target="_blank">Shinano Repository</a>
                     </div>
                 </div>
         </div>
