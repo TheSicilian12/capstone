@@ -32,8 +32,6 @@ function OpenCartModal({
     dispatch(getSingleCartTHUNK())
   }, [dispatch])
 
-  // if (!singleCart?.items) return (<div>loading</div>)
-
   const onClick = () => {
     if (onModalClose) setOnModalClose(onModalClose);
     setModalContent(modalComponent);
@@ -73,7 +71,6 @@ function OpenCartModal({
     }
   }
 }
-
 
   return (
     <div className="cart-modal">
