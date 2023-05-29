@@ -162,7 +162,7 @@ export default function SingleCart() {
                     )
                 })}
                 <div className="subTotal-container">
-                    <h7 className="subTotal-main-margin">Subtotal({Object.values(singleCart.items).length} items): </h7>
+                    <h7 className="subTotal-main-margin">Subtotal ({Object.values(singleCart.items).length} items): </h7>
                     {/* Rounding update needed */}
                     <h7 className="subTotal-main-margin subTotal-price-bold">${subTotal.toFixed(2)}</h7>
                 </div>
@@ -196,7 +196,7 @@ export default function SingleCart() {
             </div>
             <div className="border-black shopping-cart-checkout-container white-background">
                 <div className="cart-subTotal-container">
-                    <h7 className="cart-subTotal-main-margin">Subtotal({Object.values(singleCart.items).length} items): </h7>
+                    <h7 className="cart-subTotal-main-margin">Subtotal ({Object.values(singleCart.items).length} items): </h7>
                     {/* This does not round correctly! */}
                     <h7 className="cart-subTotal-main-margin cart-subTotal-price-bold">${subTotal.toFixed(2)}</h7>
                 </div>
