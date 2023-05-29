@@ -74,7 +74,7 @@ export default function SingleProduct() {
                     </div>
                 </div>
                 <div className="single-product-info-container">
-                    <div className="single-product-header-container">
+                    <div className="single-product-header-container break-word">
                         <h1>{singleProduct.name}</h1>
                     </div>
                     <p className="single-product-desc-container">{singleProduct?.desc}</p>

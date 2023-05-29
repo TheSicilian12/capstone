@@ -80,6 +80,10 @@
     align-items: center;
 }
 
+.break-word {
+    word-break: break-word;
+}
+
 .button-small {
     display: flex;
     flex-direction: column;
