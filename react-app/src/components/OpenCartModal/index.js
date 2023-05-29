@@ -23,51 +23,52 @@ function OpenCartModal({
   const dispatch = useDispatch()
   const history = useHistory()
   const items = useSelector(state => state.cart.carts?.items)
+  console.log("items: ", items)
 
   useEffect(() => {
     dispatch(getSingleCartTHUNK())
   }, [dispatch])
 
-  const onClick = () => {
-    if (onModalClose) setOnModalClose(onModalClose);
-    setModalContent(modalComponent);
-    if (onButtonClick) onButtonClick();
-  };
+const onClick = () => {
+  if (onModalClose) setOnModalClose(onModalClose);
+  setModalContent(modalComponent);
+  if (onButtonClick) onButtonClick();
+};
 
-  const deleteCart = async () => {
-    await dispatch(deleteCartTHUNK())
-    await dispatch(getSingleCartTHUNK())
-    closeMenu(true)
+const deleteCart = async () => {
+  await dispatch(deleteCartTHUNK())
+  await dispatch(getSingleCartTHUNK())
+  closeMenu(true)
 
-  }
+}
 
-  const goToCart = () => {
-    history.push("/cart")
-    closeMenu(true)
-  }
+const goToCart = () => {
+  history.push("/cart")
+  closeMenu(true)
+}
 
-  return (
-    <div className="cart-modal">
-      <h2 className="justify-center">Your Cart!</h2>
-      <div className="cart-modal-button-container">
-        <button
-          className="button-no-dimensions cart-modal-button-margin"
-          onClick={goToCart}>
-          Go to Checkout
-        </button>
+return (
+  <div className="cart-modal">
+    <h2 className="justify-center">Your Cart!</h2>
+    <div className="cart-modal-button-container">
+      <button
+        className="button-no-dimensions cart-modal-button-margin"
+        onClick={goToCart}>
+        Go to Checkout
+      </button>
 
-        <button
-          className="button-full-red cart-modal-button-margin"
-          onClick={deleteCart}>
-          Delete your cart
-        </button>
-      </div>
-
-      {items && Object.values(items).map((item) =>
-        <CartModalProduct item={item} />
-      )}
+      <button
+        className="button-full-red cart-modal-button-margin"
+        onClick={deleteCart}>
+        Delete your cart
+      </button>
     </div>
-  );
+
+    {items && Object.values(items).map((item) =>
+      <CartModalProduct item={item} />
+    )}
+  </div>
+);
 }
 
 export default OpenCartModal;

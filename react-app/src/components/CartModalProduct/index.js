@@ -11,7 +11,6 @@ import DeleteItemCart from '../DeleteItemCart';
 
 export default function CartModalProduct({item}) {
 
-
     return (
        <div className="cart-modal-product-container">
             <div className="cart-modal-product-margin">
