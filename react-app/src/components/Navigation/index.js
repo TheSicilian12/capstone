@@ -86,7 +86,6 @@ function Navigation({ isLoaded }) {
 
 			<div className="nav-prof-cart-container">
 
-
 					{isLoaded &&
 						<ProfileButton user={sessionUser} />
 					}
