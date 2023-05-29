@@ -23,6 +23,10 @@ function OpenCartModal({
   const dispatch = useDispatch()
   const history = useHistory()
   const items = useSelector(state => state.cart.carts?.items)
+  const cartAdj = useSelector(state => state.cart)
+  // console.log("items: ", items)
+
+  const singleCart = cartAdj.carts
 
   useEffect(() => {
     dispatch(getSingleCartTHUNK())
@@ -46,6 +50,28 @@ function OpenCartModal({
     closeMenu(true)
   }
 
+  let noItems = true
+  if (singleCart?.items) noItems = false
+  // if (!singleCart?.items) return (<div>loading</div>)
+
+  let itemCart = {}
+  let subTotal = 0;
+
+  if (!noItems) {
+    if (Object.values(singleCart.items).length === 0) console.log("test")
+  console.log("singleCart: ", singleCart)
+  for (let e of Object.values(singleCart.items)) {
+    console.log("e: ", e)
+    console.log("key check: ", itemCart[e.item.id])
+    subTotal += e.item.price
+    if (!itemCart[e.item.id]) {
+      itemCart[e.item.id] = { quantity: 1, item: e.item, mainImage: e.mainImage.image_url }
+    } else {
+      itemCart[e.item.id].quantity += 1;
+    }
+  }
+}
+
   return (
     <div className="cart-modal">
       <h2 className="justify-center">Your Cart!</h2>
@@ -63,7 +89,7 @@ function OpenCartModal({
         </button>
       </div>
 
-      {items && Object.values(items).map((item) =>
+      {items && Object.values(itemCart).map((item) =>
         <CartModalProduct item={item} />
       )}
     </div>

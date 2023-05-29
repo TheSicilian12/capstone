@@ -13,7 +13,7 @@ export default function AddItemCart({cartId, userId, productId, className}) {
 
     // console.log("-----------button productId: ", productId)
 
-    const addProduct = () => {
+    const addProduct = async () => {
         // console.log("cart: ", cartId)
         // console.log("userId: ", userId)
         // console.log("productId: ", productId)
@@ -23,8 +23,8 @@ export default function AddItemCart({cartId, userId, productId, className}) {
                 total_price: 0,
                 product_ids: []
             }
-            dispatch(postCartTHUNK(payload))
-            dispatch(getSingleCartTHUNK())
+            await dispatch(postCartTHUNK(payload))
+            await dispatch(getSingleCartTHUNK())
         }
 
         const payload = {
