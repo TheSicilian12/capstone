@@ -89,10 +89,9 @@ function Navigation({ isLoaded }) {
 				<ProfileButton user={sessionUser} />
 				}
 
-				{sessionUser && cart["errors"] !== "No cart" && <div className="cart-item-num nav-bar-cart-item-container cart-hover">
+				{sessionUser && cart["errors"] !== "No cart" && <div onClick={cartSideBar} className="cart-item-num nav-bar-cart-item-container cart-hover">
 					<img
 						className="nav-cart"
-						onClick={cartSideBar}
 						src={shinanoCart} />
 					<div>
 						{totalItems}
