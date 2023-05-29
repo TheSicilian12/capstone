@@ -32,7 +32,7 @@ function OpenCartModal({
     dispatch(getSingleCartTHUNK())
   }, [dispatch])
 
-  if (!singleCart?.items) return (<div>loading</div>)
+  // if (!singleCart?.items) return (<div>loading</div>)
 
   const onClick = () => {
     if (onModalClose) setOnModalClose(onModalClose);
@@ -52,22 +52,28 @@ function OpenCartModal({
     closeMenu(true)
   }
 
-
+  let noItems = true
+  if (singleCart?.items) noItems = false
+  // if (!singleCart?.items) return (<div>loading</div>)
 
   let itemCart = {}
   let subTotal = 0;
-  if (Object.values(singleCart.items).length === 0) console.log("test")
+
+  if (!noItems) {
+    if (Object.values(singleCart.items).length === 0) console.log("test")
   console.log("singleCart: ", singleCart)
   for (let e of Object.values(singleCart.items)) {
-      console.log("e: ", e)
-      console.log("key check: ", itemCart[e.item.id])
-      subTotal += e.item.price
-      if (!itemCart[e.item.id]) {
-          itemCart[e.item.id] = { quantity: 1, item: e.item, mainImage: e.mainImage.image_url }
-      } else {
-          itemCart[e.item.id].quantity += 1;
-      }
+    console.log("e: ", e)
+    console.log("key check: ", itemCart[e.item.id])
+    subTotal += e.item.price
+    if (!itemCart[e.item.id]) {
+      itemCart[e.item.id] = { quantity: 1, item: e.item, mainImage: e.mainImage.image_url }
+    } else {
+      itemCart[e.item.id].quantity += 1;
+    }
   }
+}
+
 
   return (
     <div className="cart-modal">
