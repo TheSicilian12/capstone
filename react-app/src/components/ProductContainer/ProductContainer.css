@@ -3,14 +3,20 @@
     flex-direction:column;
     align-items: center;
     width: 200px;
-    height: 300px;
+    height: 320px;
 
 }
-
 
 .single-product-container-image-width {
     width: 200px;
     height: 200px;
 }
 
+.single-product-container-name-overflow {
+    height: 40px;
+    overflow: hidden;
+}
 
+.single-product-text-black {
+    color: black;
+}
