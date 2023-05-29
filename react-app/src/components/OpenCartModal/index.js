@@ -72,7 +72,7 @@ function OpenCartModal({
 }
 
   return (
-    <div className="cart-modal">
+    <div className="cart-modal" onClick={(e) => e.preventDefault}>
       <h2 className="justify-center">Your Cart!</h2>
       <div className="cart-modal-button-container">
         <button

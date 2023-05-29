@@ -58,30 +58,29 @@ function ProfileButton({ user }) {
         Account Info
 
       </button>
-      <ul className={ulClassName} ref={ulRef}>
+      <ul className={`${ulClassName} nav-bar-profile-dropdown nav-bar-font`} ref={ulRef}>
         {user ? (
-          <>
-            <li>{user.username}</li>
-            <li>{user.email}</li>
-            <li>
-              <button onClick={() => (
+          <div className="nav-bar-user-dropdown">
+            <div className="nav-bar-dropwdown-margin">{user.username}</div>
+              <div className="nav-bar-dropwdown-margin">{user.email}</div>
+              <button className="nav-bar-dropwdown-margin button-full" onClick={() => (
                 history.push('/products/new'),
                 closeMenu()
               )}>Add Product</button>
-            </li>
-            <li>
-              <button onClick={handleLogout}>Log Out</button>
-            </li>
-          </>
+
+              <button className="nav-bar-dropwdown-margin button-full" onClick={handleLogout}>Log Out</button>
+
+          </div>
         ) : (
-          <>
+          <div className="nav-bar-logged-out-dropdown">
             {/* <OpenModalButton
               buttonText="Log In"
               onItemClick={closeMenu}
               modalComponent={<LoginFormModal />}
             /> */}
             <button
-              onClick={() => {
+                className="nav-bar-dropwdown-margin button-full"
+                onClick={() => {
                 history.push("/login")
                 closeMenu()
               }}>
@@ -95,13 +94,14 @@ function ProfileButton({ user }) {
               modalComponent={<SignupFormModal />}
             /> */}
             <button
+              className="nav-bar-dropwdown-margin button-full"
               onClick={() => {
                 history.push("/signup")
                 closeMenu()
               }}>
               Sign Up
             </button>
-          </>
+          </div>
         )}
       </ul>
     </>
