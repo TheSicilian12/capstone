@@ -85,9 +85,10 @@ function Navigation({ isLoaded }) {
 				src={shinanoLogoMini} />
 
 			<div className="nav-prof-cart-container">
-				{isLoaded &&
-				<ProfileButton user={sessionUser} />
-				}
+
+					{isLoaded &&
+						<ProfileButton user={sessionUser} />
+					}
 
 				{sessionUser && cart["errors"] !== "No cart" && <div onClick={cartSideBar} className="cart-item-num nav-bar-cart-item-container cart-hover">
 					<img
@@ -104,7 +105,7 @@ function Navigation({ isLoaded }) {
 					</>
 				</ul>
 
-				{!sessionUser && <p className="nav-bar-signed-out-text">Sign In and Start Shop</p>}
+				{!sessionUser && <p onClick={() => history.push("/login")} className="nav-bar-signed-out-text">Sign In and Start Shop</p>}
 				{sessionUser && cart["errors"] === "No cart" && <button className="nav-bar-start-cart-button" onClick={addCart}>Start a cart</button>}
 
 			</div>
