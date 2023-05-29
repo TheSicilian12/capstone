@@ -84,6 +84,10 @@
     word-break: break-word;
 }
 
+.hide-overflow {
+    overflow: hidden;
+}
+
 .button-small {
     display: flex;
     flex-direction: column;
