@@ -32,24 +32,24 @@ export default function CartModalProduct({ item }) {
 
     return (
         <div className="cart-modal-product-container">
-            <div className="border-black display-flex">
+            <div className="display-flex">
                 <div className="cart-modal-product-margin">
                     <p>{item.item.name}</p>
                 </div>
-                <div className="display-flex">
-                    <p className="cart-modal-quantity-container">Qty: {item.quantity}</p>
-                    <p className="cart-modal-subtotal-container">${(Number(item.item.price) * Number(item.quantity)).toFixed(2)}</p>
+                <div className="cart-modal-quan-subtotal-container">
+                    <div className="cart-modal-quantity-container">Qty: {item.quantity}</div>
+                    <div className="cart-modal-subtotal-container">${(Number(item.item.price) * Number(item.quantity)).toFixed(2)}</div>
                 </div>
             </div>
-            <div className="border-black cart-modal-add-delete">
+            <div className="cart-modal-add-delete">
                 {/* <DeleteItemCart className={"button-full-red margin2 "} itemId={item.item.id} /> */}
                 <button
-                    className="border-black shopping-cart-no-display-button"
+                    className="shopping-cart-no-display-button"
                     onClick={() => addSingle(item.item)}>
                     <i className="shopping-cart-plus-minus fa fa-plus"></i>
                 </button>
                 <button
-                    className="border-black shopping-cart-no-display-button"
+                    className="shopping-cart-no-display-button"
                     onClick={() => deleteSingle(item.item.id)}>
                     <i className="shopping-cart-plus-minus fa fa-minus"></i>
                 </button>
