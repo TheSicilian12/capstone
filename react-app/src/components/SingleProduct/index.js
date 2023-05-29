@@ -81,7 +81,7 @@ export default function SingleProduct() {
                 </div>
 
                 {/* If not logged in, see add to cart section, but no options, if logged in add to cart option, if owner then edit section */}
-                {!user || !(user.id === singleProduct.ownerId) ? <div className="border-black single-product-cart-container">
+                {!user || !(user.id === singleProduct.ownerId) ? <div className="single-product-cart-container">
                     <h3>Add to cart</h3>
                     {products.product.inventory ? <div className="text-green">In Stock</div>
                         : <div className="text-red">false</div>}
@@ -89,13 +89,13 @@ export default function SingleProduct() {
                     {user && <DeleteItemCart className={"button-no-dimensions single-product-user-buttons"} itemId={productId} />}
                     {!user && <div>You must log in to start shopping</div>}
                 </div>
-                    : <div className="single-product-cart-container">
-                        Edit your product
-                        <div className="single-product-owner-buttons-container ">
-                            <button className="button-small margin2" onClick={editRedirect}>Edit</button>
+                    : <div className="single-edit-cart-container">
+                        <h3>Edit your product</h3>
+                        <div className="single-product-edit-buttons-container">
+                            <button className="button-no-dimensions single-product-user-buttons" onClick={editRedirect}>Edit</button>
                             <OpenModalButton
                                 buttonText="Delete"
-                                className="button-small margin2"
+                                className="button-full-red single-product-user-buttons"
                                 modalComponent={<DeleteSingleProductModal productId={productId} />}
                             />
                         </div>

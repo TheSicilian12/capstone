@@ -23,8 +23,8 @@ export default function DeleteSingleProductModal({productId}) {
   return (
     <>
       <h1>Delete</h1>
-        <button className="buttons-small" onClick={deleter}>Yes</button>
-        <button className="buttons-small" onClick={() => closeModal()}>No</button>
+        <button className="button-no-dimensions single-product-user-buttons" onClick={deleter}>Yes</button>
+        <button className="button-no-dimensions single-product-user-buttons" onClick={() => closeModal()}>No</button>
     </>
   );
 }
