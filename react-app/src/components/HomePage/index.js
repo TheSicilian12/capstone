@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 import './HomePage.css';
 import '../UniversalCSS.css'
 import { getAllProductsTHUNK } from '../../store/product';
@@ -22,7 +22,7 @@ export default function HomePage() {
     if (!products) return <div>loading homepage</div>
 
     return (
-        <div className="justify-center homepage-margin-top">
+        <div className="justify-center home-page">
             <div className="homepage-container">
                 {Object.values(products).map(product => {
                     return (
@@ -32,6 +32,12 @@ export default function HomePage() {
                     )
                 })}
             </div>
+                <div className="homepage-footer">
+                    <div>
+                        <a href={"https://www.linkedin.com/in/michael-guidera-376214260/"} target="_blank">Michael Guidera</a>
+                        <a href={"https://github.com/TheSicilian12/capstone"} target="_blank">Shinano Repository</a>
+                    </div>
+                </div>
         </div>
     )
 
