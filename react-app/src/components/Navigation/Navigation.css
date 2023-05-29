@@ -91,3 +91,36 @@
   font-weight: bold;
   font-size: 19px;
 }
+
+.nav-bar-profile-dropdown {
+  top: 110px;
+  margin-right: 135px;
+}
+
+.nav-bar-user-dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 5px solid var(--shinanoMain);
+  background: white;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.nav-bar-logged-out-dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 5px solid var(--shinanoMain);
+  background: white;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.nav-bar-dropwdown-margin {
+  margin: 5px;
+}
+
+.nav-bar-font {
+  font-size: medium;
+}
