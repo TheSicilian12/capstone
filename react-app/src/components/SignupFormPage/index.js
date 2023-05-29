@@ -42,6 +42,7 @@ function SignupFormPage() {
   // console.log("password length: ", password.length)
   if (password.length < 8) err.password = "Password should be 8+ characters."
   if (username.length < 4) err.username = "Username should be 4+ characters."
+  if (username.length > 10) err.username = "Username should be 10 or less characters."
   const regEx = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/);
   if (!regEx.test(email)) err.email = "Please enter a valid email address."
   if (password !== confirmPassword) err.confirmPassword = "This does not match the password."
