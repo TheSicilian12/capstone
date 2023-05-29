@@ -19,7 +19,7 @@ export default function ProductContainer({product}) {
 
 
     return(
-        <div className="homepage-single-product-container">
+        <div className="homepage-single-product-container break-word">
 
             <NavLink key={product.id} to={`/products/${product.id}`}>
                 <img className='single-product-container-image-width'

@@ -11,7 +11,7 @@ export default function DeleteItemCart({itemId, className}) {
     const user = useSelector(state => state.session.user)
     const cartCheck = useSelector(state => state.cart)
 
-    if (cartCheck["errors"]) className = "button-disabled"
+    if (cartCheck["errors"]) className = "button-disabled single-product-user-buttons"
 
     const remove = async () => {
         // console.log("itemId: ", itemId)

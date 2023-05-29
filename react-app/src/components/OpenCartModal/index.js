@@ -42,7 +42,6 @@ function OpenCartModal({
     await dispatch(deleteCartTHUNK())
     await dispatch(getSingleCartTHUNK())
     closeMenu(true)
-
   }
 
   const goToCart = () => {

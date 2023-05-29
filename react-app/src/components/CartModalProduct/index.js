@@ -29,11 +29,10 @@ export default function CartModalProduct({ item }) {
         await dispatch(updateItemCartTHUNK(payload))
     }
 
-
     return (
         <div className="cart-modal-product-container">
             <div className="display-flex">
-                <div className="cart-modal-product-margin">
+                <div className="cart-modal-product-margin break-word">
                     <p>{item.item.name}</p>
                 </div>
                 <div className="cart-modal-quan-subtotal-container">

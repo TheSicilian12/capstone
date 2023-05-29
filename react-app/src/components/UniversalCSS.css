@@ -80,6 +80,14 @@
     align-items: center;
 }
 
+.break-word {
+    word-break: break-word;
+}
+
+.hide-overflow {
+    overflow: hidden;
+}
+
 .button-small {
     display: flex;
     flex-direction: column;
@@ -156,7 +164,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
     height: 20px;
     border-radius: 10px;
     background-color: lightgray;

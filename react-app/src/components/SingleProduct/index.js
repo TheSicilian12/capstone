@@ -64,7 +64,7 @@ export default function SingleProduct() {
 
                     <div className='single-product-sub-images-container display-flex'>
                         {images.map(image => {
-                            return (<div className="border-black single-product-sub-single-image-container">
+                            return (<div className="single-product-sub-single-image-container">
                                 <SingleProductMiniImage
                                     className={"single-product-image-mini-container"}
                                     imageUrl={image.image_url} />
@@ -73,30 +73,29 @@ export default function SingleProduct() {
                         }
                     </div>
                 </div>
-
-                <div className="border-black single-product-info-container">
-                    <div className="single-product-header-container">
+                <div className="single-product-info-container">
+                    <div className="single-product-header-container break-word">
                         <h1>{singleProduct.name}</h1>
                     </div>
                     <p className="single-product-desc-container">{singleProduct?.desc}</p>
                 </div>
 
                 {/* If not logged in, see add to cart section, but no options, if logged in add to cart option, if owner then edit section */}
-                {!user || !(user.id === singleProduct.ownerId) ? <div className="border-black single-product-cart-container">
-                    Add to cart
+                {!user || !(user.id === singleProduct.ownerId) ? <div className="single-product-cart-container">
+                    <h3>Add to cart</h3>
                     {products.product.inventory ? <div className="text-green">In Stock</div>
                         : <div className="text-red">false</div>}
-                    {user && <AddItemCart className={"button-full margin2"} cartId={cartId} userId={userId} productId={productId} />}
-                    {user && <DeleteItemCart className={"button-full margin2"} itemId={productId} />}
+                    {user && <AddItemCart className={"button-no-dimensions single-product-user-buttons"} cartId={cartId} userId={userId} productId={productId} />}
+                    {user && <DeleteItemCart className={"button-no-dimensions single-product-user-buttons"} itemId={productId} />}
                     {!user && <div>You must log in to start shopping</div>}
                 </div>
-                    : <div className="border-black single-product-cart-container">
-                        Edit your product
-                        <div className="single-product-owner-buttons-container ">
-                            <button className="button-small margin2" onClick={editRedirect}>Edit</button>
+                    : <div className="single-edit-cart-container">
+                        <h3>Edit your product</h3>
+                        <div className="single-product-edit-buttons-container">
+                            <button className="button-no-dimensions single-product-user-buttons" onClick={editRedirect}>Edit</button>
                             <OpenModalButton
                                 buttonText="Delete"
-                                className="button-small margin2"
+                                className="button-full-red single-product-user-buttons"
                                 modalComponent={<DeleteSingleProductModal productId={productId} />}
                             />
                         </div>
