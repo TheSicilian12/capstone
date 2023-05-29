@@ -10,12 +10,13 @@ import DeleteItemCart from '../DeleteItemCart';
 
 
 export default function CartModalProduct({item}) {
-
+    console.log("cart modal product: ", item)
     return (
        <div className="cart-modal-product-container">
             <div className="cart-modal-product-margin">
                 <p>{item.item.name}</p>
-                <p>${item.item.price}</p>
+                <p>Qty: {item.quantity}</p>
+                <p>subTotal: ${(Number(item.item.price) * Number(item.quantity)).toFixed(2)}</p>
             </div>
             <div className="cart-modal-product-delete-button">
                 <DeleteItemCart className={"button-full-red margin2 "} itemId={item.item.id} />
