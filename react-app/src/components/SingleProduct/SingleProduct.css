@@ -9,6 +9,7 @@
     justify-content: space-between;
     width: 90vw;
     height: 80vh;
+    margin-top: 50px;
 }
 
 .single-product-main-image {
@@ -18,7 +19,6 @@
 }
 
 .single-product-sub-images-container {
-    border: 1px solid black;
     display: flex;
     justify-content: flex-start;
     width: 80%;
@@ -28,7 +28,6 @@
 .single-product-sub-single-image-container {
     display: flex;
     justify-content: center;
-    border: 1px solid red;
     width: 30%;
     margin: 2px;
 }
@@ -74,7 +73,14 @@
     flex-direction: column;
     align-items: center;
     width: 20%;
-    height: 50%;
+    height: 30%;
+    border: 5px solid var(--shinanoMain);
+    border-radius: 5px;
+}
+
+.single-product-user-buttons {
+   margin: 5px;
+   width: 90%;
 }
 
 .single-product-owner-buttons-container {
