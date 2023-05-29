@@ -13,4 +13,7 @@
     height: 200px;
 }
 
-
+.single-product-container-name-overflow {
+    height: 20px;
+    overflow: hidden;
+}

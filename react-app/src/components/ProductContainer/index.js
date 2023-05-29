@@ -17,15 +17,14 @@ export default function ProductContainer({product}) {
         return image.main_image === "yes"
     })
 
-
     return(
-        <div className="homepage-single-product-container break-word">
+        <div className="homepage-single-product-container break-word homepage-product">
 
             <NavLink key={product.id} to={`/products/${product.id}`}>
                 <img className='single-product-container-image-width'
                         src={`${mainImage.image_url}`}
                         />
-                <p className="justify-center">{product.name}</p>
+                <p className="justify-center single-product-container-name-overflow">{product.name}</p>
                 <p className="justify-center">{product.price}</p>
 
             </NavLink>
