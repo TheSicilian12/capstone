@@ -29,10 +29,10 @@ function Navigation({ isLoaded }) {
 		if (!showMenu) return;
 
 		const closeMenu = (e) => {
-			// if (!ulRef.current.contains(e.target)) {
-			// 	setShowMenu(false);
-			// }
-			setShowMenu(false);
+			if (!ulRef.current.contains(e.target)) {
+				setShowMenu(false);
+			}
+			// setShowMenu(false);
 		};
 
 		document.addEventListener("click", closeMenu);
@@ -41,14 +41,8 @@ function Navigation({ isLoaded }) {
 	}, [showMenu]);
 
 	const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
-	// const closeMenu = () => setShowMenu(false);
 
 	let cartCheck = false;
-	// if (cart.carts.items === undefined) cartCheck = true
-	// console.log("cart: ", cart)
-	// console.log("cart errors: ", cart["errors"])
-	// console.log("display start a cart button", cart["errors"] === "No cart")
-	// console.log("display cart button", cart["errors"] !== "No cart")
 
 	let totalItems = 0;
 	if (items) {
@@ -65,17 +59,11 @@ function Navigation({ isLoaded }) {
 		dispatch(getSingleCartTHUNK())
 	}
 
-	// const deleteCart = () => {
-	// 	dispatch(deleteCartTHUNK())
-	// 	dispatch(getSingleCartTHUNK())
-	// }
-
 	const closeMenu = () => setShowMenu(false);
 
 	const cartSideBar = () => {
 		openMenu()
 	}
-
 
 	return (
 		<div className="shinano-color-background nav-container">
