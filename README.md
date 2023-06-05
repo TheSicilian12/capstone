@@ -24,14 +24,19 @@ and carts. You are only able to create one cart at a time. This ReadMe will prov
 <img src="./shinano_screenshots/shinano_signup.png" />
 
 ## Sign In Page
+<img src="./shinano_screenshots/shinano_signin.png" />
 
 ## Home Page
+<img src="./shinano_screenshots/shinano_homepage.png" />
 
 ## Product Page
+<img src="./shinano_screenshots/shinano_product_page.png" />
 
 ## Cart Modal
+<img src="./shinano_screenshots/shinano_cart_modal.png" />
 
 ## Cart Page
+<img src="./shinano_screenshots/shinano_cart_page.png" />
 
 ## Getting started
 Shinano requires pythin version 3.9.4 and node.js on your machine. Once you have installed thise, follow the steps below:
