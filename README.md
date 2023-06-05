@@ -36,7 +36,7 @@ with a user signed in and a cart made:
 <img src="./shinano_screenshots/shinano_product_page.png" />
 
 ## Cart Modal
-
+<img src="./shinano_screenshots/shinano_cart_modal.png" />
 
 ## Cart Page
 <img src="./shinano_screenshots/shinano_cart_page.png" />
