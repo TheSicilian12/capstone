@@ -24,14 +24,19 @@ and carts. You are only able to create one cart at a time. This ReadMe will prov
 <img src="./shinano_screenshots/shinano_signup.png" />
 
 ## Sign In Page
+<img src="./shinano_screenshots/shinano_signin.png" />
 
 ## Home Page
+<img src="./shinano_screenshots/shinano_homepage.png" />
 
 ## Product Page
+<img src="./shinano_screenshots/shinano_product_page.png" />
 
 ## Cart Modal
+<img src="./shinano_screenshots/shinano_cart_modal.png" />
 
 ## Cart Page
+<img src="./shinano_screenshots/shinano_cart_page.png" />
 
 ## Getting started
 Shinano requires pythin version 3.9.4 and node.js on your machine. Once you have installed thise, follow the steps below:
@@ -75,6 +80,20 @@ flask run
 7. Start the frontend: `npm start`
 
 8. The frontend will be accesbile at http://localhost:3000/
+
+# Features
+
+## Products
+- Authorized user can create a product
+- Any user can view / read a product
+- Authorized user can update a product
+- Authorized user can delete a product
+
+## Cart
+- Authorized user can create a cart. (Only one cart can be created per user without a cart)
+- Authorized user can view / read their cart.
+- Authorized user can update their cart with items.
+- Authorized user can delete their cart. (Including all items)
 
 ## Navigating Shinano
 
