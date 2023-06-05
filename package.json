@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "react-slideshow-image": "^4.2.1",
+    "swipejs": "^2.3.1"
+  }
+}
