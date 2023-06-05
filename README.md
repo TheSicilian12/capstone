@@ -27,7 +27,10 @@ and carts. You are only able to create one cart at a time. This ReadMe will prov
 <img src="./shinano_screenshots/shinano_signin.png" />
 
 ## Home Page
+without a user signed in:
 <img src="./shinano_screenshots/shinano_homepage.png" />
+with a user signed in and a cart made:
+<img src="./shinano_screenshots/shinano_homepage-1.png" />
 
 ## Product Page
 <img src="./shinano_screenshots/shinano_product_page.png" />
