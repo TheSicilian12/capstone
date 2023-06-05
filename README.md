@@ -95,6 +95,35 @@ flask run
 - Authorized user can update their cart with items.
 - Authorized user can delete their cart. (Including all items)
 
+# Future Features
+
+## Comments / Reviews
+- Authorized user will be able to create a comment / review.
+- Any user will be able to view / read their comments / reviews on products.
+- Authorized user will be able to update a comment / review.
+- Authorized user will be able to their delete comment / review.
+
+## Categories
+- Authorized user will be able to create a category.
+- Any user will be able to view categories.
+- Authorized user will be able to update their category.
+- Authorized user will be able to delete their category.
+
+## Discounts
+- Authorized user will be able to create a discount for their product.
+- Any user will be able to  view / read discounts.
+- Authorized user will be able to update their discount for their product.
+- Authorized user will be able to delete their discount.
+
+## Wish list
+- Authorized user will be able to create a wish list. (Private and public status)
+- Authorized user will be able to retrieve a wish list.
+- Authorized user will be able to update their wish list.
+- Authorized user will be able to delete their wish list.
+
+## Search
+- Any user will be able to search for items in Shinano.
+
 ## Navigating Shinano
 
 Shinano is currently in development and does not have all of the functionality the author intends for it to have.
