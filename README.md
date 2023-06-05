@@ -81,6 +81,20 @@ flask run
 
 8. The frontend will be accesbile at http://localhost:3000/
 
+# Features
+
+## Products
+- Authorized user can create a product
+- Any user can view / read a product
+- Authorized user can update a product
+- Authorized user can delete a product
+
+## Cart
+- Authorized user can create a cart. (Only one cart can be created per user without a cart)
+- Authorized user can view / read their cart.
+- Authorized user can update their cart with items.
+- Authorized user can delete their cart. (Including all items)
+
 ## Navigating Shinano
 
 Shinano is currently in development and does not have all of the functionality the author intends for it to have.
