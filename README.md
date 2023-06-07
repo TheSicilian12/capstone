@@ -198,10 +198,6 @@ route: /api/auth/logout
 method: GET
 route: /api/auth/unauthorized
 
-
-
-
-
 ## Navigating Shinano
 
 Shinano is currently in development and does not have all of the functionality the author intends for it to have.
