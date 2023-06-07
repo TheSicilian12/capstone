@@ -127,6 +127,81 @@ flask run
 ## Search
 - Any user will be able to search for items in Shinano.
 
+## Backend API routes
+
+# Add a cart:
+method: GET
+route: /api/carts/add-cart
+
+# Get your cart:
+method: POST
+route: /api/carts/yours
+
+# Get a carts items:
+method: GET
+route: /api/carts/:cartId/items
+
+# Add an item to your cart:
+method: PUT
+route: /api/carts/add-item
+
+# Delete your cart:
+method: DELTE
+route: /api/carts/delete
+
+# Get all products:
+method: GET
+route: /api/products
+
+# Get a product:
+method: GET
+route: /api/products/:id
+
+# Add a product:
+method: POST
+route: /api/products/create
+
+# Edit a product:
+method: PUT
+route: /api/products/:id/update
+
+
+# Delete a product:
+method: DELETE
+route: /api/products/:id
+
+# Add an image:
+method: POST
+route: /api/images/create
+
+# Edit an image:
+method: PUT
+route: /api/images/:id/update
+
+# Delete an image:
+method: DELETE
+route: /api/images/:id
+
+# Authenticate:
+method: GET
+route: /api/auth/
+
+# Login:
+method: POST
+route: /api/auth/login
+
+# Logout:
+method: GET
+route: /api/auth/logout
+
+# Unauthorized:
+method: GET
+route: /api/auth/unauthorized
+
+
+
+
+
 ## Navigating Shinano
 
 Shinano is currently in development and does not have all of the functionality the author intends for it to have.
