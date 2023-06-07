@@ -127,76 +127,26 @@ flask run
 ## Search
 - Any user will be able to search for items in Shinano.
 
-## Backend API routes
-
-# Add a cart:
-method: GET
-route: /api/carts/add-cart
-
-# Get your cart:
-method: POST
-route: /api/carts/yours
-
-# Get a carts items:
-method: GET
-route: /api/carts/:cartId/items
-
-# Add an item to your cart:
-method: PUT
-route: /api/carts/add-item
-
-# Delete your cart:
-method: DELTE
-route: /api/carts/delete
-
-# Get all products:
-method: GET
-route: /api/products
-
-# Get a product:
-method: GET
-route: /api/products/:id
-
-# Add a product:
-method: POST
-route: /api/products/create
-
-# Edit a product:
-method: PUT
-route: /api/products/:id/update
-
-
-# Delete a product:
-method: DELETE
-route: /api/products/:id
-
-# Add an image:
-method: POST
-route: /api/images/create
-
-# Edit an image:
-method: PUT
-route: /api/images/:id/update
-
-# Delete an image:
-method: DELETE
-route: /api/images/:id
-
-# Authenticate:
-method: GET
-route: /api/auth/
-
-# Login:
-method: POST
-route: /api/auth/login
-
-# Logout:
-method: GET
-route: /api/auth/logout
-
-# Unauthorized:
-method: GET
-route: /api/auth/unauthorized
+### API Endpoints
+| HTTP Verbs | Endpoints | Action |
+| --- | --- | --- |
+| GET | /api/carts/yours | To add a cart |
+| GET | /api/carts/:cartId/items | To get items in a cart |
+| GET | /api/products | To get all products |
+| GET | /api/products/:id | To get a product |
+| GET | /api/auth/ | Authenticate |
+| GET | /api/auth/logout | Logout |
+| GET | /api/auth/unauthorized | Logout |
+| POST | /api/carts/add-cart | To add a cart  |
+| POST | /api/products/create | To add a product  |
+| POST | /api/images/create | To add an image  |
+| POST | /api/auth/login | To login |
+| PUT | /api/carts/add-item | To add an item to your cart  |
+| PUT | /api/products/:id/update | To edit a product  |
+| PUT | /api/images/:id/update | To edit an image  |
+| DELETE | /api/carts/delete | To delete a single cause |
+| DELETE | /api/products/:id | To delete a product |
+| DELETE | /api/images/:id | To delete an image |
 
 ## Navigating Shinano
 
