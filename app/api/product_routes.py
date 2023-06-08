@@ -57,6 +57,7 @@ def get_single_product(id):
     response = single_product.to_dict()
 
     images = Image.query.filter(Image.product_id == id).all()
+    
 
     print("-------------images: ", images)
 

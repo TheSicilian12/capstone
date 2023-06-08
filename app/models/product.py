@@ -22,7 +22,7 @@ class Product(db.Model):
 
     # Relationships
     images = db.relationship("Image", back_populates="product", cascade="all, delete-orphan")
-
+    comments = db.relationship("Comment", back_populates="product", cascade="all, delete-orphan")
 
     def to_dict(self):
         return {

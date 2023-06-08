@@ -17,6 +17,10 @@ class Comment(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
     product_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("products.id")))
 
+    # Relationships
+    user = db.relationship("User", back_populates="comments")
+    product = db.relationship("Product", back_populates="comments")
+
     def to_dict(self):
         return {
             'id': self.id,

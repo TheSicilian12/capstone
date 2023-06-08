@@ -42,7 +42,7 @@ with a user signed in and a cart made:
 <img src="./shinano_screenshots/shinano_cart_page.png" />
 
 ## Getting started
-Shinano requires pythin version 3.9.4 and node.js on your machine. Once you have installed thise, follow the steps below:
+Shinano requires python version 3.9.4 and node.js on your machine. Once you have installed thise, follow the steps below:
 
 1. Clone this repository:
 ```bash
