@@ -1,5 +1,5 @@
 # Shinano
-test
+
 Shinano is a web application that is meant to mimic an ecomerce platform, Amazon specifically, and allows you to create, update, and delete prodducts
 and carts. You are only able to create one cart at a time. This ReadMe will provide you with the information to start Shinano.
 
