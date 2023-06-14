@@ -1,10 +1,8 @@
-import { deleteAllItemsCartTHUNK, updateItemCartTHUNK } from "./cart"
+import { deleteAllItemsCartTHUNK } from "./cart"
 import normalize from "./normalizer"
 
 const LOAD_PRODUCT = 'products/all'
 const LOAD_ONE_PRODUCT = 'products/single'
-const POST_PRODUCT = 'products/post'
-const DELETE_PRODUCT = 'products/delete'
 
 const load = (data) => ({
     type: LOAD_PRODUCT,
@@ -13,11 +11,6 @@ const load = (data) => ({
 
 const loadOne = (data) => ({
     type: LOAD_ONE_PRODUCT,
-    payload: data
-})
-
-const postProduct = (data) => ({
-    type: POST_PRODUCT,
     payload: data
 })
 
@@ -102,14 +95,7 @@ export const postImageTHUNK = (payload, productId) => async (dispatch) => {
             payload
         )
     })
-
-    // const data = await response.json()
-    // console.log("data: ", data)
-
-    // if (response.ok) {
-    //     const data = await response.json()
-    //     return data
-    // }
+    return response;
 }
 
 // Edit a product by id THUNK
@@ -185,8 +171,7 @@ export const editImageTHUNK = (payloadPlus, productId) => async (dispatch) => {
                 payload
             )
         })
-        // console.log("after fetch for image update")
-        // }
+        return response;
     }
 }
 

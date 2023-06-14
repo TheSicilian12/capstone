@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
 
 import './AddItemCart.css'
 import '../UniversalCSS.css'
-import { getItemsSingleCartTHUNK, getSingleCartTHUNK, postCartTHUNK, updateItemCartTHUNK } from '../../store/cart';
+import { getSingleCartTHUNK, postCartTHUNK, updateItemCartTHUNK } from '../../store/cart';
 
 export default function AddItemCart({cartId, userId, productId, className}) {
     const dispatch = useDispatch()

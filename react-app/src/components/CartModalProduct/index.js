@@ -1,12 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
-
-
 
 import './CartModalProduct.css'
 import '../UniversalCSS.css'
-import DeleteItemCart from '../DeleteItemCart';
 import { deleteItemCartTHUNK, updateItemCartTHUNK } from '../../store/cart';
 
 

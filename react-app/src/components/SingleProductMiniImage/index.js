@@ -1,8 +1,4 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
-
-
+import React from 'react';
 
 import './SingleProductMiniImage.css'
 import '../UniversalCSS.css'
@@ -12,7 +8,9 @@ export default function SingleProductMiniImage({className, imageUrl}) {
 
 
     return (
-        <img className={`${className}`}
+        <img
+            alt = "Additional product images"
+            className={`${className}`}
             src={`${imageUrl}`}
             />
     )

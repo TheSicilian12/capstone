@@ -43,6 +43,7 @@ function LoginFormPage() {
     <div className="login-container">
       <div className="login-logo-container">
         <img
+          alt="Shinano cart logo"
           className="login-logo"
           src={shinanoLogoMini} />
 

@@ -4,7 +4,6 @@ const LOAD_CART = 'cart/all'
 const LOAD_ONE_CART = 'cart/single'
 const POST_CART = 'cart/post'
 const DELETE_ITEM_CART = 'cart/delete/item'
-const DELETE_CART = 'cart/delete'
 const CLEAR_STATE = 'cart/clearState'
 
 const load = (data) => ({
@@ -19,11 +18,6 @@ const loadOne = (data) => ({
 
 const postCart = (data) => ({
     type: POST_CART,
-    payload: data
-})
-
-const deleteItemCart = (data) => ({
-    type: DELETE_ITEM_CART,
     payload: data
 })
 
@@ -86,7 +80,6 @@ export const getItemsSingleCartTHUNK = (cartId) => async (dispatch) => {
 // add an item in a cart by id
 export const updateItemCartTHUNK = (payload) => async (dispatch) => {
     // console.log("----Add item to cart----")
-    const {user_id, product_ids, total_price} = payload
     // console.log("-----------------------", typeof product_ids)
     // console.log("payload: ", payload)
     const response = await fetch("/api/carts/add-item", {
@@ -110,7 +103,7 @@ export const updateItemCartTHUNK = (payload) => async (dispatch) => {
 // Add a cart
 export const postCartTHUNK = (payload) => async (dispatch) => {
     // console.log("----Add cart----")
-    const {user_id, total_price, product_ids} = payload
+    const {product_ids} = payload
     // console.log(user_id)
     // console.log(total_price)
     console.log(product_ids)

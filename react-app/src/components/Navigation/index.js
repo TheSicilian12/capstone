@@ -42,7 +42,7 @@ function Navigation({ isLoaded }) {
 
 	const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
 
-	let cartCheck = false;
+	// let cartCheck = false;
 
 	let totalItems = 0;
 	if (items) {
@@ -68,6 +68,7 @@ function Navigation({ isLoaded }) {
 	return (
 		<div className="shinano-color-background nav-container">
 			<img
+				alt = "Shinano cart logo"
 				className="nav-logo"
 				onClick={() => history.push("/")}
 				src={shinanoLogoMini} />
@@ -80,6 +81,7 @@ function Navigation({ isLoaded }) {
 
 				{sessionUser && cart["errors"] !== "No cart" && <div onClick={cartSideBar} className="cart-item-num nav-bar-cart-item-container cart-hover">
 					<img
+						alt = "Shinano cart logo"
 						className="nav-cart"
 						src={shinanoCart} />
 					<div>

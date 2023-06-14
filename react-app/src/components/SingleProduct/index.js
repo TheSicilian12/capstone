@@ -6,12 +6,10 @@ import DeleteSingleProductModal from '../DeleteSingleProductModal';
 
 import './SingleProduct.css'
 import '../UniversalCSS.css'
-import StandardButtons from '../StandardButtons';
 import { getSingleProductTHUNK } from '../../store/product';
-import { postItemCartTHUNK, getSingleCartTHUNK } from '../../store/cart'
+import { getSingleCartTHUNK } from '../../store/cart'
 import OpenModalButton from '../OpenModalButton';
 import AddItemCart from '../AddItemCart';
-import SingleCart from '../SingleCart';
 import DeleteItemCart from '../DeleteItemCart';
 import SingleProductMiniImage from '../SingleProductMiniImage';
 
@@ -20,7 +18,6 @@ export default function SingleProduct() {
     const products = useSelector(state => state.products)
     const user = useSelector(state => state.session.user)
     const cart = useSelector(state => state.cart.carts)
-    const cartCheck = useSelector(state => state.cart)
     const history = useHistory()
 
     const productId = Number(useParams().productId)
@@ -33,7 +30,7 @@ export default function SingleProduct() {
     useEffect(() => {
         dispatch(getSingleProductTHUNK(productId))
         if (user) dispatch(getSingleCartTHUNK(user.id))
-    }, [dispatch])
+    }, [dispatch, user, productId])
 
     if (!singleProduct) return <div>loading single product</div>
 
@@ -58,7 +55,9 @@ export default function SingleProduct() {
             <div className="single-product-container">
 
                 <div className="single-product-image-container">
-                    <img className='single-product-main-image'
+                    <img
+                        alt = "Main product"
+                        className='single-product-main-image'
                         src={`${mainImage.image_url}`}
                     />
 

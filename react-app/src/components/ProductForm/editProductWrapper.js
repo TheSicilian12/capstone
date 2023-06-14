@@ -14,7 +14,7 @@ export default function EditProductForm() {
 
     useEffect(() => {
         dispatch(getSingleProductTHUNK(productId))
-    }, [dispatch])
+    }, [dispatch, productId])
 
     const productInfo = useSelector((state) => state.products.product)
     // console.log("product info: ", productInfo)
