@@ -46,8 +46,8 @@ export default function MainCarousel() {
 
     return (
         <div className="mainCarousel-container">
-            <div className="mainCarousel-backButton-container">
-                <i className="fa fa-chevron-left fa-lg mainCarousel-backButton"
+            <div className="mainCarousel-Button-container">
+                <i className="fa fa-chevron-left fa-lg mainCarousel-Button"
                     onClick={() => goBackImage()}
                 ></i>
             </div>
@@ -57,8 +57,8 @@ export default function MainCarousel() {
                 className="mainCarousel-image"
                 src={currentImage} />
 
-            <div className="mainCarousel-forwardButton-container">
-                <i className="fa fa-chevron-right fa-lg mainCarousel-forwardButton"
+            <div className="mainCarousel-Button-container mainCarousel-button-rightPosition">
+                <i className="fa fa-chevron-right fa-lg mainCarousel-Button"
                     onClick={() => goForwardImage()}
                 ></i>
             </div>
