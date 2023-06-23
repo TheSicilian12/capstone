@@ -46,7 +46,7 @@ export default function MainCarousel() {
 
     return (
         <div className="mainCarousel-container">
-            <div>
+            <div className="mainCarousel-backButton-container">
                 <i className="fa fa-chevron-left mainCarousel-backButton"
                     onClick={() => goBackImage()}
                 ></i>
@@ -56,10 +56,12 @@ export default function MainCarousel() {
                 alt="Shinano cart logo"
                 className="mainCarousel-image"
                 src={currentImage} />
-
-            <i className="fa fa-chevron-right mainCarousel-forwardButton"
-                onClick={() => goForwardImage()}
-            ></i>
+                
+            <div className="mainCarousel-forwardButton-container">
+                <i className="fa fa-chevron-right mainCarousel-forwardButton"
+                    onClick={() => goForwardImage()}
+                ></i>
+            </div>
         </div>
     )
 }
