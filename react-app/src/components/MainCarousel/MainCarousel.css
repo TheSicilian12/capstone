@@ -1,7 +1,6 @@
 .mainCarousel-container {
     display: flex;
-    width: 70vw;
-    align-items: center;
+    width: 97vw;
     justify-content: space-between;
     position: relative;
 }
