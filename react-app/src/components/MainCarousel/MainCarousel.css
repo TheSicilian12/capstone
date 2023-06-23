@@ -1,0 +1,30 @@
+.mainCarousel-container {
+    display: flex;
+    width: 97vw;
+    justify-content: space-between;
+    position: relative;
+}
+
+.mainCarousel-Button {
+    width: 50px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mainCarousel-Button-container {
+    position: absolute;
+}
+.mainCarousel-Button-container:hover {
+    border: 1px solid black;
+}
+
+.mainCarousel-button-rightPosition {
+    right: 0;
+}
+
+.mainCarousel-image {
+    width: 100%;
+    height: 40vh;
+}

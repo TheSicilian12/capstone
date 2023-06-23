@@ -159,6 +159,7 @@ export default function ProductForm({ productInfo, formType, productId, mainProd
         <div className="login-container">
             <div className="login-logo-container">
                 <img
+                    alt="Shinan cart logo"
                     className="login-logo"
                     src={shinanoLogoMini} />
             </div>

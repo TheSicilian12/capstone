@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from app.models import Product, db, User, Image
+from app.models import Product, db, User, Image, Comment
 from flask_login import login_required, current_user
 from app.forms import ProductForm
 
@@ -57,6 +57,7 @@ def get_single_product(id):
     response = single_product.to_dict()
 
     images = Image.query.filter(Image.product_id == id).all()
+    comments = Comment.query.filter(Comment.product_id == id).all()
 
     print("-------------images: ", images)
 
@@ -65,6 +66,13 @@ def get_single_product(id):
     for image in images:
         response["images"].update({imageKey: image.to_dict()})
         imageKey += 1
+
+    commentKey = 0
+    response["comments"] = {}
+    for comment in comments:
+        response["comments"].update({commentKey: comment.to_dict()})
+        commentKey += 1
+
 
     # print('-------single_product------ ', single_product.to_dict())
     return {'product': response}

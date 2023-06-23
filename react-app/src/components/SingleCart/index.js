@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import './SingleCart.css'
 import '../UniversalCSS.css'
 import { deleteCartTHUNK, deleteItemCartTHUNK, deleteSpecItemSpecCartTHUNK, getSingleCartTHUNK, postCartTHUNK, updateItemCartTHUNK } from '../../store/cart';
-import DeleteItemCart from '../DeleteItemCart';
 
 export default function SingleCart() {
     const dispatch = useDispatch();
@@ -118,6 +117,7 @@ export default function SingleCart() {
                         <div className="shopping-cart-product-container">
                             <div className="shopping-cart-page-info">
                                 <img
+                                    alt = "Shinano cart logo"
                                     className="shopping-cart-image"
                                     src={item.mainImage}
                                 />
