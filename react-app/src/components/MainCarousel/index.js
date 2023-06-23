@@ -13,23 +13,8 @@ export default function MainCarousel() {
 
     const carousel = [mainCarousel1, mainCarousel2, mainCarousel3];
 
-    const [currentImage, setCurrentImage] = useState(carousel[2]);
+    const [currentImage, setCurrentImage] = useState(carousel[0]);
     const [currentIndex, setCurrentIndex] = useState(0);
-
-    // let i = 0
-
-    // setInterval(changeImage, 5000)
-
-
-    // function changeImage() {
-    //     i++
-    //     let imod = i % carousel.length
-    //     // setCurrentImage(carousel[imod])
-
-    //     console.log("i: ", i)
-    //     console.log("imod: ", imod)
-    //     setCurrentImage(carousel[imod])
-    // }
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -45,16 +30,34 @@ export default function MainCarousel() {
         setCurrentImage(carousel[currentIndex]);
     }, [carousel, currentIndex])
 
+
+
+    const goBackImage = () => {
+        let minusIndex = currentIndex - 1;
+        if (minusIndex < 0) minusIndex = carousel.length - 1;
+        setCurrentIndex(minusIndex);
+    }
+
+    const goForwardImage = () => {
+        let addIndex = currentIndex + 1;
+        if (addIndex > carousel.length - 1) addIndex = 0;
+        setCurrentIndex(addIndex)
+    }
+
     return (
         <div>
-            <i className="fa fa-chevron-left"></i>
+            <i className="fa fa-chevron-left"
+            onClick={() => goBackImage()}
+            ></i>
 
             <img
                 alt="Shinano cart logo"
                 className="nav-logo"
                 src={currentImage} />
-                
-            <i className="fa fa-chevron-right"></i>
+
+            <i className="fa fa-chevron-right"
+            onClick={() => goForwardImage()}
+            ></i>
         </div>
     )
 }
