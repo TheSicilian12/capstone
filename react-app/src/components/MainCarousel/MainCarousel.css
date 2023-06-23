@@ -15,3 +15,13 @@
     align-items: center;
     justify-content: center;
 }
+
+.mainCarousel-container {
+    display: flex;
+}
+
+.mainCarousel-image {
+    border: 1px solid black;
+    width: 70vw;
+    height: 40vh;
+}

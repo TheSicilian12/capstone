@@ -45,7 +45,7 @@ export default function MainCarousel() {
     }
 
     return (
-        <div>
+        <div className="mainCarousel-container">
             <div>
                 <i className="fa fa-chevron-left mainCarousel-backButton"
                     onClick={() => goBackImage()}
@@ -54,7 +54,7 @@ export default function MainCarousel() {
 
             <img
                 alt="Shinano cart logo"
-                className="nav-logo"
+                className="mainCarousel-image"
                 src={currentImage} />
 
             <i className="fa fa-chevron-right mainCarousel-forwardButton"
