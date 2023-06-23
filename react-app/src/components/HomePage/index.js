@@ -5,6 +5,7 @@ import '../UniversalCSS.css'
 import { getAllProductsTHUNK } from '../../store/product';
 import { getSingleCartTHUNK } from '../../store/cart';
 import ProductContainer from '../ProductContainer';
+import MainCarousel from '../MainCarousel';
 
 export default function HomePage() {
     const dispatch = useDispatch();
@@ -21,6 +22,7 @@ export default function HomePage() {
 
     return (
         <div className="justify-center home-page">
+                <MainCarousel />
             <div className="homepage-container">
                 {Object.values(products).map(product => {
                     return (

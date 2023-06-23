@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 
 import DeleteSingleProductModal from '../DeleteSingleProductModal';
+import commentsProduct from '../CommentsProduct'
 
 import './SingleProduct.css'
 import '../UniversalCSS.css'
@@ -99,6 +100,9 @@ export default function SingleProduct() {
                             />
                         </div>
                     </div>}
+            </div>
+            <div>
+
             </div>
         </div>
     )
