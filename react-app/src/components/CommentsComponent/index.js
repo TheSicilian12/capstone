@@ -26,7 +26,6 @@ export default function CommentsComponent({groupId}) {
     comments.forEach(comment => console.log("comment: ", comment))
 
     return (
-        // <div>Hello</div>
         <div>
             Comments:
             {comments.map(comment => <div key={comment.id}>Comment: {comment.details}</div>)}
