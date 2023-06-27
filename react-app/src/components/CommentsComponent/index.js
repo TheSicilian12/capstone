@@ -13,17 +13,23 @@ export default function CommentsComponent({groupId}) {
         dispatch(getAllProductCommentsTHUNK(groupId))
     }, [dispatch])
 
-    console.log("comments: ", comments.length)
+    let commentArr = [];
+    console.log("comments: ", comments)
+    // commentArr = comments;
+    if (!comments) return null;
+
+    // console.log("comments: ", comments.length)
 
     // if (comments.length === 0) return null;
 
     // console.log("test: ", Object.values(comments))
-    // comments.forEach(comment => console.log("comment: ", comment))
+    comments.forEach(comment => console.log("comment: ", comment))
 
     return (
-        <div>Hello</div>
-        // <div>
-        //     {Object.values(comments).map((comment) => console.log("comment: ", comment))}
-        // </div>
+        // <div>Hello</div>
+        <div>
+            Comments:
+            {comments.map(comment => <div key={comment.id}>Comment: {comment.details}</div>)}
+        </div>
     )
 }
