@@ -23,11 +23,8 @@ export default function SingleProduct() {
 
     const productId = Number(useParams().productId)
 
-    // console.log("productId: ", productId)
-    // console.log("cartCheck: ", cartCheck)
-
     const singleProduct = products.product
-    // console.log('singleProduct: ', singleProduct)
+    // console.log("singleProduct: ", singleProduct)
     useEffect(() => {
         dispatch(getSingleProductTHUNK(productId))
         if (user) dispatch(getSingleCartTHUNK(user.id))
@@ -42,7 +39,6 @@ export default function SingleProduct() {
     let images = [];
 
     Object.values(products.product.images).forEach(image => {
-        // console.log("image: ", image)
         if (image.main_image === "yes") mainImage = image
         else images.push(image)
     })
@@ -103,7 +99,7 @@ export default function SingleProduct() {
             </div>
 
             <div className="border-black">
-                <CommentsComponent />
+                <CommentsComponent comments={singleProduct?.comments}/>
             </div>
         </div>
     )
