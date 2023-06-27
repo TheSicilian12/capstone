@@ -1,14 +1,16 @@
 .single-product-page-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .single-product-container {
     display: flex;
-    /* flex-direction: column */
+    /* flex-direction: column; */
     justify-content: space-between;
     width: 90vw;
-    height: 80vh;
+    height: 60vh;
     margin-top: 50px;
 }
 

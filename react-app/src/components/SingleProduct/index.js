@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 
 import DeleteSingleProductModal from '../DeleteSingleProductModal';
-import commentsProduct from '../CommentsProduct'
+import CommentsComponent from '../CommentsComponent'
 
 import './SingleProduct.css'
 import '../UniversalCSS.css'
@@ -52,12 +52,12 @@ export default function SingleProduct() {
     }
 
     return (
-        <div className="single-product-page-container">
-            <div className="single-product-container">
+        <div className="single-product-page-container border-black">
+            <div className="single-product-container border-green">
 
                 <div className="single-product-image-container">
                     <img
-                        alt = "Main product"
+                        alt="Main product"
                         className='single-product-main-image'
                         src={`${mainImage.image_url}`}
                     />
@@ -101,8 +101,9 @@ export default function SingleProduct() {
                         </div>
                     </div>}
             </div>
-            <div>
 
+            <div className="border-black">
+                <CommentsComponent />
             </div>
         </div>
     )
