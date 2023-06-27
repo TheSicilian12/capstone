@@ -99,7 +99,7 @@ export default function SingleProduct() {
             </div>
 
             <div className="border-black">
-                <CommentsComponent comments={singleProduct?.comments}/>
+                <CommentsComponent groupId={singleProduct?.id}/>
             </div>
         </div>
     )

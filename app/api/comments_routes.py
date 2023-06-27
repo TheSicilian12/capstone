@@ -12,6 +12,7 @@ def get_all_prod_comments(productId):
     '''
     Query for all of the comments associated with a product
     '''
+    
     all_comments = Comment.query.filter(Comment.product_id == productId).all()
 
     response = [comment.to_dict() for comment in all_comments]
