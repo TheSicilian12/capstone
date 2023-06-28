@@ -30,16 +30,15 @@ def create_prod_comments(productId):
     """
     Create a comment for a product
     """
-    print("-------------------------add a new product comment------------------------")
     form = CommentForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
-    print("---------form validate: ", form.validate_on_submit())
-    print("---------details: ", form.data["details"])
-    print("---------rating: ", form.data["rating"])
-    print("---------user_id: ", form.data["user_id"])
-    print("---------product_id: ", form.data["product_ids"])
-    print("---------form data: ", form.data)
+    # print("---------form validate: ", form.validate_on_submit())
+    # print("---------details: ", form.data["details"])
+    # print("---------rating: ", form.data["rating"])
+    # print("---------user_id: ", form.data["user_id"])
+    # print("---------product_id: ", form.data["product_ids"])
+    # print("---------form data: ", form.data)
     if form.validate_on_submit():
         data = form.data
         new_comment = Comment(
