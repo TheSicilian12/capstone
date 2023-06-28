@@ -27,14 +27,14 @@ function OpenAddCommentModal({
 
   return (
     <div className="login-container">
-            <div className="login-logo-container">
-                {/* <img
+            {/* <div className="login-logo-container">
+                <img
                     alt="Shinan cart logo"
                     className="login-logo"
-                    src={shinanoLogoMini} /> */}
-            </div>
+                    src={shinanoLogoMini} />
+            </div> */}
             <form
-                className="login-form-container"
+                className="login-form-container add-comment-form-container-border"
                 // onSubmit={handleSubmit}
             >
                 <h1 className="login-form-header">
