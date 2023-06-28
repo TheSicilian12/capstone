@@ -5,7 +5,7 @@ import { getAllProductCommentsTHUNK } from '../../store/comment';
 
 import "./CommentsComponent.css"
 
-export default function CommentsComponent({groupId}) {
+export default function CommentsComponent({ groupId }) {
     const dispatch = useDispatch();
     const comments = useSelector(state => state.comments.comments)
 
@@ -29,17 +29,18 @@ export default function CommentsComponent({groupId}) {
         <div>
             Comments:
             {comments.map(comment =>
-            <div>
-            <div
-                key={`username${comment.id}`}>
-                {comment.user.username}
-            </div>
-            <div
-                className="comment-container"
-                key={`comment${comment.id}`}>
-                    Comment: {comment.details}
-            </div>
-            </div>)}
+                <div
+                    key={`indComment${comment.id}`}>
+                    <div
+                        key={`username${comment.id}`}>
+                        {comment.user.username}
+                    </div>
+                    <div
+                        className="comment-container"
+                        key={`comment${comment.id}`}>
+                        Comment: {comment.details}
+                    </div>
+                </div>)}
         </div>
     )
 }
