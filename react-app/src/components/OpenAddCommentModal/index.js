@@ -5,7 +5,7 @@ import { useModal } from '../../context/Modal';
 import './OpenAddCommentModal.css'
 import '../UniversalCSS.css'
 import StarRatingComponent from '../StarRatingComponent';
-import { addProductCommentTHUNK } from '../../store/comment';
+import { addProductCommentTHUNK, editProductCommentTHUNK } from '../../store/comment';
 
 
 function OpenAddCommentModal({
@@ -45,9 +45,12 @@ function OpenAddCommentModal({
             userId: user.id,
             productId: productId
         }
-        if (type === "edit") {
+        if (type !== "edit") {
             const newComment = await dispatch(addProductCommentTHUNK(payload));
-        } 
+        } else {
+            payload.commentId = comment.id
+            const editedComment = await dispatch(editProductCommentTHUNK(payload))
+        }
         closeModal();
     }
 
