@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import "./StarRatingComponent.css"
 
-export default function StarRatingComponent() {
+export default function StarRatingComponent({rating, setRating}) {
     const dispatch = useDispatch();
 
-    const [rating, setRating] = useState(1)
+    // const [rating, setRating] = useState(1)
 
     const fullStar = "fa fa-star star-color";
     const emptyStar = "far fa-star";
@@ -14,7 +14,8 @@ export default function StarRatingComponent() {
     // fullStar = <i className="fa fa-star"></i>;
     // emptyStar =  <i className="far fa-star"></i>;
     // halfStar = <i className="fa fa-star-half"></i>
-    console.log("rating: ", rating)
+
+   
     return (
         <div className="star-create-rating-component">
            <div

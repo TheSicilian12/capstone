@@ -8,43 +8,48 @@ import StarRatingComponent from '../StarRatingComponent';
 
 
 function OpenAddCommentModal({
-  modalComponent, // component to render inside the modal
-  onButtonClick, // optional: callback function that will be called once the button that opens the modal is clicked
-  onModalClose, // optional: callback function that will be called once the modal is closed
+    modalComponent, // component to render inside the modal
+    onButtonClick, // optional: callback function that will be called once the button that opens the modal is clicked
+    onModalClose, // optional: callback function that will be called once the modal is closed
 
-  closeMenu,
+    closeMenu,
 
-  className
+    className
 }) {
-  const { setModalContent, setOnModalClose } = useModal();
-  const dispatch = useDispatch()
+    const { setModalContent, setOnModalClose } = useModal();
+    const dispatch = useDispatch()
 
-  const [comment, setComment] = useState("")
-  const [disCommentErr, setDisCommentErr] = useState(false);
+    const [comment, setComment] = useState("")
+    const [disCommentErr, setDisCommentErr] = useState(false);
+    const [rating, setRating] = useState(1)
 
-  let err = {}
-  if (comment.length < 10) err.comment = "Comment should be 10+ characters long."
+    let err = {}
+    if (comment.length < 10) err.comment = "Comment should be 10+ characters long."
 
-  let disableLogin = "button-disabled";
-  if (!Object.values(err).length > 0) disableLogin = "button-no-dimensions"
+    let disableLogin = "button-disabled";
+    if (!Object.values(err).length > 0) disableLogin = "button-no-dimensions"
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    // THUNK to add comment
-  }
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        // THUNK to add comment
 
-  return (
-    <div className="login-container">
+    }
+
+
+
+
+    return (
+        <div className="login-container">
             <form
                 className="login-form-container add-comment-form-container-border"
-                // onSubmit={handleSubmit}
+            // onSubmit={handleSubmit}
             >
                 <h1 className="login-form-header">
                     {/* {formType === "new" ? "Add a product" : "Edit your product"} */}
                     Add a comment
                 </h1>
                 <div className="login-form-input-contianer">
-                    <StarRatingComponent />
+                    <StarRatingComponent rating={rating} setRating={setRating}/>
                 </div>
                 <div className="login-form-input-contianer">
                     <label>
@@ -66,7 +71,7 @@ function OpenAddCommentModal({
                     className={`login-page-button ${disableLogin}`}
                     type="submit"
                     disabled={Object.values(err).length > 0}
-                    >
+                >
                     Add comment
                     {/* {formType === "new" ? "Add Product" : "Edit Product"} */}
                 </button>
