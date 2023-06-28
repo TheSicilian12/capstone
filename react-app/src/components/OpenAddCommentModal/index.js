@@ -45,8 +45,12 @@ function OpenAddCommentModal({
             userId: user.id,
             productId: productId
         }
-
-        const newComment = await dispatch(addProductCommentTHUNK(payload));
+        if (type === "edit") {
+            const newComment = await dispatch(addProductCommentTHUNK(payload));
+        } else {
+            // update comment
+            payload.commentId = comment.id
+        }
         closeModal();
     }
 

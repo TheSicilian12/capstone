@@ -43,7 +43,31 @@ export const addProductCommentTHUNK = (commentDetails) => async (dispatch) => {
         const data = await response.json()
         dispatch(getAllProductCommentsTHUNK(productId))
     }
+}
 
+// Update a comment for a product THUNK
+export const editProductCommentTHUNK = (commentDetails) => async (dispatch) => {
+    const {details, rating, userId, productId, commentId} = commentDetails;
+
+    const payloadComment = {
+        details,
+        rating,
+        user_id: userId,
+        product_ids: productId
+    }
+    const response = await fetch(`/api/comments/${commentId}/edit`, {
+        method: 'PUT',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(
+            payloadComment
+        )
+    })
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(getAllProductCommentsTHUNK(productId))
+    }
 }
 
 
