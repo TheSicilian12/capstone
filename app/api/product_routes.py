@@ -67,11 +67,11 @@ def get_single_product(id):
         response["images"].update({imageKey: image.to_dict()})
         imageKey += 1
 
-    commentKey = 0
-    response["comments"] = {}
-    for comment in comments:
-        response["comments"].update({commentKey: comment.to_dict()})
-        commentKey += 1
+    # commentKey = 0
+    # response["comments"] = {}
+    # for comment in comments:
+    #     response["comments"].update({commentKey: comment.to_dict()})
+    #     commentKey += 1
 
 
     # print('-------single_product------ ', single_product.to_dict())

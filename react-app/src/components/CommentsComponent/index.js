@@ -28,7 +28,12 @@ export default function CommentsComponent({groupId}) {
     return (
         <div>
             Comments:
-            {comments.map(comment => <div key={comment.id}>Comment: {comment.details}</div>)}
+            {comments.map(comment =>
+            <div
+                className="comment-container"
+                key={comment.id}>
+                    Comment: {comment.details}
+            </div>)}
         </div>
     )
 }
