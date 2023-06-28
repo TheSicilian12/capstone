@@ -48,7 +48,7 @@ function OpenAddCommentModal({
         if (type !== "edit") {
             const newComment = await dispatch(addProductCommentTHUNK(payload));
         } else {
-            payload.commentId = comment.id
+            payload.commentId = commentInfo.id
             const editedComment = await dispatch(editProductCommentTHUNK(payload))
         }
         closeModal();

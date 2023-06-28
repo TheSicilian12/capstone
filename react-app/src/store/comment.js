@@ -48,7 +48,7 @@ export const addProductCommentTHUNK = (commentDetails) => async (dispatch) => {
 // Update a comment for a product THUNK
 export const editProductCommentTHUNK = (commentDetails) => async (dispatch) => {
     const {details, rating, userId, productId, commentId} = commentDetails;
-
+    console.log("-------------------commentId: ", commentId)
     const payloadComment = {
         details,
         rating,
