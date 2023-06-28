@@ -9,6 +9,9 @@ export default function StarRatingComponent({ groupId }) {
     return (
         <div>
             Hello
+            <i className="fa fa-star"></i>
+            <i className="far fa-star"></i>
+            <i class="fa-regular fa-star-half-stroke"></i>
         </div>
     )
 }
