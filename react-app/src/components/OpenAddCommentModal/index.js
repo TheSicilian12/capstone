@@ -47,10 +47,7 @@ function OpenAddCommentModal({
         }
         if (type === "edit") {
             const newComment = await dispatch(addProductCommentTHUNK(payload));
-        } else {
-            // update comment
-            payload.commentId = comment.id
-        }
+        } 
         closeModal();
     }
 

@@ -57,25 +57,25 @@ def create_prod_comments(productId):
             "errors": form.errors
         }
 
-# @comment_routes.route('/<int:commentId>/edit', methods=['PUT'])
-# @login_required
-# def create_prod_comments(commentId):
-#     """
-#     Create a comment for a product
-#     """
-#     form = CommentForm()
-#     form['csrf_token'].data = request.cookies['csrf_token']
+@comment_routes.route('/<int:commentId>/edit', methods=['PUT'])
+@login_required
+def edit_prod_comments(commentId):
+    """
+    Create a comment for a product
+    """
+    form = CommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
 
-#     if form.validate_on_submit():
-#         comment = Comment.query.get(commentId)
+    if form.validate_on_submit():
+        comment = Comment.query.get(commentId)
 
-#         comment.details = form.data["details"]
-#         comment.rating = form.data["rating"]
-#         db.session.commit()
-#         return {
-#             "comment": comment.to_dict()
-#         }
-#     else:
-#         return {
-#             "errors": form.errors
-#         }
+        comment.details = form.data["details"]
+        comment.rating = form.data["rating"]
+        db.session.commit()
+        return {
+            "comment": comment.to_dict()
+        }
+    else:
+        return {
+            "errors": form.errors
+        }
