@@ -6,6 +6,7 @@ import './OpenEditCommentModal.css'
 import '../UniversalCSS.css'
 import StarRatingComponent from '../StarRatingComponent';
 import { addProductCommentTHUNK } from '../../store/comment';
+import OpenAddCommentModal from '../OpenAddCommentModal';
 
 
 function OpenEditCommentModal({
@@ -18,11 +19,12 @@ function OpenEditCommentModal({
     className,
     productId
 }) {
-
+    // Get comment info and feed it to add comment modal
+    // Add comment modal will then need to parse depending on if it's an edit or new
 
     return (
         <div>
-            Edit comment
+            <OpenAddCommentModal />
         </div>
     );
 }
