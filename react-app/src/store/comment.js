@@ -41,7 +41,7 @@ export const addProductCommentTHUNK = (commentDetails) => async (dispatch) => {
     })
     if (response.ok) {
         const data = await response.json()
-        return data
+        dispatch(getAllProductCommentsTHUNK(productId))
     }
 
 }
