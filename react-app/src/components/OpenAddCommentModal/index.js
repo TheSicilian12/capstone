@@ -16,7 +16,9 @@ function OpenAddCommentModal({
     closeMenu,
 
     className,
-    productId
+    productId,
+    commentInfo,
+    type
 }) {
     const { setModalContent, setOnModalClose } = useModal();
     const dispatch = useDispatch()
@@ -24,9 +26,9 @@ function OpenAddCommentModal({
 
     const user = useSelector(state => state.session.user)
 
-    const [comment, setComment] = useState("")
+    const [comment, setComment] = useState(type === "edit" ? commentInfo.details : "")
     const [disCommentErr, setDisCommentErr] = useState(false);
-    const [rating, setRating] = useState(1)
+    const [rating, setRating] = useState(type === "edit" ? commentInfo.rating : 1)
 
     let err = {}
     if (comment.length < 10) err.comment = "Comment should be 10+ characters long."

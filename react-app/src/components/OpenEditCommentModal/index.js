@@ -17,14 +17,15 @@ function OpenEditCommentModal({
     closeMenu,
 
     className,
-    productId
+    comment
 }) {
     // Get comment info and feed it to add comment modal
     // Add comment modal will then need to parse depending on if it's an edit or new
 
+    console.log("comment: ", comment)
     return (
         <div>
-            <OpenAddCommentModal />
+            <OpenAddCommentModal commentInfo={comment} type={"edit"}/>
         </div>
     );
 }
