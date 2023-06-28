@@ -28,6 +28,9 @@ function OpenAddCommentModal({
   let err = {}
   if (comment.length < 10) err.comment = "Comment should be 10+ characters long."
 
+  let disableLogin = "button-disabled";
+  if (!Object.values(err).length > 0) disableLogin = "button-no-dimensions"
+
   return (
     <div className="login-container">
             <form
@@ -55,9 +58,9 @@ function OpenAddCommentModal({
                     {disCommentErr && <div className="errors">{err.comment}</div>}
                 </div>
                 <button
-                    // className={`login-page-button ${disableLogin}`}
+                    className={`login-page-button ${disableLogin}`}
                     type="submit"
-                    // disabled={Object.values(err).length > 0}
+                    disabled={Object.values(err).length > 0}
                     >
                     Add comment
                     {/* {formType === "new" ? "Add Product" : "Edit Product"} */}

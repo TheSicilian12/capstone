@@ -49,7 +49,7 @@ function LoginFormPage() {
 
       </div>
       <form className="login-form-container" onSubmit={handleSubmit}>
-        <h1 className="login-form-header">Sign in</h1>
+        <h1 className="login-form-header">Log in</h1>
         {Object.values(errors).length > 0 && <div className="errors">Invalid data</div>}
         <div className="login-form-input-contianer">
           <label>
