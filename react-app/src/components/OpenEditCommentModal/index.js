@@ -19,9 +19,7 @@ function OpenEditCommentModal({
     className,
     comment
 }) {
-    // Get comment info and feed it to add comment modal
-    // Add comment modal will then need to parse depending on if it's an edit or new
-    
+
     return (
         <div>
             <OpenAddCommentModal commentInfo={comment} type={"edit"} productId={comment.productId}/>
