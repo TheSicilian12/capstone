@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useModal } from '../../context/Modal';
 
 import './OpenAddCommentModal.css'
 import '../UniversalCSS.css'
 import StarRatingComponent from '../StarRatingComponent';
+import { addProductCommentTHUNK } from '../../store/comment';
 
 
 function OpenAddCommentModal({
@@ -14,10 +15,13 @@ function OpenAddCommentModal({
 
     closeMenu,
 
-    className
+    className,
+    productId
 }) {
     const { setModalContent, setOnModalClose } = useModal();
     const dispatch = useDispatch()
+
+    const user = useSelector(state => state.session.user)
 
     const [comment, setComment] = useState("")
     const [disCommentErr, setDisCommentErr] = useState(false);
@@ -32,17 +36,21 @@ function OpenAddCommentModal({
     const handleSubmit = async (e) => {
         e.preventDefault();
         // THUNK to add comment
+        const payload = {
+            details: comment,
+            rating,
+            userId: user.id,
+            productId: productId
+        }
 
+        const newComment = await dispatch(addProductCommentTHUNK(payload));
     }
-
-
-
 
     return (
         <div className="login-container">
             <form
                 className="login-form-container add-comment-form-container-border"
-            // onSubmit={handleSubmit}
+                onSubmit={handleSubmit}
             >
                 <h1 className="login-form-header">
                     {/* {formType === "new" ? "Add a product" : "Edit your product"} */}

@@ -26,21 +26,27 @@ def get_all_prod_comments(productId):
 
 @comment_routes.route('/product/<int:productId>/new', methods=['POST'])
 @login_required
-def create_prod_comments():
+def create_prod_comments(productId):
     """
     Create a comment for a product
     """
-
+    print("-------------------------add a new product comment------------------------")
     form = CommentForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
+    print("---------form validate: ", form.validate_on_submit())
+    print("---------details: ", form.data["details"])
+    print("---------rating: ", form.data["rating"])
+    print("---------user_id: ", form.data["user_id"])
+    print("---------product_id: ", form.data["product_ids"])
+    print("---------form data: ", form.data)
     if form.validate_on_submit():
         data = form.data
         new_comment = Comment(
             details = data["details"],
             rating = data['rating'],
             user_id = data['user_id'],
-            product_id = data['product_id']
+            product_id = data['product_ids']
         )
         db.session.add(new_comment)
         db.session.commit()

@@ -10,29 +10,25 @@ import OpenAddCommentModal from '../OpenAddCommentModal';
 export default function CommentsComponent({ groupId }) {
     const dispatch = useDispatch();
     const comments = useSelector(state => state.comments.comments)
+    const singleProduct = useSelector(state => state.products.product)
 
     useEffect(() => {
         dispatch(getAllProductCommentsTHUNK(groupId))
     }, [dispatch])
 
+
     let commentArr = [];
-    console.log("comments: ", comments)
     // commentArr = comments;
     if (!comments) return null;
-
-    // console.log("comments: ", comments.length)
-
+    
     // if (comments.length === 0) return null;
-
-    // console.log("test: ", Object.values(comments))
-    comments.forEach(comment => console.log("comment: ", comment))
 
     return (
         <div>
             Comments:
              <OpenModalButton
               buttonText="Add Comment"
-              modalComponent={<OpenAddCommentModal />}
+              modalComponent={<OpenAddCommentModal productId={singleProduct.id}/>}
             />
             {comments.map(comment =>
                 <div

@@ -21,14 +21,16 @@ export const getAllProductCommentsTHUNK = (productId) => async (dispatch) => {
 // Add a comment to a product THUNK
 export const addProductCommentTHUNK = (commentDetails) => async (dispatch) => {
     // Need details, rating, user_id, product_id
+    console.log("---add product comment THUNK----")
     const {details, rating, userId, productId} = commentDetails;
 
     const payloadComment = {
         details,
         rating,
-        user_id: userId
+        user_id: userId,
+        product_ids: productId
     }
-    const response = await fetch(`api/comments/product/${productId}/new`, {
+    const response = await fetch(`/api/comments/product/${productId}/new`, {
         method: 'POST',
         headers: {
             "Content-Type": "application/json",
