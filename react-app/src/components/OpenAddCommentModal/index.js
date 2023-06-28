@@ -20,6 +20,7 @@ function OpenAddCommentModal({
 }) {
     const { setModalContent, setOnModalClose } = useModal();
     const dispatch = useDispatch()
+    const { closeModal } = useModal();
 
     const user = useSelector(state => state.session.user)
 
@@ -44,6 +45,7 @@ function OpenAddCommentModal({
         }
 
         const newComment = await dispatch(addProductCommentTHUNK(payload));
+        closeModal();
     }
 
     return (
