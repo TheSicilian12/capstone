@@ -70,7 +70,6 @@ export const editProductCommentTHUNK = (commentDetails) => async (dispatch) => {
     }
 }
 
-
 const initialState = {}
 
 export default function commentReducer(state = initialState, action) {
