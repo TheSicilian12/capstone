@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllProductCommentsTHUNK } from '../../store/comment';
 
 import "./CommentsComponent.css"
+import OpenModalButton from '../OpenModalButton';
+import OpenAddCommentModal from '../OpenAddCommentModal';
 
 export default function CommentsComponent({ groupId }) {
     const dispatch = useDispatch();
@@ -28,6 +30,10 @@ export default function CommentsComponent({ groupId }) {
     return (
         <div>
             Comments:
+             <OpenModalButton
+              buttonText="Add Comment"
+              modalComponent={<OpenAddCommentModal />}
+            />
             {comments.map(comment =>
                 <div
                     key={`indComment${comment.id}`}>
