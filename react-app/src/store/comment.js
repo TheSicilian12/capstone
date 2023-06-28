@@ -7,6 +7,7 @@ const load = (data) => ({
     payload: data
 })
 
+
 // Get all comments for a product THUNK
 export const getAllProductCommentsTHUNK = (productId) => async (dispatch) => {
     const response = await fetch(`/api/comments/product/${productId}`)
@@ -16,6 +17,14 @@ export const getAllProductCommentsTHUNK = (productId) => async (dispatch) => {
         dispatch(load(await_response))
     }
 }
+
+// Add a comment to a product THUNK
+export const addProductCommentTHUNK = (commentDetails) => async (dispatch) => {
+    // Need details, rating, user_id, product_id
+    
+
+}
+
 
 const initialState = {}
 
