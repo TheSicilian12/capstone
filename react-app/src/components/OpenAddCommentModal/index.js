@@ -4,6 +4,7 @@ import { useModal } from '../../context/Modal';
 
 import './OpenAddCommentModal.css'
 import '../UniversalCSS.css'
+import StarRatingComponent from '../StarRatingComponent';
 
 
 function OpenAddCommentModal({
@@ -42,6 +43,9 @@ function OpenAddCommentModal({
                     {/* {formType === "new" ? "Add a product" : "Edit your product"} */}
                     Add a comment
                 </h1>
+                <div className="login-form-input-contianer">
+                    <StarRatingComponent />
+                </div>
                 <div className="login-form-input-contianer">
                     <label>
                         Comment
