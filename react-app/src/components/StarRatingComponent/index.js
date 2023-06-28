@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import "./StarRatingComponent.css"
@@ -14,10 +14,34 @@ export default function StarRatingComponent() {
     // fullStar = <i className="fa fa-star"></i>;
     // emptyStar =  <i className="far fa-star"></i>;
     // halfStar = <i className="fa fa-star-half"></i>
-
+    console.log("rating: ", rating)
     return (
         <div>
-            Hello
+           <div
+                onMouseEnter={() => setRating(1)}
+            >
+                <i className={fullStar}></i>
+           </div>
+           <div
+                onMouseEnter={() => setRating(2)}
+            >
+                <i className={rating >= 2 ? fullStar : emptyStar}></i>
+           </div>
+           <div
+                onMouseEnter={() => setRating(3)}
+            >
+                <i className={rating >= 3 ? fullStar : emptyStar}></i>
+           </div>
+           <div
+                onMouseEnter={() => setRating(4)}
+            >
+                <i className={emptyStar}></i>
+           </div>
+           <div
+                onMouseEnter={() => setRating(5)}
+            >
+                <i className={emptyStar}></i>
+           </div>
 
 
 
