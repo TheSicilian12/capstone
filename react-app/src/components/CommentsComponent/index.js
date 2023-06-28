@@ -29,10 +29,16 @@ export default function CommentsComponent({groupId}) {
         <div>
             Comments:
             {comments.map(comment =>
+            <div>
+            <div
+                key={`username${comment.id}`}>
+                {comment.user.username}
+            </div>
             <div
                 className="comment-container"
-                key={comment.id}>
+                key={`comment${comment.id}`}>
                     Comment: {comment.details}
+            </div>
             </div>)}
         </div>
     )
