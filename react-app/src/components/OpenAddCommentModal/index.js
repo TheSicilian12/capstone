@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -21,12 +21,52 @@ function OpenAddCommentModal({
 }) {
   const { setModalContent, setOnModalClose } = useModal();
   const dispatch = useDispatch()
-  const history = useHistory()
-  const items = useSelector(state => state.cart.carts?.items)
-  const cartAdj = useSelector(state => state.cart)
+
+  const [comment, setComment] = useState("")
+  const [disCommentErr, setDisCommentErr] = useState(false);
 
   return (
-    <div>Hello</div>
+    <div className="login-container">
+            <div className="login-logo-container">
+                {/* <img
+                    alt="Shinan cart logo"
+                    className="login-logo"
+                    src={shinanoLogoMini} /> */}
+            </div>
+            <form
+                className="login-form-container"
+                // onSubmit={handleSubmit}
+            >
+                <h1 className="login-form-header">
+                    {/* {formType === "new" ? "Add a product" : "Edit your product"} */}
+                    Add a comment
+                </h1>
+                <div className="login-form-input-contianer">
+                    <label>
+                        Comment
+                    </label>
+                    <textarea
+                        type="text"
+                        value={comment}
+                        onChange={(e) => {
+                            setComment(e.target.value)
+                            setDisCommentErr(true)
+                        }}
+                        placeholder="comment"
+                    >
+                    </textarea>
+                    {/* {disCommentErr && <div className="errors">{err.name}</div>} */}
+                </div>
+                <button
+                    // className={`login-page-button ${disableLogin}`}
+                    type="submit"
+                    // disabled={Object.values(err).length > 0}
+                    >
+                    Add comment
+                    {/* {formType === "new" ? "Add Product" : "Edit Product"} */}
+                </button>
+            </form>
+        </div>
     );
 }
 
