@@ -35,12 +35,12 @@ export default function StarRatingComponent() {
            <div
                 onMouseEnter={() => setRating(4)}
             >
-                <i className={emptyStar}></i>
+                <i className={rating >=4 ? fullStar : emptyStar}></i>
            </div>
            <div
                 onMouseEnter={() => setRating(5)}
             >
-                <i className={emptyStar}></i>
+                <i className={rating >= 5 ? fullStar : emptyStar}></i>
            </div>
 
 
