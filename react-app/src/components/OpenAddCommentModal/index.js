@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { useModal } from '../../context/Modal';
-import { deleteCartTHUNK, getSingleCartTHUNK } from '../../store/cart';
-import CartModalProduct from '../CartModalProduct';
 
 import './OpenAddCommentModal.css'
 import '../UniversalCSS.css'
