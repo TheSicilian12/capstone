@@ -7,6 +7,7 @@ import "./CommentsComponent.css"
 import OpenModalButton from '../OpenModalButton';
 import OpenAddCommentModal from '../OpenAddCommentModal';
 import OpenEditCommentModal from '../OpenEditCommentModal';
+import OpenDeleteCommentModal from '../OpenDeleteCommentModal';
 
 export default function CommentsComponent({ groupId }) {
     const dispatch = useDispatch();
@@ -49,8 +50,8 @@ export default function CommentsComponent({ groupId }) {
                             modalComponent={<OpenEditCommentModal />}
                         />
                         <OpenModalButton
-                            buttonText="Add Comment"
-                            modalComponent={<OpenAddCommentModal productId={singleProduct.id} />}
+                            buttonText="Delete Comment"
+                            modalComponent={<OpenDeleteCommentModal />}
                         />
                     </div>
                 </div>)}
