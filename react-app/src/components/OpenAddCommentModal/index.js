@@ -25,14 +25,11 @@ function OpenAddCommentModal({
   const [comment, setComment] = useState("")
   const [disCommentErr, setDisCommentErr] = useState(false);
 
+  let err = {}
+  if (comment.length < 10) err.comment = "Comment should be 10+ characters long."
+
   return (
     <div className="login-container">
-            {/* <div className="login-logo-container">
-                <img
-                    alt="Shinan cart logo"
-                    className="login-logo"
-                    src={shinanoLogoMini} />
-            </div> */}
             <form
                 className="login-form-container add-comment-form-container-border"
                 // onSubmit={handleSubmit}
@@ -55,7 +52,7 @@ function OpenAddCommentModal({
                         placeholder="comment"
                     >
                     </textarea>
-                    {/* {disCommentErr && <div className="errors">{err.name}</div>} */}
+                    {disCommentErr && <div className="errors">{err.comment}</div>}
                 </div>
                 <button
                     // className={`login-page-button ${disableLogin}`}
