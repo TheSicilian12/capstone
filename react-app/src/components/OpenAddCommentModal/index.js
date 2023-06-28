@@ -31,6 +31,11 @@ function OpenAddCommentModal({
   let disableLogin = "button-disabled";
   if (!Object.values(err).length > 0) disableLogin = "button-no-dimensions"
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    // THUNK to add comment
+  }
+
   return (
     <div className="login-container">
             <form
