@@ -1,4 +1,7 @@
-.comment-container {
-    margin: 5px;
-    border: 1px solid black;
+.star-create-rating-component {
+    display: flex;
+}
+
+.star-color {
+   color: var(--shinanoMain);
 }

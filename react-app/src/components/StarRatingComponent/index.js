@@ -8,7 +8,7 @@ export default function StarRatingComponent() {
 
     const [rating, setRating] = useState(1)
 
-    const fullStar = "fa fa-star";
+    const fullStar = "fa fa-star star-color";
     const emptyStar = "far fa-star";
 
     // fullStar = <i className="fa fa-star"></i>;
@@ -16,7 +16,7 @@ export default function StarRatingComponent() {
     // halfStar = <i className="fa fa-star-half"></i>
     console.log("rating: ", rating)
     return (
-        <div>
+        <div className="star-create-rating-component">
            <div
                 onMouseEnter={() => setRating(1)}
             >
