@@ -6,6 +6,7 @@ import { getAllProductCommentsTHUNK } from '../../store/comment';
 import "./CommentsComponent.css"
 import OpenModalButton from '../OpenModalButton';
 import OpenAddCommentModal from '../OpenAddCommentModal';
+import OpenEditCommentModal from '../OpenEditCommentModal';
 
 export default function CommentsComponent({ groupId }) {
     const dispatch = useDispatch();
@@ -20,15 +21,15 @@ export default function CommentsComponent({ groupId }) {
     let commentArr = [];
     // commentArr = comments;
     if (!comments) return null;
-    
+
     // if (comments.length === 0) return null;
 
     return (
         <div>
             Comments:
-             <OpenModalButton
-              buttonText="Add Comment"
-              modalComponent={<OpenAddCommentModal productId={singleProduct.id}/>}
+            <OpenModalButton
+                buttonText="Add Comment"
+                modalComponent={<OpenAddCommentModal productId={singleProduct.id} />}
             />
             {comments.map(comment =>
                 <div
@@ -41,6 +42,16 @@ export default function CommentsComponent({ groupId }) {
                         className="comment-container"
                         key={`comment${comment.id}`}>
                         Comment: {comment.details}
+                    </div>
+                    <div>
+                        <OpenModalButton
+                            buttonText="Edit Comment"
+                            modalComponent={<OpenEditCommentModal />}
+                        />
+                        <OpenModalButton
+                            buttonText="Add Comment"
+                            modalComponent={<OpenAddCommentModal productId={singleProduct.id} />}
+                        />
                     </div>
                 </div>)}
         </div>
