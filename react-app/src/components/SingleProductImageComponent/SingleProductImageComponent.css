@@ -7,7 +7,6 @@
 .single-product-mini-image-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
 .single-product-main-image {
@@ -17,17 +16,17 @@
 }
 
 .single-product-mini-image {
-    width: 70px;
-    height: 70px;
-    margin: 5px;
+    width: 40px;
+    height: 40px;
+    margin: 2px;
     background-color: lightgray;
     border: 1px solid black;
 }
 .single-product-mini-image:hover {
-    width: 70px;
-    height: 70px;
-    margin: 5px;
-    box-shadow: 0px 0px 2px 2px var(--shinanoMain);
+    width: 40px;
+    height: 40px;
+    margin: 2px;
+    box-shadow: 0px 0px 4px 2px var(--shinanoMain);
     border: 1px solid black;
     background-color: lightgray;
 }
