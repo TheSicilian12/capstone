@@ -59,6 +59,46 @@ def seed_images():
       main_image="no",
       image_url="https://media.contentapi.ea.com/content/dam/eacom/lost-in-random/images/2021/06/lost-in-random-feature-image-16x9.jpg.adapt.crop16x9.1023w.jpg"
       )
+    image4sub3 = Image(
+      product_id=4,
+      main_image="no",
+      image_url="https://bayphoto.com/images/presentation/wood-boxes/box-with-photo-print.jpg"
+      )
+    image4sub4 = Image(
+      product_id=4,
+      main_image="no",
+      image_url="https://media.contentapi.ea.com/content/dam/eacom/lost-in-random/images/2021/06/lost-in-random-feature-image-16x9.jpg.adapt.crop16x9.1023w.jpg"
+      )
+    image4sub5 = Image(
+      product_id=4,
+      main_image="no",
+      image_url="https://bayphoto.com/images/presentation/wood-boxes/box-with-photo-print.jpg"
+      )
+    image4sub6 = Image(
+      product_id=4,
+      main_image="no",
+      image_url="https://media.contentapi.ea.com/content/dam/eacom/lost-in-random/images/2021/06/lost-in-random-feature-image-16x9.jpg.adapt.crop16x9.1023w.jpg"
+      )
+    image4sub7 = Image(
+      product_id=4,
+      main_image="no",
+      image_url="https://bayphoto.com/images/presentation/wood-boxes/box-with-photo-print.jpg"
+      )
+    image4sub8 = Image(
+      product_id=4,
+      main_image="no",
+      image_url="https://media.contentapi.ea.com/content/dam/eacom/lost-in-random/images/2021/06/lost-in-random-feature-image-16x9.jpg.adapt.crop16x9.1023w.jpg"
+      )
+    image4sub9 = Image(
+      product_id=4,
+      main_image="no",
+      image_url="https://bayphoto.com/images/presentation/wood-boxes/box-with-photo-print.jpg"
+      )
+    image4sub10 = Image(
+      product_id=4,
+      main_image="no",
+      image_url="https://media.contentapi.ea.com/content/dam/eacom/lost-in-random/images/2021/06/lost-in-random-feature-image-16x9.jpg.adapt.crop16x9.1023w.jpg"
+      )
     image5 = Image(
       product_id=5,
       main_image="yes",
@@ -108,6 +148,14 @@ def seed_images():
     db.session.add(image3sub2)
     db.session.add(image4sub1)
     db.session.add(image4sub2)
+    db.session.add(image4sub3)
+    db.session.add(image4sub4)
+    db.session.add(image4sub5)
+    db.session.add(image4sub6)
+    db.session.add(image4sub7)
+    db.session.add(image4sub8)
+    db.session.add(image4sub9)
+    db.session.add(image4sub10)
     db.session.commit()
 
 
