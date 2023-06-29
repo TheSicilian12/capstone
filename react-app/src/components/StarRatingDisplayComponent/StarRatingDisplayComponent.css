@@ -1,0 +1,7 @@
+.star-create-rating-component {
+    display: flex;
+}
+
+.star-color {
+   color: var(--shinanoMain);
+}

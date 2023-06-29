@@ -9,7 +9,7 @@ import OpenAddCommentModal from '../OpenAddCommentModal';
 import OpenEditCommentModal from '../OpenEditCommentModal';
 import OpenDeleteCommentModal from '../OpenDeleteCommentModal';
 
-export default function CommentsComponent({ groupId }) {
+export default function CommentsComponent({ productId }) {
     const dispatch = useDispatch();
 
     const comments = useSelector(state => state.comments.comments)
@@ -17,7 +17,7 @@ export default function CommentsComponent({ groupId }) {
     const user = useSelector(state => state.session.user)
 
     useEffect(() => {
-        dispatch(getAllProductCommentsTHUNK(groupId))
+        dispatch(getAllProductCommentsTHUNK(productId))
     }, [dispatch])
 
     if (!comments) return null;

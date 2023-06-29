@@ -14,6 +14,7 @@ import AddItemCart from '../AddItemCart';
 import DeleteItemCart from '../DeleteItemCart';
 import SingleProductMiniImage from '../SingleProductMiniImage';
 import SingleProductImageComponent from '../SingleProductImageComponent';
+import StarRatingDisplayComponent from '../StarRatingDisplayComponent';
 
 export default function SingleProduct() {
     const dispatch = useDispatch();
@@ -54,27 +55,11 @@ export default function SingleProduct() {
         <div className="single-product-page-container">
             <div className="single-product-container">
                 <SingleProductImageComponent images={images}/>
-                {/* <div className="single-product-image-container">
-                    <img
-                        alt="Main product"
-                        className='single-product-main-image'
-                        src={`${mainImage.image_url}`}
-                    />
 
-                    <div className='single-product-sub-images-container display-flex'>
-                        {images.map(image => {
-                            return (<div className="single-product-sub-single-image-container">
-                                <SingleProductMiniImage
-                                    className={"single-product-image-mini-container"}
-                                    imageUrl={image.image_url} />
-                            </div>)
-                        })
-                        }
-                    </div>
-                </div> */}
                 <div className="single-product-info-container">
                     <div className="single-product-header-container break-word">
-                        <h1>{singleProduct.name}</h1>
+                        <h4>{singleProduct.name}</h4>
+                        <StarRatingDisplayComponent rating={5}/>
                     </div>
                     <p className="single-product-desc-container">{singleProduct?.desc}</p>
                 </div>
