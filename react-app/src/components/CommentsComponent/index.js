@@ -25,10 +25,10 @@ export default function CommentsComponent({ groupId }) {
     return (
         <div className="comment-component-container">
             Comments:
-            <OpenModalButton
+            {user && <OpenModalButton
                 buttonText="Add Comment"
                 modalComponent={<OpenAddCommentModal productId={singleProduct.id} />}
-            />
+            />}
             {comments.map(comment =>
                 <div
                     className=""
