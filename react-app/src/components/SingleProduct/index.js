@@ -46,11 +46,19 @@ export default function SingleProduct() {
     const editRedirect = () => {
         history.push(`/products/${productId}/edit`)
     }
+
+    const testImages = [
+        {
+            originial: mainImage.image_url,
+            thumbnail: mainImage.image_url
+        }
+    ]
+
     return (
         <div className="single-product-page-container">
             <div className="single-product-container">
 
-                <div className="single-product-image-container">
+                {/* <div className="single-product-image-container">
                     <img
                         alt="Main product"
                         className='single-product-main-image'
@@ -67,7 +75,7 @@ export default function SingleProduct() {
                         })
                         }
                     </div>
-                </div>
+                </div> */}
                 <div className="single-product-info-container">
                     <div className="single-product-header-container break-word">
                         <h1>{singleProduct.name}</h1>
