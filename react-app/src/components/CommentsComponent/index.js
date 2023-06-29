@@ -11,19 +11,16 @@ import OpenDeleteCommentModal from '../OpenDeleteCommentModal';
 
 export default function CommentsComponent({ groupId }) {
     const dispatch = useDispatch();
+
     const comments = useSelector(state => state.comments.comments)
     const singleProduct = useSelector(state => state.products.product)
+    const user = useSelector(state => state.session.user)
 
     useEffect(() => {
         dispatch(getAllProductCommentsTHUNK(groupId))
     }, [dispatch])
 
-
-    let commentArr = [];
-    // commentArr = comments;
     if (!comments) return null;
-
-    // if (comments.length === 0) return null;
 
     return (
         <div className="comment-component-container">
@@ -45,7 +42,7 @@ export default function CommentsComponent({ groupId }) {
                         key={`comment${comment.id}`}>
                         {comment.details}
                     </div>
-                    <div className="comment-buttons">
+                    {user && user.id === comment.userId && <div className="comment-buttons">
                         <OpenModalButton
                             className="comment-buttons-margin"
                             buttonText="Edit Comment"
@@ -56,7 +53,7 @@ export default function CommentsComponent({ groupId }) {
                             buttonText="Delete Comment"
                             modalComponent={<OpenDeleteCommentModal comment={comment}/>}
                         />
-                    </div>
+                    </div>}
                 </div>)}
         </div>
     )
