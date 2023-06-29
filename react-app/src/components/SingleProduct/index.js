@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 
 import DeleteSingleProductModal from '../DeleteSingleProductModal';
-import commentsProduct from '../CommentsProduct'
+import CommentsComponent from '../CommentsComponent'
 
 import './SingleProduct.css'
 import '../UniversalCSS.css'
@@ -23,11 +23,8 @@ export default function SingleProduct() {
 
     const productId = Number(useParams().productId)
 
-    // console.log("productId: ", productId)
-    // console.log("cartCheck: ", cartCheck)
-
     const singleProduct = products.product
-    // console.log('singleProduct: ', singleProduct)
+    // console.log("singleProduct: ", singleProduct)
     useEffect(() => {
         dispatch(getSingleProductTHUNK(productId))
         if (user) dispatch(getSingleCartTHUNK(user.id))
@@ -42,7 +39,6 @@ export default function SingleProduct() {
     let images = [];
 
     Object.values(products.product.images).forEach(image => {
-        // console.log("image: ", image)
         if (image.main_image === "yes") mainImage = image
         else images.push(image)
     })
@@ -57,7 +53,7 @@ export default function SingleProduct() {
 
                 <div className="single-product-image-container">
                     <img
-                        alt = "Main product"
+                        alt="Main product"
                         className='single-product-main-image'
                         src={`${mainImage.image_url}`}
                     />
@@ -101,8 +97,9 @@ export default function SingleProduct() {
                         </div>
                     </div>}
             </div>
-            <div>
 
+            <div>
+                <CommentsComponent groupId={singleProduct?.id}/>
             </div>
         </div>
     )

@@ -16,4 +16,81 @@ def get_all_prod_comments(productId):
 
     response = [comment.to_dict() for comment in all_comments]
 
+    # Add user info to comments
+    for comment in response:
+        user = User.query.filter(User.id == comment["userId"]).first()
+        print("-----------------------user: ", user)
+        comment["user"] = user.to_dict()
+
     return {'comments': response}
+
+@comment_routes.route('/product/<int:productId>/new', methods=['POST'])
+@login_required
+def create_prod_comments(productId):
+    """
+    Create a comment for a product
+    """
+    form = CommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    # print("---------form validate: ", form.validate_on_submit())
+    # print("---------details: ", form.data["details"])
+    # print("---------rating: ", form.data["rating"])
+    # print("---------user_id: ", form.data["user_id"])
+    # print("---------product_id: ", form.data["product_ids"])
+    # print("---------form data: ", form.data)
+    if form.validate_on_submit():
+        data = form.data
+        new_comment = Comment(
+            details = data["details"],
+            rating = data['rating'],
+            user_id = data['user_id'],
+            product_id = data['product_ids']
+        )
+        db.session.add(new_comment)
+        db.session.commit()
+        return {
+            "comment": new_comment.to_dict()
+        }
+    else:
+        return {
+            "errors": form.errors
+        }
+
+@comment_routes.route('/<int:commentId>/edit', methods=['PUT'])
+@login_required
+def edit_prod_comments(commentId):
+    """
+    Edit a comment for a product
+    """
+    print("--------------------edit a comment api---------------------------")
+
+    form = CommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    # print("-----------------------form validate: ", form.validate_on_submit())
+    # print("--------------------------------form: ", form.data)
+    if form.validate_on_submit():
+        comment = Comment.query.get(commentId)
+
+        comment.details = form.data["details"]
+        comment.rating = form.data["rating"]
+        db.session.commit()
+        return {
+            "comment": comment.to_dict()
+        }
+    else:
+        return {
+            "errors": form.errors
+        }
+
+
+@comment_routes.route('/<int:commentId>', methods=['DELETE'])
+@login_required
+def delete_prod_comments(commentId):
+    """
+    Delete a comment for a product
+    """
+    comment = Comment.query.get(commentId)
+    db.session.delete(comment)
+    db.session.commit()
+    return {"comment": "Comment deleted"}

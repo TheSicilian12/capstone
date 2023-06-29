@@ -15,7 +15,6 @@ export default function ProductForm({ productInfo, formType, productId, mainProd
     const dispatch = useDispatch();
     const history = useHistory();
 
-    // const [sku, setSKU] = useState(productInfo ? productInfo.SKU : "");
     const [name, setName] = useState(productInfo ? productInfo.name : "");
     const [disNameErr, setDisNameErr] = useState(false);
     const [price, setPrice] = useState(productInfo ? productInfo.price : "");
