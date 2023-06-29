@@ -7,3 +7,12 @@
 .comment-container {
     margin: 5px;
 }
+
+.comment-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.comment-buttons-margin {
+    margin: 2px;
+}
