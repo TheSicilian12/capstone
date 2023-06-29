@@ -82,3 +82,15 @@ def edit_prod_comments(commentId):
         return {
             "errors": form.errors
         }
+
+
+@comment_routes.route('/<int:commentId>', methods=['DELETE'])
+@login_required
+def delete_prod_comments(commentId):
+    """
+    Delete a comment for a product
+    """
+    comment = Comment.query.get(commentId)
+    db.session.delete(comment)
+    db.session.commit()
+    return {"comment": "Comment deleted"}

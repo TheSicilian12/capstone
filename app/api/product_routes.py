@@ -160,7 +160,6 @@ def delete_one_product(id):
     """
     Delete a product by id
     """
-    print("-----------------------------Delete Product-----------------------------")
     product = Product.query.get(id)
     if current_user.id != product.owner_id:
         return {"errors": "This is not an authorized route."}
