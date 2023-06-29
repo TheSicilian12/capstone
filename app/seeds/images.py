@@ -34,10 +34,30 @@ def seed_images():
       main_image="yes",
       image_url="https://bayphoto.com/images/presentation/wood-boxes/box-with-photo-print.jpg"
       )
+    image3sub1 = Image(
+      product_id=3,
+      main_image="no",
+      image_url="https://bayphoto.com/images/presentation/wood-boxes/box-with-photo-print.jpg"
+      )
+    image3sub2 = Image(
+      product_id=3,
+      main_image="no",
+      image_url="https://bayphoto.com/images/presentation/wood-boxes/box-with-photo-print.jpg"
+      )
     image4 = Image(
       product_id=4,
       main_image="yes",
-      image_url="https://bayphoto.com/images/presentation/wood-boxes/box-with-photo-print.jpg"
+      image_url="https://m.media-amazon.com/images/I/71U4JU+izYL._AC_UF894,1000_QL80_.jpg"
+      )
+    image4sub1 = Image(
+      product_id=4,
+      main_image="no",
+      image_url="https://m.media-amazon.com/images/M/MV5BMTcyNTA2OTQxMF5BMl5BanBnXkFtZTcwMDkxMDQ0Mg@@._V1_.jpg"
+      )
+    image4sub2 = Image(
+      product_id=4,
+      main_image="no",
+      image_url="https://pics.filmaffinity.com/Sword_of_the_Stranger-945043005-large.jpg"
       )
     image5 = Image(
       product_id=5,
@@ -84,6 +104,10 @@ def seed_images():
     db.session.add(image1sub1)
     db.session.add(image1sub2)
     db.session.add(image1sub3)
+    db.session.add(image3sub1)
+    db.session.add(image3sub2)
+    db.session.add(image4sub1)
+    db.session.add(image4sub2)
     db.session.commit()
 
 
