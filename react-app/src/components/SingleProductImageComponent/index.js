@@ -26,7 +26,7 @@ export default function SingleProductImageComponent({mainImage, images}) {
                 {images.map(image => (
                     <img
                     alt="Main product"
-                    className='single-product-main-image'
+                    className='single-product-mini-image'
                     src={`${image.image_url}`}
                     />
                 ))

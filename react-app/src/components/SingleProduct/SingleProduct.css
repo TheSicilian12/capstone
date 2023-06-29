@@ -14,12 +14,6 @@
     margin-top: 50px;
 }
 
-.single-product-main-image {
-    width: 80%;
-    height: 70%;
-    background-color: lightgray;
-}
-
 .single-product-sub-images-container {
     display: flex;
     justify-content: flex-start;
@@ -32,15 +26,6 @@
     justify-content: center;
     width: 30%;
     margin: 2px;
-}
-
-.single-product-image-container {
-    display: flex;
-    flex-direction: column;
-    /* align-items: center; */
-    justify-content: center;
-    width: 25%;
-    height: 50%;
 }
 
 .single-product-image-mini-container {
