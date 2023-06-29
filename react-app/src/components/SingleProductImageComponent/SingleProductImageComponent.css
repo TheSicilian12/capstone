@@ -9,7 +9,6 @@
     flex-direction: column;
     margin-right: 10px;
     height: 300px;
-    border: 1px solid black;
     overflow: auto;
 }
 /* .single-product-mini-image-container::-webkit-scrollbar {
