@@ -21,8 +21,11 @@ function OpenDeleteCommentModal({
     const { closeModal } = useModal();
 
     const deleteHandler = () => {
-        dispatch(deleteProductCommentTHUNK)
+        dispatch(deleteProductCommentTHUNK(comment));
+        closeModal();
     }
+
+    console.log("comment: ", comment)
 
     return (
         <div>
@@ -32,7 +35,11 @@ function OpenDeleteCommentModal({
             <div>
                 {comment.details}
             </div>
-            <button>Yes</button>
+            <button
+                onClick={() => deleteHandler()}
+            >
+                Yes
+            </button>
             <button
                 onClick={closeModal}
             >

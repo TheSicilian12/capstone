@@ -70,14 +70,15 @@ export const editProductCommentTHUNK = (commentDetails) => async (dispatch) => {
 }
 
 // Delete a comment for a product THUNK
-export const deleteProductCommentTHUNK = (commentId) => async (dispatch) => {
-    const response = await fetch (`/api/comments/${commentId}`, {
+export const deleteProductCommentTHUNK = (comment) => async (dispatch) => {
+    const response = await fetch (`/api/comments/${comment.id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
         }
     })
     if (response.ok) {
+        dispatch(getAllProductCommentsTHUNK(comment.productId))
         return "Sucess"
     }
     else {
