@@ -5,7 +5,7 @@ import { useModal } from '../../context/Modal';
 import './OpenDeleteCommentModal.css'
 import '../UniversalCSS.css'
 import StarRatingComponent from '../StarRatingComponent';
-import { addProductCommentTHUNK } from '../../store/comment';
+import commentReducer, { addProductCommentTHUNK, deleteProductCommentTHUNK } from '../../store/comment';
 
 
 function OpenDeleteCommentModal({
@@ -16,13 +16,29 @@ function OpenDeleteCommentModal({
     closeMenu,
 
     className,
-    productId
+    comment
 }) {
+    const dispatch = useDispatch();
+    const { closeModal } = useModal();
 
+    const deleteHandler = () => {
+        dispatch(deleteProductCommentTHUNK)
+    }
 
     return (
         <div>
-            Delete comment
+            <div>
+                Delete comment
+            </div>
+            <div>
+                {comment.details}
+            </div>
+            <button>Yes</button>
+            <button
+                onClick={closeModal}
+            >
+                No
+            </button>
         </div>
     );
 }

@@ -51,7 +51,7 @@ export default function CommentsComponent({ groupId }) {
                         />
                         <OpenModalButton
                             buttonText="Delete Comment"
-                            modalComponent={<OpenDeleteCommentModal />}
+                            modalComponent={<OpenDeleteCommentModal comment={comment}/>}
                         />
                     </div>
                 </div>)}
