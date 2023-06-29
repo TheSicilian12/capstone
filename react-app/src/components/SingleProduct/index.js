@@ -48,8 +48,8 @@ export default function SingleProduct() {
     }
 
     return (
-        <div className="single-product-page-container border-black">
-            <div className="single-product-container border-green">
+        <div className="single-product-page-container">
+            <div className="single-product-container">
 
                 <div className="single-product-image-container">
                     <img

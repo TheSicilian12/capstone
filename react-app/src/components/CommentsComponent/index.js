@@ -34,7 +34,7 @@ export default function CommentsComponent({ groupId }) {
             />
             {comments.map(comment =>
                 <div
-                    className="border-black"
+                    className=""
                     key={`indComment${comment.id}`}>
                     <div
                         key={`username${comment.id}`}>
@@ -43,9 +43,9 @@ export default function CommentsComponent({ groupId }) {
                     <div
                         className="comment-container"
                         key={`comment${comment.id}`}>
-                        Comment: {comment.details}
+                        {comment.details}
                     </div>
-                    <div className="border-black comment-buttons">
+                    <div className="comment-buttons">
                         <OpenModalButton
                             className="comment-buttons-margin"
                             buttonText="Edit Comment"
