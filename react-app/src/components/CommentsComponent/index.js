@@ -26,7 +26,7 @@ export default function CommentsComponent({ groupId }) {
     // if (comments.length === 0) return null;
 
     return (
-        <div>
+        <div className="comment-component-container">
             Comments:
             <OpenModalButton
                 buttonText="Add Comment"

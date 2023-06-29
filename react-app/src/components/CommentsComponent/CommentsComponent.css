@@ -1,4 +1,9 @@
+.comment-component-container {
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+}
+
 .comment-container {
     margin: 5px;
-    border: 1px solid black;
 }
