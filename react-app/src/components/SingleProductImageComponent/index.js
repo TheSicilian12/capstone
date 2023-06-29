@@ -23,13 +23,11 @@ export default function SingleProductImageComponent({mainImage, images}) {
                 />
             </div>
             <div className="border-black single-product-mini-image-container">
-
-                test
                 {images.map(image => (
                     <img
                     alt="Main product"
                     className='single-product-main-image'
-                    src={`${displayImage}`}
+                    src={`${image.image_url}`}
                     />
                 ))
 
