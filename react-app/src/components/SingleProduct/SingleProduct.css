@@ -46,9 +46,6 @@
 .single-product-desc-container {
     overflow: auto;
 }
-.single-product-desc-container::-webkit-scrollbar {
-    display: none;
-}
 
 .single-product-header-container {
     display: flex;
