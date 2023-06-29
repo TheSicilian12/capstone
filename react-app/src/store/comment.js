@@ -48,8 +48,6 @@ export const addProductCommentTHUNK = (commentDetails) => async (dispatch) => {
 // Update a comment for a product THUNK
 export const editProductCommentTHUNK = (commentDetails) => async (dispatch) => {
     const {details, rating, userId, productId, commentId} = commentDetails;
-    console.log("-------------------productId: ", productId)
-    console.log("-------------------commentId: ", commentId)
     const payloadComment = {
         details,
         rating,
@@ -68,6 +66,22 @@ export const editProductCommentTHUNK = (commentDetails) => async (dispatch) => {
     if (response.ok) {
         const data = await response.json()
         dispatch(getAllProductCommentsTHUNK(productId))
+    }
+}
+
+// Delete a comment for a product THUNK
+export const deleteProductCommentTHUNK = (commentId) => async (dispatch) => {
+    const response = await fetch (`/api/comments/${commentId}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+    if (response.ok) {
+        return "Sucess"
+    }
+    else {
+        return "Failure"
     }
 }
 
