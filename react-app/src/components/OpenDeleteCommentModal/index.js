@@ -7,7 +7,6 @@ import '../UniversalCSS.css'
 import StarRatingComponent from '../StarRatingComponent';
 import commentReducer, { addProductCommentTHUNK, deleteProductCommentTHUNK } from '../../store/comment';
 
-
 function OpenDeleteCommentModal({
     modalComponent, // component to render inside the modal
     onButtonClick, // optional: callback function that will be called once the button that opens the modal is clicked
