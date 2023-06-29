@@ -7,10 +7,11 @@
 .single-product-mini-image-container {
     display: flex;
     flex-direction: column;
+    margin-right: 10px;
 }
 
 .single-product-main-image {
-    width: 200px;
+    width: 300px;
     height: 300px;
     background-color: lightgray;
 }
