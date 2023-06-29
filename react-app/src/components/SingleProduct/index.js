@@ -13,6 +13,7 @@ import OpenModalButton from '../OpenModalButton';
 import AddItemCart from '../AddItemCart';
 import DeleteItemCart from '../DeleteItemCart';
 import SingleProductMiniImage from '../SingleProductMiniImage';
+import SingleProductImageComponent from '../SingleProductImageComponent';
 
 export default function SingleProduct() {
     const dispatch = useDispatch();
@@ -50,8 +51,8 @@ export default function SingleProduct() {
     return (
         <div className="single-product-page-container">
             <div className="single-product-container">
-
-                <div className="single-product-image-container">
+                <SingleProductImageComponent mainImage={mainImage} images={images}/>
+                {/* <div className="single-product-image-container">
                     <img
                         alt="Main product"
                         className='single-product-main-image'
@@ -68,7 +69,7 @@ export default function SingleProduct() {
                         })
                         }
                     </div>
-                </div>
+                </div> */}
                 <div className="single-product-info-container">
                     <div className="single-product-header-container break-word">
                         <h1>{singleProduct.name}</h1>

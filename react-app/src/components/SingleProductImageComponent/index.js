@@ -5,7 +5,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import DeleteSingleProductModal from '../DeleteSingleProductModal';
 import CommentsComponent from '../CommentsComponent'
 
-import './SingleProduct.css'
+import './SingleProductImageComponent.css'
 import '../UniversalCSS.css'
 import { getSingleProductTHUNK } from '../../store/product';
 import { getSingleCartTHUNK } from '../../store/cart'
@@ -14,11 +14,24 @@ import AddItemCart from '../AddItemCart';
 import DeleteItemCart from '../DeleteItemCart';
 import SingleProductMiniImage from '../SingleProductMiniImage';
 
-export default function SingleProduct() {
+export default function SingleProductImageComponent({mainImage, images}) {
+    // hold current image
+    // On click change current image to change what is being displayed
+    let displayImage = mainImage.image_url
+
 
     return (
-        <div className="single-product-page-container">
-            Hello
+        <div className="single-product-image-container">
+            <div className="single-product-current-image-container">
+                <img
+                    alt="Main product"
+                    className='single-product-main-image'
+                    src={`${displayImage}`}
+                />
+            </div>
+            <div className="single-product-mini-image-container">
+
+            </div>
         </div>
     )
 }
