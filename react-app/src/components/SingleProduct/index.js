@@ -46,7 +46,6 @@ export default function SingleProduct() {
     const editRedirect = () => {
         history.push(`/products/${productId}/edit`)
     }
-
     return (
         <div className="single-product-page-container">
             <div className="single-product-container">
