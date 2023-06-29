@@ -52,12 +52,12 @@ def seed_images():
     image4sub1 = Image(
       product_id=4,
       main_image="no",
-      image_url="https://m.media-amazon.com/images/M/MV5BMTcyNTA2OTQxMF5BMl5BanBnXkFtZTcwMDkxMDQ0Mg@@._V1_.jpg"
+      image_url="https://bayphoto.com/images/presentation/wood-boxes/box-with-photo-print.jpg"
       )
     image4sub2 = Image(
       product_id=4,
       main_image="no",
-      image_url="https://pics.filmaffinity.com/Sword_of_the_Stranger-945043005-large.jpg"
+      image_url="https://media.contentapi.ea.com/content/dam/eacom/lost-in-random/images/2021/06/lost-in-random-feature-image-16x9.jpg.adapt.crop16x9.1023w.jpg"
       )
     image5 = Image(
       product_id=5,

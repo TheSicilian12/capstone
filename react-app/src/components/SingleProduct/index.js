@@ -48,10 +48,12 @@ export default function SingleProduct() {
         history.push(`/products/${productId}/edit`)
     }
 
+    images.unshift(mainImage)
+
     return (
         <div className="single-product-page-container">
             <div className="single-product-container">
-                <SingleProductImageComponent mainImage={mainImage} images={images}/>
+                <SingleProductImageComponent images={images}/>
                 {/* <div className="single-product-image-container">
                     <img
                         alt="Main product"
