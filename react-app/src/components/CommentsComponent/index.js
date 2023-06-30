@@ -25,7 +25,9 @@ export default function CommentsComponent({ productId }) {
 
     return (
         <div className="comment-component-container">
-            Comments:
+            <h2>
+                Comments:
+            </h2>
             {user && <OpenModalButton
                 className="button-no-dimensions comment-add-comment-width"
                 buttonText="Add Comment"
@@ -39,7 +41,7 @@ export default function CommentsComponent({ productId }) {
                         key={`username${comment.id}`}>
                         {comment.user.username}
                     </div>
-                    <StarRatingCommentDisplayComponent rating={comment.rating}/>
+                    <StarRatingCommentDisplayComponent rating={comment.rating} />
                     <div
                         className="comment-container"
                         key={`comment${comment.id}`}>
@@ -49,12 +51,12 @@ export default function CommentsComponent({ productId }) {
                         <OpenModalButton
                             className="comment-buttons-margin button-no-dimensions"
                             buttonText="Edit Comment"
-                            modalComponent={<OpenEditCommentModal comment={comment}/>}
+                            modalComponent={<OpenEditCommentModal comment={comment} />}
                         />
                         <OpenModalButton
                             className="comment-buttons-margin button-no-dimensions"
                             buttonText="Delete Comment"
-                            modalComponent={<OpenDeleteCommentModal comment={comment}/>}
+                            modalComponent={<OpenDeleteCommentModal comment={comment} />}
                         />
                     </div>}
                 </div>)}
