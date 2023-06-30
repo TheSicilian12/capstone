@@ -52,7 +52,6 @@ function ProfileButton({ user }) {
         {/* <i className="fas fa-user-circle" /> */}
         Hello, {userCheck ? `${user.username}` : "sign in"} <br />
         Account Info
-
       </button>
       <ul className={`${ulClassName} nav-bar-profile-dropdown nav-bar-font`} ref={ulRef}>
         {user ? (
