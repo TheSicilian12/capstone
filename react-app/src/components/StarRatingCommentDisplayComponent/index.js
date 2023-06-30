@@ -66,19 +66,16 @@ export default function StarRatingCommentDisplayComponent({rating}) {
            </div>
 
            {/* third star */}
-
            <div>
                 <i className={rating >= 3 ? fullStar : emptyStar}></i>
            </div>
 
           {/* fourth star */}
-
            <div>
                 <i className={rating >=4 ? fullStar : emptyStar}></i>
            </div>
 
            {/* fifth star */}
-
            <div>
                 <i className={rating >= 5 ? fullStar : emptyStar}></i>
            </div>
