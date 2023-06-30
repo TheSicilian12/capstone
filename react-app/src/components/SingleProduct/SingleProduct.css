@@ -42,10 +42,12 @@
     width: 50%;
     height: 50%;
     margin-left: 20px;
+    height: 295px;
 }
 
 .single-product-desc-container {
     overflow: auto;
+    height: 800px;
 }
 
 .single-product-header-container {
