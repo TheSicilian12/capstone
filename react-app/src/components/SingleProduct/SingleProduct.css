@@ -71,9 +71,10 @@
     flex-direction: column;
     align-items: center;
     width: 20%;
-    height: 20%;
+    height: 35%;
     border: 5px solid var(--shinanoMain);
     border-radius: 5px;
+    margin-left: 10px;
 }
 
 

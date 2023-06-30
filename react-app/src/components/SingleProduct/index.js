@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory, NavLink } from 'react-router-dom';
 
 import DeleteSingleProductModal from '../DeleteSingleProductModal';
 import CommentsComponent from '../CommentsComponent'
@@ -74,7 +74,9 @@ export default function SingleProduct() {
                         : <div className="text-red">false</div>}
                     {user && <AddItemCart className={"button-no-dimensions single-product-user-buttons"} cartId={cartId} userId={userId} productId={productId} />}
                     {user && <DeleteItemCart className={"button-no-dimensions single-product-user-buttons"} itemId={productId} />}
-                    {!user && <div>You must log in to start shopping</div>}
+                    {!user && <NavLink to='/login'>
+                        You must log in to start shopping
+                        </NavLink>}
                 </div>
                     : <div className="single-edit-cart-container">
                         <h3>Edit your product</h3>
