@@ -49,7 +49,7 @@
 
 .nav-prof-cart-container {
   display: flex;
-  margin-right: 4rem;
+  margin-right: 100px;
   width: 200px;
   justify-content: space-around;
 }
@@ -112,8 +112,8 @@
 }
 
 .nav-bar-profile-dropdown {
-  top: 110px;
-  margin-right: 135px;
+  top: 100px;
+  margin-right: 130px;
   z-index: 100;
 }
 
@@ -135,6 +135,7 @@
   background: white;
   padding: 10px;
   border-radius: 15px;
+  margin-right: 40px;
 }
 
 .nav-bar-dropwdown-margin {

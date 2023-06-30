@@ -45,7 +45,7 @@ function ProfileButton({ user }) {
 
   return (
     <>
-    <div className="border-black nav-bar-account-signin-container">
+    <div className="nav-bar-account-signin-container">
       <button
         className="nav-bar-info-container
         border-none shinano-color-background"

@@ -23,12 +23,14 @@ export default function CommentsComponent({ productId }) {
 
     if (!comments) return null;
 
+    console.log("singleProduct: ", singleProduct)
+
     return (
         <div className="comment-component-container">
             <h2>
                 Comments:
             </h2>
-            {user && <OpenModalButton
+            {user && user.id !== singleProduct.ownerId && <OpenModalButton
                 className="button-no-dimensions comment-add-comment-width"
                 buttonText="Add Comment"
                 modalComponent={<OpenAddCommentModal type={"new"} productId={singleProduct.id} />}

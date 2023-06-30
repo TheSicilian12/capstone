@@ -95,7 +95,7 @@ function Navigation({ isLoaded }) {
 					</>
 				</ul>
 
-			
+
 				{sessionUser && cart["errors"] === "No cart" && <button className="nav-bar-start-cart-button" onClick={addCart}>Start a cart</button>}
 
 			</div>
