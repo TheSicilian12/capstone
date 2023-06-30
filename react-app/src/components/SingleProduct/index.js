@@ -59,7 +59,7 @@ export default function SingleProduct() {
                 <div className="single-product-info-container">
                     <div className="single-product-header-container break-word">
                         <h4>{singleProduct.name}</h4>
-                        <StarRatingDisplayComponent rating={5}/>
+                        <StarRatingDisplayComponent productId={singleProduct?.id}/>
                     </div>
                     <p className="single-product-desc-container">{singleProduct?.desc}</p>
                 </div>
