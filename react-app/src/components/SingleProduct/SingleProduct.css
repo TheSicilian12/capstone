@@ -108,3 +108,10 @@
     color: black;
     margin-top: 10px;
 }
+
+.single-product-price {
+    font-family: var(--shinanoText);
+    font-size: 20px;
+    border-top: 2px solid var(--shinanoMain);
+    margin-top: 10px;
+}
