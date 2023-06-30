@@ -96,10 +96,15 @@
     align-items: flex-end;
 }
 
-
 .box {
     display: flex;
     flex-direction: column;
     width: 30%;
     height: 20%;
+}
+
+.single-product-log-in-nav {
+    text-decoration-line: underline;
+    color: black;
+    margin-top: 10px;
 }

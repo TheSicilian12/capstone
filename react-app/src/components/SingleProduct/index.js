@@ -74,8 +74,8 @@ export default function SingleProduct() {
                         : <div className="text-red">false</div>}
                     {user && <AddItemCart className={"button-no-dimensions single-product-user-buttons"} cartId={cartId} userId={userId} productId={productId} />}
                     {user && <DeleteItemCart className={"button-no-dimensions single-product-user-buttons"} itemId={productId} />}
-                    {!user && <NavLink to='/login'>
-                        You must log in to start shopping
+                    {!user && <NavLink className="single-product-log-in-nav" to='/login'>
+                        Log in to shop!
                         </NavLink>}
                 </div>
                     : <div className="single-edit-cart-container">
