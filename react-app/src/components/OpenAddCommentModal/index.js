@@ -55,7 +55,7 @@ function OpenAddCommentModal({
     }
 
     return (
-        <div className="login-container">
+        <div className="add-comment-modal-container">
             <form
                 className="login-form-container add-comment-form-container-border"
                 onSubmit={handleSubmit}

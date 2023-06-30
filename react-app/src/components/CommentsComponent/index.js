@@ -28,7 +28,7 @@ export default function CommentsComponent({ productId }) {
             Comments:
             {user && <OpenModalButton
                 buttonText="Add Comment"
-                modalComponent={<OpenAddCommentModal productId={singleProduct.id} />}
+                modalComponent={<OpenAddCommentModal type={"new"} productId={singleProduct.id} />}
             />}
             {comments.map(comment =>
                 <div
