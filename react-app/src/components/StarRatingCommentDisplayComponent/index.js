@@ -53,39 +53,35 @@ export default function StarRatingCommentDisplayComponent({rating}) {
 
 
     return (
-     <div>hello</div>
-     //    <div className="star-create-rating-component">
-     //      rating total: {rating}
-     //      {/* first star */}
-     //       <div>
-     //            <i className={fullStar}></i>
-     //       </div>
+        <div className="star-create-rating-component">
+          rating total: {rating}
+          {/* first star */}
+           <div>
+                <i className={fullStar}></i>
+           </div>
 
-     //      {/* second star */}
-     //       <div>
-     //            <i className={rating >= 2 ? fullStar : emptyStar}></i>
-     //       </div>
+          {/* second star */}
+           <div>
+                <i className={rating >= 2 ? fullStar : emptyStar}></i>
+           </div>
 
-     //       {/* third star */}
+           {/* third star */}
 
-     //       <div>
-     //            <i className={rating >= 3 ? fullStar : emptyStar}></i>
-     //       </div>
+           <div>
+                <i className={rating >= 3 ? fullStar : emptyStar}></i>
+           </div>
 
-     //      {/* fourth star */}
+          {/* fourth star */}
 
-     //       <div>
-     //            <i className={rating >=4 ? fullStar : emptyStar}></i>
-     //       </div>
+           <div>
+                <i className={rating >=4 ? fullStar : emptyStar}></i>
+           </div>
 
-     //       {/* fifth star */}
+           {/* fifth star */}
 
-     //       <div>
-     //            <i className={rating >= 5 ? fullStar : emptyStar}></i>
-     //       </div>
-
-
-
-     //    </div>
+           <div>
+                <i className={rating >= 5 ? fullStar : emptyStar}></i>
+           </div>
+        </div>
     )
 }

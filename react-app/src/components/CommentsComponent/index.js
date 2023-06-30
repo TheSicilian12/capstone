@@ -8,6 +8,7 @@ import OpenModalButton from '../OpenModalButton';
 import OpenAddCommentModal from '../OpenAddCommentModal';
 import OpenEditCommentModal from '../OpenEditCommentModal';
 import OpenDeleteCommentModal from '../OpenDeleteCommentModal';
+import StarRatingCommentDisplayComponent from '../StarRatingCommentDisplayComponent';
 
 export default function CommentsComponent({ productId }) {
     const dispatch = useDispatch();
@@ -37,6 +38,7 @@ export default function CommentsComponent({ productId }) {
                         key={`username${comment.id}`}>
                         {comment.user.username}
                     </div>
+                    <StarRatingCommentDisplayComponent rating={comment.rating}/>
                     <div
                         className="comment-container"
                         key={`comment${comment.id}`}>
