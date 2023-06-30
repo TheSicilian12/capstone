@@ -60,9 +60,10 @@
     flex-direction: column;
     align-items: center;
     width: 20%;
-    height: 30%;
+    height: 50%;
     border: 5px solid var(--shinanoMain);
     border-radius: 5px;
+    margin-left: 10px;
 }
 
 .single-edit-cart-container {
