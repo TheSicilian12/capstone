@@ -13,9 +13,7 @@ export default function StarRatingComponent({rating, setRating}) {
 
     // fullStar = <i className="fa fa-star"></i>;
     // emptyStar =  <i className="far fa-star"></i>;
-    // halfStar = <i className="fa fa-star-half"></i>
 
-   
     return (
         <div className="star-create-rating-component">
            <div

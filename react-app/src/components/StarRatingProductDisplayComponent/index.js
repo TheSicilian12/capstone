@@ -51,7 +51,6 @@ export default function StarRatingProductDisplayComponent({productId}) {
     // emptyStar =  <i className="far fa-star"></i>;
     // halfStar = <i className="fa fa-star-half"></i>
 
-
     return (
         <div className="star-create-rating-component">
           rating total: {ratingTotal}

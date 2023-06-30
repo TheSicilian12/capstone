@@ -15,6 +15,7 @@ import DeleteItemCart from '../DeleteItemCart';
 import SingleProductMiniImage from '../SingleProductMiniImage';
 import SingleProductImageComponent from '../SingleProductImageComponent';
 import StarRatingDisplayComponent from '../StarRatingDisplayComponent';
+import StarRatingProductDisplayComponent from '../StarRatingProductDisplayComponent';
 
 export default function SingleProduct() {
     const dispatch = useDispatch();
@@ -59,7 +60,7 @@ export default function SingleProduct() {
                 <div className="single-product-info-container">
                     <div className="single-product-header-container break-word">
                         <h4>{singleProduct.name}</h4>
-                        <StarRatingDisplayComponent productId={singleProduct?.id}/>
+                        <StarRatingProductDisplayComponent productId={singleProduct?.id}/>
                     </div>
                     <p className="single-product-desc-container">{singleProduct?.desc}</p>
                 </div>
