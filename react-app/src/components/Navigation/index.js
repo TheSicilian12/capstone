@@ -95,7 +95,7 @@ function Navigation({ isLoaded }) {
 					</>
 				</ul>
 
-				{!sessionUser && <p onClick={() => history.push("/login")} className="nav-bar-signed-out-text">Sign In and Start Shop</p>}
+			
 				{sessionUser && cart["errors"] === "No cart" && <button className="nav-bar-start-cart-button" onClick={addCart}>Start a cart</button>}
 
 			</div>

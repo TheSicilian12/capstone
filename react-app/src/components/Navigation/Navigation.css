@@ -59,14 +59,11 @@
   font-weight: lighter;
   color: white;
   width: 100px;
-  /* height: 50px; */
-  /* padding: 10px; */
-  margin-right: 20px;
+  margin: 10px;
 }
 .nav-bar-info-container:hover {
   border: 2px solid white;
 }
-
 
 .nav-bar-signed-out-text {
   display: flex;
@@ -75,9 +72,11 @@
   font-weight: bold;
   font-size: large;
   color: white;
-  width: 100px;
+  width: 200px;
   cursor: pointer;
-  margin: 5px;
+  margin: 10px;
+  align-items: center;
+  justify-content: center;
 }
 .nav-bar-signed-out-text:hover {
   display: flex;
@@ -86,11 +85,13 @@
   font-weight: bold;
   font-size: large;
   color: var(--shinanoMain);
-  width: 100px;
-  cursor: pointer;
   background-color: white;
-  margin: 5px;
   border-radius: 5px;
+  width: 200px;
+  cursor: pointer;
+  margin: 10px;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav-bar-start-cart-button {
@@ -138,4 +139,9 @@
 
 .nav-bar-font {
   font-size: medium;
+}
+
+.nav-bar-account-signin-container {
+  display: flex;
+  margin-right: 200px;
 }
