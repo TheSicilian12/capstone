@@ -93,7 +93,6 @@ function OpenAddCommentModal({
                     disabled={Object.values(err).length > 0}
                 >
                     Add comment
-                    {/* {formType === "new" ? "Add Product" : "Edit Product"} */}
                 </button>
             </form>
         </div>
