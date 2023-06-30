@@ -94,6 +94,7 @@
 .nav-bar-profile-dropdown {
   top: 110px;
   margin-right: 135px;
+  z-index: 100;
 }
 
 .nav-bar-user-dropdown {

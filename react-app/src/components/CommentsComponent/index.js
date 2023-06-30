@@ -8,8 +8,9 @@ import OpenModalButton from '../OpenModalButton';
 import OpenAddCommentModal from '../OpenAddCommentModal';
 import OpenEditCommentModal from '../OpenEditCommentModal';
 import OpenDeleteCommentModal from '../OpenDeleteCommentModal';
+import StarRatingCommentDisplayComponent from '../StarRatingCommentDisplayComponent';
 
-export default function CommentsComponent({ groupId }) {
+export default function CommentsComponent({ productId }) {
     const dispatch = useDispatch();
 
     const comments = useSelector(state => state.comments.comments)
@@ -17,7 +18,7 @@ export default function CommentsComponent({ groupId }) {
     const user = useSelector(state => state.session.user)
 
     useEffect(() => {
-        dispatch(getAllProductCommentsTHUNK(groupId))
+        dispatch(getAllProductCommentsTHUNK(productId))
     }, [dispatch])
 
     if (!comments) return null;
@@ -27,7 +28,7 @@ export default function CommentsComponent({ groupId }) {
             Comments:
             {user && <OpenModalButton
                 buttonText="Add Comment"
-                modalComponent={<OpenAddCommentModal productId={singleProduct.id} />}
+                modalComponent={<OpenAddCommentModal type={"new"} productId={singleProduct.id} />}
             />}
             {comments.map(comment =>
                 <div
@@ -37,6 +38,7 @@ export default function CommentsComponent({ groupId }) {
                         key={`username${comment.id}`}>
                         {comment.user.username}
                     </div>
+                    <StarRatingCommentDisplayComponent rating={comment.rating}/>
                     <div
                         className="comment-container"
                         key={`comment${comment.id}`}>

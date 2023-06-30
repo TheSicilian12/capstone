@@ -1,3 +1,11 @@
+.add-comment-modal-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+
 .add-comment-form-container-border {
-    border-radius: 15px;;
+    border-radius: 15px;
 }

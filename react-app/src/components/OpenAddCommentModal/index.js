@@ -55,15 +55,19 @@ function OpenAddCommentModal({
     }
 
     return (
-        <div className="login-container">
+        <div className="add-comment-modal-container">
             <form
                 className="login-form-container add-comment-form-container-border"
                 onSubmit={handleSubmit}
             >
-                <h1 className="login-form-header">
+                {type === "new" && <h1 className="login-form-header">
                     {/* {formType === "new" ? "Add a product" : "Edit your product"} */}
                     Add a comment
-                </h1>
+                </h1>}
+                {type === "edit" && <h1 className="login-form-header">
+                    {/* {formType === "new" ? "Add a product" : "Edit your product"} */}
+                    Edit your comment
+                </h1>}
                 <div className="login-form-input-contianer">
                     <StarRatingComponent rating={rating} setRating={setRating}/>
                 </div>
@@ -89,7 +93,6 @@ function OpenAddCommentModal({
                     disabled={Object.values(err).length > 0}
                 >
                     Add comment
-                    {/* {formType === "new" ? "Add Product" : "Edit Product"} */}
                 </button>
             </form>
         </div>
