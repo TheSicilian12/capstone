@@ -15,7 +15,7 @@ export default function StarRatingDisplayComponent({productId}) {
         dispatch(getAllProductCommentsTHUNK(productId))
     }, [dispatch])
 
-    console.log("comments: ", comments)
+//     console.log("comments: ", comments)
 
     let totalComments = 0;
     let totalRatings = 0;
@@ -24,17 +24,23 @@ export default function StarRatingDisplayComponent({productId}) {
      totalComments = comments.length
      // console.log("comment length: ", comments.length)
 
-     comments.forEach(comment => ratingTotal += comment.rating)
+     comments.forEach(comment => {
+          // console.log("comment: ", comment.rating)
+          totalRatings += comment.rating
+          // console.log("totalRatings: ", totalRatings)
+     })
     }
 
-    console.log("totalComments: ", totalComments)
-    console.log("ratingTotal: ", ratingTotal)
+//     console.log("review: totalComments: ", totalComments)
+//     console.log("review: totalRatings: ", totalRatings)
 
     if (totalComments > 0) {
-     ratingTotal = (totalRatings / totalComments)
+     // One decimal place
+         ratingTotal = Number(totalRatings / totalComments).toFixed(1)
+     //     console.log("rating total: ", ratingTotal)
     }
 
-    console.log("ratingTotal: ", ratingTotal)
+//     console.log("ratingTotal: ", ratingTotal)
 
 
     const fullStar = "fa fa-star star-color";
