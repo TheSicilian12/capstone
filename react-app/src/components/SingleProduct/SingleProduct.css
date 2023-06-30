@@ -41,6 +41,7 @@
     flex-direction: column;
     width: 50%;
     height: 50%;
+    margin-left: 20px;
 }
 
 .single-product-desc-container {

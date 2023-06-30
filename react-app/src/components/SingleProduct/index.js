@@ -55,12 +55,14 @@ export default function SingleProduct() {
     return (
         <div className="single-product-page-container">
             <div className="single-product-container">
-                <SingleProductImageComponent images={images}/>
+                <SingleProductImageComponent images={images} />
 
                 <div className="single-product-info-container">
                     <div className="single-product-header-container break-word">
-                        <h4>{singleProduct.name}</h4>
-                        <StarRatingProductDisplayComponent productId={singleProduct?.id}/>
+                        <div>
+                            <h4>{singleProduct.name}</h4>
+                            <StarRatingProductDisplayComponent productId={singleProduct?.id} />
+                        </div>
                     </div>
                     <p className="single-product-desc-container">{singleProduct?.desc}</p>
                 </div>
@@ -88,7 +90,7 @@ export default function SingleProduct() {
             </div>
 
             <div>
-                <CommentsComponent productId={singleProduct?.id}/>
+                <CommentsComponent productId={singleProduct?.id} />
             </div>
         </div>
     )

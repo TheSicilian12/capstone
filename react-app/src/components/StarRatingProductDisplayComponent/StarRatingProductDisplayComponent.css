@@ -5,3 +5,7 @@
 .star-color {
    color: var(--shinanoMain);
 }
+
+.star-product-rating-container {
+    margin-right: 5px;
+}
