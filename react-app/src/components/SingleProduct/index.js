@@ -87,7 +87,7 @@ export default function SingleProduct() {
             </div>
 
             <div>
-                <CommentsComponent groupId={singleProduct?.id}/>
+                <CommentsComponent productId={singleProduct?.id}/>
             </div>
         </div>
     )

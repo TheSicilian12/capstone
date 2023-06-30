@@ -10,7 +10,10 @@ const load = (data) => ({
 
 // Get all comments for a product THUNK
 export const getAllProductCommentsTHUNK = (productId) => async (dispatch) => {
+    console.log("---get all product comments ---")
+    console.log("productId: ", productId)
     const response = await fetch(`/api/comments/product/${productId}`)
+    console.log("response: ", response)
     if (response.ok) {
         const await_response = await response.json();
         // console.log("await_response: ", await_response)

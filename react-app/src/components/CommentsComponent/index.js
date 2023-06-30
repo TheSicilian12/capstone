@@ -16,6 +16,8 @@ export default function CommentsComponent({ productId }) {
     const singleProduct = useSelector(state => state.products.product)
     const user = useSelector(state => state.session.user)
 
+    console.log("comments: ", comments)
+
     useEffect(() => {
         dispatch(getAllProductCommentsTHUNK(productId))
     }, [dispatch])
