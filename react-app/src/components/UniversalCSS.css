@@ -3,6 +3,10 @@ body {
     padding: 0;
 }
 
+button {
+    cursor: pointer
+}
+
 :root {
     --shinanoMain: #ffb7c5;
     --shinanoText: 'Times New Roman', Times, serif;

@@ -22,12 +22,14 @@
   width: 150px;
   height: 90px;
   margin-left: 15px;
+  cursor: pointer;
 }
 .nav-logo:hover {
   width: 150px;
   height: 90px;
   margin-left: 15px;
   border: 2px solid white;
+  cursor: pointer;
 }
 
 .nav-cart {
@@ -52,6 +54,7 @@
   margin-right: 100px;
   width: 200px;
   justify-content: space-around;
+  cursor: pointer;
 }
 
 .nav-bar-info-container{
