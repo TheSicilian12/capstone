@@ -25,26 +25,30 @@ function OpenDeleteCommentModal({
         closeModal();
     }
 
-    console.log("comment: ", comment)
-
     return (
-        <div>
+        <div className="delete-comment-modal-container">
             <div>
-                Delete comment
+                <h1>
+                    Delete comment
+                </h1>
+                <div className="delete-comment-text-container">
+                    {comment.details}
+                </div>
             </div>
-            <div>
-                {comment.details}
+            <div className="delete-comment-buttons-container">
+                <button
+                    className="button-small"
+                    onClick={() => deleteHandler()}
+                >
+                    Yes
+                </button>
+                <button
+                    className="button-small"
+                    onClick={closeModal}
+                >
+                    No
+                </button>
             </div>
-            <button
-                onClick={() => deleteHandler()}
-            >
-                Yes
-            </button>
-            <button
-                onClick={closeModal}
-            >
-                No
-            </button>
         </div>
     );
 }

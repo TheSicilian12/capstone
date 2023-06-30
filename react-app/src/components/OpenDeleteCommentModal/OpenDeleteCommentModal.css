@@ -1,0 +1,30 @@
+.delete-comment-modal-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 500px;
+    height: 200px;
+    margin: 10px;
+}
+
+.delete-comment-buttons-container {
+    display: flex;
+    justify-content: right;
+}
+
+.delete-comment-text-container {
+    display: flex;
+    border: 2px solid var(--shinanoMain);
+    border-radius: 5px;
+    height: 80px;
+    overflow: auto;
+}
+.delete-comment-text-container::-webkit-scrollbar {
+    width: 5px;
+}
+.delete-comment-text-container::-webkit-scrollbar-track {
+    background: white;
+}
+.delete-comment-text-container::-webkit-scrollbar-thumb {
+    background: var(--shinanoMain);
+}
