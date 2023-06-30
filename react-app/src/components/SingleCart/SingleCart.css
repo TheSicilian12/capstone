@@ -39,6 +39,7 @@
 }
 
 .shopping-cart-quantity-container {
+    display: flex;
     border: 1px solid var(--shinanoMain);
     background-color: var(--shinanoMain);
     border-radius: 15px;
@@ -49,6 +50,8 @@
     padding: 5px;
     padding-left: 10px;
     margin-right: 5px;
+    align-items: center;
+    align-self: center;
 }
 
 .shopping-cart-no-display-button {

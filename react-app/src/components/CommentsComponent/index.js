@@ -23,10 +23,15 @@ export default function CommentsComponent({ productId }) {
 
     if (!comments) return null;
 
+    console.log("singleProduct: ", singleProduct)
+
     return (
         <div className="comment-component-container">
-            Comments:
-            {user && <OpenModalButton
+            <h2>
+                Comments:
+            </h2>
+            {user && user.id !== singleProduct.ownerId && <OpenModalButton
+                className="button-no-dimensions comment-add-comment-width"
                 buttonText="Add Comment"
                 modalComponent={<OpenAddCommentModal type={"new"} productId={singleProduct.id} />}
             />}
@@ -38,7 +43,7 @@ export default function CommentsComponent({ productId }) {
                         key={`username${comment.id}`}>
                         {comment.user.username}
                     </div>
-                    <StarRatingCommentDisplayComponent rating={comment.rating}/>
+                    <StarRatingCommentDisplayComponent rating={comment.rating} />
                     <div
                         className="comment-container"
                         key={`comment${comment.id}`}>
@@ -46,14 +51,14 @@ export default function CommentsComponent({ productId }) {
                     </div>
                     {user && user.id === comment.userId && <div className="comment-buttons">
                         <OpenModalButton
-                            className="comment-buttons-margin"
+                            className="comment-buttons-margin button-no-dimensions"
                             buttonText="Edit Comment"
-                            modalComponent={<OpenEditCommentModal comment={comment}/>}
+                            modalComponent={<OpenEditCommentModal comment={comment} />}
                         />
                         <OpenModalButton
-                            className="comment-buttons-margin"
+                            className="comment-buttons-margin button-no-dimensions"
                             buttonText="Delete Comment"
-                            modalComponent={<OpenDeleteCommentModal comment={comment}/>}
+                            modalComponent={<OpenDeleteCommentModal comment={comment} />}
                         />
                     </div>}
                 </div>)}

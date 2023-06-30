@@ -39,6 +39,7 @@
     margin: 4px;
     background-color: lightgray;
     border: 1px solid black;
+    cursor: pointer;
 }
 .single-product-mini-image:hover {
     width: 40px;

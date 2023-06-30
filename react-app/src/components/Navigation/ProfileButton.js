@@ -3,13 +3,13 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { logout } from "../../store/session";
 import '../UniversalCSS.css'
-
+import { useSelector } from "react-redux";
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
   const history = useHistory();
-
+  const sessionUser = useSelector(state => state.session.user);
   let userCheck = false;
   if (user !== null) userCheck = true;
 
@@ -45,6 +45,7 @@ function ProfileButton({ user }) {
 
   return (
     <>
+    <div className="nav-bar-account-signin-container">
       <button
         className="nav-bar-info-container
         border-none shinano-color-background"
@@ -53,6 +54,8 @@ function ProfileButton({ user }) {
         Hello, {userCheck ? `${user.username}` : "sign in"} <br />
         Account Info
       </button>
+      {!sessionUser && <p onClick={() => history.push("/login")} className="nav-bar-signed-out-text">Sign In and Start Shop</p>}
+          </div>
       <ul className={`${ulClassName} nav-bar-profile-dropdown nav-bar-font`} ref={ulRef}>
         {user ? (
           <div className="nav-bar-user-dropdown">

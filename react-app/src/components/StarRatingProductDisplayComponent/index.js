@@ -53,7 +53,10 @@ export default function StarRatingProductDisplayComponent({productId}) {
 
     return (
         <div className="star-create-rating-component">
-          rating total: {ratingTotal}
+          <div className="star-product-rating-container">
+               {ratingTotal}
+          </div>
+
           {/* first star */}
            <div>
                 <i className={fullStar}></i>

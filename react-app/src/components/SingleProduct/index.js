@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory, NavLink } from 'react-router-dom';
 
 import DeleteSingleProductModal from '../DeleteSingleProductModal';
 import CommentsComponent from '../CommentsComponent'
@@ -55,12 +55,15 @@ export default function SingleProduct() {
     return (
         <div className="single-product-page-container">
             <div className="single-product-container">
-                <SingleProductImageComponent images={images}/>
+                <SingleProductImageComponent images={images} />
 
                 <div className="single-product-info-container">
                     <div className="single-product-header-container break-word">
-                        <h4>{singleProduct.name}</h4>
-                        <StarRatingProductDisplayComponent productId={singleProduct?.id}/>
+                        <div>
+                            <h2>{singleProduct.name}</h2>
+                            <StarRatingProductDisplayComponent productId={singleProduct?.id} />
+                            <div className="single-product-price">${singleProduct.price}</div>
+                        </div>
                     </div>
                     <p className="single-product-desc-container">{singleProduct?.desc}</p>
                 </div>
@@ -72,7 +75,9 @@ export default function SingleProduct() {
                         : <div className="text-red">false</div>}
                     {user && <AddItemCart className={"button-no-dimensions single-product-user-buttons"} cartId={cartId} userId={userId} productId={productId} />}
                     {user && <DeleteItemCart className={"button-no-dimensions single-product-user-buttons"} itemId={productId} />}
-                    {!user && <div>You must log in to start shopping</div>}
+                    {!user && <NavLink className="single-product-log-in-nav" to='/login'>
+                        Log in to shop!
+                        </NavLink>}
                 </div>
                     : <div className="single-edit-cart-container">
                         <h3>Edit your product</h3>
@@ -88,7 +93,7 @@ export default function SingleProduct() {
             </div>
 
             <div>
-                <CommentsComponent productId={singleProduct?.id}/>
+                <CommentsComponent productId={singleProduct?.id} />
             </div>
         </div>
     )
