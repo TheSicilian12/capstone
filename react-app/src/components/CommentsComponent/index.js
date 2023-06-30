@@ -27,6 +27,7 @@ export default function CommentsComponent({ productId }) {
         <div className="comment-component-container">
             Comments:
             {user && <OpenModalButton
+                className="button-no-dimensions comment-add-comment-width"
                 buttonText="Add Comment"
                 modalComponent={<OpenAddCommentModal type={"new"} productId={singleProduct.id} />}
             />}
@@ -46,12 +47,12 @@ export default function CommentsComponent({ productId }) {
                     </div>
                     {user && user.id === comment.userId && <div className="comment-buttons">
                         <OpenModalButton
-                            className="comment-buttons-margin"
+                            className="comment-buttons-margin button-no-dimensions"
                             buttonText="Edit Comment"
                             modalComponent={<OpenEditCommentModal comment={comment}/>}
                         />
                         <OpenModalButton
-                            className="comment-buttons-margin"
+                            className="comment-buttons-margin button-no-dimensions"
                             buttonText="Delete Comment"
                             modalComponent={<OpenDeleteCommentModal comment={comment}/>}
                         />
