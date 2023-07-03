@@ -66,7 +66,7 @@ function Navigation({ isLoaded }) {
 	}
 
 	return (
-		<div className="shinano-color-background nav-container">
+		<div className="shinano-color-background nav-container shinano-font">
 			<img
 				alt = "Shinano cart logo"
 				className="nav-logo"
@@ -96,7 +96,7 @@ function Navigation({ isLoaded }) {
 				</ul>
 
 
-				{sessionUser && cart["errors"] === "No cart" && <button className="nav-bar-start-cart-button" onClick={addCart}>Start a cart</button>}
+				{sessionUser && cart["errors"] === "No cart" && <button className="nav-bar-start-cart-button shinano-font" onClick={addCart}>Start a cart</button>}
 
 			</div>
 		</div>

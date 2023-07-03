@@ -45,10 +45,10 @@ function ProfileButton({ user }) {
 
   return (
     <>
-    <div className="nav-bar-account-signin-container">
+    <div className="nav-bar-account-signin-container shinano-font">
       <button
         className="nav-bar-info-container
-        border-none shinano-color-background"
+        border-none shinano-color-background shinano-font"
         onClick={openMenu}>
         {/* <i className="fas fa-user-circle" /> */}
         Hello, {userCheck ? `${user.username}` : "sign in"} <br />

@@ -13,7 +13,7 @@ export default function ProductContainer({ product }) {
     })
 
     return (
-        <div className="homepage-single-product-container break-word homepage-product">
+        <div className="homepage-single-product-container break-word homepage-product shinano-font">
 
             <NavLink className="text-underline-none" key={product.id} to={`/products/${product.id}`}>
                 <img
@@ -21,7 +21,7 @@ export default function ProductContainer({ product }) {
                     className='single-product-container-image-width'
                     src={`${mainImage.image_url}`}
                 />
-                <p className="justify-center single-product-container-name-overflow single-product-text-black">{product.name}</p>
+                <p className="justify-center single-product-container-name-overflow single-product-text-black shinano-font">{product.name}</p>
                 <p className="justify-center single-product-text-black">${product.price}</p>
 
             </NavLink>
