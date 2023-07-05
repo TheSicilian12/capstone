@@ -18,7 +18,19 @@ export default function SearchResultsPage() {
         dispatch(searchTHUNK(parameter))
     }, [parameter, dispatch])
 
-    if (searchProducts === "no products found") return <div>no matches</div>
+    if (searchProducts === "no products found") {
+        return <div className="cart-empty-container">
+            <div className="login-logo-container keep-shopping-info">
+                {parameter} has no search results
+            </div>
+            <div
+                onClick={() => history.push('/')}
+                className="border-black keep-shopping login-form-container">
+                Keep Shopping
+            </div>
+        </div>
+    }
+
     if (!searchProducts) return <div>loading search page</div>
 
     return (
