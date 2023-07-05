@@ -21,14 +21,24 @@ function SearchComponent({ isLoaded }) {
 
 	const closeMenu = () => setShowMenu(false);
 
+	const handleSubmit = () => {
+		console.log("search: ", searchData)
+	}
+
+
 	return (
 		<div>
 			<input
 				type="text"
-				placeholder="search for items..."
+				placeholder="Search Shinano"
 				value={searchData}
 				onChange={(e) => {
 					setSearchData(e.target.value)
+				}}
+				onKeyPress={event => {
+					if (event.key === 'Enter') {
+						handleSubmit()
+					}
 				}}
 			/>
 
