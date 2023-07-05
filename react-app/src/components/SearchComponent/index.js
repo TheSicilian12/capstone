@@ -41,7 +41,11 @@ function SearchComponent({ isLoaded }) {
 					}
 				}}
 			/>
-
+			<button
+				onClick={handleSubmit}
+			>
+				<i class="fa fa-search"></i>
+			</button>
 		</div>
 	);
 }
