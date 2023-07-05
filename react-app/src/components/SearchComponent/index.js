@@ -23,9 +23,12 @@ function SearchComponent({ isLoaded }) {
 	const closeMenu = () => setShowMenu(false);
 
 	const handleSubmit = () => {
-		console.log("search: ", searchData);
-		dispatch(searchTHUNK(searchData));
-		history.push('/search')
+
+		if (searchData.length === 0) history.push('/');
+		else {
+			dispatch(searchTHUNK(searchData));
+			history.push('/search')
+		}
 	}
 
 	return (
