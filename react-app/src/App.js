@@ -59,7 +59,7 @@ function App() {
             <Navigation isLoaded={isLoaded} />
             <SingleCart />
           </Route>
-          <Route path="/search" exact>
+          <Route path="/search/:param" exact>
             <Navigation isLoaded={isLoaded} />
             <SearchResultsPage />
           </Route>

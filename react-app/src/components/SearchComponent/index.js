@@ -27,7 +27,7 @@ function SearchComponent({ isLoaded }) {
 		if (searchData.length === 0) history.push('/');
 		else {
 			dispatch(searchTHUNK(searchData));
-			history.push('/search')
+			history.push(`/search/${searchData}`)
 		}
 	}
 

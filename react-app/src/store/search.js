@@ -12,11 +12,9 @@ export const searchTHUNK = (searchData) => async (dispatch) => {
     const response = await fetch(`/api/search/${searchData}`)
     if (response.ok) {
         const data = await response.json()
-        console.log("search product thunk worked!")
-        console.log("data: ", data)
         dispatch(loadSearch(data))
     } else {
-        console.log("search product thunk didn't work")
+        dispatch(loadSearch("no matches"))
     }
 }
 
