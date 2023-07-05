@@ -22,14 +22,16 @@ export default function SearchResultsPage() {
     if (!searchProducts) return <div>loading search page</div>
 
     return (
-        <div>
-            {Object.values(searchProducts).map(product => {
-                return (
-                    <div className="" key={product.id}>
-                    <ProductContainer product={product} />
-                </div>
-                )
-            })}
+        <div className="justify-center search-results-page">
+            <div>
+                {Object.values(searchProducts).map(product => {
+                    return (
+                        <div className="" key={product.id}>
+                            <ProductContainer product={product} />
+                        </div>
+                    )
+                })}
+            </div>
         </div>
     )
 }
