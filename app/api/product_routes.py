@@ -45,7 +45,7 @@ def get_all_products():
 @product_routes.route('/<int:id>')
 def get_single_product(id):
     """
-    Query to get a signle product by id
+    Query to get a single product by id
     """
     print('-----------------------------Single Product--------------------------------')
     single_product = Product.query.get(id)

@@ -6,6 +6,7 @@ import { getSingleCartTHUNK, postCartTHUNK } from '../../store/cart';
 import './SearchComponent.css';
 import '../UniversalCSS.css'
 import OpenCartModal from '../OpenCartModal';
+import { searchProductTHUNK } from '../../store/product';
 
 function SearchComponent({ isLoaded }) {
 	const dispatch = useDispatch()
@@ -22,7 +23,8 @@ function SearchComponent({ isLoaded }) {
 	const closeMenu = () => setShowMenu(false);
 
 	const handleSubmit = () => {
-		console.log("search: ", searchData)
+		console.log("search: ", searchData);
+		
 	}
 
 	return (

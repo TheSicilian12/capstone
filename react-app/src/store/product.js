@@ -80,9 +80,9 @@ export const postProductTHUNK = (payload) => async (dispatch) => {
         return data
     }
 }
+
 // Add an image
 export const postImageTHUNK = (payload, productId) => async (dispatch) => {
-
     // console.log("----Post image----")
     payload.product_id = productId
 
@@ -135,11 +135,6 @@ export const editProductTHUNK = (payload, productId) => async (dispatch) => {
 // Edit an image by id
 export const editImageTHUNK = (payloadPlus, productId) => async (dispatch) => {
     const { image_url, main_image, image_id, deleteImg } = payloadPlus
-    // console.log("imageId: ", image_id)
-    // console.log("deleteImg: ", deleteImg)
-    // console.log("---- edit image ---")
-    // console.log("image url: ", image_url)
-    // console.log("main image: ", main_image)
     const payload = {
         product_id: productId,
         main_image,
@@ -212,6 +207,18 @@ export const deleteProductTHUNK = (productId) => async (dispatch) => {
     }
     else {
         return ["Failure"]
+    }
+}
+
+// Get all products from search
+export const searchProductTHUNK = (searchData) => async (dispatch) => {
+    const response = await fetch(`/api/search/${searchData}`)
+    if (response.ok) {
+        const data = await response.json()
+        console.log("search product thunk worked!")
+        console.log("data: ", data)
+    } else {
+        console.log("search product thunk didn't work")
     }
 }
 
