@@ -80,9 +80,9 @@ export const postProductTHUNK = (payload) => async (dispatch) => {
         return data
     }
 }
+
 // Add an image
 export const postImageTHUNK = (payload, productId) => async (dispatch) => {
-
     // console.log("----Post image----")
     payload.product_id = productId
 
@@ -135,11 +135,6 @@ export const editProductTHUNK = (payload, productId) => async (dispatch) => {
 // Edit an image by id
 export const editImageTHUNK = (payloadPlus, productId) => async (dispatch) => {
     const { image_url, main_image, image_id, deleteImg } = payloadPlus
-    // console.log("imageId: ", image_id)
-    // console.log("deleteImg: ", deleteImg)
-    // console.log("---- edit image ---")
-    // console.log("image url: ", image_url)
-    // console.log("main image: ", main_image)
     const payload = {
         product_id: productId,
         main_image,

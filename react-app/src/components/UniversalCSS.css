@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+    font-family: var(--shinanoText);
 }
 
 button {
@@ -9,7 +10,7 @@ button {
 
 :root {
     --shinanoMain: #ffb7c5;
-    --shinanoText: 'Times New Roman', Times, serif;
+    --shinanoText: 'Verdana';
 }
 
 .border-black {
@@ -181,4 +182,8 @@ button {
     border-radius: 10px;
     background-color: lightgray;
     cursor: not-allowed;
+}
+
+.shinano-font {
+    font-family: var(--shinanoText);
 }

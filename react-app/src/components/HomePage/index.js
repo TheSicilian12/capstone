@@ -19,6 +19,7 @@ export default function HomePage() {
     }, [dispatch, user])
 
     if (!products) return <div>loading homepage</div>
+    if (Object.values(products).length === 0) return <div>there are no products</div>
 
     return (
         <>

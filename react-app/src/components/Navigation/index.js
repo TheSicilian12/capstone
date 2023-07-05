@@ -9,6 +9,7 @@ import shinanoCart from "../assets/Images/Cart.jpg"
 import './Navigation.css';
 import '../UniversalCSS.css'
 import OpenCartModal from '../OpenCartModal';
+import SearchComponent from '../SearchComponent';
 
 function Navigation({ isLoaded }) {
 	const dispatch = useDispatch()
@@ -66,12 +67,14 @@ function Navigation({ isLoaded }) {
 	}
 
 	return (
-		<div className="shinano-color-background nav-container">
+		<div className="shinano-color-background nav-container shinano-font">
 			<img
 				alt = "Shinano cart logo"
 				className="nav-logo"
 				onClick={() => history.push("/")}
 				src={shinanoLogoMini} />
+
+			<SearchComponent />
 
 			<div className="nav-prof-cart-container">
 
@@ -96,7 +99,7 @@ function Navigation({ isLoaded }) {
 				</ul>
 
 
-				{sessionUser && cart["errors"] === "No cart" && <button className="nav-bar-start-cart-button" onClick={addCart}>Start a cart</button>}
+				{sessionUser && cart["errors"] === "No cart" && <button className="nav-bar-start-cart-button shinano-font" onClick={addCart}>Start a cart</button>}
 
 			</div>
 		</div>

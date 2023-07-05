@@ -10,6 +10,7 @@ import SingleProduct from "./components/SingleProduct";
 import ProductForm from "./components/ProductForm";
 import EditProductForm from "./components/ProductForm/editProductWrapper";
 import SingleCart from "./components/SingleCart";
+import SearchResultsPage from "./components/SearchResultsPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -57,6 +58,10 @@ function App() {
           <Route path="/cart" exact>
             <Navigation isLoaded={isLoaded} />
             <SingleCart />
+          </Route>
+          <Route path="/search/:param" exact>
+            <Navigation isLoaded={isLoaded} />
+            <SearchResultsPage />
           </Route>
         </Switch>
       )}
