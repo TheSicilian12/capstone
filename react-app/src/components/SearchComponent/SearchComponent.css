@@ -5,3 +5,11 @@
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
+
+.search-component-button {
+  width: 40px;
+  height: 42px;
+  border: 10px solid var(--ShinanoMain);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}

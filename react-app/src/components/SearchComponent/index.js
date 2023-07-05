@@ -48,6 +48,7 @@ function SearchComponent({ isLoaded }) {
 				}}
 			/>
 			<button
+				className="search-component-button"
 				onClick={handleSubmit}
 			>
 				<i class="fa fa-search"></i>
