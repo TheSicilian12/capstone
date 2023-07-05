@@ -98,13 +98,16 @@ flask run
 - Authorized user can update their cart with items.
 - Authorized user can delete their cart. (Including all items)
 
-# Future Features
-
 ## Comments / Reviews
-- Authorized user will be able to create a comment / review.
-- Any user will be able to view / read their comments / reviews on products.
-- Authorized user will be able to update a comment / review.
-- Authorized user will be able to their delete comment / review.
+- Authorized can create a comment / review.
+- Any user can view / read their comments / reviews on products.
+- Authorized can update a comment / review.
+- Authorized user can delete comment / review.
+
+## Search
+- Any user can search for items on Shinano.
+
+# Future Features
 
 ## Categories
 - Authorized user will be able to create a category.
@@ -124,8 +127,10 @@ flask run
 - Authorized user will be able to update their wish list.
 - Authorized user will be able to delete their wish list.
 
-## Search
-- Any user will be able to search for items in Shinano.
+## Order History
+- Authorized user will be able to create an order history automatically upon purchase.
+- Authorized user will be able to retrieve their order history.
+- NOTE: Comment permissions would be connected to order history.
 
 ### API Endpoints
 | HTTP Verbs | Endpoints | Action |
