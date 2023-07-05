@@ -24,7 +24,8 @@ function SearchComponent({ isLoaded }) {
 
 	const handleSubmit = () => {
 		console.log("search: ", searchData);
-		
+		dispatch(searchProductTHUNK(searchData));
+
 	}
 
 	return (

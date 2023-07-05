@@ -12,3 +12,8 @@ def search_products(search_data):
     Query to get a products associated with search
     """
     print("---------------------------Search for products---------------------------")
+    print("---------------------------search_data: ", search_data)
+    productsSearch = Product.query.filter(Product.name.contains(search_data)).all()
+
+    products = [product.to_dict() for product in productsSearch]
+    print("-------------------------------------products: ", products)
