@@ -25,7 +25,6 @@ function SearchComponent({ isLoaded }) {
 		console.log("search: ", searchData)
 	}
 
-
 	return (
 		<div>
 			<input
