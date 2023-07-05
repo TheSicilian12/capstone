@@ -1,0 +1,154 @@
+.profile-dropdown {
+  position: absolute;
+}
+
+.hidden {
+  display: none;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 110px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.nav-logo
+{
+  width: 150px;
+  height: 90px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+.nav-logo:hover {
+  width: 150px;
+  height: 90px;
+  margin-left: 15px;
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+.nav-cart {
+  width: 50px;
+  height: 50px;
+}
+
+.nav-bar-cart-item-container{
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  width: 70px;
+ padding: 10px;
+}
+
+.cart-hover:hover {
+  border: 2px solid white;
+}
+
+.nav-prof-cart-container {
+  display: flex;
+  margin-right: 100px;
+  width: 200px;
+  justify-content: space-around;
+  cursor: pointer;
+}
+
+.nav-bar-info-container{
+  font-family: var(--shinanoText);
+  font-weight: lighter;
+  color: white;
+  width: 100px;
+  margin: 10px;
+  cursor: pointer;
+}
+.nav-bar-info-container:hover {
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+.nav-bar-signed-out-text {
+  display: flex;
+  text-align: center;
+  font-family: var(--shinanoText);
+  font-weight: bold;
+  font-size: large;
+  color: white;
+  width: 100px;
+  cursor: pointer;
+  margin: 10px;
+  padding: 5px;
+  align-items: center;
+  justify-content: center;
+}
+.nav-bar-signed-out-text:hover {
+  display: flex;
+  text-align: center;
+  font-family: var(--shinanoText);
+  font-weight: bold;
+  font-size: large;
+  color: var(--shinanoMain);
+  background-color: white;
+  border-radius: 5px;
+  width: 100px;
+  cursor: pointer;
+  margin: 10px;
+  padding: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-bar-start-cart-button {
+  background: white;
+  color: var(--shinanoMain);
+  font-weight: bold;
+  font-size: 19px;
+}
+.nav-bar-start-cart-button:hover {
+  background: var(--shinanoMain);
+  color: white;
+  font-weight: bold;
+  font-size: 19px;
+}
+
+.nav-bar-profile-dropdown {
+  top: 100px;
+  margin-right: 130px;
+  z-index: 100;
+}
+
+.nav-bar-user-dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 5px solid var(--shinanoMain);
+  background: white;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.nav-bar-logged-out-dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 5px solid var(--shinanoMain);
+  background: white;
+  padding: 10px;
+  border-radius: 15px;
+  margin-right: 40px;
+}
+
+.nav-bar-dropwdown-margin {
+  margin: 5px;
+}
+
+.nav-bar-font {
+  font-size: medium;
+}
+
+.nav-bar-account-signin-container {
+  display: flex;
+}

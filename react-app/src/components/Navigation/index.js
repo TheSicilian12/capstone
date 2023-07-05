@@ -9,6 +9,7 @@ import shinanoCart from "../assets/Images/Cart.jpg"
 import './Navigation.css';
 import '../UniversalCSS.css'
 import OpenCartModal from '../OpenCartModal';
+import SearchComponent from '../SearchComponent';
 
 function Navigation({ isLoaded }) {
 	const dispatch = useDispatch()
@@ -72,6 +73,8 @@ function Navigation({ isLoaded }) {
 				className="nav-logo"
 				onClick={() => history.push("/")}
 				src={shinanoLogoMini} />
+
+			<SearchComponent />
 
 			<div className="nav-prof-cart-container">
 
