@@ -142,16 +142,21 @@ flask run
 | GET | /api/auth/ | Authenticate |
 | GET | /api/auth/logout | Logout |
 | GET | /api/auth/unauthorized | Logout |
+| GET | /api/comments/product/:productId | To get all of a product's comments |
+| GET | /api/search/:search_data | To get all product's that match / partially match the search criteria |
 | POST | /api/carts/add-cart | To add a cart  |
 | POST | /api/products/create | To add a product  |
 | POST | /api/images/create | To add an image  |
 | POST | /api/auth/login | To login |
+| POST | /api/comments/product/:productId/new | To add a new comment |
 | PUT | /api/carts/add-item | To add an item to your cart  |
 | PUT | /api/products/:id/update | To edit a product  |
 | PUT | /api/images/:id/update | To edit an image  |
+| PUT | /api/comments/:commentId/edit | To edit a comment |
 | DELETE | /api/carts/delete | To delete a single cause |
 | DELETE | /api/products/:id | To delete a product |
 | DELETE | /api/images/:id | To delete an image |
+| DELETE | /api/comments/:commentId | To delete a comment |
 
 ## Navigating Shinano
 
