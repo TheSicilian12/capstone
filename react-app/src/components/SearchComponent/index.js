@@ -51,7 +51,7 @@ function SearchComponent({ isLoaded }) {
 				className="search-component-button"
 				onClick={handleSubmit}
 			>
-				<i class="fa fa-search"></i>
+				<i className="fa fa-search"></i>
 			</button>
 		</div>
 	);

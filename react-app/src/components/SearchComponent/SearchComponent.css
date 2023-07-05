@@ -1,5 +1,5 @@
 .search-component-input {
-  width: 500px;
+  width: 400px;
   height: 40px;
   border: 10px solid var(--ShinanoMain);
   border-top-left-radius: 5px;
@@ -12,4 +12,13 @@
   border: 10px solid var(--ShinanoMain);
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+  background-color: lightblue;
+}
+.search-component-button:hover {
+  width: 40px;
+  height: 42px;
+  border: 10px solid var(--ShinanoMain);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: rgb(120, 182, 204);
 }
