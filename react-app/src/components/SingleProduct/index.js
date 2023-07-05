@@ -16,6 +16,7 @@ import SingleProductMiniImage from '../SingleProductMiniImage';
 import SingleProductImageComponent from '../SingleProductImageComponent';
 import StarRatingDisplayComponent from '../StarRatingDisplayComponent';
 import StarRatingProductDisplayComponent from '../StarRatingProductDisplayComponent';
+import { priceTwoDecimals } from '../GeneralFunctions';
 
 export default function SingleProduct() {
     const dispatch = useDispatch();
@@ -52,6 +53,8 @@ export default function SingleProduct() {
 
     images.unshift(mainImage)
 
+    let price = priceTwoDecimals(singleProduct.price)
+
     return (
         <div className="single-product-page-container">
             <div className="single-product-container">
@@ -62,7 +65,7 @@ export default function SingleProduct() {
                         <div>
                             <h2>{singleProduct.name}</h2>
                             <StarRatingProductDisplayComponent productId={singleProduct?.id} />
-                            <div className="single-product-price">${singleProduct.price}</div>
+                            <div className="single-product-price">${price}</div>
                         </div>
                     </div>
                     <p className="single-product-desc-container">{singleProduct?.desc}</p>
