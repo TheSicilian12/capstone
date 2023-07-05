@@ -17,3 +17,8 @@ def search_products(search_data):
 
     products = [product.to_dict() for product in productsSearch]
     print("-------------------------------------products: ", products)
+
+    if len(products) == 0:
+        return {'searchProducts': 'no products found'}
+
+    return {'searchProducts': products}
