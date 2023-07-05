@@ -6,7 +6,7 @@ import { getSingleCartTHUNK, postCartTHUNK } from '../../store/cart';
 import './SearchComponent.css';
 import '../UniversalCSS.css'
 import OpenCartModal from '../OpenCartModal';
-import { searchTHUNK } from '../../store/product';
+import { searchTHUNK } from '../../store/search';
 
 function SearchComponent({ isLoaded }) {
 	const dispatch = useDispatch()

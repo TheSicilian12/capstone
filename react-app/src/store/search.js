@@ -24,15 +24,6 @@ const initialState = {}
 
 export default function searchReducer(state = initialState, action) {
     switch (action.type) {
-        case LOAD_PRODUCT: {
-            // console.log("action: ", action.payload.products)
-            const newState = { ...action.payload }
-            return newState
-        }
-        case LOAD_ONE_PRODUCT: {
-            const newState = { ...action.payload }
-            return newState
-        }
         case LOAD_SEARCH_PRODUCT: {
             const newState = { ...action.payload }
             return newState
