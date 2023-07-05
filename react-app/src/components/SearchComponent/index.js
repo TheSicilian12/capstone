@@ -6,7 +6,7 @@ import { getSingleCartTHUNK, postCartTHUNK } from '../../store/cart';
 import './SearchComponent.css';
 import '../UniversalCSS.css'
 import OpenCartModal from '../OpenCartModal';
-import { searchProductTHUNK } from '../../store/product';
+import { searchTHUNK } from '../../store/product';
 
 function SearchComponent({ isLoaded }) {
 	const dispatch = useDispatch()
@@ -24,7 +24,7 @@ function SearchComponent({ isLoaded }) {
 
 	const handleSubmit = () => {
 		console.log("search: ", searchData);
-		dispatch(searchProductTHUNK(searchData));
+		dispatch(searchTHUNK(searchData));
 		history.push('/search')
 	}
 

@@ -3,7 +3,6 @@ import normalize from "./normalizer"
 
 const LOAD_PRODUCT = 'products/all'
 const LOAD_ONE_PRODUCT = 'products/single'
-const LOAD_SEARCH_PRODUCT = 'products/search'
 
 const load = (data) => ({
     type: LOAD_PRODUCT,
@@ -12,11 +11,6 @@ const load = (data) => ({
 
 const loadOne = (data) => ({
     type: LOAD_ONE_PRODUCT,
-    payload: data
-})
-
-const loadSearch = (data) => ({
-    type: LOAD_SEARCH_PRODUCT,
     payload: data
 })
 
@@ -216,19 +210,6 @@ export const deleteProductTHUNK = (productId) => async (dispatch) => {
     }
 }
 
-// Get all products from search
-export const searchProductTHUNK = (searchData) => async (dispatch) => {
-    const response = await fetch(`/api/search/${searchData}`)
-    if (response.ok) {
-        const data = await response.json()
-        console.log("search product thunk worked!")
-        console.log("data: ", data)
-        dispatch(loadSearch(data))
-    } else {
-        console.log("search product thunk didn't work")
-    }
-}
-
 const initialState = {}
 
 export default function productReducer(state = initialState, action) {
@@ -239,10 +220,6 @@ export default function productReducer(state = initialState, action) {
             return newState
         }
         case LOAD_ONE_PRODUCT: {
-            const newState = { ...action.payload }
-            return newState
-        }
-        case LOAD_SEARCH_PRODUCT: {
             const newState = { ...action.payload }
             return newState
         }
