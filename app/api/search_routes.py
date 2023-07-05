@@ -11,12 +11,17 @@ def search_products(search_data):
     """
     Query to get a products associated with search
     """
-    print("---------------------------Search for products---------------------------")
-    print("---------------------------search_data: ", search_data)
-    productsSearch = Product.query.filter(Product.name.contains(search_data)).all()
+    # print("---------------------------Search for products---------------------------")
+    # print("---------------------------search_data: ", search_data)
+    search_products_result = Product.query.filter(Product.name.contains(search_data)).all()
 
-    products = [product.to_dict() for product in productsSearch]
-    print("-------------------------------------products: ", products)
+    products = [product.to_dict() for product in search_products_result]
+    # print("-------------------------------------products: ", products)
+
+    for product in products:
+        images = Image.query.filter((Image.product_id == product["id"]) & (Image.main_image == "yes")).all()
+        images = [image.to_dict() for image in images]
+        product["images"] = images
 
     if len(products) == 0:
         return {'searchProducts': 'no products found'}
