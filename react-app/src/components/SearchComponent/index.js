@@ -34,6 +34,7 @@ function SearchComponent({ isLoaded }) {
 	return (
 		<div>
 			<input
+				className="search-component-input"
 				type="text"
 				placeholder="Search Shinano"
 				value={searchData}
