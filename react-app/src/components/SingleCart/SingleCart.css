@@ -44,14 +44,12 @@
     background-color: var(--shinanoMain);
     border-radius: 15px;
     width: 50px;
-    /* justify-items: center;
-    align-items: center;
-    align-self: center; */
     padding: 5px;
     padding-left: 10px;
     margin-right: 5px;
     align-items: center;
     align-self: center;
+    font-size: small;
 }
 
 .shopping-cart-no-display-button {
